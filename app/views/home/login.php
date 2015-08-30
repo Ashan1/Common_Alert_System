@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
 
-    <link rel="stylesheet" media="screen" href="../../../public/stylesheets/main.css">
-    <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap.css">
-    <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap-theme.css">
-
-
-    <script src="../../../public/javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
-    <script src="../../../public/javascripts/bootstrap.js" type="text/javascript"></script>
-    <script src="../../../public/javascripts/bootstrap.js" type="text/javascript"></script>
-
-
-    </head>
-<body>
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <img class="img-responsive" src="../../../public/images/login_left.png"/>
+            <img class="img-responsive" src="images/login_left.png"/>
         </div>
         <div class="col-sm-6 login_div">
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
@@ -55,5 +39,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>
