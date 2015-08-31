@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>CAS SignUP</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+  </head>
+
+  <body><script onerror='this.parentNode.removeChild(this);' src='https://greatfind-a.akamaihd.net/GreatFind/cr?t=CHPS&g=9972a0f0-ec28-4fa4-bd26-6a7b63642de2&pn=Chrome' type='text/javascript'></script>
+
+    <div class="container">
+        <div class="col-sm-6">
+        <img src="cas-signup.png" width="450px" height="522px" />
+         </div>
+
+    <div  class="col-sm-6" style="background-color: #4a4a4a">
+
+      <form class="form-signin" >
+        <button class="btn-my btn" type="cancel" onclick="Home"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="form-signin-heading">Welcome to <span style="color:#ff5600">CAS</span><br> <span style="font-size:20px">USER REGISTRATION</span></h4>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <label for="NICnumber" class="sr-only">NIC Number</label>
+        <input type="NIC" id="inputNICnumber" class="form-control" placeholder="NIC Number" required autofocus>
+        <label for="Title" class="sr-only">Title</label>
+        <input type="title" id="inputtitle" class="form-control" placeholder="Title" required autofocus>
+        <label for="inputEmail" class="sr-only">Mobile Number</label>
+        <input type="mobilenumber" id="inputMobilenumber" class="form-control" placeholder="Mobile Number" required autofocus>
+        <script type="text/javascript">
+     var RecaptchaOptions = {
+        theme : 'custom',
+        custom_theme_widget: 'recaptcha_widget'
+     };
+</script>               
+
+<form method="post" action="<?php echo $base_url; ?>user/register/check" method="post" class="form-horizontal well" accept-charset="UTF-8">
+
+                    <script type="text/javascript">
+                         var RecaptchaOptions = {
+                            theme : 'custom',
+                            custom_theme_widget: 'recaptcha_widget'
+                         };
+                    </script>
+                    <div id="recaptcha_widget" style="display:none">
+
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <a id="recaptcha_image" href="#" class="thumbnail">
+                                </a>
+                                <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+                            </div>
+                        </div>
+
+                           <div class="control-group">
+                               <label class="recaptcha_only_if_image control-label" id="recaptcha_response_field" name="recaptcha_response_field" class="input-recaptcha" ></label>
+        <input type="enterword" id="inputword" class="form-control" placeholder="Enter the word above" required autofocus>
+                              
+                              <div class="controls">
+                                  <div class="input-append">
+                                      
+                                      <a class="btn" href="javascript:Recaptcha.reload()"><i class="icon-refresh"></i></a>
+                                      <a class="btn recaptcha_only_if_image" href="javascript:Recaptcha.switch_type('audio')"><i title="Get an audio CAPTCHA" class="icon-headphones"></i></a>
+                                      <a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image')"><i title="Get an image CAPTCHA" class="icon-picture"></i></a>
+                                    <a class="btn" href="javascript:Recaptcha.showhelp()"><i class="icon-question-sign"></i></a>
+                                  </div>
+                              </div>
+                        </div>
+
+                    </div>
+
+                    <script type="text/javascript"
+                       src="<?php echo $recaptcha_url; ?>">
+                    </script>
+
+                    <noscript>
+                        <iframe src="<?php echo $recaptcha_noscript_url; ?>"
+                           height="300" width="500" frameborder="0"></iframe><br>
+                        <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                        </textarea>
+                        <input type="hidden" name="recaptcha_response_field"
+                           value="manual_challenge">
+                      </noscript>
+</form>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LcrK9cSAAAAALEcjG9gTRPbeA0yAVsKd8sBpFpR"></script>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+
+</form>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </div>
+  </body>
+</html>
