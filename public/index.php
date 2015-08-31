@@ -16,6 +16,11 @@ require_once '../app/init.php'; ?>
 
     <body>
         <?php include ('../app/views/home/login.php');?>
+        <?php
+        if (isset($_POST['signup'])){
+            header("location: ../app/views/home/signup.php");
+        }
+        ?>
     </body>
 </html>
 

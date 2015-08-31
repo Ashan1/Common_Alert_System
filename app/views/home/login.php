@@ -7,7 +7,7 @@
         <div class="col-sm-6 login_div">
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
             <h2 class="login_h text-center">USER LOGIN</h2>
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" action="" method="post" role="form">
                 <div class="input-group col-sm-offset-1 col-sm-11">
                     <input type="text" class="form-control" id="email" placeholder="Username">
                             <span class="input-group-addon">
@@ -31,8 +31,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-10">
                         <button type="submit" class="btn btn-sign pull-right">Sign in </button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button name="signup" class="btn btn-sign pull-right">Sign up</button>
                     </div>
                 </div>
             </form>
