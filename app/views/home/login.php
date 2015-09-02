@@ -7,9 +7,9 @@
         <div class="col-sm-6 login_div">
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
             <h2 class="login_h text-center">USER LOGIN</h2>
-            <form class="form-horizontal" action="" method="post" role="form">
+            <form class="form-horizontal" action="" id="login_form" method="post" role="form">
                 <div class="input-group col-sm-offset-1 col-sm-11">
-                    <input type="text" class="form-control" id="email" placeholder="Username">
+                    <input type="text" class="form-control" id="username" placeholder="Username">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
@@ -35,10 +35,12 @@
                         <button type="submit" class="btn btn-sign pull-right">Sign in </button>
                     </div>
                     <div class="col-sm-2">
-                        <button name="signup" class="btn btn-sign pull-right">Sign up</button>
+                        <button id="signup" class="btn btn-sign pull-right">Sign up</button>
                     </div>
+
                 </div>
             </form>
+
         </div>
     </div>
 </div>
