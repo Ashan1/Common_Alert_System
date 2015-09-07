@@ -1,0 +1,71 @@
+#nav {
+    line-height:30px;
+    background-color:black;
+    height:100%;
+    width:210px;
+    float:left;
+    padding:5px;	
+	color:white;
+	margin-top:5px;
+}
+
+#side{
+    background-color:black;
+    height:100%;
+    width:220px;
+    float:left;
+    padding:5px;	
+}
+
+#name{
+	background-color:black;
+	height:60px;
+	width:210px;
+	float:center;
+    padding:5px;
+}
+
+#profile{
+	margin-top:10px;
+	background-color:black;
+	height:210px;
+	width:210px;
+	float:center;
+    padding:5px;
+}
+
+#layout{
+	width:100%;
+	background-color:white;
+	height:585px;
+}
+
+#head {
+	background-color:white;
+    color:black;
+    text-align:center;
+    padding:5px;
+	height:50px;
+	width:100%;
+}
+
+#recent{
+	background-color:white;
+	height:60px;
+	width:100%;
+	float:center;
+    padding:5px ;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
