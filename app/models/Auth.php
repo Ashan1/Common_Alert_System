@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_unset();
 
 if(isset($_SESSION['user_id'])){
     echo "User is already logged in";
@@ -8,10 +9,7 @@ if(isset($_SESSION['user_id'])){
 else{
 
     $E_username = filter_var($_POST['User_Name'], FILTER_SANITIZE_STRING);
-    $E_pass = filter_var($_POST['Password'], FILTER_SANITIZE_STRING);
-
-    $options = array('cost' => 11);
-    $E_pwd = password_hash($E_pass, PASSWORD_BCRYPT, $options);
+    $E_pwd = filter_var($_POST['Password'], FILTER_SANITIZE_STRING);
 
     $mysql_hostname = 'localhost';
     $mysql_username = 'root';
@@ -23,24 +21,24 @@ else{
 
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $dbh->prepare("SELECT Employee_ID, E_Email, E_Password  FROM employee WHERE E_EMAIL = :E_username AND E_PASSWORD = :E_pwd");
+        $stmt = $dbh->prepare("SELECT *  FROM employee WHERE E_EMAIL = ?");
+        //$stmt->bindParam('E_username', $username);
+        $result =$stmt->execute([$E_username]);
+        $users = $stmt->fetchAll();
+        print_r($users);
+        if (isset($users[0])){
+            if (passsword_verify($E_pwd, $users[0]->E_Password)){
+                echo "Login Successful";
+            }
+            else{
+                echo "Login Failed";
+            }
+        }
 
         $stmt->bindParam(':E_username', $E_username);
-        $stmt->bindParam(':pwd', $E_pwd);
 
         $stmt->execute();
 
-        $user_id = $stmt->fetchColumn();
-
-        if($user_id == false)
-        {
-            echo 'Login Failed';
-        }
-
-        else{
-            $_SESSION['user_id'] = $user_id;
-            echo 'Login Successful';
-        }
     }
     catch(Exception $e){
         echo "Connection failed: " . $e->getMessage();
