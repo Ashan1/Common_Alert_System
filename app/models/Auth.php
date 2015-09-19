@@ -27,7 +27,7 @@ else{
         $users = $stmt->fetchAll();
         print_r($users);
         if (isset($users[0])){
-            if (passsword_verify($E_pwd, $users[0]->E_Password)){
+            if (password_verify($E_pwd, $users[0]->E_Password)){
                 echo "Login Successful";
             }
             else{
