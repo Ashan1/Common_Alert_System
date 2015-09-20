@@ -10,7 +10,9 @@ require_once '../app/init.php'; ?>
     </head>
 
     <body>
-        <?php include ('../app/views/home/login.php');?>
+        <?php include ('../app/views/home/login.php');
+        $options = array('cost' => 11);
+        echo password_hash("test", PASSWORD_BCRYPT, $options);?>
 
         <script src="javascripts/cas.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
