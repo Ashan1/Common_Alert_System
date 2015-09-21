@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
             <img class="img-responsive" src="images/login_left.png"/>
