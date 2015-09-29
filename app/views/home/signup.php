@@ -4,7 +4,7 @@
         <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="../../../public/stylesheets/main.css" rel="stylesheet" type="text/css">
         <link href="../../../public/stylesheets/style.css" rel="stylesheet" type="text/css">
-
+        <script src="../../../public/javascripts/api.js"></script>
     </head>
     <body>
         <div class="container">
@@ -20,23 +20,25 @@
                                 <h2 class="Regisration-letter"> WELCOME TO <span style="color: #ff6500">CAS</span>
                                     <br><span style="font-size: 20px"> USER REGISTRATION</span></h2>
                             </div>
-                            <form>
-                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" >
-                                <input type="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}" >
-                                <input type="text" value="NIC Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'NIC Number';}" >
-                                <input type="text" value="Title" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Title';}" >
-                                <input type="text" value="Mobile Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mobile number';}" >
-                                <!--<input type="password" value=" Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' Confirm Password';}" >-->
+                            <form  action="submit.php" method="POST">
+                                <input class="Regisration-form-text" type="name" name="formName" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}">
+                                <input class="Regisration-form-text" type="email" name="formEmail" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}" required>
+                                <input class="Regisration-form-text" type="nic" name="formNIC"value="NIC Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'nic';}">
+                                <input class="Regisration-form-text" type="title" name="formTitle" value="Title" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'title';}">
+                                <input class="Regisration-form-text" type="mobile" name="formMobile" value="Mobile Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mobile';}">
+                                <input class="Regisration-form-text" type="address" name="formAddress" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'address';}" >
+                                <!--<input type="password" value=" Confirm Password" onfocus="this.value = '';" <!--onblur="if (this.value == '') {this.value = ' Confirm Password';}" >-->
                                 <div class="Remember-me">
                                     <!--div class="p-container">
                                         <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>I agree to the Terms and Conditions</label>
                                         <div class ="clear"></div>
                                     </div>-->
-                                    <img src="captcha_code_file.php?rand=<?php echo rand(); ?>"
-                                         id="captchaimg" >
-                                    <label for="message" ></label><br>
-                                    <input id="6_letters_code" value="Enter the code above here " name="6_letters_code" type="text">
-                                    <div class="submit" style="margin-left:40%;height: 50px">
+                                    <div class="g-recaptcha" style="margin-left: 60px" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ"></div>
+
+                                    <div class="g-recaptcha-response" method="post" data-sitekey="6LcSYQwTAAAAAO5MLGIQ1D6zZOUUjShenSkSpIr5"></div>
+                                    <form method="post" action="file-upload-1.htm" name="submit" enctype="multipart/form-data">
+                                        <input type="file" style="margin-left: 60px" name="fileField"></form>
+                                    <div class="submit" style="margin-left:40%">
                                         <input type="submit" onclick="myFunction()" value="Sign Up" >
                                     </div>
                                      <div class="clear"> </div>

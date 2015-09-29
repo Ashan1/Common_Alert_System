@@ -148,12 +148,12 @@ body{
 	position:relative;
 		
 }
-.Regisration form input[type="text"],.Regisration form input[type="password"]{
+.Regisration-form-text ,.Regisration form input[type="password"]{
 	font-size: 15px;
 	outline: none;
 	font-weight: 600;
 	color:#8D8E8F;
-	padding: 12px 12px;
+	padding: 6px 6px;
 	width:76%;
 	border-top:1px solid #090B0D;
 	border-right:2px solid #424549;
@@ -440,7 +440,7 @@ form span{
 	font-weight: 900;
 	outline: none;
 	font-family: 'Raleway', sans-serif;
-	padding: 14px 0px;
+	padding: 13px 0px;
 	width: 35%;
 	font-size: 18px;
 	border-radius: 4px;
