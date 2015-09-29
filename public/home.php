@@ -11,6 +11,9 @@ require_once '../app/init.php'; ?>
 
     <script src="javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
     <script src="javascripts/bootstrap.js" type="text/javascript"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="javascripts/map.js" type="text/javascript"></script>
 </head>
 
 <body onload="myFunction()">
@@ -19,6 +22,11 @@ require_once '../app/init.php'; ?>
 <script type="text/javascript">
     $('#home').click(function(){
         $("#mcontent").load("../app/views/home/map.php");
+        var script = document.createElement('script');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('src', 'javascripts/map.js');
+        document.head.appendChild(script);
+        initialize();
         return false;
     });
     $('#disaster').click(function(){
