@@ -129,3 +129,9 @@ input {
 
 body {
 }
+.recaptcha{
+    height: 74px;
+    width: 300px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
