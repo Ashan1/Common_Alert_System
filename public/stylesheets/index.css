@@ -14,6 +14,18 @@ ul li{
     height: 100px;
 }
 
+.recent-activity ul li{
+    float: left;
+}
+
+.recent-activity ul li:last-child{
+    padding-left:10px;
+}
+
+.recent-activity ul li h4{
+    margin:0;
+}
+
 .sub-menu{
     height:100px;
 }

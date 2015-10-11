@@ -9,6 +9,8 @@
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
     <link href="stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- disaster fonts -->
+    <link href="stylesheets/disasterfonts.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="stylesheets/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- google font -->

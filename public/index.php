@@ -13,7 +13,13 @@
     <aside class="right-side rgt">
         <div class="container-fluid">
             <div class="row recent-activity">
-
+                <h3>Recent Activity</h3>
+                <div>
+                 <ul>
+                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                     <li><h4>Pacific Ocean</h4>09.51 a.m <a href="#">more</a></li>
+                 </ul>
+                </div>
             </div>
             <div class="row sub-menu">
 
