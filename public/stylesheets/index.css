@@ -1,0 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+*{font-family:Raleway;}
+ul{
+    text-decoration: none;
+    list-style: none;
+    padding:0;
+}
+
+ul li{
+    list-style: none;
+}
+
+.recent-activity{
+    height: 100px;
+}
+
+.sub-menu{
+    height:100px;
+}
+
+.summary-circles{
+    height:300px;
+}
+
+.summary-circles .circles{
+    height:250px;
+}
+
+.maps{
+    height:400px;
+}
+
+.map-menu .nav>li>a{
+    color:#1f1f1f;
+}
+
+.map-menu .nav>li>a:hover{
+    background-color:#f56d18;
+    color: #fff;
+}
+
+.map-menu .nav>li>a:focus{
+    color:#f56d18;
+    background-color: #fff;
+}
+
+.map-menu li {
+    font-family: Raleway;
+    font-weight: 900;
+    float: left;
+    font-size: 16px;
+}
+
+.map-menu ul li:last-child{
+    padding-left: 50px;
+}
