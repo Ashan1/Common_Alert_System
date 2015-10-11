@@ -21,27 +21,83 @@
 </head>
 <body>
 <?php
-include "connect.php";
+$nameErr = $emailErr =$nicErr = $titleErr = $addressErr = $mobileErr ="";
+$name = $email =$nic = $title = $address = $mobile ="";
 
-$name = $_POST['formName'];
+/*$name = $_POST['formName'];
 $email = $_POST['formEmail'];
 $nic =  $_POST['formNIC'];
 $title = $_POST['formTitle'];
 $mobile = $_POST['formMobile'];
-$address = $_POST['formAddress'];
-$image=addslashes(file_get_contents($_FILES['image']));
+$address = $_POST['formAddress'];*/
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["formName"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["formName"]);
+        if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+            $nameErr = "Only letters and white space allowed";
+        }
+    }
+    if (empty($_POST["formEmail"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["formEmail"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
 
 
-// attempt insert query execution
-$sql = "INSERT INTO `cassign`.`temp` ( `Name`, `Email`, `NIC`, `Title`, `Mobile`, `Address`) VALUES ($name, $email, $nic , $title, $mobile, $address)";
-if(mysql_query($sql)){
+    if (empty($_POST["formNIC"])) {
+        $nicErr = "NIC is required";
+    } else {
+        $nic = ($_POST["formNIC"]);
+        if (strlen($nic) <> 10) {
+            $nicErr = "Invalid NIC number";
+        }
+    }
+    if (empty($_POST["title"])) {
+        $titleErr = "Title is required";
+    } else {
+        $title = test_input($_POST["formTitle"]);
+    }
 
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error();
+    if (empty($_POST["formMobile"])) {
+        $mobileErr = "Mobile Number is Required";
+    } else {
+        $mobile = test_input($_POST["formMobile"]);
+        if ((strlen($mobile) <> 10) && (!preg_match("/^[0-9 ]*$/", $name))) {
+            $mobileErr = "Invalid mobile number";
+        }
+    }
+    if (empty($_POST["address"])) {
+        $addressErr = "";
+    } else {
+        $address = test_input($_POST["formAddress"]);
+    }
 }
- 
-// close connection
-mysql_close();
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+Email: echo $email;
+echo "<br>";
+NIC: echo $nic;
+echo "<br>";
+Title: echo $title;
+echo "<br>";
+Mobile: echo $mobile;
+echo "<br>";
+Address: echo $address;
 ?>
+
 </body>
 </html>
