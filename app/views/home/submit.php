@@ -24,13 +24,14 @@
 $nameErr = $emailErr =$nicErr = $titleErr = $addressErr = $mobileErr ="";
 $name = $email =$nic = $title = $address = $mobile ="";
 
-/*$name = $_POST['formName'];
-$email = $_POST['formEmail'];
-$nic =  $_POST['formNIC'];
-$title = $_POST['formTitle'];
-$mobile = $_POST['formMobile'];
-$address = $_POST['formAddress'];*/
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$name = test_input($_POST['formName']);
+$email = test_input($_POST['formEmail']);
+$nic =  test_input($_POST['formNIC']);
+$title = test_input($_POST['formTitle']);
+$mobile = test_input($_POST['formMobile']);
+$address = test_input($_POST['formAddress']);
+
+/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["formName"])) {
         $nameErr = "Name is required";
     } else {
@@ -76,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $address = test_input($_POST["formAddress"]);
     }
-}
+}*/
 function test_input($data)
 {
     $data = trim($data);
@@ -84,19 +85,16 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-
+$mydata = array($name,$email,$nic,$title,$mobile,$address);
+$myname = array("Name: ","Email: ","NIC: ","Title: ","Mobile: ","Address: ");
 echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-Email: echo $email;
-echo "<br>";
-NIC: echo $nic;
-echo "<br>";
-Title: echo $title;
-echo "<br>";
-Mobile: echo $mobile;
-echo "<br>";
-Address: echo $address;
+$arrlength =count($mydata);
+for ($x =0 ;$x < $arrlength; $x++){
+    echo $myname[$x];
+    echo $mydata[$x];
+    echo "<br>";
+}
+
 ?>
 
 </body>

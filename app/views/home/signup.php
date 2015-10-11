@@ -8,8 +8,8 @@
         <script src="../../../public/javascripts/jquery-1.9.0.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="../../../public/javascripts/sign_up.js"></script>
-        <script src="../../../public/javascripts/gen_validatorv4.js" type="text/javascript"></script>
-        <script  type="text/javascript">
+        <!--script src="../../../public/javascripts/gen_validatorv4.js" type="text/javascript"></script>
+        <script--  type="text/javascript">
             $(document).ready(function(){
                 var frmvalidator = new Validator('signup');
                 frmvalidator.addValidation("formName","req","Please enter your  Name");
@@ -33,6 +33,36 @@
             });
 
 
+        </script--><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                async defer></script>
+        <script type="text/javascript">
+            var onloadCallback = function () {
+                grecaptcha.render('dvCaptcha', {
+                    'sitekey': '<%=ReCaptcha_Key %>',
+                    'callback': function (response) {
+                        $.ajax({
+                            type: "POST",
+                            url: "Default.aspx/VerifyCaptcha",
+                            data: "{response: '" + response + "'}",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (r) {
+                                var captchaResponse = jQuery.parseJSON(r.d);
+                                if (captchaResponse.success) {
+                                    $("[id*=txtCaptcha]").val(captchaResponse.success);
+                                    $("[id*=rfvCaptcha]").hide();
+                                } else {
+                                    $("[id*=txtCaptcha]").val("");
+                                    $("[id*=rfvCaptcha]").show();
+                                    var error = captchaResponse["error-codes"][0];
+                                    $("[id*=rfvCaptcha]").html("RECaptcha error. " + error);
+                                }
+                            }
+                        });
+                    }
+                });
+            };
         </script>
     </head>
     <body>
@@ -47,17 +77,21 @@
                             <br><span style="font-size: 20px"> USER REGISTRATION</span></h2>
 
                     </div>
-                    <form id='signup' name="signup" action=""  method="POST">
+                    <form id='signup' name="signup" action="submit.php"  method="POST">
 
-                        <input class="Regisration-form-text" type="text" id="formName"name="formName" value="Name" onfocus="this.value = '';" >
-                        <input class="Regisration-form-text" type="text" id="formEmail"name="formEmail" value="Email" onfocus="this.value = '';"  >
-                        <input class="Regisration-form-text" type="text" id="formNIC"name="formNIC"value="NIC Number" onfocus="this.value = '';"  >
-                        <input class="Regisration-form-text" type="text" id="formTitle"name="formTitle" value="Title" onfocus="this.value = '';">
-                        <input class="Regisration-form-text" type="text" id="formMobile"name="formMobile" value="Mobile Number" onfocus="this.value = '';" >
+                        <input class="Regisration-form-text" type="text" id="formName"name="formName" value="Name" onfocus="this.value = '';" required>
+                        <input class="Regisration-form-text" type="email" id="formEmail"name="formEmail" value="Email" onfocus="this.value = '';"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                        <input class="Regisration-form-text" type="text" id="formNIC"name="formNIC"value="NIC Number" onfocus="this.value = '';"
+                               pattern="[0-9A-Za-z]{10}" title="Format: XXXXXXXXXV" required maxlength="10">
+                        <input class="Regisration-form-text" type="text" id="formTitle"name="formTitle" value="Title" onfocus="this.value = '';"
+                               required>
+                        <input class="Regisration-form-text" type="text" id="formMobile"name="formMobile" value="Mobile Number" onfocus="this.value = '';"
+                               pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
                         <input class="Regisration-form-text" type="text" id="formAddress"name="formAddress" value="Address" onfocus="this.value = '';">
                         <!--<input type="password" value=" Confirm Password" onfocus="this.value = '';" <!--onblur="if (this.value == '') {this.value = ' Confirm Password';}" >-->
                             <div class="recaptcha">
-                                <div class="g-recaptcha" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ"></div>
+                                <div class="g-recaptcha" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ" aria-required="true"></div>
                             </div>
                             <div class="submit" style="margin-left:40%">
                                 <input type="submit"  name="submit" value="Sign Up" ><input type="submit" action="login.php" value="cancle" >
