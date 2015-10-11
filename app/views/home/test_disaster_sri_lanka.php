@@ -15,8 +15,8 @@
 
         function initialize() {
             var mapOptions = {
-                zoom: 3,
-                center: {lat: 7.0000, lng: 81.0000},
+                zoom: 8,
+                center: {lat: 7.9500, lng: 81.0000},
                 mapTypeId: google.maps.MapTypeId.SATELLITE
             };
             map = new google.maps.Map(document.getElementById('map'),
