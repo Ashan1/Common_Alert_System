@@ -34,10 +34,14 @@
             </div>
             <div class="row maps tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="slmap">
-                    <p>Srilanka map goes here</p>
+                    <object type="text/html" data="../app/views/home/test_disaster_sri_lanka.php"
+                            style="width:100%; height:100%; margin:1%;">
+                    </object>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="worldmap">
-                    <p>worls map goes here</p>
+                    <object type="text/html" data="../app/views/home/test_disaster.php"
+                            style="width:100%; height:100%; margin:1%;">
+                    </object>
                 </div>
             </div>
         </div>

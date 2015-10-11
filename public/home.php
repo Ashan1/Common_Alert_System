@@ -30,7 +30,7 @@ require_once '../app/init.php'; ?>
         return false;
     });
     $('#disaster').click(function(){
-        $("#mcontent").load("../app/views/home/disaster.php");
+        $("#mcontent").load("../app/views/home/test_disaster.php");
         return false;
     });
 
