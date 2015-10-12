@@ -56,7 +56,7 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO employee (E_name,E_email,E_NIC,E_title,E_mobile,E_address,E_password)
-VALUES ('$name', '$email','$nic','$title','$mobile','$address','$nic')";
+VALUES ('$name', '$email','$nic','$title','$mobile','$address','cas@123')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";
