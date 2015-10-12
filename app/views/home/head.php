@@ -18,6 +18,9 @@
     <!-- Theme style -->
     <link href="stylesheets/menuf.css" rel="stylesheet" type="text/css" />
 
+    <link href="stylesheets/index.css" rel="stylesheet" type="text/css" />
+   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -209,7 +212,7 @@
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-user"></i>
-                    <span>Jane Doe <i class="caret"></i></span>
+                    <span>Pasan <i class="caret"></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                     <li class="dropdown-header text-center">Account</li>
@@ -248,7 +251,3 @@
     </div>
 </nav>
 </header>
-
-</body>
-
-</html>

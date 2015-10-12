@@ -9,6 +9,9 @@ ul{
 ul li{
     list-style: none;
 }
+.rgt{
+    overflow: hidden;
+}
 
 .recent-activity{
     height: 100px;
@@ -27,19 +30,77 @@ ul li{
 }
 
 .sub-menu{
-    height:100px;
+    height:45px;
+    padding:0;
+}
+
+.sub-menu .nav{
+    padding:0;
+}
+
+.sub-menu .nav>li>a{
+    color:#1f1f1f;
+}
+
+.sub-menu .nav>li>a:hover{
+    border-bottom: 5px solid #f56d18;
+}
+
+.sub-menu .nav>li>a:focus{
+    color:#f56d18;
+}
+
+.sub-menu li {
+    font-family: Raleway sans-serif;
+    font-weight: 900;
+    float: left;
+    font-size: 16px;
+}
+
+.sub-menu ul li:last-child{
+    padding-left: 50px;
 }
 
 .summary-circles{
-    height:300px;
+    height:260px;
+    background-color:#eeeeee;
+    border-top: 2px solid #d5d5d5;
+    border-bottom: 2px solid #d5d5d5;
 }
 
 .summary-circles .circles{
-    height:250px;
+    height:200px;
+}
+
+.summary-circles .circles ul li {
+    width: 25%;
+    float: left;
+    text-align:center;
+}
+
+.summary-circles .circles ul li div {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.summary-circles .center1{
+    padding-top:8px;
 }
 
 .maps{
-    height:100%;
+    height:580px;
+    width:100%;
+}
+
+.map-menu{
+    padding-top: 5px;
+}
+
+.map-menu .center{
+    text-align: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .map-menu .nav>li>a{
@@ -53,11 +114,10 @@ ul li{
 
 .map-menu .nav>li>a:focus{
     color:#f56d18;
-    background-color: #fff;
 }
 
 .map-menu li {
-    font-family: Raleway;
+    font-family: Raleway sans-serif;
     font-weight: 900;
     float: left;
     font-size: 16px;
