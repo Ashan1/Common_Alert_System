@@ -64,7 +64,7 @@
                                 <div class="g-recaptcha" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ" aria-required="true"></div>
                             </div>
                             <div class="submit" style="margin-left:40%">
-                                <input type="submit"  name="submit" value="Sign Up" ><input type="submit" action="login.php" value="cancle" >
+                                <input type="submit"  name="submit" value="Sign Up" ><input type="submit" onclick="window.location='login.php';" value="cancle" >
                             </div>
                         </div>
                     </form>
