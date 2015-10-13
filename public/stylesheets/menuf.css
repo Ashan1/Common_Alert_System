@@ -11,7 +11,6 @@ body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-  background: #f1f2f7;
 }
 a {
   color: #3c8dbc;
@@ -51,7 +50,6 @@ body > .header {
 }
 /*right side - contins main content*/
 .right-side {
-  background-color: #f1f2f7;
   margin-left: 220px;
 }
 /*left side - contains sidebar*/

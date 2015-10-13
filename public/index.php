@@ -21,8 +21,9 @@
                     <li role="presentation" class=""><a href="#notifications" aria-controls="worldmap" role="tab" data-toggle="tab">NOTIFICATIONS</a></li>
                 </ul>
             </div>
-            <div class="tab-content">
+            <div class="row tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="summary">
+                    <div>
                     <div class="row summary-circles">
                         <div class="center1">
                             <div class="circles">
@@ -45,14 +46,14 @@
                             </object>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="worldmap">
-                            <object type="text/html" data="../app/views/home/test_disaster.php"
-                                    style="width:100%; height:100%; margin:1%;">
+                            <object type="text/html" data="../app/views/home/test_disaster.php" style="width:100%; height:100%; margin:1%;">
                             </object>
                         </div>
                     </div>
+                    </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade in active" id="notifications">
 
+                <div role="tabpanel" class="tab-pane fade in active" id="notifications">
                     <p>Notification extended</p>
                 </div>
             </div>
