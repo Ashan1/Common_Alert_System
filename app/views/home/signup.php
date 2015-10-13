@@ -33,37 +33,7 @@
             });
 
 
-        </script--><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                async defer></script>
-        <script type="text/javascript">
-            var onloadCallback = function () {
-                grecaptcha.render('dvCaptcha', {
-                    'sitekey': '<%=ReCaptcha_Key %>',
-                    'callback': function (response) {
-                        $.ajax({
-                            type: "POST",
-                            url: "Default.aspx/VerifyCaptcha",
-                            data: "{response: '" + response + "'}",
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            success: function (r) {
-                                var captchaResponse = jQuery.parseJSON(r.d);
-                                if (captchaResponse.success) {
-                                    $("[id*=txtCaptcha]").val(captchaResponse.success);
-                                    $("[id*=rfvCaptcha]").hide();
-                                } else {
-                                    $("[id*=txtCaptcha]").val("");
-                                    $("[id*=rfvCaptcha]").show();
-                                    var error = captchaResponse["error-codes"][0];
-                                    $("[id*=rfvCaptcha]").html("RECaptcha error. " + error);
-                                }
-                            }
-                        });
-                    }
-                });
-            };
-        </script>
+        </script-->
     </head>
     <body>
         <div class="container">
@@ -94,7 +64,7 @@
                                 <div class="g-recaptcha" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ" aria-required="true"></div>
                             </div>
                             <div class="submit" style="margin-left:40%">
-                                <input type="submit"  name="submit" value="Sign Up" ><input type="submit" action="login.php" value="cancle" >
+                                <input type="submit"  name="submit" value="Sign Up" ><input type="submit" onclick="window.location='login.php';" value="cancle" >
                             </div>
                         </div>
                     </form>
