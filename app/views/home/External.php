@@ -2,17 +2,19 @@
 <head lang="en">
    <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap.css">
+   <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap.css">
     <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap-theme.css">
     <link rel="stylesheet" media="screen" href="../../../public/stylesheets/menu.css">
+	 <link rel="stylesheet" media="screen" href="../../../public/stylesheets/addusercss.css">
+	  <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../public/stylesheets/new.css" rel="stylesheet">
 
     <script src="../../../public/javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
     <script src="../../../public/javascripts/bootstrap.js" type="text/javascript"></script>
 <script src="../../../public/javascripts/jquery.min.js"></script>
   <script src="../../../public/javascripts/popup.min.js"></script>
 	
-    <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../public/stylesheets/new.css" rel="stylesheet">
+   
 
 </head>
 <body>
@@ -75,13 +77,11 @@
                         </div>
                         <div class="col-lg-1 bell"> <span class="glyphicon glyphicon-bell" aria-hidden="true"></span> </div>
                        <div class="col-lg-2">
-						
-						<?php
-                echo "Date : " . date('Y/m/d')."<br>";
-              date_default_timezone_set("Asia/colombo");
-              echo "Time : " . date("h:i:sa");
-            ?>
-						
+							<?php
+								echo date("F jS")."<br>";
+								date_default_timezone_set("Asia/colombo");
+								echo date("h:i:s A");
+							?>
 						</div>
 
                     </div>
@@ -99,7 +99,17 @@
 	 
 	 <h2 style="float:left;">EXTERNAL AUTHORITY DETAILS</h2>
 		
-		<div style="float:right;"><button class="btn btn-default" data-toggle="modal" data-target="#myModal" type="button" style=" background-color:#FF4000; padding-left: 0px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px; margin-left:5px;  width:130px" ><img src="../../../public/images\Add_user.png" style="width: 40px;height:40px;margin-top: 5px;">Add New</button></div>
+		<div style="float:right;">
+			<button class="div_button" data-toggle="modal"  type="button"  ><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
+		</div>
+		
+		<div style="float:right;">
+			<button class="div_button" data-toggle="modal" type="button" ><img src="../../../public/images/delete.png" class="div_button_img">Remove</button>
+		</div>
+		
+		<div style="float:right;">
+			<button class="div_button" data-toggle="modal" data-target="#myModal" type="button" ><img src="../../../public/images/building.png" class="div_button_img">Add New</button>
+		</div>
 	
 		<div class="modal fade" id="myModal" role="dialog" action="../../../public/php/addnew.php" style="padding-top:100px;" >
 			<div class="modal-dialog" >
@@ -140,12 +150,12 @@
   </div>
       
     </div>
-  </div>
+
   </div> <!--recent ends-->
-	 	
+</div>	 	
 	<div id="content" scrolling="yes">
 		 <?php
-      include "../../../public/php/connect.php";
+      include "php/connect.php";
 
       //execute the SQL query and return records
       $result = mysql_query("SELECT Auth_name, Auth_tel, Auth_address, Auth_email FROM external_authority ");
@@ -158,7 +168,6 @@
                 <th>Authority-Telephonr No.</th>
                 <th>Authority-Address</th>
                 <th>Authority-Email</th>
-				<th>Action</th>
             </tr>
         </thead>
         <tbody>	

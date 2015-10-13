@@ -2,25 +2,19 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <!--<link rel="stylesheet" media="screen" href="stylesheets/bootstrap.css">
-    <link rel="stylesheet" media="screen" href="stylesheets/bootstrap-theme.css">
-    <link rel="stylesheet" media="screen" href="stylesheets/menu.css">
-
-    <script src="javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
-    <script src="javascripts/bootstrap.js" type="text/javascript"></script>-->
-
-    <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap.css">
+   <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap.css">
     <link rel="stylesheet" media="screen" href="../../../public/stylesheets/bootstrap-theme.css">
     <link rel="stylesheet" media="screen" href="../../../public/stylesheets/menu.css">
+	 <link rel="stylesheet" media="screen" href="../../../public/stylesheets/addusercss.css">
+	 <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../public/stylesheets/new.css" rel="stylesheet">
 
     <script src="../../../public/javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
     <script src="../../../public/javascripts/bootstrap.js" type="text/javascript"></script>
-    <script src="../../../public/javascripts/jquery.min.js"></script>
-    <script src="../../../public/javascripts/popup.min.js"></script>
-
-    <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../public/stylesheets/new.css" rel="stylesheet">
-
+<script src="../../../public/javascripts/jquery.min.js"></script>
+  <script src="../../../public/javascripts/popup.min.js"></script>
+	
+   
 
 </head>
 <body>
@@ -112,7 +106,7 @@
 						<div>
 							  <div id="content" scrolling="yes" >
 		 <?php
-      include "../../../public/php/connect.php";
+      include "php/connect.php";
 
       //execute the SQL query and return records
       $result = mysql_query("SELECT E_name, email, tel FROM employee WHERE role='Executive User'");

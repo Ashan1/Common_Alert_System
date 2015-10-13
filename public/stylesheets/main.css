@@ -131,3 +131,12 @@ input {
 
 body {
 }
+
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 3px solid #080808;
+  width: 100%;
+}
