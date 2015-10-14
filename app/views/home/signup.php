@@ -2,7 +2,7 @@
     <head>
         <title>SignUp</title>
         <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../../../public/stylesheets/main.css" rel="stylesheet" type="text/css">
+        <!--link href="../../../public/stylesheets/main.css" rel="stylesheet" type="text/css"-->
         <link href="../../../public/stylesheets/style.css" rel="stylesheet" type="text/css">
         <script src="../../../public/javascripts/api.js"></script>
         <script src="../../../public/javascripts/jquery-1.9.0.min.js"></script>
