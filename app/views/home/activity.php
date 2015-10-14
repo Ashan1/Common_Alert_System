@@ -35,7 +35,7 @@
             //start activities here
             <div role="tabpanel" class=" tab-pane fade in active" id="activities">
                 <?php
-                include "connect-1.php";
+                include "connect.php";
 
                 //execute the SQL query and return records
                 $result = mysql_query("SELECT A_date, A_time, A_description, A_status FROM activities ");
