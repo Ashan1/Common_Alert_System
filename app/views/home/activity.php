@@ -32,7 +32,7 @@
 
                 <p>Notification extended</p>
             </div>
-            //start activities here
+
             <div role="tabpanel" class=" tab-pane fade in active" id="activities">
                 <?php
                 include "connect.php";
@@ -71,7 +71,7 @@
                 </table>
                 <?php mysql_close($connector); ?>
             </div>
-            //end Activities
+
             <div role="tabpanel" class=" tab-pane fade in active" id="advicerboard">
                 <p>Notification extended</p>
 

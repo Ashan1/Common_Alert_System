@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2015 at 07:40 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: Oct 15, 2015 at 07:31 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `cas`
@@ -23,17 +23,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `activities`
+--
+
+CREATE TABLE IF NOT EXISTS `activities` (
+  `A_ID` int(100) NOT NULL,
+  `A_date` date DEFAULT NULL,
+  `A_time` time DEFAULT NULL,
+  `A_description` varchar(255) DEFAULT NULL,
+  `A_status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`A_ID`, `A_date`, `A_time`, `A_description`, `A_status`) VALUES
+(1, '2015-10-15', '20:56:16', 'Email send', 'Success');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `alert`
 --
 
 CREATE TABLE IF NOT EXISTS `alert` (
-  `Alert_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Alert_ID` int(5) NOT NULL,
   `type` varchar(255) COLLATE utf8_bin NOT NULL,
   `content` varchar(255) COLLATE utf8_bin NOT NULL,
-  `Notification_ID` int(5) NOT NULL,
-  PRIMARY KEY (`Alert_ID`),
-  KEY `Notification_ID` (`Notification_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `Notification_ID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -42,13 +61,10 @@ CREATE TABLE IF NOT EXISTS `alert` (
 --
 
 CREATE TABLE IF NOT EXISTS `authentication` (
-  `A_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `A_ID` int(5) NOT NULL,
   `Alert_ID` int(5) NOT NULL,
-  `Emp_ID` int(5) NOT NULL,
-  PRIMARY KEY (`A_ID`),
-  KEY `Alert_ID` (`Alert_ID`),
-  KEY `Emp_ID` (`Emp_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `Emp_ID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -57,15 +73,11 @@ CREATE TABLE IF NOT EXISTS `authentication` (
 --
 
 CREATE TABLE IF NOT EXISTS `broadcast` (
-  `Bradcast_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Bradcast_ID` int(5) NOT NULL,
   `A_ID` int(5) NOT NULL,
   `Emp_ID` int(5) NOT NULL,
-  `Auth_ID` int(5) NOT NULL,
-  PRIMARY KEY (`Bradcast_ID`),
-  KEY `A_ID` (`A_ID`),
-  KEY `Emp_ID` (`Emp_ID`),
-  KEY `Auth_ID` (`Auth_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `Auth_ID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -76,8 +88,7 @@ CREATE TABLE IF NOT EXISTS `broadcast` (
 CREATE TABLE IF NOT EXISTS `cyclone` (
   `Disaster_ID` int(5) NOT NULL,
   `Category` varchar(50) COLLATE utf8_bin NOT NULL,
-  `Wind_speed` varchar(20) COLLATE utf8_bin NOT NULL,
-  KEY `Disaster_ID` (`Disaster_ID`)
+  `Wind_speed` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -92,8 +103,7 @@ CREATE TABLE IF NOT EXISTS `disaster` (
   `time` time(6) NOT NULL,
   `latitude` varchar(100) COLLATE utf8_bin NOT NULL,
   `longitude` varchar(100) COLLATE utf8_bin NOT NULL,
-  `location` varchar(100) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`Disaster_ID`)
+  `location` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -104,8 +114,7 @@ CREATE TABLE IF NOT EXISTS `disaster` (
 
 CREATE TABLE IF NOT EXISTS `drought` (
   `SPI_value` int(20) NOT NULL,
-  `Disaster_ID` int(5) NOT NULL,
-  KEY `Disaster_ID` (`Disaster_ID`)
+  `Disaster_ID` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -116,8 +125,7 @@ CREATE TABLE IF NOT EXISTS `drought` (
 
 CREATE TABLE IF NOT EXISTS `earth_quake` (
   `Disaster_ID` int(5) NOT NULL,
-  `Magnitude` varchar(20) COLLATE utf8_bin NOT NULL,
-  KEY `Disaster_ID` (`Disaster_ID`)
+  `Magnitude` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -127,13 +135,12 @@ CREATE TABLE IF NOT EXISTS `earth_quake` (
 --
 
 CREATE TABLE IF NOT EXISTS `email` (
-  `Email_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Email_ID` int(5) NOT NULL,
   `Email_address` varchar(255) COLLATE utf8_bin NOT NULL,
   `subject` varchar(255) COLLATE utf8_bin NOT NULL,
   `content` varchar(255) COLLATE utf8_bin NOT NULL,
-  `validaton` varchar(6) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`Email_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `validaton` varchar(6) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -142,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `email` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-  `Emp_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Emp_ID` int(5) NOT NULL,
   `E_name` varchar(255) COLLATE utf8_bin NOT NULL,
   `E_nic` varchar(15) COLLATE utf8_bin NOT NULL,
   `email` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -151,9 +158,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `role` varchar(100) COLLATE utf8_bin NOT NULL,
   `image` longblob NOT NULL,
   `username` varchar(25) COLLATE utf8_bin NOT NULL,
-  `password` varchar(15) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`Emp_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+  `password` varchar(15) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `employee`
@@ -175,13 +181,12 @@ INSERT INTO `employee` (`Emp_ID`, `E_name`, `E_nic`, `email`, `tel`, `address`, 
 --
 
 CREATE TABLE IF NOT EXISTS `external_authority` (
-  `Auth_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Auth_ID` int(5) NOT NULL,
   `Auth_name` varchar(255) COLLATE utf8_bin NOT NULL,
   `Auth_tel` varchar(255) COLLATE utf8_bin NOT NULL,
   `Auth_address` varchar(255) COLLATE utf8_bin NOT NULL,
-  `Auth_email` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`Auth_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+  `Auth_email` varchar(255) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `external_authority`
@@ -199,8 +204,7 @@ INSERT INTO `external_authority` (`Auth_ID`, `Auth_name`, `Auth_tel`, `Auth_addr
 
 CREATE TABLE IF NOT EXISTS `flood` (
   `Disaster_ID` int(5) NOT NULL,
-  `river_water_level` int(20) NOT NULL,
-  KEY `Disaster_ID` (`Disaster_ID`)
+  `river_water_level` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -211,8 +215,7 @@ CREATE TABLE IF NOT EXISTS `flood` (
 
 CREATE TABLE IF NOT EXISTS `landslide` (
   `Disaster_ID` int(5) NOT NULL,
-  `area` varchar(20) COLLATE utf8_bin NOT NULL,
-  KEY `Disaster_ID` (`Disaster_ID`)
+  `area` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -222,14 +225,11 @@ CREATE TABLE IF NOT EXISTS `landslide` (
 --
 
 CREATE TABLE IF NOT EXISTS `notification` (
-  `Notification_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Notification_ID` int(5) NOT NULL,
   `validation` varchar(5) COLLATE utf8_bin NOT NULL,
   `Email_ID` int(5) NOT NULL,
-  `Web_ID` int(5) NOT NULL,
-  PRIMARY KEY (`Notification_ID`),
-  KEY `Web_ID` (`Web_ID`),
-  KEY `Email_ID` (`Email_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `Web_ID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -238,16 +238,22 @@ CREATE TABLE IF NOT EXISTS `notification` (
 --
 
 CREATE TABLE IF NOT EXISTS `temporary` (
-  `Temp_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Temp_ID` int(5) NOT NULL,
   `T_name` varchar(255) COLLATE utf8_bin NOT NULL,
   `T_email` varchar(255) COLLATE utf8_bin NOT NULL,
   `T_nic` varchar(15) COLLATE utf8_bin NOT NULL,
-  `T-tel` varchar(15) COLLATE utf8_bin NOT NULL,
-  `T_title` varchar(100) COLLATE utf8_bin NOT NULL,
-  `T_address` text COLLATE utf8_bin NOT NULL,
-  `T_image` longblob NOT NULL,
-  PRIMARY KEY (`Temp_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `T_title` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `T_mobile` varchar(15) COLLATE utf8_bin DEFAULT NULL,
+  `T_address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `T_password` varchar(255) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `temporary`
+--
+
+INSERT INTO `temporary` (`Temp_ID`, `T_name`, `T_email`, `T_nic`, `T_title`, `T_mobile`, `T_address`, `T_password`) VALUES
+(1, 'njnjinir', 'aaaaa@aaa.aaa', 'aaaaaaaaaa', 'aaaaaaaa', '1234567890', 'Address', 'cas@123');
 
 -- --------------------------------------------------------
 
@@ -256,12 +262,173 @@ CREATE TABLE IF NOT EXISTS `temporary` (
 --
 
 CREATE TABLE IF NOT EXISTS `website` (
-  `Web_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Web_ID` int(5) NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
-  `description` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`Web_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+  `description` varchar(255) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `activities`
+--
+ALTER TABLE `activities`
+  ADD PRIMARY KEY (`A_ID`);
+
+--
+-- Indexes for table `alert`
+--
+ALTER TABLE `alert`
+  ADD PRIMARY KEY (`Alert_ID`),
+  ADD KEY `Notification_ID` (`Notification_ID`);
+
+--
+-- Indexes for table `authentication`
+--
+ALTER TABLE `authentication`
+  ADD PRIMARY KEY (`A_ID`),
+  ADD KEY `Alert_ID` (`Alert_ID`),
+  ADD KEY `Emp_ID` (`Emp_ID`);
+
+--
+-- Indexes for table `broadcast`
+--
+ALTER TABLE `broadcast`
+  ADD PRIMARY KEY (`Bradcast_ID`),
+  ADD KEY `A_ID` (`A_ID`),
+  ADD KEY `Emp_ID` (`Emp_ID`),
+  ADD KEY `Auth_ID` (`Auth_ID`);
+
+--
+-- Indexes for table `cyclone`
+--
+ALTER TABLE `cyclone`
+  ADD KEY `Disaster_ID` (`Disaster_ID`);
+
+--
+-- Indexes for table `disaster`
+--
+ALTER TABLE `disaster`
+  ADD PRIMARY KEY (`Disaster_ID`);
+
+--
+-- Indexes for table `drought`
+--
+ALTER TABLE `drought`
+  ADD KEY `Disaster_ID` (`Disaster_ID`);
+
+--
+-- Indexes for table `earth_quake`
+--
+ALTER TABLE `earth_quake`
+  ADD KEY `Disaster_ID` (`Disaster_ID`);
+
+--
+-- Indexes for table `email`
+--
+ALTER TABLE `email`
+  ADD PRIMARY KEY (`Email_ID`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`Emp_ID`);
+
+--
+-- Indexes for table `external_authority`
+--
+ALTER TABLE `external_authority`
+  ADD PRIMARY KEY (`Auth_ID`);
+
+--
+-- Indexes for table `flood`
+--
+ALTER TABLE `flood`
+  ADD KEY `Disaster_ID` (`Disaster_ID`);
+
+--
+-- Indexes for table `landslide`
+--
+ALTER TABLE `landslide`
+  ADD KEY `Disaster_ID` (`Disaster_ID`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`Notification_ID`),
+  ADD KEY `Web_ID` (`Web_ID`),
+  ADD KEY `Email_ID` (`Email_ID`);
+
+--
+-- Indexes for table `temporary`
+--
+ALTER TABLE `temporary`
+  ADD PRIMARY KEY (`Temp_ID`);
+
+--
+-- Indexes for table `website`
+--
+ALTER TABLE `website`
+  ADD PRIMARY KEY (`Web_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `activities`
+--
+ALTER TABLE `activities`
+  MODIFY `A_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `alert`
+--
+ALTER TABLE `alert`
+  MODIFY `Alert_ID` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `authentication`
+--
+ALTER TABLE `authentication`
+  MODIFY `A_ID` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `broadcast`
+--
+ALTER TABLE `broadcast`
+  MODIFY `Bradcast_ID` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `email`
+--
+ALTER TABLE `email`
+  MODIFY `Email_ID` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `Emp_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `external_authority`
+--
+ALTER TABLE `external_authority`
+  MODIFY `Auth_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `Notification_ID` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `temporary`
+--
+ALTER TABLE `temporary`
+  MODIFY `Temp_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `website`
+--
+ALTER TABLE `website`
+  MODIFY `Web_ID` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -276,16 +443,16 @@ ALTER TABLE `alert`
 -- Constraints for table `authentication`
 --
 ALTER TABLE `authentication`
-  ADD CONSTRAINT `authentication_ibfk_2` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`),
-  ADD CONSTRAINT `authentication_ibfk_1` FOREIGN KEY (`Alert_ID`) REFERENCES `alert` (`Alert_ID`);
+  ADD CONSTRAINT `authentication_ibfk_1` FOREIGN KEY (`Alert_ID`) REFERENCES `alert` (`Alert_ID`),
+  ADD CONSTRAINT `authentication_ibfk_2` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`);
 
 --
 -- Constraints for table `broadcast`
 --
 ALTER TABLE `broadcast`
-  ADD CONSTRAINT `broadcast_ibfk_3` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`),
   ADD CONSTRAINT `broadcast_ibfk_1` FOREIGN KEY (`A_ID`) REFERENCES `authentication` (`A_ID`),
-  ADD CONSTRAINT `broadcast_ibfk_2` FOREIGN KEY (`Auth_ID`) REFERENCES `external_authority` (`Auth_ID`);
+  ADD CONSTRAINT `broadcast_ibfk_2` FOREIGN KEY (`Auth_ID`) REFERENCES `external_authority` (`Auth_ID`),
+  ADD CONSTRAINT `broadcast_ibfk_3` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`);
 
 --
 -- Constraints for table `cyclone`
@@ -321,8 +488,8 @@ ALTER TABLE `landslide`
 -- Constraints for table `notification`
 --
 ALTER TABLE `notification`
-  ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`Email_ID`) REFERENCES `email` (`Email_ID`),
-  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`Web_ID`) REFERENCES `website` (`Web_ID`);
+  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`Web_ID`) REFERENCES `website` (`Web_ID`),
+  ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`Email_ID`) REFERENCES `email` (`Email_ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
