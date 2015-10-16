@@ -8,32 +8,7 @@
         <script src="../../../public/javascripts/jquery-1.9.0.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="../../../public/javascripts/sign_up.js"></script>
-        <!--script src="../../../public/javascripts/gen_validatorv4.js" type="text/javascript"></script>
-        <script--  type="text/javascript">
-            $(document).ready(function(){
-                var frmvalidator = new Validator('signup');
-                frmvalidator.addValidation("formName","req","Please enter your  Name");
-                frmvalidator.addValidation("formName","maxlen=50",
-                    "Max length for Name is 50");
-                frmvalidator.addValidation("formEmail","maxlen=50");
-                frmvalidator.addValidation("formEmail","req");
-                frmvalidator.addValidation("formEmail","email");
 
-                frmvalidator.addValidation("formNIC","req");
-                frmvalidator.addValidation("formNIC","minlen=10");
-                frmvalidator.addValidation("formNIC","maxlen=10");
-
-                frmvalidator.addValidation("formTitle","req");
-
-                frmvalidator.addValidation("formMobile","minlen=10","10 numbers required");
-                frmvalidator.addValidation("formMobile","maxlen=10","10 numbers required");
-                frmvalidator.addValidation("formMobile","numeric","Numbers only");
-
-
-            });
-
-
-        </script-->
     </head>
     <body>
         <div class="container">

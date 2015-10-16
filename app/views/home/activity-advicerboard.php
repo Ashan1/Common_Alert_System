@@ -1,4 +1,4 @@
-<?php include('head.php');?>
+<?php include'head.php'; ?>
 
 <div >
     <aside class="left-side">
@@ -18,7 +18,7 @@
         </div>
         <div class="row sub-menu">
             <ul class="nav nav-tabls">
-                <li role="presentation" class=""><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">SUMMARY</a></li>
+                <li role="presentation" class="">\<a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">SUMMARY</a></li>
                 <li role="presentation" class=""><a href="#notifications" aria-controls="worldmap" role="tab" data-toggle="tab">NOTIFICATIONS</a></li>
                 <li role="presentation" class=""><a href="#activities" aria-controls="worldmap" role="tab" data-toggle="tab">ACTIVITIES</a></li>
                 <li role="presentation" class=""><a href="#advicerboard" aria-controls="worldmap" role="tab" data-toggle="tab">ADVICER BOARD</a></li>
@@ -32,7 +32,6 @@
 
                 <p>Notification extended</p>
             </div>
-
             <div role="tabpanel" class=" tab-pane fade in active" id="activities">
                 <?php
                 include "connect.php";
@@ -71,15 +70,21 @@
                 </table>
                 <?php mysql_close($connector); ?>
             </div>
+            <div role="tabpanel" class="tab-pane fade in active" id="advicerboard">
+                <div class="container-fluid col-lg-12">
+                        <?php
+                        include "connect.php";
+                        $result2 = mysql_query("SELECT * FROM `employee` WHERE role='Executive User' ");
 
-            <div role="tabpanel" class=" tab-pane fade in active" id="advicerboard">
-                <p>Notification extended</p>
-
-            </div>
+                        while ($row = mysql_fetch_assoc( $result2)){
+                            include 'advpanel.php';
+                        }
+                        ?>
+                        <?php mysql_close($connector); ?>
+                </div>
+        </div>
+        </div>
+        </aside>
     </div>
-
-</div>
-
-    </body>
-
-    </html>
+</body>
+</html>

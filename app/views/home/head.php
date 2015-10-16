@@ -17,7 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="stylesheets/menuf.css" rel="stylesheet" type="text/css" />
-
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
     <link href="stylesheets/index.css" rel="stylesheet" type="text/css" />
    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
 

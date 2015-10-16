@@ -9,7 +9,7 @@ if(! $conn)
 {
 die('Connection Failed'.mysql_error());
 }else{
-echo "Connection Successfull<br>";
+echo "<br>";
 mysql_select_db($database,$conn);
 }
 ?>

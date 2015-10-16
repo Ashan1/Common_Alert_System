@@ -19,6 +19,8 @@
                 <ul class="nav nav-tabls">
                     <li role="presentation" class=""><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">SUMMARY</a></li>
                     <li role="presentation" class=""><a href="#notifications" aria-controls="worldmap" role="tab" data-toggle="tab">NOTIFICATIONS</a></li>
+                    <li role="presentation" class=""><a href="#activities" aria-controls="worldmap" role="tab" data-toggle="tab">ACTIVITIES</a></li>
+                    <li role="presentation" class=""><a href="#advicerboard" aria-controls="worldmap" role="tab" data-toggle="tab">ADVICER BOARD</a></li>
                 </ul>
             </div>
             <div class="row tab-content">

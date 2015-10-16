@@ -687,3 +687,16 @@ right: -12%;
 	height: 78px;
 	margin-left:60px;
 }
+.panel{
+	margin: 10px;
+	width: 45%;
+	height: 205px;
+	border: 1px solid black;
+	color: black;
+}
+.panel-photo{
+	height: 3.5cm;
+	width: 3.2cm;
+	margin: 5px;
+	background-color: #c4e3f3;
+}
