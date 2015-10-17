@@ -7,8 +7,9 @@
     <aside class="right-side rgt">
         <div class="col-lg-12">
             <div class="row recent-activity">
-                <h3>Recent Activity</h3>
+
                 <div>
+                    <h3>Recent Activity</h3>
                  <ul>
                      <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
                      <li><h4>Pacific Ocean</h4>09.51 a.m <a href="#">more</a></li>
@@ -24,7 +25,7 @@
             <div class="row tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="summary">
                     <div>
-                    <div class="row summary-circles">
+                    <div class="row summary-circles home-tabheader">
                         <div class="center1">
                             <div class="circles">
                                 <?php include('../app/views/home/disastercircles.php'); ?>
@@ -54,7 +55,7 @@
                 </div>
 
                 <div role="tabpanel" class="tab-pane fade in active" id="notifications">
-                    <p>Notification extended</p>
+                    <?php include '../app/views/home/home_notification.php' ; ?>
                 </div>
             </div>
         </div>
