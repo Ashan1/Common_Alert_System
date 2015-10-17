@@ -2733,3 +2733,16 @@ vertical-align: top;
 .skin-black .sidebar .sidebar-menu .treeview-menu > li:hover {
   background-color: #404B5F;
 }
+.th{
+    background-color: white;
+}
+.advce{
+    width:50%;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.thcolor {
+    background-color: #000000;
+    color: #FFFFFF;
+}

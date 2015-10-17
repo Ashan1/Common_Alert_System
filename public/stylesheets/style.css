@@ -124,7 +124,7 @@ body{
 	-moz-border-top-right-radius:7px;
 	-o-border-top-right-radius:7px;*/
 	text-align: center;
-	padding:1.6em 0;
+	padding:0.6em 0;
 	color: #ffffff;
 	border: 1px solid rgba(0, 0, 0, 0.37);
 	box-shadow: 0px 4px 10px 0px rgba(1, 3, 12, 0.33);
@@ -158,7 +158,7 @@ body{
 	outline: none;
 	font-weight: 600;
 	color:#8D8E8F;
-	padding: 6px 6px;
+	padding: 5px 6px;
 	width:76%;
 	border-top:1px solid #090B0D;
 	border-right:2px solid #424549;
@@ -414,6 +414,7 @@ form span{
 	color: #000000;
 	cursor: pointer;
 	border: none;
+	margin-left: 10px;
 	font-weight: 900;
 	outline: none;
 <<<<<<< HEAD
@@ -680,4 +681,22 @@ right: -12%;
 .signup-form{
 	padding: 0;
 
+}
+.recaptcha{
+	width: 304px;
+	height: 78px;
+	margin-left:60px;
+}
+.panel{
+	margin: 10px;
+	width: 45%;
+	height: 205px;
+	border: 1px solid black;
+	color: black;
+}
+.panel-photo{
+	height: 3.5cm;
+	width: 3.2cm;
+	margin: 5px;
+	background-color: #c4e3f3;
 }

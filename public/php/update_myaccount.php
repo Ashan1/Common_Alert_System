@@ -8,14 +8,14 @@ $address = $_POST['up_address'];
 $tel = $_POST['up_tel'];
 
 if ($username){
-	$sql2 =  "UPDATE employee SET username='$username' WHERE E_nic= '916191197v'";
+	$sql2 =  "UPDATE employee SET E_username='$username' WHERE E_nic= '916191197v'";
 		if(mysql_query($sql2)){
 			echo "yeahhh";
 		} else{
 			echo "ERROR: Could not able to execute $sql2. " . mysqli_error();
 		}
 }else if($password){ 
-	$sql2 =  "UPDATE employee SET password='$password' WHERE E_nic= '916191197v'";
+	$sql2 =  "UPDATE employee SET E_password='$password' WHERE E_nic= '916191197v'";
 	
 		if(mysql_query($sql2)){
 			echo "yeahhh";
@@ -23,21 +23,21 @@ if ($username){
 			echo "ERROR: Could not able to execute $sql2. " . mysqli_error();
 		}
 }else if($email){  
-	$sql2 =  "UPDATE employee SET email='$email' WHERE E_nic= '916191197v'";
+	$sql2 =  "UPDATE employee SET E_email='$email' WHERE E_nic= '916191197v'";
 		if(mysql_query($sql2)){
 			echo "yeahhh";
 		} else{
 			echo "ERROR: Could not able to execute $sql2. " . mysqli_error();
 		}
 }else if($address){
-	$sql2 =  "UPDATE employee SET address='$address' WHERE E_nic= '916191197v'";
+	$sql2 =  "UPDATE employee SET E_address='$address' WHERE E_nic= '916191197v'";
 		if(mysql_query($sql2)){
 			echo "yeahhh";
 		} else{
 			echo "ERROR: Could not able to execute $sql2. " . mysqli_error();
 		}
 }else{
-	$sql2 =  "UPDATE employee SET tel='$tel' WHERE E_nic= '916191197v'";
+	$sql2 =  "UPDATE employee SET E_tel='$tel' WHERE E_nic= '916191197v'";
 		if(mysql_query($sql2)){
 			echo "yeahhh";
 		} else{
