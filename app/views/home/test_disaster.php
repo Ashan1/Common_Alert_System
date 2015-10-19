@@ -19,8 +19,7 @@
                 center: {lat: 7.0000, lng: 81.0000},
                 mapTypeId: google.maps.MapTypeId.SATELLITE
             };
-            map = new google.maps.Map(document.getElementById('map'),
-                mapOptions);
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
             var script = document.createElement('script');
@@ -28,15 +27,20 @@
 
             script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojsonp';
 
+
             document.getElementsByTagName('head')[0].appendChild(script);
 
 
-            map.data.setStyle(function(feature) {
+            //Get style circle
+            var style = function(feature) {
                 var magnitude = feature.getProperty('mag');
                 return {
                     icon: getCircle(magnitude)
                 };
-            });
+            };
+
+            map.data.setStyle(style);
+
         }
 
         function getCircle(magnitude) {
