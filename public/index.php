@@ -56,10 +56,22 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane fade in active" id="notifications">
+                <div role="tabpanel" class="tab-pane fade in" id="notifications">
                     <?php include '../app/views/home/home_notification.php' ; ?>
                 </div>
+                <div role="tabpanel" class="tab-pane fade in active" id="activities">
+                    <?php
+                    include '../app/views/home/activity.php';
+                    ?>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in active" id="advicerboard">
+                        <?php
+                            include '../app/views/home/advicerboard.php';
+                     ?>
+                </div>
             </div>
+
+        </div>
         </div>
     </aside>
 </div>

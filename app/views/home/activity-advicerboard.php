@@ -1,39 +1,6 @@
-<?php include'head.php'; ?>
-
-<div >
-    <aside class="left-side">
-        <?php include('../app/views/home/side.php');?>
-    </aside>
-    <aside class="right-side rgt">
-        <div class="col-lg-12">
-            <div class="row recent-activity">
-                <h3>Recent Activity</h3>
-                <div>
-                    <ul>
-                        <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
-                        <li><h4>Pacific Ocean</h4>09.51 a.m <a href="#">more</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row sub-menu">
-            <ul class="nav nav-tabls">
-                <li role="presentation" class="">\<a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">SUMMARY</a></li>
-                <li role="presentation" class=""><a href="#notifications" aria-controls="worldmap" role="tab" data-toggle="tab">NOTIFICATIONS</a></li>
-                <li role="presentation" class=""><a href="#activities" aria-controls="worldmap" role="tab" data-toggle="tab">ACTIVITIES</a></li>
-                <li role="presentation" class=""><a href="#advicerboard" aria-controls="worldmap" role="tab" data-toggle="tab">ADVICER BOARD</a></li>
-            </ul>
-        </div>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active" id="summary">
-                <p>Notification extended</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade in active" id="notifications">
-
-                <p>Notification extended</p>
-            </div>
-            <div role="tabpanel" class=" tab-pane fade in active" id="activities">
-                <?php
+<div class="container-fluid">
+<div>
+<?php
                 include "connect.php";
 
                 //execute the SQL query and return records
@@ -82,9 +49,6 @@
                         ?>
                         <?php mysql_close($connector); ?>
                 </div>
-        </div>
-        </div>
-        </aside>
-    </div>
-</body>
-</html>
+            </div>
+
+</div>
