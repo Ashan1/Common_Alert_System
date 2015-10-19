@@ -17,20 +17,17 @@
                 mapTypeId: google.maps.MapTypeId.SATELLITE
             });
 
-            // Create a <script> tag and set the USGS URL as the source.
             var script = document.createElement('script');
-            // (In this example we use a locally stored copy instead.)
             script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
             document.getElementsByTagName('head')[0].appendChild(script);
         }
 
-        // Loop through the results array and place a marker for each
-        // set of coordinates.
+
         var infowindow = new google.maps.InfoWindow({});
 
-        function getHandler(place, mag){
+        function getHandler(place, mag, coords){
             return function handler() {
-                infowindow.setContent("<table><tr><td>Place</td><td>" + place + "</td></tr><tr><td>Magnitude</td><td>" + mag + "</td></tr></table>");
+                infowindow.setContent("<table><tr><td>Location</td><td>" + place + "</td></tr><tr><td>Magnitude</td><td>" + mag + "</td></tr><tr><td>Longitude</td><td>" + coords[0] + "</td></tr><tr><td>Latitude</td><td>" + coords[1] + "</td></tr></table>");
                 infowindow.open(map, this);
             }
         }
@@ -47,7 +44,7 @@
                     clickable: true
                 });
                 marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
-                google.maps.event.addListener(marker, 'click', getHandler(place, mag));
+                google.maps.event.addListener(marker, 'click', getHandler(place, mag, coords));
             }
         }
 
