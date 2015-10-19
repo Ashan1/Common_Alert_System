@@ -59,9 +59,21 @@
                 <div role="tabpanel" class="tab-pane fade in" id="notifications">
                     <?php include '../app/views/home/home_notification.php' ; ?>
                 </div>
+<<<<<<< HEAD
 
                 <div role="tabpanel" class="tab-pane fade in" id="activity-advicerboard">
                     <?php include '../app/views/home/activity-advicerboard.php' ; ?>
+=======
+                <div role="tabpanel" class="tab-pane fade in active" id="activities">
+                    <?php
+                    include '../app/views/home/activity.php';
+                    ?>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in active" id="advicerboard">
+                        <?php
+                            include '../app/views/home/advicerboard.php';
+                     ?>
+>>>>>>> 73a686b0fd6072ea843d78aa52e1b4d2709100fc
                 </div>
             </div>
 
