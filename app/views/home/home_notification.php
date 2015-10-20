@@ -25,6 +25,49 @@
                </div>
            </div>
 
+
         </div>
     </div>
 </div>
+<div>
+        <?php
+        include "connect.php";
+        $result = mysql_query("SELECT * FROM notification ");
+        ?>
+        <table class="table table-striped th" >
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <thead>
+            <tr CLASS="thcolor">
+                <th>DATE</th>
+                <th>COUNTRY</th>
+                <th>CITY</th>
+                <th>TIME</th>
+                <th style="width:100px;">SCALE</th>
+                <th>CONDITION</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            while( $row = mysql_fetch_assoc( $result ) ){
+                echo
+                "<tr>
+             <td>{$row['Date']}</td>
+             <td>{$row['Country']}</td>
+             <td>{$row['City']}</td>
+             <td>{$row['Time']}</td>
+             <td >{$row['Scale']}</td>
+             <td>{$row['N_Condition']}</td>
+             </tr>\n";
+            }
+            ?>
+            </tbody>
+        </table>
+        <?php mysql_close($connector); ?>
+
+    </div>
