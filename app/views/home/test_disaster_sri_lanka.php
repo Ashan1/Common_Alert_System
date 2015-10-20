@@ -31,12 +31,20 @@
             document.getElementsByTagName('head')[0].appendChild(script);
 
 
-            map.data.setStyle(function(feature) {
+            //Info window to show details on click on the map
+            var infowindow = new google.maps.InfoWindow({
+                content:"Hello World!"
+            });
+
+            //Get style circle
+            var style = function(feature) {
                 var magnitude = feature.getProperty('mag');
                 return {
                     icon: getCircle(magnitude)
                 };
-            });
+            };
+
+            map.data.setStyle(style);
         }
 
         function getCircle(magnitude) {

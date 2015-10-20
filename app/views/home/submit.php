@@ -55,7 +55,7 @@ try {
     $conn = new PDO("mysql:host=$hostrname;dbname=$database", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO employee (E_name,E_email,E_NIC,E_title,E_mobile,E_address,E_password)
+    $sql = "INSERT INTO temporary (T_name,T_email,T_nic,T_title,T_mobile,T_address,T_password)
 VALUES ('$name', '$email','$nic','$title','$mobile','$address','cas@123')";
     // use exec() because no results are returned
     $conn->exec($sql);
