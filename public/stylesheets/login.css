@@ -1,3 +1,15 @@
 .log-right{
     background-color: #000;
+    height: 100%;
+    padding: 0;
+}
+
+.log-left{
+   background: url('../images/crossword.png');
+    height: 100%;
+    padding: 0;
+}
+
+.log-left img{
+    float: right;
 }

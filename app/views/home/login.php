@@ -1,6 +1,6 @@
 <div>
-    <div class="row">
-        <div class="col-sm-6 login_div">
+    <div>
+        <div class="login_div">
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
             <h2 class="login_h text-center">USER LOGIN</h2>
             <form class="login-form" action="../app/models/Auth.php" id="login_form" method="post" role="form">

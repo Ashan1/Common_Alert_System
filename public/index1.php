@@ -64,7 +64,7 @@
                     include '../app/views/home/activity.php';
                     ?>
                 </div>
-                <div role="tabpanel" class="tab-pane fade in active" id="advicerboard">
+                <div role="tabpanel" class="tab-pane fade in" id="advicerboard">
                         <?php
                             include '../app/views/home/advicerboard.php';
                      ?>

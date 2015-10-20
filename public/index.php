@@ -7,10 +7,10 @@
     <link href="stylesheets/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
 <bod>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-lg-6">
+    <div class="">
+        <div>
+            <div class="container-fluid">
+                <div class="col-lg-6 log-left">
                     <div><img src="images/login_left.png"/></div>
                 </div>
                 <div class="col-lg-6 log-right">
