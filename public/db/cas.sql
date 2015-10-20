@@ -180,7 +180,7 @@ INSERT INTO `employee` (`Emp_ID`, `E_name`, `E_nic`, `email`, `tel`, `address`, 
 (1, 'Dilini weerasinghe', '916191197v', 'dweerasinghe91@gmail.com', '0718759697', 'Galketiya,Haliela', 'Executive User', '', 'dweerasinghe91@gmail.com', '$2y$11$LQ4vHYYFt0dBaglpeE4HY.TnMspy/Ecft1WH0qCEDWnbOkOKDhEva'),
 (3, 'Pasan Madara', '926586637v', 'pmartz@gmail.com', '0718569795', 'Malabe,Kaduwela', 'Executive User', '', 'pmartz@gmail.com', 'CAS@123'),
 (4, 'Ashan Maduranga', '92658563345v', 'ashanmaduranga92@gmail.com', '0778536452', 'Dekatana', 'Executive User', '', 'ashanmaduranga92@gmail.co', 'CAS@123'),
-(5, 'Thushara Dhanayake', '915864452v', 'thusharadahanayake@gmail.com', '0715870087', 'Sewanagala,Abilipitiya', 'Operational User', '', 'thusharadahanayake@gmail.', 'CAS@123'),
+(5, 'Thushara Dhanayake', '915864452v', 'thusharadahanayake@gmail.com', '0715870087', 'Sewanagala,Ebilipitiya', 'Executive User', '', 'thusharadahanayake@gmail.', 'CAS@123'),
 (6, 'Nathaliya Jayawardana', '935624478v', 'nathaliyajayawardana@yahoo.com', '0778563252', 'Kiribathgoda', 'Executive User', '', 'nathaliyajayawardana@yaho', 'CAS@123'),
 (7, 'Imasha Dilshani', '914563352v', 'imashadilshani@gmail.com', '07118234212', 'Matara', 'General User', '', 'imashadilshani@gmail.com', 'CAS@123'),
 (8, 'Dili Madhubhashini', '916191197v', 'diliniweerasinghe28@yahoo.com', '0718759697', 'Haliela,Badulla', 'Administrator', '', 'diliniweerasinghe28@yahoo', 'CAS@123');
