@@ -120,6 +120,28 @@
 .span_white {
     color: #ffffff;
 }
+table.colorful {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+}
+table.colorful th {
+    background: #dcddc0;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+table.colorful td {
+    background: #ffffff;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
 
 canvas {
     display: block;
@@ -131,16 +153,16 @@ input {
 
 body {
 }
-<<<<<<< HEAD
+
 
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 3px solid #080808;
-  width: 100%;
-=======
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 3px solid #080808;
+    width: 100%;
+}
 .recaptcha{
     height: 74px;
     width: 300px;

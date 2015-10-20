@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 <div>
     <div>
         <div class="login_div">
+=======
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="img-responsive" src="images/login_left.png"/>
+        </div>
+        <div class="col-sm-6 login_div">
+>>>>>>> bd58f9b114c5cb5da0138a8efb4dc41eb97bebe4
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
             <h2 class="login_h text-center">USER LOGIN</h2>
             <form class="login-form" action="../app/models/Auth.php" id="login_form" method="post" role="form">

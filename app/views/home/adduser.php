@@ -1,8 +1,4 @@
 <?php include('head.php');?>
-<<<<<<< HEAD
-=======
-
->>>>>>> f70014eaeeb054e3524d4527f5bd6a978f9a0254
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
@@ -16,7 +12,7 @@
     <script src="../../../public/javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
     <script src="../../../public/javascripts/bootstrap.js" type="text/javascript"></script>
 	<script src="../../../public/javascripts/jquery.min.js"></script>
-<<<<<<< HEAD
+
   <script src="../../../public/javascripts/popup.min.js"></script>
 </head>
 <body>
