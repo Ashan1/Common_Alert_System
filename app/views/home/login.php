@@ -1,8 +1,5 @@
-<div class="container-fluid">
+<div>
     <div class="row">
-        <div class="col-sm-6">
-            <img class="img-responsive" src="images/login_left.png"/>
-        </div>
         <div class="col-sm-6 login_div">
             <h3 class="login_h text-center">WELCOME TO <span class="span_cas">CAS</span></h3>
             <h2 class="login_h text-center">USER LOGIN</h2>

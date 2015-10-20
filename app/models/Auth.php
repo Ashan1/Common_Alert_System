@@ -10,7 +10,7 @@ else{
     $mysql_hostname = 'localhost';
     $mysql_username = 'root';
     $mysql_password = '';
-    $mysql_db_name = 'common_alert_system';
+    $mysql_db_name = 'cas';
 
     try{
         $conn = new PDO("mysql:host=$mysql_hostname; dbname=$mysql_db_name;", $mysql_username, $mysql_password);
@@ -19,14 +19,14 @@ else{
         $E_username = filter_var($_POST['User_Name'], FILTER_SANITIZE_STRING);
         $E_pwd = filter_var($_POST['Password'], FILTER_SANITIZE_STRING);
 
-        $stmt = $conn->prepare("SELECT *  FROM employee WHERE E_EMAIL = :email");
+        $stmt = $conn->prepare("SELECT *  FROM employee WHERE email = :email");
         $stmt->bindParam('email', $E_username);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (count($result)>0 && (password_verify($E_pwd, $result['E_Password']))){
+        if (count($result)>0 && (password_verify($E_pwd, $result['password']))){
 
-            echo "Login Successful";
+            header('Location: ../../public/index1.php');
         }
         else{
             echo "Login Failed";
