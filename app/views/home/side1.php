@@ -48,7 +48,7 @@
                 </li>
                 <li>
                     <a href="../app/views/home/adduser.php">
-                        <i class="fa fa-dashboard"></i> <span>Admin Panel</span>
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
 

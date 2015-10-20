@@ -29,10 +29,10 @@ else{
                 header('Location: ../../public/index1.php');
             }
             elseif ($result['role'] == "Administrator"){
-                echo $result['role'];
+                header('Location: ../../public/index1.php');
             }
             elseif ($result['role'] == "Operational User"){
-                echo $result['role'];
+                header('Location: ../../public/index2.php');
             }
             else{
                 echo $result['role'];
