@@ -49,6 +49,7 @@
     <link href="../../../public/stylesheets/new.css" rel="stylesheet">
 
 
+
 </head>
 <body class="skin-black pace-done">
 <div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
@@ -279,61 +280,11 @@
 	 
 								<h2 style="color:#000000; float:left;">EXTERNAL AUTHORITY DETAILS</h2>
 		
-									<div style="float:right;">
-										<button class="div_button" data-toggle="modal"  type="button"  ><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
-									</div>
-									<div style="float:right;">
-										<button class="div_button" data-toggle="modal" type="button" ><img src="../../../public/images/delete.png" class="div_button_img">Remove</button>
-									</div>
-									<div style="float:right;">
-										<button class="div_button" data-toggle="modal" data-target="#myModal" type="button" ><img src="../../../public/images/building.png" class="div_button_img">Add New</button>
-									</div>
-									<div class="modal fade" id="myModal" role="dialog" style="padding-top:100px;" >
-										<div class="modal-dialog" style="margin-left: 380px;">
-											<div class="row" style="margin-top: 20px;">
-												<div class="col-md-8 col-md-offset-2" style="background-color:black;background: rgba(0, 0, 0, 0.6);height: 400px;width: 530px;">
-  
-												<h4 style="color:white;text-align:left;padding-top: 10px;padding-bottom:10px;">ADD EXTERNAL AUTHORITY</h4>
-													
-													<form class="form-horizontal" action="../../../public/php/external_auth.php"  method="post">
-                                                        <div class="form-group ext_form">
-															<div class="col-xs-10">
-                                                                <label for="inputName" class="control-label" style="color:white;">Department Name:</label>
-                                                                <input type="name" name="auth_name" class="form-control ext_input" id="inputName" align="center"style="margin-left: 150px;"  placeholder="Name" required>
-															</div>
-														</div>
-                                                        <div class="form-group ext_form">
-															<div class="col-xs-10">
-                                                                <label for="inputmobile" class="control-label" style="color:white;">Department Number:</label>
-                                                                <input type="tel" name="auth_tel" class="form-control ext_input" align="center" style="margin-left: 150px;" id="inputEmail" placeholder="Telphone Number" pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
-															</div>
-														</div>
-                                                        <div class="form-group ext_form">
-															<div class="col-xs-10">
-                                                                <label for="inputAddress" class="control-label" style="color:white;">Department Address:</label>
-                                                                <input type="address" name="auth_address" class="form-control ext_input" id="inputAddress" align="center"style="margin-left: 150px;" placeholder="Address" required>
-															</div>
-														</div>
-                                                        <div class="form-group ext_form">
-															<div class="col-xs-10">
-                                                                <label for="inputEmail" class="control-label" style="color:white;">Department Email:</label>
-                                                                <input type="email" class="form-control ext_input" name="auth_email" align="center"style="margin-left: 150px;" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="inputEmail"  data-error="Brush, that email address is invalid" required>>
-															</div>
-														</div>
-														<div class="form-group ext_form">
-															<div class="col-xs-offset-2 col-xs-10"style="margin-left: 310px;">
-                                                                <button type="Submit" class="btn modal_btn" id="submit"  value="Submit">Add</button>
-                                                                <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;">Cancel</button>
-															</div>		
-														</div>
-													</form>
-												</div>
-											</div>
-										</div>
+											
 									</div>
 
 							</div> <!--recent ends-->
-						</div>	 
+							 
 						
 	<div id="content" scrolling="yes">
 		 <?php
@@ -356,14 +307,12 @@
 	
         <?php
           while( $row = mysql_fetch_assoc( $result ) ){
-              $id= $row['Auth_tel'];
             echo
             "<tr>
               <td>{$row['Auth_name']}</td>
               <td>{$row['Auth_tel']}</td>
               <td>{$row['Auth_address']}</td>
               <td>{$row['Auth_email']}</td>
-              <td>" . "<form action='test1.php' method='POST'><button type='submit' name='delete'  id= '$id'  value='$id' ></button></form>" .  "</td>
 		    </tr>\n";
           }
         ?>

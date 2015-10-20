@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>CAS</title>
- <script src="javascripts/jquery.min.js"></script>
-  <script src="javascripts/popup.min.js"></script>
-	
-    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="stylesheets/new.css" rel="stylesheet"> 
-
-</head>
-<body>
 <?php
 include "connect.php";
 
+$button = $_POST['update'];
+$button2 = $_POST['delete'];
 $name = $_POST['formName'];
 $email = $_POST['formEmail'];
 $nic =  $_POST['formNIC'];
@@ -30,8 +17,8 @@ $pw = "CAS@123";
 $sql = "INSERT INTO employee (E_name, E_nic, E_email, E_tel, E_address, E_job_role, E_image, E_username, E_password) VALUES ('$name', '$nic' ,'$email', '$mobile', '$add', '$role', '$image','$email','$pw')";
 
 if(mysql_query($sql)){
-	
-} else{
+    header('location:../../app/views/home/adduser.php');
+} else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error();
 }
  
