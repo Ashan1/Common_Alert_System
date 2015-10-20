@@ -7,7 +7,9 @@ $database="cas";  //database name which you created
 $con=mysql_connect($hostname,$username,$password);
 if(! $con)
 {
+echo "wede del";
 die('Connection Failed'.mysql_error());
+}else{
 }
 mysql_select_db($database,$con);
 ?>

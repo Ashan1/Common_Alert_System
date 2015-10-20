@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2015 at 07:31 PM
+-- Generation Time: Oct 20, 2015 at 09:22 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -32,14 +32,25 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `A_time` time DEFAULT NULL,
   `A_description` varchar(255) DEFAULT NULL,
   `A_status` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `activities`
 --
 
 INSERT INTO `activities` (`A_ID`, `A_date`, `A_time`, `A_description`, `A_status`) VALUES
-(1, '2015-10-15', '20:56:16', 'Email send', 'Success');
+(1, '2015-10-15', '20:56:16', 'Email send', 'Success'),
+(2, '2015-10-14', '04:27:00', 'email send to director ', 'completed '),
+(3, '2015-10-15', '10:00:00', 'fire alert notify to the people ', 'completed '),
+(4, '2015-10-16', '09:00:00', 'tsunami alert notified to the people ', 'completed '),
+(5, '2015-10-18', '16:00:00', 'email send to the director board ', 'completed '),
+(6, '2015-10-19', '17:00:00', 'notify the people about the landslide ', 'completed '),
+(7, '2015-10-20', '15:00:00', 'send email to the director ', 'completed '),
+(8, '2015-10-15', '20:56:16', 'Email send', 'Success'),
+(9, '2015-10-08', '04:27:00', 'Authenticate Email', 'Complete'),
+(10, '2015-10-10', '12:30:00', 'Send Email', 'Pending'),
+(11, '2015-10-12', '19:08:00', 'Broadcast News about Tsunami', 'Complete'),
+(12, '2015-10-14', '01:49:00', 'Send Email', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -158,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `role` varchar(100) COLLATE utf8_bin NOT NULL,
   `image` longblob NOT NULL,
   `username` varchar(25) COLLATE utf8_bin NOT NULL,
-  `password` varchar(15) COLLATE utf8_bin NOT NULL
+  `password` char(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -166,11 +177,11 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`Emp_ID`, `E_name`, `E_nic`, `email`, `tel`, `address`, `role`, `image`, `username`, `password`) VALUES
-(1, 'Dilini weerasinghe', '916191197v', 'dweerasinghe91@gmail.com', '0718759697', 'Galketiya,Haliela', 'General User', '', 'dweerasinghe91@gmail.com', 'CAS@123'),
+(1, 'Dilini weerasinghe', '916191197v', 'dweerasinghe91@gmail.com', '0718759697', 'Galketiya,Haliela', 'Executive User', '', 'dweerasinghe91@gmail.com', '$2y$11$LQ4vHYYFt0dBaglpeE4HY.TnMspy/Ecft1WH0qCEDWnbOkOKDhEva'),
 (3, 'Pasan Madara', '926586637v', 'pmartz@gmail.com', '0718569795', 'Malabe,Kaduwela', 'Executive User', '', 'pmartz@gmail.com', 'CAS@123'),
 (4, 'Ashan Maduranga', '92658563345v', 'ashanmaduranga92@gmail.com', '0778536452', 'Dekatana', 'Executive User', '', 'ashanmaduranga92@gmail.co', 'CAS@123'),
-(5, 'Thushara Dhanayake', '915864452v', 'thusharadahanayake@gmail.com', '0715870087', 'Sewanagala,Abilipitiya', 'Operational User', '', 'thusharadahanayake@gmail.', 'CAS@123'),
-(6, 'Nathaliya Jayawardana', '935624478v', 'nathaliyajayawardana@yahoo.com', '0778563252', 'Kiribathgoda', 'General User', '', 'nathaliyajayawardana@yaho', 'CAS@123'),
+(5, 'Thushara Dhanayake', '915864452v', 'thusharadahanayake@gmail.com', '0715870087', 'Sewanagala,Ebilipitiya', 'Executive User', '', 'thusharadahanayake@gmail.', 'CAS@123'),
+(6, 'Nathaliya Jayawardana', '935624478v', 'nathaliyajayawardana@yahoo.com', '0778563252', 'Kiribathgoda', 'Executive User', '', 'nathaliyajayawardana@yaho', 'CAS@123'),
 (7, 'Imasha Dilshani', '914563352v', 'imashadilshani@gmail.com', '07118234212', 'Matara', 'General User', '', 'imashadilshani@gmail.com', 'CAS@123'),
 (8, 'Dili Madhubhashini', '916191197v', 'diliniweerasinghe28@yahoo.com', '0718759697', 'Haliela,Badulla', 'Administrator', '', 'diliniweerasinghe28@yahoo', 'CAS@123');
 
@@ -226,10 +237,30 @@ CREATE TABLE IF NOT EXISTS `landslide` (
 
 CREATE TABLE IF NOT EXISTS `notification` (
   `Notification_ID` int(5) NOT NULL,
-  `validation` varchar(5) COLLATE utf8_bin NOT NULL,
-  `Email_ID` int(5) NOT NULL,
-  `Web_ID` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `Date` date DEFAULT NULL,
+  `Country` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `City` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `Time` time DEFAULT NULL,
+  `Scale` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `N_Condition` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `Types` varchar(50) COLLATE utf8_bin NOT NULL,
+  `validation` varchar(5) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`Notification_ID`, `Date`, `Country`, `City`, `Time`, `Scale`, `N_Condition`, `Types`, `validation`) VALUES
+(3, '2015-10-20', 'Srilanka', 'Colombo 07', '10:51:19', '150kmph', 'Critical', 'Cyclones', ''),
+(4, '2015-10-19', 'Indoneesia', 'Kanlidak', '07:15:42', '4.8', 'Nomal', 'Earth Quakes', ''),
+(5, '2015-10-17', 'India', 'Delhi', '21:28:29', '300kmph', 'Very Critical', 'Cyclones', ''),
+(6, '2015-10-10', 'Japan', 'Nagasaki', '10:03:54', 'High', 'Critical', 'Volcanos', ''),
+(7, '2015-10-06', 'China', 'Beigin', '00:33:54', '150cm', 'Low', 'Floods', ''),
+(8, '2015-10-08', 'America', 'NY', '17:03:54', 'High', 'Critical', 'Fires', ''),
+(9, '2015-10-06', 'South Africa', 'Durblin', '13:45:34', 'High', 'Critical', 'Landslides', ''),
+(10, '2015-10-05', 'Australia', 'Sidney', '21:45:34', '9.0', 'Critical', 'Tsunami', ''),
+(11, '0000-00-00', 'Maldives', 'Male', '11:05:34', 'Low', 'Nomal', 'Volcanos', '');
 
 -- --------------------------------------------------------
 
@@ -246,14 +277,15 @@ CREATE TABLE IF NOT EXISTS `temporary` (
   `T_mobile` varchar(15) COLLATE utf8_bin DEFAULT NULL,
   `T_address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `T_password` varchar(255) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `temporary`
 --
 
 INSERT INTO `temporary` (`Temp_ID`, `T_name`, `T_email`, `T_nic`, `T_title`, `T_mobile`, `T_address`, `T_password`) VALUES
-(1, 'njnjinir', 'aaaaa@aaa.aaa', 'aaaaaaaaaa', 'aaaaaaaa', '1234567890', 'Address', 'cas@123');
+(1, 'njnjinir', 'aaaaa@aaa.aaa', 'aaaaaaaaaa', 'aaaaaaaa', '1234567890', 'Address', 'cas@123'),
+(2, 'Name', 'hfhg@hfhg.yjy', '1234567890', 'Title', '1234567890', 'Address', 'cas@123');
 
 -- --------------------------------------------------------
 
@@ -359,9 +391,7 @@ ALTER TABLE `landslide`
 -- Indexes for table `notification`
 --
 ALTER TABLE `notification`
-  ADD PRIMARY KEY (`Notification_ID`),
-  ADD KEY `Web_ID` (`Web_ID`),
-  ADD KEY `Email_ID` (`Email_ID`);
+  ADD PRIMARY KEY (`Notification_ID`);
 
 --
 -- Indexes for table `temporary`
@@ -383,7 +413,7 @@ ALTER TABLE `website`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `A_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `A_ID` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `alert`
 --
@@ -418,12 +448,12 @@ ALTER TABLE `external_authority`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `Notification_ID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `Notification_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `temporary`
 --
 ALTER TABLE `temporary`
-  MODIFY `Temp_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `Temp_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `website`
 --
@@ -483,13 +513,6 @@ ALTER TABLE `flood`
 --
 ALTER TABLE `landslide`
   ADD CONSTRAINT `landslide_ibfk_1` FOREIGN KEY (`Disaster_ID`) REFERENCES `disaster` (`Disaster_ID`);
-
---
--- Constraints for table `notification`
---
-ALTER TABLE `notification`
-  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`Web_ID`) REFERENCES `website` (`Web_ID`),
-  ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`Email_ID`) REFERENCES `email` (`Email_ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
