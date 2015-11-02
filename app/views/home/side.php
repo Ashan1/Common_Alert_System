@@ -25,7 +25,7 @@
                              </form>-->
             <ul class="sidebar-menu">
                 <li>
-                    <a href="">
+                    <a href="index1.php">
                         <i class="fa fa-home"></i> <span>Home</span>
                     </a>
                 </li>
@@ -42,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="../app/views/home/External_User.php">
                         <i class="fa fa-envelope"></i> <span>External Users</span>
                     </a>
                 </li>

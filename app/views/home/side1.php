@@ -42,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="../app/views/home/External_User.php">
                         <i class="fa fa-envelope"></i> <span>External Users</span>
                     </a>
                 </li>
