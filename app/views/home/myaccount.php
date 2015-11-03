@@ -280,7 +280,7 @@
 
 <?php
 include "../../../public/php/connect.php";
-$sql = mysql_query("SELECT * FROM employee where E_nic='92658563345v'");
+$sql = mysql_query("SELECT * FROM employee where E_nic='111111111v'");
 
 while($record=mysql_fetch_array($sql)){
     ?>
@@ -421,22 +421,22 @@ while($record=mysql_fetch_array($sql)){
             Address
         </li>
 
-        <!--edit_form-->
-        <div class="modal fade" id="myModal4" data-backdrop="static" role="dialog" action="" >
-            <div class="modal-dialog">
-                <div class="row" style=" margin-top: 150px;margin-left: 100px;">
-                    <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 410px; height: 225px;" >
-                        <h4 style="color:white;text-align:left;">CHANGE ADDRESS</h4>
-                        <p style="color:white;">Add your current address for future use.</p>
-                        <form class="form-horizontal" action="../../../public/php/update_myaccount.php"  method="post">
-                            <div class="form-group ext_form">
-                                <div class="col-xs-10">
-                                    <label for="inputAddress" class="control-label" style="color:white;">Address :</label>
-                                    <input type="name" name="up_address" class="form-control modal_input" align="center" style="width:276px;margin-top:-25px;margin-left:90px;" value=<?php echo $record[E_address];?> id="inputAddress" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-offset-2 col-xs-10 move" style="margin-left:175px;">
+                          <!--edit_form-->
+                                <div class="modal fade" id="myModal4" data-backdrop="static" role="dialog" action="" >
+                                    <div class="modal-dialog">
+                                        <div class="row" style=" margin-top: 150px;margin-left: 100px;">
+                                            <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 410px; height: 225px;" >
+                                                <h4 style="color:white;text-align:left;">CHANGE ADDRESS</h4>
+                                                <p style="color:white;">Add your current address for future use.</p>
+                                                <form class="form-horizontal" action="../../../public/php/update_myaccount.php"  method="post">
+                                                    <div class="form-group ext_form">
+                                                        <div class="col-xs-10">
+                                                            <label for="inputAddress" class="control-label" style="color:white;">Address :</label>
+                                                            <input type="name" name="up_address" class="form-control modal_input" align="center" style="width:276px;margin-top:-25px;margin-left:90px;" value=<?php echo $record[E_address];?> id="inputAddress" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <div class="col-xs-offset-2 col-xs-10 move" style="margin-left:175px;">
                                     <button type="Submit" class="btn modal_btn" id="submit"  value="Submit">Save</button>
                                     <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;">Cancel</button>
                                 </div>
