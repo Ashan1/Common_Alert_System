@@ -21,24 +21,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../app/views/home/disaster.php">
+                    <a href="disaster.php">
                         <i class="fa fa-globe"></i> <span>Disasters</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="../app/views/home/alert.php">
+                    <a href="alert.php">
                         <i class="fa fa-exclamation-triangle"></i> <span>Alerts</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="../app/views/home/externalUsers.php">
+                    <a href="externalUsers.php">
                         <i class="fa fa-envelope"></i> <span>External Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../app/views/home/myaccount.php">
+                    <a href="myaccount.php">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>

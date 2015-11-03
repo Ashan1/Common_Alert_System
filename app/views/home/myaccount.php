@@ -272,15 +272,15 @@
 
 <div>
 <aside class="left-side">
-    <?php include('side.php');?>
+    <?php include('side2.php');?>
 </aside>
 <aside class="right-side rgt">
 <!-- Page Content -->
 <div class="col-lg-12">
 
 <?php
-include "../../../public/php/connect.php";
-$sql = mysql_query("SELECT * FROM employee where E_nic='92658563345v'");
+include "connect.php";
+$sql = mysql_query("SELECT * FROM employee where E_nic='926586637v'");
 
 while($record=mysql_fetch_array($sql)){
     ?>
@@ -321,7 +321,7 @@ while($record=mysql_fetch_array($sql)){
                             <div class="form-group ext_form">
                                 <div class="col-xs-10">
                                     <label for="inputUserame" class="control-label" style="color:white;">Username :</label>
-                                    <input type="text" name="up_userame" class="form-control modal_input" align="center" style="width:276px;margin-top:-25px;margin-left:90px;" value=<?php echo $record[E_username];?> id="inputUsername" required>
+                                    <input type="text" name="up_userame" class="form-control modal_input" align="center" id="inputUsername" required style="width:276px;margin-top:-25px;margin-left:90px;" value="<?php echo $record[E_username];?>"  >
                                 </div>
                             </div>
                             <div class="help-block with-errors"></div>
