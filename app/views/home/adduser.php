@@ -128,7 +128,7 @@
     <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="../../../public/stylesheets/new.css" rel="stylesheet">
 
-<<<<<<< HEAD
+
 	<script src="../../../public/javascripts/jquery.min.js"></script>
 	<script src="../../../public/javascripts/popup.min.js"></script>
 
@@ -330,7 +330,6 @@ if(isset($_POST['delete'])){
               <td>{$row['E_job_role']}</td>
               <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' value='$id'>"."</td>
 		    </tr>\n";
-<<<<<<< HEAD
         }
         ?>
       </tbody>
@@ -344,7 +343,7 @@ if(isset($_POST['delete'])){
                     <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">|||</a>-->
      <!-- /page-content-->
 	</aside>
-=======
+
 
                             }
                             ?>
@@ -408,7 +407,7 @@ if(isset($_POST['delete'])){
         <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">|||</a>-->
         <!-- /page-content-->
     </aside>
->>>>>>> e92a1cb45e57c9dadccae3d1c431c2a90565b764
+
 </div>
 
 </body>
