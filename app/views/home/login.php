@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col-sm-3">
-                    <button id="signup" class="btn btn-sign pull-right">Sign up</button>
+                    <button id="signup" onclick="window.location='../app/views/home/signup.php'" class="btn btn-sign pull-right">Sign up</button>
                 </div>
             </form>
         </div>

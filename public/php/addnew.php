@@ -25,5 +25,4 @@ if(mysql_query($sql)){
 // close connection
 mysql_close();
 ?>
-</body>
-</html>
+
