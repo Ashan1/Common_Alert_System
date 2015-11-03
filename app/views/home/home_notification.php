@@ -1,27 +1,32 @@
-<?php include'../app/views/home/connect.php'; ?>
+<?php
+
+include'../app/views/home/connect.php';
+include'../app/views/home/disasterCount.php';
+
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
            <div class="home-tabheader row disaster-notify">
                <div class="col-lg-4">
                    <ul>
-                       <li><i class="dis-cracked2" style=""></i> <span>EARTHQUAKES - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Earth Quakes'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Landslides'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-fire14" style=""></i> <span>FIRE - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Fires'"); echo mysql_result($result, 000); ?></span></li>
+                       <li><i class="dis-cracked2" style=""></i> <span>EARTHQUAKES - <?php echo $earthq; ?></span></li>
+                       <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php echo $landslides; ?></span></li>
+                       <li><i class="dis-fire14" style=""></i> <span>FIRE - <?php echo $fire; ?></span></li>
                    </ul>
                </div>
                <div class="col-lg-4">
                    <ul>
-                       <li><i class="dis-hurricane" style=""></i> <span>CYCLONES - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Cyclones'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-waves8" style=""></i> <span>FLOODS - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Floods'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-tsunami1" style=""></i> <span>TSUNAMI - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Tsunami'"); echo mysql_result($result, 000); ?></span></li>
+                       <li><i class="dis-hurricane" style=""></i> <span>CYCLONES - <?php echo $cyclone; ?></span></li>
+                       <li><i class="dis-waves8" style=""></i> <span>FLOODS -<?php echo $flood; ?></span></li>
+                       <li><i class="dis-tsunami1" style=""></i> <span>TSUNAMI -<?php echo $tsunami; ?></span></li>
                    </ul>
                </div>
                <div class="col-lg-4">
                    <ul>
-                       <li><i class="dis-erupting" style=""></i> <span>VOLCANO - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Volcanos'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Landslides'"); echo mysql_result($result, 000); ?></span></li>
-                       <li><i class="dis-fire14" style=""></i> <span>FIRE - <?php $result = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM notification WHERE Types='Fires'"); echo mysql_result($result, 000); ?></span></li>
+                       <li><i class="dis-erupting" style=""></i> <span>VOLCANO - <?php echo $volcano; ?></span></li>
+                       <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php echo $landslides; ?></span></li>
+                       <li><i class="dis-fire14" style=""></i> <span>FIRE - <?php echo $fire; ?></span></li>
                    </ul>
                </div>
            </div>

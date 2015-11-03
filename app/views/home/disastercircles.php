@@ -1,3 +1,6 @@
+<?php include'connect.php';
+include'disasterCount.php';
+?>
 <div class="container-fluid">
     <div class="row">
        <div class="col-lg-12">
@@ -10,11 +13,12 @@
        </div>
     </div>
 </div>
+
 <script src="javascripts/circle-progress.js"></script>
 <script>
     var c1 = $('.circle1').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: 0.8,
+        value: <?php echo $earthq/$totalDisasters ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#f56d18' }
@@ -22,7 +26,7 @@
 
     var c2 = $('.circle2').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: 0.66,
+        value: <?php echo $cyclone/$totalDisasters ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#5bb503' }
@@ -30,7 +34,7 @@
 
     var c3 = $('.circle3').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: 0.35,
+        value: <?php echo $flood/$totalDisasters ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#0ca2d3' }
@@ -38,7 +42,7 @@
 
     var c4 = $('.circle4').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: 0.12,
+        value: <?php echo $landslides/$totalDisasters ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#ed054c' }

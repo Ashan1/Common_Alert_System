@@ -1,6 +1,13 @@
-<div class="container-fluid" style="background-color:#3c763d; color:#fff">
-    <div></div>
-    <div>
-        Disasters goes here
-    </div>
+<?php include('header.php');?>
+
+<div>
+    <aside class="left-side">
+        <?php include('side2.php');?>
+    </aside>
+    <aside class="right-side">
+        <p>.,dsjgkfalb</p>
+    </aside>
 </div>
+
+</body>
+</html>
