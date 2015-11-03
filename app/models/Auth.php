@@ -24,6 +24,7 @@ else{
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
         if (count($result)>0 && (password_verify($E_pwd, $result['password']))){
             if ($result['role'] == "Executive User"){
                 header('Location: ../../public/index1.php');
@@ -35,11 +36,10 @@ else{
                 header('Location: ../../public/index2.php');
             }
             else{
-                echo $result['role'];
+                header('Location: ../../public/index2.php');
             }
         }
         else{
-            echo "Login Failed";
         }
 
 

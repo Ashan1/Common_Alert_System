@@ -35,7 +35,7 @@
                                pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
                         <input class="Regisration-form-text" type="text" id="formAddress"name="formAddress"  placeholder="Address" onfocus="this.value = '';" required>
                         <!--<input type="password" value=" Confirm Password" onfocus="this.value = '';" <!--onblur="if (this.value == '') {this.value = ' Confirm Password';}" >-->
-                            <div class="recaptcha">https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
+                            <div class="recaptcha">
                                 <div class="g-recaptcha" data-sitekey="6LcSYQwTAAAAALOQNn_wyIOL7KJ7JtFnpqBJT4lQ" aria-required="true"></div>
                             </div>
                             <div class="submit" style="margin-left:40%">
