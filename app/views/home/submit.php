@@ -26,6 +26,8 @@ $nic =  test_input($_POST['formNIC']);
 $title = test_input($_POST['formTitle']);
 $mobile = test_input($_POST['formMobile']);
 $address = test_input($_POST['formAddress']);
+$options = array('cost' => 11);
+$pwd=password_hash("cas@123", PASSWORD_BCRYPT, $options);
 
 function test_input($data)
 {
@@ -51,16 +53,17 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO temporary (T_name,T_email,T_nic,T_title,T_mobile,T_address,T_password)
-VALUES ('$name', '$email','$nic','$title','$mobile','$address','cas@123')";
+VALUES ('$name', '$email','$nic','$title','$mobile','$address','$pwd')";
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "New record created successfully";
+
 }
 catch(PDOException $e)
 {
     echo $sql . "<br>" . $e->getMessage();
 }
-
+echo "Registration Complete";
+header('Location:../../../public/index.php');
 $conn = null;
 ?>
 <label type="button" name="back">
