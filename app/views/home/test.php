@@ -1,4 +1,6 @@
+
 <?php
+
     //$url = "http://www.irrigation.gov.lk/index.php?option=com_gmapfp&view=gmapfp&layout=categorie&catid=125&id_perso=0&Itemid=223&lang=en";
     $url = "http://www.irrigation.gov.lk/index.php?option=com_gmapfp&view=gmapfp&layout=categorie&catid=124&id_perso=0&Itemid=221&lang=en";
     $html = file_get_contents($url);
@@ -9,14 +11,46 @@
 
     //var_dump($posts);
 
+    $arrlat = array();
+    $arrlong = array();
     foreach ($posts as $post) {
-        //var_dump($post);
+        $arrlat[] = $post[1];
+        $arrlong[] = $post[3];
+        echo "<table style='border: thin solid #000'>
+                <th>$post[14]</th>
+                <tr>
+                <td><p>District</p></td>
+                <td>$post[34]</td>
+                </tr>
+
+                <tr>
+                <td>$post[42]</td>
+                <td>$post[1]</br>
+                    $post[3]</td>
+                </tr>
+
+                <tr>
+                <td>$post[90]</td>
+                <td>$post[95]</td>
+                </tr>
+
+                <tr>
+                <td>$post[67]</td>
+                <td>$post[70]</td>
+                </tr>
+
+                <tr>
+                <td>$post[102]</td>
+                <td>$post[107]</td>
+                </tr>
+</table>";
+
         //echo $post[1]; //Latitude
         //echo $post[3]; //Longitude
         //echo $post[14];//Resovire name
-        echo " ";
+        //echo " ";
         //echo $post[34];//District name
-        echo "<br />";
+        //echo "<br />";
         //echo $post[42];//Co-ordinates
         //echo $post[67];//Major Basin
         //echo $post[70];//Basin River
@@ -29,13 +63,12 @@
         //echo $post[114];//Bund Height
         //echo $post[119];//Bund height value
 
-        //echo $post[15];
 
     }
 
 
 
-    echo "<p>" . count($posts) . " posts found</p>";
+    //echo "<p>" . count($posts) . " posts found</p>";
 
 
     /*$html = file_get_contents("http://www.programminghelp.com/");
