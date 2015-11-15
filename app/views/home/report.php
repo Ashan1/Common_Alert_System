@@ -2,27 +2,8 @@
 
 <head>
     <script src="../../../public/javascripts/jquery.min.js"></script>
-    <script>
-        function Printpage() {
-            var alphaExp = /^[a-zA-Z]+$/;
-            if(document.myForm.name.match(alphaExp)){
-                print();
-                document.myForm.name.focus();
-                return false;
-            }
+    <script src="../../../public/javascripts/report.js" type="text/javascript"></script>
 
-            $(".btn1").click(function(){
-                $("p.btn1").hide();
-            });
-        }
-    </script>
-    <script>
-        $(document).ready(function(){
-            $(".btn1").click(function(){
-                $(".btn1").hide();
-            });
-        });
-    </script>
 
 </head>
 <body style="background-color: #d0e3f0; border: 2px solid black;">
@@ -31,29 +12,38 @@
 
 
 $favcolor = $_GET['type'];
+
 switch ($favcolor) {
     case "D":
-        $Date=date('y/m/d');
+        $Date= $_GET['d'];
         $sql= mysql_query("SELECT * FROM disaster WHERE date='$Date'");
         break;
     case "W":
-        $Date=date('y/m/d');
+        $Date3=date('y/m/d');
         $Date2=date('y/m/d',strtotime("-7 days"));
-        $sql=mysql_query("Select * from disaster where date between '" . $Date2 . "' AND  '" . $Date . "'");
+        $sql=mysql_query("Select * from disaster where date between '" . $Date2 . "' AND  '" . $Date3 . "'");
         break;
     case "M":
-        $sql=mysql_query("Select * from disaster where date>=(CURDATE()-INTERVAL 1 MONTH)");
+        $yr= $_GET['yr'];
+        $mon= $_GET['mon'];
+        $st=($yr.'/'.$mon.'/01');
+        $end=($yr.'/'.$mon.'/31');
+        $sql=mysql_query("Select * from disaster where date between '" . $st . "' AND  '" . $end . "'");
+        break;
+    case "Yearly":
+        echo "DFDF";
+        $y= $_GET['y'];
+        $yst=($y.'/01/01');
+        $yend=($y.'/12/31');
+        $sql=mysql_query("Select * from disaster where date between '" . $yst . "' AND  '" . $yend . "'");
+        break;
+    case "O":
+        /*$fd= $_GET['fd'];
+        $td= $_GET['td'];
+        $sql=mysql_query("Select * from disaster where date between '" . $fd . "' AND  '" . $td . "'");*/
 
         break;
-    case "Y":
-        $sql=mysql_query("Select * from disaster where date>=(CURDATE()-INTERVAL 1 YEAR)");
-        break;
-    case "#5":
-        echo "Your favorite color is green!";
-        break;
     default:
-        /*echo $Date=date("Y/m/d-l");*/
-        echo "Your favorite color is neither red, blue, nor green!";
 }
 $today=date('y-m-d-l');
 
