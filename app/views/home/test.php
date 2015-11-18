@@ -10,44 +10,28 @@
     preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
     //var_dump($posts);
+    $data = array();
 
-    $arrlat = array();
-    $arrlong = array();
     foreach ($posts as $post) {
-        $arrlat[] = $post[1];
-        $arrlong[] = $post[3];
-        echo "<table style='border: thin solid #000'>
-                <th>$post[14]</th>
-                <tr>
-                <td><p>District</p></td>
-                <td>$post[34]</td>
-                </tr>
+        $instance = array(
+            'reservoir_name' => $post[14],
+            'district' => $post[34],
+            'lat' => floatval($post[1]),
+            'long' => floatval($post[3]),
+            $post[67] => $post[70],
+            $post[76] => $post[81],
+            $post[90] => $post[95],
+            $post[102] => $post[107]
 
-                <tr>
-                <td>$post[42]</td>
-                <td>$post[1]</br>
-                    $post[3]</td>
-                </tr>
 
-                <tr>
-                <td>$post[90]</td>
-                <td>$post[95]</td>
-                </tr>
+        );
 
-                <tr>
-                <td>$post[67]</td>
-                <td>$post[70]</td>
-                </tr>
+        array_push($data, $instance);
 
-                <tr>
-                <td>$post[102]</td>
-                <td>$post[107]</td>
-                </tr>
-</table>";
 
         //echo $post[1]; //Latitude
         //echo $post[3]; //Longitude
-        //echo $post[14];//Resovire name
+        //echo $post[14];//Reservoir name
         //echo " ";
         //echo $post[34];//District name
         //echo "<br />";
@@ -63,9 +47,9 @@
         //echo $post[114];//Bund Height
         //echo $post[119];//Bund height value
 
-
     }
 
+    $data = json_encode($data);
 
 
     //echo "<p>" . count($posts) . " posts found</p>";
