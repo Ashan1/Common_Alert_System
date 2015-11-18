@@ -151,7 +151,7 @@
 
 </head>
 
-=======
+
     <script src="../../../public/javascripts/jquery.min.js"></script>
     <script src="../../../public/javascripts/popup.min.js"></script>
 
@@ -287,7 +287,7 @@ if(isset($_POST['delete'])){
                         </div>
                     </div> <!--recent ends-->
                 </div>
->>>>>>> e92a1cb45e57c9dadccae3d1c431c2a90565b764
+
 
 
 

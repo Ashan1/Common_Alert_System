@@ -24,11 +24,15 @@
                     </div>
                     <form id='signup' name="signup" action="submit.php"  method="POST">
 
+<<<<<<< HEAD
                         <input class="Regisration-form-text" type="text" id="formName"name="formName"  placeholder="Name" onfocus="this.value = '';" pattern="[A-Za-z]" required>
+=======
+                        <input class="Regisration-form-text" type="text" id="formName"name="formName"  placeholder="Name" onfocus="this.value = '';" pattern="[a-zA-Z]+\" required>
+>>>>>>> 4bd36db6327a6722b1fe6f00a2644b98667de590
                         <input class="Regisration-form-text" type="email" id="formEmail"name="formEmail"  placeholder="Email" onfocus="this.value = '';"
                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                         <input class="Regisration-form-text" type="text" id="formNIC"name="formNIC" placeholder="NIC Number" onfocus="this.value = '';"
-                               pattern="[0-9A-Za-z]{10}" title="Format: XXXXXXXXXV" required maxlength="10">
+                               pattern="[0-9]{9}+[V]$" title="Format: XXXXXXXXXV" required maxlength="10">
                         <input class="Regisration-form-text" type="text" id="formTitle"name="formTitle"  placeholder="Title" onfocus="this.value = '';"
                                required>
                         <input class="Regisration-form-text" type="text" id="formMobile"name="formMobile" placeholder="Mobile Number" onfocus="this.value = '';"
