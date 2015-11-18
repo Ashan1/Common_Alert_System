@@ -1,7 +1,6 @@
-<div class="wrapper row-offcanvas row-offcanvas-left">
-    <!-- Left side column. contains the logo and sidebar -->
+<!-- sidebar: style can be found in sidebar.less -->
+<div class="row-offcanvas row-offcanvas-left">
     <aside class="left-side sidebar-offcanvas">
-        <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">

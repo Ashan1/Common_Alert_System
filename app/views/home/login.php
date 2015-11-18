@@ -9,7 +9,7 @@
             <form class="login-form" action="../app/models/Auth.php" id="login_form" method="post" role="form">
 
                 <div class="input-group col-sm-offset-1 col-sm-11">
-                    <input type="email" name = "User_Name" class="form-control" id="username" placeholder="Username">
+                    <input type="email" name = "User_Name" class="form-control" id="username" placeholder="Username" required>
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-user"></i>
                             </span>
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="input-group col-sm-offset-1 col-sm-11">
-                    <input type="password" name ="Password" class="form-control" id="pwd" placeholder="Password">
+                    <input type="password" name ="Password" class="form-control" id="pwd" placeholder="Password" required>
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-lock"></i>
                             </span>
@@ -39,6 +39,7 @@
 
                 <div class="col-sm-3">
                     <button id="signup" class="btn btn-sign pull-right"><a href="../app/views/home/signup.php">Sign up</a></button>
+
                 </div>
             </form>
         </div>

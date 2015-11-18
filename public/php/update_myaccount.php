@@ -26,6 +26,8 @@ if ($username){
 }else if($password){
 
     if(password_verify($currentpass, $pass)){
+        echo "Your current password is not valid. Please try again" . mysql_error();
+    }else{
 
         $sql2 =  "UPDATE employee SET password='$password' WHERE E_nic= '$id'";
 
@@ -34,8 +36,7 @@ if ($username){
         } else{
             echo "ERROR: Could not able to execute $sql2. " . mysql_error();
         }
-    }else{
-        echo "Your current password is not valid. Please try again" . mysql_error();
+
     }
 }else if($email){
     $sql2 =  "UPDATE employee SET email='$email' WHERE E_nic= '$id'";

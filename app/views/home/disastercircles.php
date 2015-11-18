@@ -3,7 +3,7 @@ include'disasterCount.php';
 ?>
 <div class="container-fluid">
     <div class="row">
-       <div class="col-lg-12">
+       <div class="col-lg-12 col-md-12 col-sm-12">
            <ul>
                <li><div id="circle1"class="circle1"></div></li>
                <li><div id="circle2"class="circle2"></div></li>

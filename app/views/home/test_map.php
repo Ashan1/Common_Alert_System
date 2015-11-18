@@ -2,54 +2,52 @@
 <html>
 <head>
     <style>
-        html, body, #map { margin: 0; padding: 0; height: 100%; }
-    </style>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?libraries=visualization">
-    </script>
-    <script>
-        var map;
-
-        function initialize() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 3,
-                center: {lat: 7.9500, lng: 81.0000},
-                mapTypeId: google.maps.MapTypeId.SATELLITE
-            });
-
-            // Create a <script> tag and set the USGS URL as the source.
-            var script = document.createElement('script');
-            // (In this example we use a locally stored copy instead.)
-            script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
-            document.getElementsByTagName('head')[0].appendChild(script);
+        html, body, #map {
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <?php include('test.php');
+        $count = count($posts);
+    ?>
 
-        // Loop through the results array and place a marker for each
-        // set of coordinates.
-        var infowindow = new google.maps.InfoWindow({});
+    <script>
+        $(function() {
+            //var latlng = {lat: 7.9500, lng: 81.0000};
+            var count = <?php echo $count ?>;
+            var lat = <?php echo $arrlat ?>;
+            var long = <?php echo $arrlong ?>;
 
-        window.eqfeed_callback = function(results) {
-            for (var i = 0; i < results.features.length; i++) {
-                var coords = results.features[i].geometry.coordinates;
-                var place = results.features[i].properties.place;
-                var latLng = new google.maps.LatLng(coords[1],coords[0]);
+            function initialize() {
+                var map;
+                var mapOptions = {
+                    zoom: 8,
+                    center: {lat: 7.9500, lng: 81.0000},
+                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                };
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            }
+
+            for (var i = 0; i < 60; i++) {
+                var latlng = {lat: lat[i], lng: long[i]};
                 var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map
+                    position: latlng,
+                    map: map,
+                    clickable: true
                 });
                 marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
-                google.maps.event.addListener(marker, 'click', function(){
-                    infowindow.setContent("<table><tr><td>One</td><td>"+place+"</td></tr><tr><td>three</td><td>four</td></tr></table>");
-                    infowindow.open(map, this);
-                });
             }
         }
 
 
+        google.maps.event.addDomListener(window, 'load', initialize);
 
-        google.maps.event.addDomListener(window, 'load', initialize)
     </script>
 </head>
+
 <body>
 <div id="map"></div>
 </body>

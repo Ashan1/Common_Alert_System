@@ -128,6 +128,30 @@
     <link href="../../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="../../../public/stylesheets/new.css" rel="stylesheet">
 
+
+	<script src="../../../public/javascripts/jquery.min.js"></script>
+	<script src="../../../public/javascripts/popup.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#update").click(function(){
+                $("p").toggle();
+            });
+            $("#remove").click(function(){
+                $("#table").each(function(){$(".ss").toggle()});
+            });
+;
+        });
+    </script>
+    <script>
+        function myFunction(x) {
+            alert("Row index is: " + x.rowIndex);
+        }
+    </script>
+
+</head>
+
+=======
     <script src="../../../public/javascripts/jquery.min.js"></script>
     <script src="../../../public/javascripts/popup.min.js"></script>
 
@@ -263,6 +287,7 @@ if(isset($_POST['delete'])){
                         </div>
                     </div> <!--recent ends-->
                 </div>
+>>>>>>> e92a1cb45e57c9dadccae3d1c431c2a90565b764
 
 
 
@@ -305,6 +330,20 @@ if(isset($_POST['delete'])){
               <td>{$row['E_job_role']}</td>
               <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' value='$id'>"."</td>
 		    </tr>\n";
+        }
+        ?>
+      </tbody>
+    </table>
+     <?php mysql_close($connector); ?>
+	</div>
+
+					</div><!--layout ends-->
+				</div>
+
+                    <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">|||</a>-->
+     <!-- /page-content-->
+	</aside>
+
 
                             }
                             ?>
@@ -368,6 +407,7 @@ if(isset($_POST['delete'])){
         <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">|||</a>-->
         <!-- /page-content-->
     </aside>
+
 </div>
 
 </body>

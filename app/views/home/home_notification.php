@@ -47,9 +47,11 @@ include'../app/views/home/disasterCount.php';
             <col width="200">
             <col width="200">
             <col width="200">
+            <col width="200">
             <thead>
             <tr CLASS="thcolor">
                 <th>DATE</th>
+                <th>DISASTER TYPE</th>
                 <th>COUNTRY</th>
                 <th>CITY</th>
                 <th>TIME</th>
@@ -64,6 +66,7 @@ include'../app/views/home/disasterCount.php';
                 echo
                 "<tr>
              <td>{$row['Date']}</td>
+             <td>{$row['Types']}</td>
              <td>{$row['Country']}</td>
              <td>{$row['City']}</td>
              <td>{$row['Time']}</td>

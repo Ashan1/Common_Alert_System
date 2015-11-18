@@ -101,6 +101,11 @@ ul li{
     padding-top:8px;
 }
 
+.canvas {
+    max-width: 100%;
+    height: auto;
+}
+
 .maps{
     height:580px;
     width:100%;
