@@ -43,7 +43,7 @@
                     </div>
                     <div class="row maps tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="slmap">
-                            <object type="text/html" data="../app/views/home/test_disaster_sri_lanka.php"
+                            <object type="text/html" data="../app/views/home/test_map.php"
                                     style="width:100%; height:100%; margin:1%;">
                             </object>
                         </div>
