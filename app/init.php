@@ -1,4 +1,5 @@
 <?php
 
-require_once 'core/App.php';
-require_once 'core/controller.php';
+require_once 'core/init.php';
+
+echo Config::get('mysql/host');
