@@ -38,4 +38,12 @@ class DB{
     public function error(){
         return $this->_error;
     }
+
+    public function count(){
+        return $this->_count;
+    }
+
+    public function result(){
+        return $this->_results;
+    }
 }
