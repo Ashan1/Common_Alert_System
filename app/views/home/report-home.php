@@ -2,7 +2,7 @@
 
 <head>
     <script src="../../../public/javascripts/jquery.min.js"></script>
-    <script src="../../../public/javascripts/report.js" type="text/javascript"></script>
+    <!--<script src="../../../public/javascripts/report.js" type="text/javascript"></script>-->
 </head>
 
 <div>
@@ -10,7 +10,7 @@
         <h1 style="color: #00080C;text-align: left">GENERATE REPORT</h1>
         <div class="col-lg-2" style="font-size: larger">Select Report Type </div>
         <div class="col-lg-2">
-            <form style="font-size: larger" action="report.php">
+            <form style="font-size: larger" action="report.php" novalidate>
                 <select class='type' name="type">
                     <option value="">[-Select type-]</option>
                     <option value="D">Daily</option>
