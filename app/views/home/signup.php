@@ -8,7 +8,8 @@
         <script src="../../../public/javascripts/jquery-1.9.0.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="../../../public/javascripts/sign_up.js"></script>
-
+        <script src="../../../public/javascripts/jquery.maskedinput.js"></script>
+        <script src="../../../public/javascripts/validation-form.js"></script>
     </head>
     <body>
         <div class="container">
@@ -24,15 +25,15 @@
                     </div>
                     <form id='signup' name="signup" action="submit.php"  method="POST">
 
-                        <input class="Regisration-form-text" type="text" id="formName"name="formName"  placeholder="Name" onfocus="this.value = '';" pattern="[a-zA-Z]+\" required>
+                        <input class="Regisration-form-text name" type="text" id="formName"name="formName" pattern="^[^\W\d_]+$" placeholder="Name" onfocus="this.value = '';" pattern="[a-zA-Z]+\" required>
                         <input class="Regisration-form-text" type="email" id="formEmail"name="formEmail"  placeholder="Email" onfocus="this.value = '';"
-                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                               required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
                         <input class="Regisration-form-text" type="text" id="formNIC"name="formNIC" placeholder="NIC Number" onfocus="this.value = '';"
                                pattern="[0-9]{9}+[V]$" title="Format: XXXXXXXXXV" required maxlength="10">
                         <input class="Regisration-form-text" type="text" id="formTitle"name="formTitle"  placeholder="Title" onfocus="this.value = '';"
                                required>
-                        <input class="Regisration-form-text" type="text" id="formMobile"name="formMobile" placeholder="Mobile Number" onfocus="this.value = '';"
-                               pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
+                        <input class="Regisration-form-text mobile" type="text" id="formMobile"name="formMobile" placeholder="Mobile Number" onfocus="this.value = '';"
+                                title="Required 10 numbers" required maxlength="10"<!--pattern="^\d{10}$"--> >
                         <input class="Regisration-form-text" type="text" id="formAddress"name="formAddress"  placeholder="Address" onfocus="this.value = '';" required>
                         <!--<input type="password" value=" Confirm Password" onfocus="this.value = '';" <!--onblur="if (this.value == '') {this.value = ' Confirm Password';}" >-->
                             <div class="recaptcha">
