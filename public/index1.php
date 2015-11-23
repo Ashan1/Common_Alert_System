@@ -1,11 +1,10 @@
 <?php include('../app/views/home/head.php');?>
 
 <div>
-    <aside class="left-side">
+    <!-- Left side column. contains the logo and sidebar -->
         <?php include('../app/views/home/side.php');?>
-    </aside>
     <aside class="right-side rgt">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row recent-activity">
 
                 <div>
@@ -44,7 +43,7 @@
                     </div>
                     <div class="row maps tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="slmap">
-                            <object type="text/html" data="../app/views/home/test_disaster_sri_lanka.php"
+                            <object type="text/html" data="../app/views/home/test_map.php"
                                     style="width:100%; height:100%; margin:1%;">
                             </object>
                         </div>

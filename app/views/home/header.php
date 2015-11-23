@@ -111,7 +111,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            <a href="logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                         </li>
                     </ul>
 

@@ -1,15 +1,15 @@
 <?php
 error_reporting(0);
-$hostname="localhost"; //local server name default localhost
-$username="ucas";  //mysql username default is root.
+$hostname="127.0.0.1"; //local server name default localhost
+$username="root";  //mysql username default is root.
 $password="";       //blank if no password is set for mysql.
 $database="cas";  //database name which you created
-$con=mysql_connect($hostname,$username,$password);
-if(! $con)
+$conn=mysql_connect($hostname,$username,$password);
+if(! $conn)
 {
-echo "wede del";
-die('Connection Failed'.mysql_error());
+    die('Connection Failed'.mysql_error());
 }else{
+    echo "<br>";
+    mysql_select_db($database,$conn);
 }
-mysql_select_db($database,$con);
 ?>
