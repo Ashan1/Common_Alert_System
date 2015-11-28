@@ -25,15 +25,8 @@
                     </div>
                     <form id='signup' name="signup" action="submit.php"  method="POST">
 
-<<<<<<< HEAD
                         <input class="Regisration-form-text name" type="text" id="formName"name="formName" pattern="^[^\W\d_]+$" placeholder="Name" onfocus="this.value = '';" pattern="[a-zA-Z]+\" required>
-=======
-<<<<<<< HEAD
-                        <input class="Regisration-form-text" type="text" id="formName"name="formName"  placeholder="Name" onfocus="this.value = '';" pattern="[A-Za-z]" required>
-=======
-                        <input class="Regisration-form-text" type="text" id="formName"name="formName"  placeholder="Name" onfocus="this.value = '';" pattern="[a-zA-Z]+\" required>
->>>>>>> 4bd36db6327a6722b1fe6f00a2644b98667de590
->>>>>>> 6554de291e63f938c6dd9b60d722de590ea5c5de
+
                         <input class="Regisration-form-text" type="email" id="formEmail"name="formEmail"  placeholder="Email" onfocus="this.value = '';"
                                required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
                         <input class="Regisration-form-text" type="text" id="formNIC"name="formNIC" placeholder="NIC Number" onfocus="this.value = '';"
