@@ -267,7 +267,7 @@
 
     <div >
         <aside class="left-side">
-            <?php include('side1.php');?>
+            <?php include('side.php');?>
         </aside>
         <aside class="right-side rgt">
             <!-- Page Content -->
