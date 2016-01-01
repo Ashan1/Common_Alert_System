@@ -1,12 +1,14 @@
 <?php include('../app/views/home/head.php');?>
-
 <div>
     <!-- Left side column. contains the logo and sidebar -->
-        <?php include('../app/views/home/side.php');?>
+        <?php include('../app/views/home/side.php');
+
+        ?>
+
     <aside class="right-side rgt">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row recent-activity">
-
+<?php include '../app/views/home/report-home.php'; ?>
                 <div>
                     <h3>Recent Activity</h3>
                  <ul>
