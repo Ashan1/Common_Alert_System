@@ -25,7 +25,8 @@
                 });
 
                 var script = document.createElement('script');
-                script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+                //script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+                script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson';
                 document.getElementsByTagName('head')[0].appendChild(script);
             }
 
@@ -61,7 +62,7 @@
                     marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
                     google.maps.event.addListener(marker, 'click', getHandler(place, mag, coords, tsunami));
 
-                    var text = '{"earthquakes" : [ ' + timestamp: time, place: place, magnitude: mag, latitude: coords[1], longitude: coords[0], tsunami: tsunami};
+                    //var text = '{"earthquakes" : [ ' + timestamp: time, place: place, magnitude: mag, latitude: coords[1], longitude: coords[0], tsunami: tsunami};
 
                 }
             }
