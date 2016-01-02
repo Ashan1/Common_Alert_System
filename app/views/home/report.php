@@ -15,7 +15,7 @@ $favcolor = $_GET['type'];
 
 switch ($favcolor) {
     case "D":
-        $Date= $_GET['d'];
+        $Date= date("y/m/d");
         $sql= mysql_query("SELECT * FROM disaster WHERE date='$Date'");
         break;
     case "W":

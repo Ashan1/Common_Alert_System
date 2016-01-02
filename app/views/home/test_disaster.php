@@ -10,7 +10,9 @@
         src="https://maps.googleapis.com/maps/api/js?libraries=visualization">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <?php require_once '../../core/init.php';?>
     <script>
+
         $(function(){
             var map;
             var count;
@@ -45,6 +47,7 @@
 
             window.eqfeed_callback = function(results) {
                 for (var i = 0; i < results.features.length; i++) {
+                    var timestamp = results.features[i].properties.place;
                     var coords = results.features[i].geometry.coordinates;
                     var place = results.features[i].properties.place;
                     var mag = results.features[i].properties.mag;
@@ -57,6 +60,9 @@
                     });
                     marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
                     google.maps.event.addListener(marker, 'click', getHandler(place, mag, coords, tsunami));
+
+                    var text = '{"earthquakes" : [ ' + timestamp: time, place: place, magnitude: mag, latitude: coords[1], longitude: coords[0], tsunami: tsunami};
+
                 }
             }
 
