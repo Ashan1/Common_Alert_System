@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 
 <head>
@@ -11,20 +12,32 @@
         <div class="col-lg-2" style="font-size: larger">Select Report Type </div>
         <div class="col-lg-2">
             <form style="font-size: larger" action="report.php" novalidate>
+=======
+<div class="container col-lg-12"  style="background-color: #ecf0f1">
+    <h1 style="color: #00080C;text-align: left">GENERATE REPORT</h1>
+    <div class="col-lg-2" style="font-size: larger">Select Report Type </div>
+    <div class="col-lg-2 container row">
+        <form style="font-size: larger" action="../app/views/home/report.php">
+            <div >
+>>>>>>> 047e7693d6cdb4cd9ff9fb3eb839147e0cd4efaa
                 <select class='type' name="type">
                     <option value="">[-Select type-]</option>
-                    <option value="D">Daily</option>
+                    <option value="D">Today</option>
                     <option value="W">Last Week</option>
-                    <option value="M">Monthly</option>
-                    <option value="Yearly">Yearly</option>
+                    <option value="M">Last Month</option>
+                    <option value="Yearly">Last Year</option>
                     <option value="O">Other</option>
                 </select>
-                <div class="col-lg-2 D" style="display:none">
-                    <input type="date"  name="d">
+            </div>
+<!--               <div class="col-lg-2 O" style="display:none">
+                   From: <input type="date" placeholder="From-Date"  name="fd" required>
+                    To: <input type="date" placeholder="To-Date"  name="td" required>
                 </div>
-
-                <div class="col-lg-2 M" style="display:none">
-                    Year: <input type="year" placeholder="year" name="yr" required>
+                <!--<div class="col-lg-2 D" style="display:none">
+                    <input type="date"  name="d">
+                </div>-->
+                <!--<div class="col-lg-2 M" style="display:none">
+                    Year: <input type="year" placeholder="year" name="yr" required \>
                     Month: <select class='mon' name="mon"  required>
                         <option value="">[-Select Month-]</option>
                         <option value="1">January  </option>
@@ -41,22 +54,16 @@
                         <option value="12">December</option>
                     </select>
                 </div>
-                <!--<div class="col-lg-2 Yearly" style="display:none">
+                <div class="col-lg-2 Yearly" style="display:none">
                     <select id="year" name="y">
-                        </?php
-/*                        for($i = 1990; $i < date("Y")+5; $i++){
+                        <?php
+/*                       for($i = 1990; $i < date("Y")+5; $i++){
                             echo '<option value="'.$i.'">'.$i.'</option>';
                         }
                         */?>
                     </select>
-                </div>
-                <div class="col-lg-2 O" style="display:none">
-                    From: <input type="date" placeholder="From-Date"  name="fd" required>
-                    To: <input type="date" placeholder="To-Date"  name="td" required>
                 </div>-->
-                <input type="submit" value="View Report">
-            </form>
-        </div>
+            <input class="btn-warning" type="submit"  value="View Report">
+        </form>
     </div>
 </div>
-</html>

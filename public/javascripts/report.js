@@ -1,27 +1,45 @@
 /**
  * Created by Thush on 11/15/2015.
  */
-$(".optionName").hide();
+/*$(".optionName").hide();*/
 
-$("document").ready(function() {   /// have to wait till after the document loads to run these things
+/*$("document").ready(function() {   /// have to wait till after the document loads to run these things
 
-    $('select[name=type]').change(function(){
+    $('select[name=type]').change(function() {
         var thisValue = $(this).val();
         if (thisValue == "D") {
             $("." + thisValue).show();
-        }else{
+        } else {
             $(".D").hide();
         }
+    });
+});
+$("document").ready(function() {   /// have to wait till after the document loads to run these things
+
+    $('select[name=type]').change(function () {
+        var thisValue = $(this).val();
         if (thisValue == "M") {
             $("." + thisValue).show();
-        }else{
+        } else {
             $(".M").hide();
         }
+    });
+});
+$("document").ready(function() {   /// have to wait till after the document loads to run these things
+
+    $('select[name=type]').change(function () {
+        var thisValue = $(this).val();
         if (thisValue == "Yearly") {
             $("." + thisValue).show();
-        }else{
+        } else {
             $(".Yearly").hide();
         }
+    });
+});*/
+$("document").ready(function() {   /// have to wait till after the document loads to run these things
+
+    $('select[name=type]').change(function() {
+        var thisValue = $(this).val();
         if (thisValue == "O") {
             $("." + thisValue).show();
         }else{

@@ -19,9 +19,8 @@ $sql = "INSERT INTO employee (E_name, E_nic, E_email, E_tel, E_address, E_job_ro
 if(mysql_query($sql)){
     header('location:../../app/views/home/adduser.php');
 } else {
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error();
+    echo "ERROR: Could not able to execute $sql. " . mysql_error();
 }
- 
 // close connection
 mysql_close();
 ?>

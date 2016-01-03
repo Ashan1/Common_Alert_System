@@ -88,7 +88,7 @@
                         <a href="#">
                             <i class="fa fa-clock-o fa-fw pull-right"></i>
                             <span class="badge badge-success pull-right">10</span> Updates</a>
-                        <a href="#">
+                        <a href="../app/views/home/mail.php" aria-controls="worldmap">
                             <i class="fa fa-envelope-o fa-fw pull-right"></i>
                             <span class="badge badge-danger pull-right">5</span> Messages</a>
                     </li>
