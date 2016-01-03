@@ -1,11 +1,11 @@
 <?php
-/*
-require_once '../app/core/init.php';*/
 
-//$one = DB::getInstance()->query("SELECT * FROM employee");
-//var_dump($one->result());
+require_once '../app/core/init.php';
 
-?>
+$one = DB::getInstance()->query("SELECT * FROM employee");
+var_dump($one->result());
+
+?><!--
 
 <html>
 <head>
@@ -25,4 +25,4 @@ require_once '../app/core/init.php';*/
     });
 </script>
 </body>
-</html>
+</html>-->
