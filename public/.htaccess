@@ -1,4 +1,0 @@
-Options -MultiViews
-RewriteEngine On
-
-RewriteBase /Common_Alert_System/public

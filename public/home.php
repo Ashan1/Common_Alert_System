@@ -1,39 +1,96 @@
-<?php
+<?php include "../app/templates/header.php";
 
-require_once '../app/init.php'; ?>
-
-<html>
-<head>
-    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap.css">
-    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap-theme.css">
-    <link rel="stylesheet" media="screen" href="../public/stylesheets/main.css">
-    <link rel="stylesheet" media="screen" href="../public/stylesheets/menu.css">
-
-    <script src="javascripts/jquery-1.9.0.min.js" type="text/javascript"></script>
-    <script src="javascripts/bootstrap.js" type="text/javascript"></script>
+require_once '../app/model/dbConfig.php';
+    if($user->is_loggedin()==""){
+        $user->redirect('index.php');
+    }
+?>
 </head>
-
-<body onload="myFunction()">
-<?php include ('../app/views/home/menu.php');?>
-
 <script type="text/javascript">
-    $('#home').click(function(){
-        $("#mcontent").load("../app/views/home/map.php");
-        return false;
-    });
-    $('#disaster').click(function(){
-        $("#mcontent").load("../app/views/home/disaster.php");
-        return false;
-    });
-
-    function myFunction() {
-        $("#mcontent").load("../app/views/home/map.php");
-        return false;
+    /*---------------------Tab Change Home----------------------------*/
+    function loadTabContent(tabUrl){
+        $("#preloader").show();
+        jQuery.ajax({
+            url: tabUrl,
+            cache: false,
+            success: function(message) {
+                jQuery("#home-content1").empty().append(message);
+                $("#preloader").hide();
+            }
+        });
     }
 
+
+    jQuery(document).ready(function(){
+        $("#preloader").hide();
+        jQuery("[id^=tab]").click(function(){
+
+            // get tab id and tab url
+            tabId = $(this).attr("id");
+            tabUrl = jQuery("#"+tabId).attr("href");
+            //console.log(tabUrl);
+
+            jQuery("[id^=tab]").removeClass('sub-menu-active');
+            $("#"+tabId).addClass('sub-menu-active');
+            loadTabContent(tabUrl);
+            return false;
+        });
+
+    });
+
+    /*---------------------End Tab Change Home----------------------------*/
+
+    window.onload = loadTabContent('../app/controller/tab.php?id=1');
 </script>
+<body>
+<div>
+    <div><?php include "../app/templates/topmenu.php"; ?></div>
+    <div>
+        <aside class="left-side"><?php include "../app/templates/sidemenu.php"; ?></aside>
+        <div class="right-side">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="recent-activity">
+                        <div>
+                            <h3>Recent Activity</h3>
+                            <ul>
+                                <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                <li><h4>Pacific Ocean</h4>09.51 a.m <a href="#">more</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sub-menu">
+                        <ul class="nav nav-tabls">
+                            <li role="presentation" class=""><a id="tab1" href="../app/controller/tab.php?id=1">SUMMARY</a></li>
+                            <li role="presentation" class=""><a id="tab2" href="../app/controller/tab.php?id=2">NOTIFICATIONS</a></li>
+                            <li role="presentation" class=""><a id="tab3" href="../app/controller/tab.php?id=3">ACTIVITIES</a></li>
+                            <li role="presentation" class=""><a id="tab4" href="../app/controller/tab.php?id=4">ADVISOR BOARD</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="preloader">
+                        <img src="images/loading.gif" align="absmiddle"> Loading...
+                    </div>
+                    <div id="home-content1">
+
+                    </div>
+                </div>
 
 
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
+                    <div class="col-lg-3 col-md-3 col-sm-3"><?php echo $_SESSION['user_session'] ?></div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">,dfsdf</div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
 </body>
 </html>
+
