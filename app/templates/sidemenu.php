@@ -28,9 +28,11 @@
                 <li><a href="#">
                         <i class="fa fa-envelope fa-fw pull-left"></i>
                         Message</a></li>
+                <?php if($u['role'] == 'Administrator') { ?>
                 <li><a href="#">
                         <i class="fa fa-dashboard fa-fw pull-left"></i>
                             Admin Panel</a></li>
+                <?php } ?>
             </ul>
         </div>
     </div>
