@@ -1,6 +1,6 @@
 <?php include "../app/templates/header.php";
 
-require_once '../app/model/dbConfig.php';
+require_once '../app/models/dbConfig.php';
     if($user->is_loggedin()==""){
         $user->redirect('index.php');
     }
@@ -40,7 +40,7 @@ require_once '../app/model/dbConfig.php';
 
     /*---------------------End Tab Change Home----------------------------*/
 
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
+    window.onload = loadTabContent('../app/controllers/tab.php?id=1');
 </script>
 <body>
 <div>
@@ -63,10 +63,10 @@ require_once '../app/model/dbConfig.php';
                 <div class="row">
                     <div class="sub-menu">
                         <ul class="nav nav-tabls">
-                            <li role="presentation" class=""><a id="tab1" href="../app/controller/tab.php?id=1">SUMMARY</a></li>
-                            <li role="presentation" class=""><a id="tab2" href="../app/controller/tab.php?id=2">NOTIFICATIONS</a></li>
-                            <li role="presentation" class=""><a id="tab3" href="../app/controller/tab.php?id=3">ACTIVITIES</a></li>
-                            <li role="presentation" class=""><a id="tab4" href="../app/controller/tab.php?id=4">ADVISOR BOARD</a></li>
+                            <li role="presentation" class=""><a id="tab1" href="../app/controllers/tab.php?id=1">SUMMARY</a></li>
+                            <li role="presentation" class=""><a id="tab2" href="../app/controllers/tab.php?id=2">NOTIFICATIONS</a></li>
+                            <li role="presentation" class=""><a id="tab3" href="../app/controllers/tab.php?id=3">ACTIVITIES</a></li>
+                            <li role="presentation" class=""><a id="tab4" href="../app/controllers/tab.php?id=4">ADVISOR BOARD</a></li>
                         </ul>
                     </div>
                 </div>

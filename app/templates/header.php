@@ -26,5 +26,5 @@
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/disasterfonts.css" type="text/css" rel="stylesheet"/>
 <!--End CAS -->
 
-<?php require_once '/../model/dbConfig.php'; ?>
+<?php require_once '/../models/dbConfig.php'; ?>
 
