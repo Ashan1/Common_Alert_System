@@ -7,26 +7,34 @@ $test = file_get_contents('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summ
 //Creating json object
 $object = json_decode($test);
 
-$default_time = 19800000;
-/*$now = DateTime::createFromFormat('U.u', microtime(true));
-echo $now->format("m-d-Y H:i:s");*/
+//To convert to local timezone(UTC + 5.30)
+$def_time = 16200000;
 
-$mil = 1451820658207;
-$def_time = 19800000;
-$seconds = ($mil + $def_time) / 1000;
-echo date("d/m/Y H:i:s", $seconds);
+$db = DB::getInstance();
 
 //var_dump($object->features[1]);
 for($i = 0; $i < sizeof($object->features); $i++){
-    $place = $object->features[$i]->properties->place;
-    $id = $object->features[1]->id;
-    $mag = $object->features[1]->properties->mag;
-    $time = $object->features[1]->properties->time;
-    $tsunami = $object->features[1]->properties->tsunami;
-    $longitude = $object->features[1]->geometry->coordinates[0];
-    $latitude = $object->features[1]->geometry->coordinates[1];
 
-    //DB::getInstance()->query()
+    //Extracting data off Json array
+    $place = $object->features[$i]->properties->place;
+    $id = $object->features[$i]->id;
+    $mag = $object->features[$i]->properties->mag;
+    $time = $object->features[$i]->properties->time;
+
+    //Converting time to DateTime - DST hour
+    $seconds = ($time + $def_time) / 1000;
+    $datetime = date("Y-m-d H:i:s", $seconds);
+
+    /*$date_obj = new DateTime($datetime);
+    $date = $date_obj->format('Y-m-d');
+    $time = $date_obj->format("H:i:s");*/
+
+    $tsunami = $object->features[$i]->properties->tsunami;
+    $longitude = $object->features[$i]->geometry->coordinates[0];
+    $latitude = $object->features[$i]->geometry->coordinates[1];
+    echo $longitude, " ", $latitude, "<br>";
+
+    $db->query("INSERT IGNORE INTO earthquake VALUES('$id', '$datetime', '$mag', '$tsunami', '$place', '$longitude', '$latitude')");
 
 }
 

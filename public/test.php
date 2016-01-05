@@ -2,9 +2,12 @@
 
 require_once '../app/core/init.php';
 
-$one = DB::getInstance()->query("SELECT * FROM employee");
-var_dump($one->result());
+$name = "Dilini";
 
+/*$one = DB::getInstance()->query("SELECT * FROM employee WHERE E_name = '$name'");
+var_dump($one->result());*/
+$two = DB::getInstance()->query("INSERT INTO drought VALUES(1, 4)");
+var_dump($two->result());
 ?><!--
 
 <html>
