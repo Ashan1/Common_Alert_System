@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /*Configurations used throughout the system*/
 

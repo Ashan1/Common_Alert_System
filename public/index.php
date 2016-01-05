@@ -1,7 +1,7 @@
 <?php include "../app/templates/header.php"; ?>
 </head>
 <body>
-<?php require_once '../app/model/dbConfig.php';
+<?php require_once '../app/models/dbConfig.php';
     if($user->is_loggedin()!=""){
         $user->redirect('home.php');
     }
