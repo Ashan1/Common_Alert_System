@@ -15,8 +15,14 @@ $type = $_GET['type'];
 
 switch ($type) {
     case "D":
+<<<<<<< HEAD
+        $Date= date("y/m/d");
+||||||| merged common ancestors
+        $Date= $_GET['d'];
+=======
         $Date=date("dS - M - y");
         $rd=$Date;
+>>>>>>> 047e7693d6cdb4cd9ff9fb3eb839147e0cd4efaa
         $sql= mysql_query("SELECT * FROM disaster WHERE date='$Date'");
         break;
     case "W":
