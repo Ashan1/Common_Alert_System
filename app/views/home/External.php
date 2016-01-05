@@ -1,4 +1,4 @@
-<head>
+<head xmlns="http://www.w3.org/1999/html">
     <meta charset="UTF-8">
     <title>CAS</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -131,7 +131,7 @@
     <script src="../../../public/javascripts/jquery.min.js"></script>
     <script src="../../../public/javascripts/popup.min.js"></script>
 
-    <script>
+    <!--<script>
         $(document).ready(function(){
             $("#up_date").click(function(){
                 $("#table").each(function(){$(".box").toggle()});
@@ -149,9 +149,85 @@
         {
             if (confirm("Delete Account?"))
                 location.href='linktoaccountdeletion';
-        }</script>
+        }</script>-->
 
 </head>
+
+<?php
+
+include "../../../public/php/connect.php";
+$result = mysql_query("SELECT * FROM external_authority");
+$count=mysql_num_rows($result);
+
+if(isset($_POST['update'])) {
+    for($i=0; $i<count($_POST['checkbox']); $i++){
+        $del_id = $_POST['checkbox'][$i];
+        $sql = "SELECT * FROM external_authority WHERE Auth_tel='$del_id'";
+        $ro = mysql_fetch_assoc( mysql_query($sql) );
+        $up_name = $ro['Auth_name'];
+        $up_tel=$ro['Auth_tel'];
+        $up_add=$ro['Auth_address'];
+        $up_email=$ro['Auth_email'];
+        echo $ro;
+        if (mysql_query($sql)) {
+            ?>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#myModal1").modal('show');
+                });
+            </script>
+
+            <!--edit_form-->
+            <div class='modal fade' id='myModal1' role='dialog' action='delete_update.php' >
+                <div class='modal-dialog'>
+                    <div class='row' style='margin-top: 20px;'>
+                        <div class='col-md-8 col-md-offset-2' style='background-color:black;background: rgba(0, 0, 0, 0.6);height: 430px;width: 560px;'>
+                            <h4 style='color:white;text-align:left;'>UPDATE DETAILS</h4>
+                            <p style='color:white;'>This is an identification used by a you to access the CAS service.</p>
+                            <form class='form-horizontal' action='../../../public/php/external_update.php?Aauth_id=<?php echo $del_id?>' method='post'>
+                                <div class='form-group ext_form'>
+                                    <div class='col-xs-10'>
+                                        <label for='inputName' class='control-label' style='color:white;'>Department Name:</label>
+                                        <input type='name' name='auth_nameup' class='form-control ext_input' id='inputName' value="<?php echo $up_name ?>" align='center' style='margin-left: 175px;'  required>
+                                    </div>
+                                </div>
+                                <div class='form-group ext_form'>
+                                    <div class='col-xs-10'>
+                                        <label for='inputmobile' class='control-label' style='color:white;'>Department Number:</label>
+                                        <input type='tel' name='auth_telup' class='form-control ext_input' align='center' style='margin-left: 175px;' id='inputEmail' value="<?php echo $up_tel ?>" >
+                                    </div>
+                                </div>
+                                <div class='form-group ext_form'>
+                                    <div class='col-xs-10'>
+                                        <label for='inputAddress' class='control-label' style='color:white;'>Department Address:</label>
+                                        <input type='address' name='auth_addressup' class='form-control ext_input' id='inputAddress' align='center' style='margin-left: 175px;' value="<?php echo $up_add ?>" required>
+                                    </div>
+                                </div>
+                                <div class='form-group ext_form'>
+                                    <div class='col-xs-10'>
+                                        <label for='inputEmail' class='control-label' style='color:white;'>Department Email:</label>
+                                        <input type='email' class='form-control ext_input' name='auth_emailup' align='center' style='margin-left: 175px;' value="<?php echo $up_email ?>" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,3}$' id='inputEmail'  data-error='Brush, that email address is invalid' required>>
+                                    </div>
+                                </div>
+                                <div class='form-group ext_form'>
+                                    <div class='col-xs-offset-2 col-xs-10' style='margin-left: 310px;'>
+                                        <button type='Submit' class='btn modal_btn' id='submit'  name='update' id='update' value='Submit'>Update</button>
+                                        <button type='button' class='btn modal_btn' data-dismiss='modal' style='margin-left: 10px;'>Cancel</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!--edit_form-->
+
+        <?php
+        }
+    }
+}
+?>
 
     <div >
         <aside class="left-side">
@@ -167,14 +243,6 @@
 							<div id="recent">
 
 								<h2 style="color:#000000; float:left;">EXTERNAL AUTHORITY DETAILS</h2>
-
-									<div style="float:right;">
-										<button class="div_button" data-toggle="modal"  type="button"  name="update" id="up_date"><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
-									</div>
-
-                                <div style="float:right;">
-                                    <button class="div_button" data-toggle="modal" data-target="#myModale" type="button" ><img src="../../../public/images/Add.png" class="div_button_img">Add New</button>
-                                </div>
 
                                 <div class="modal fade" id="myModale" role="dialog" action="../../../public/php/addnew.php" >
                                     <div class="modal-dialog">
@@ -231,7 +299,18 @@
       $result = mysql_query("SELECT Auth_name, Auth_tel, Auth_address, Auth_email FROM external_authority ");
       ?>
 
-		<table class="table" id="table">
+        <form name="table" method="post" onsubmit="return validate();">
+            <table class="table table_striped" id="table">
+
+                <div>
+                    <div style="float: right;">
+                        <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()"><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
+                    </div>
+                    <div style="float:right;">
+                        <button class="div_button" data-toggle="modal" data-target="#myModale" type="button" ><img src="../../../public/images/Add.png" class="div_button_img">Add New</button>
+                    </div>
+                </div>
+
 		<thead>
             <tr>
                 <th>Authority-Name</th>
@@ -258,65 +337,15 @@
               <td>{$row['Auth_tel']}</td>
               <td>{$row['Auth_address']}</td>
               <td>{$row['Auth_email']}</td>
-             <td>"."<input name='checkbox' type='checkbox' id='checkbox[]' class='box' onclick='toggle(this)' id='check'
-                                       value='$id' data-toggle='modal' data-target='#myModal1'>
-
-                                       <!--edit_form-->
-        <div class='modal fade' id='myModal1' role='dialog' action='delete_update.php' >
-                                    <div class='modal-dialog'>
-                                    <div class='row' style='margin-top: 20px;'>
-												<div class='col-md-8 col-md-offset-2' style='background-color:black;background: rgba(0, 0, 0, 0.6);height: 430px;width: 560px;'>
-                 <h4 style='color:white;text-align:left;'>UPDATE DETAILS</h4>
-                        <p style='color:white;'>This is an identification used by a you to access the CAS service.</p>
-                        <form class='form-horizontal' action='delete_update.php'  method='post'>
-                            <div class='form-group ext_form'>
-															<div class='col-xs-10'>
-                                                                <label for='inputName' class='control-label' style='color:white;'>Department Name:</label>
-                                                                <input type='name' name='auth_name' class='form-control ext_input' id='inputName' align='center' style='margin-left: 175px;'  value=$name required>
-															</div>
-														</div>
-                                                        <div class='form-group ext_form'>
-															<div class='col-xs-10'>
-                                                                <label for='inputmobile' class='control-label' style='color:white;'>Department Number:</label>
-                                                                <input type='tel' name='auth_tel' class='form-control ext_input' align='center' style='margin-left: 175px;' id='inputEmail' value=$tel >
-															</div>
-														</div>
-                                                        <div class='form-group ext_form'>
-															<div class='col-xs-10'>
-                                                                <label for='inputAddress' class='control-label' style='color:white;'>Department Address:</label>
-                                                                <input type='address' name='auth_address' class='form-control ext_input' id='inputAddress' align='center' style='margin-left: 175px;' value=$add required>
-															</div>
-														</div>
-                                                        <div class='form-group ext_form'>
-															<div class='col-xs-10'>
-                                                                <label for='inputEmail' class='control-label' style='color:white;'>Department Email:</label>
-                                                                <input type='email' class='form-control ext_input' name='auth_email' align='center' style='margin-left: 175px;' value=$email pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,3}$' id='inputEmail'  data-error='Brush, that email address is invalid' required>>
-															</div>
-														</div>
-														<div class='form-group ext_form'>
-															<div class='col-xs-offset-2 col-xs-10' style='margin-left: 310px;'>
-                                                                <button type='Submit' class='btn modal_btn' id='submit'  name='update' id='update' value='Submit'>Update</button>
-                                                                 <button type='button' class='btn modal_btn' data-dismiss='modal' style='margin-left: 10px;'>Cancel</button>
-															</div>
-														</div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div><!--edit_form-->
-
-                                       "."</td>
+             <td>"."<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value='$id'>"."</td>
 		    </tr>\n";
           }
         ?>
 
         </tbody>
     </table>
-     <?php mysql_close($connector); ?>
+    </form>
 	</div>
-
-
 
 					</div><!--layout ends-->
 				</div>

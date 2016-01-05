@@ -129,35 +129,13 @@
 
     <script src="../../../public/javascripts/jquery.min.js"></script>
     <script src="../../../public/javascripts/popup.min.js"></script>
-
-    <script language="javascript">
-        function validate()
-        {
-            var chks = document.getElementsByName('checkbox[]');
-            var hasChecked = false;
-            for (var i = 0; i < chks.length; i++)
-            {
-                if (chks[i].checked)
-                {
-                    hasChecked = true;
-                    break;
-                }
-            }
-            if (hasChecked == false)
-            {
-                alert("Please select at least one.");
-                return false;
-
-
-            }
-            return true;
-        }
-    </script>
-
     </head>
+
 
 <?php
     include "../../../public/php/connect.php";
+    $result = mysql_query("SELECT * FROM employee");
+    $count=mysql_num_rows($result);
 
     if(isset($_POST['delete'])){
         for($i=0; $i<count($_POST['checkbox']); $i++){
@@ -171,9 +149,68 @@
     if(isset($_POST['update'])) {
         for($i=0; $i<count($_POST['checkbox']); $i++){
             $del_id = $_POST['checkbox'][$i];
-            
+            $sql = "SELECT E_job_role FROM employee WHERE E_nic='$del_id'";
+            $ro = mysql_fetch_assoc( mysql_query($sql) );
+            $job=$ro['E_job_role'];
+            echo $ro;
+                if (mysql_query($sql)) {
+                    ?>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#myModaledit").modal('show');
+                });
+            </script>
+
+            <!--edit_form-->
+            <div class="modal fade " id="myModaledit" action="../../../public/php/update.php>">
+                <div class="modal-dialog">
+                    <div class="row" style=" margin-top: 150px;margin-left: 90px;">
+                        <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 450px; height: 270px;">
+                            <h4 style="color:white;text-align:left;">Edit User Job Role</h4>
+                            <form class="form-horizontal" action="../../../public/php/update.php?emp_id=<?php echo $del_id?>" method="post">
+                                <div class="form-group ext_form">
+                                    <div class="col-xs-10">
+                                        <div class="input_box" >
+                                        <label style="color:white;">Current Job Role :</label>
+                                        <input type="text" class="form-control modal_input" name="jobrole"
+                                               id="currentjob" align="center"
+                                               style="margin-left: 125px;width: 276px;margin-top: -25;"
+                                               value="<?php echo $job ?>">
+                                        </div>
+                                        <label style="color:white;margin-top: 20px;">New Job Role :</label>
+                                        <select class="form-control modal_input " name="size" align="center"
+                                                style="margin-left: 125px;width: 276px;margin-top: -25px;">
+                                            <option value="">Role</option>
+                                            <option value="Administrator">Administrator</option>
+                                            <option value="General User">General User</option>
+                                            <option value="Operational User">Operational User</option>
+                                            <option value="Executive User">Executive User</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="help-block with-errors"></div>
+                                <div class="form-group">
+                                    <div class="col-xs-offset-2 col-xs-10 move" style="margin-left: 260px;margin-top: 25px;">
+                                        <button type="Submit" class="btn modal_btn" id="submit" value="Submit">
+                                            Save
+                                        </button>
+                                        <?php $_SESSION['varname'] = $del_id; ?>
+                                        <button type="button" class="btn modal_btn" data-dismiss="modal"
+                                                style="margin-left: 10px;">Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!--edit_form-->
+
+        <?php
         }
     }
+}
 ?>
 
 <div>
@@ -191,11 +228,6 @@
                 </div>
 
                 <div id="content" scrolling="yes"><!--table with users-->
-                    <?php
-                        include "../../../public/php/connect.php";
-                        $result = mysql_query("SELECT * FROM employee");
-                        $count=mysql_num_rows($result);
-                    ?>
 
                     <form name="table" method="post" onsubmit="return validate();">
                         <table class="table table_striped" id="table" action="load_table.php">
@@ -309,62 +341,12 @@
                                         <button type="Submit" class="btn modal_btn" id="submit"  value="Submit" >Add</button>
                                         <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11;">Cancel</button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!--edit_form-->
-                <div class="modal fade " id="myModal1" data-backdrop="static" role="dialog"
-                     action="../../../public/php/update.php">
-                    <div class="modal-dialog">
-                        <div class="row" style=" margin-top: 150px;margin-left: 90px;">
-                            <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 450px; height: 270px;">
-                                <h4 style="color:white;text-align:left;">Edit User Job Role</h4>
-
-                                <p style="color:white;">This can change user's current Job role.Do you want to
-                                    change job role?</p>
-
-                                <form class="form-horizontal" action="../../../public/php/update.php" method="post">
-                                    <div class="form-group ext_form">
-                                        <div class="col-xs-10">
-                                            <label style="color:white;">Current Job Role :</label>
-                                            <input type="text" class="form-control modal_input" name="jobrole"
-                                                   id="currentjob" align="center"
-                                                   style="margin-left: 125px;width: 276px;"
-                                                   value="<?php echo $job?>">
-                                            <label style="color:white;">New Job Role :</label>
-                                            <select class="form-control modal_input " name="size" align="center"
-                                                    style="margin-left: 125px;width: 276px;">
-                                                <option value="">Role</option>
-                                                <option value="Administrator">Administrator</option>
-                                                <option value="General User">General User</option>
-                                                <option value="Operational User">Operational User</option>
-                                                <option value="Executive User">Executive User</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="help-block with-errors"></div>
-                                    <div class="form-group">
-                                        <div class="col-xs-offset-2 col-xs-10 move" style="margin-left:208px;">
-                                            <button type="Submit" class="btn modal_btn" id="submit" value="Submit">
-                                                Save
-                                            </button>
-                                            <button type="button" class="btn modal_btn" data-dismiss="modal"
-                                                    style="margin-left: 10px;">Cancel
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--edit_form-->
-
             </div>
-
         </div>
     </aside>
 </div>

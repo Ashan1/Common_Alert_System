@@ -49,12 +49,13 @@
 
 .modal_input{
     width: 50px;
-    margin-top:-25;
-    margin-top: -28;
+    margin-top: -25;
+    margin-top: 0;
 }
 
 .modal_label{
 	color:red;
+    margin-top: 0;
 }
 
 .modal_btn{
@@ -79,4 +80,11 @@
 }
 .form-group form input[type="text"]:hover{
     box-shadow: 0 0 1em #FF0000;
+}
+
+.input_box{
+    width: 410px;
+    height: 40px;
+    align:inline;
+    margin-top: 20px;
 }

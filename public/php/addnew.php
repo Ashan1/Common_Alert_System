@@ -11,13 +11,13 @@ $mobile = $_POST['formMobile'];
 $add = $_POST['formAddress'];
 $role = $_POST['size'];
 $image=addslashes(file_get_contents($_FILES['image']));
-$pw = "CAS@123";
+$pw =password_hash("cas@123", PASSWORD_BCRYPT, $options);
 
 // attempt insert query execution
 $sql = "INSERT INTO employee (E_name, E_nic, E_email, E_tel, E_address, E_job_role, E_image, E_username, E_password) VALUES ('$name', '$nic' ,'$email', '$mobile', '$add', '$role', '$image','$email','$pw')";
 
 if(mysql_query($sql)){
-    header('location:../../app/views/home/adduser.php');
+    header('location:../../app/views/home/usermanage.php');
 } else {
     echo "ERROR: Could not able to execute $sql. " . mysql_error();
 }
