@@ -1,7 +1,7 @@
 <?php include "../templates/header.php";
 
 require_once '../core/init.php';
-require_once '../model/dbConfig.php';
+require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
@@ -31,13 +31,14 @@ $db = DB::getInstance();
                     for($i=0; $i<count($_POST['checkbox']); $i++){
                         $del_id = $_POST['checkbox'][$i];
                         $sql = "SELECT * FROM external_authority WHERE Auth_tel='$del_id'";
-                        $ro = mysql_fetch_assoc( mysql_query($sql) );
-                        $up_name = $ro['Auth_name'];
-                        $up_tel=$ro['Auth_tel'];
-                        $up_add=$ro['Auth_address'];
-                        $up_email=$ro['Auth_email'];
-                        echo $ro;
-                        if (mysql_query($sql)) {
+                        $update =$db->query($sql);
+                        $details=$update->result();
+                        $c_job=$details[$i]->E_job_role;
+                        $up_name = $details[$i]->Auth_name;
+                        $up_tel=$details[$i]->Auth_tel;
+                        $up_add=$details[$i]->Auth_address;
+                        $up_email=$details[$i]->Auth_email;
+
                             ?>
 
                             <script type="text/javascript">
@@ -53,7 +54,7 @@ $db = DB::getInstance();
                                         <div class='col-md-8 col-md-offset-2' style='background-color:black;background: rgba(0, 0, 0, 0.6);height: 430px;width: 560px;'>
                                             <h4 style='color:white;text-align:left;'>UPDATE DETAILS</h4>
                                             <p style='color:white;'>This is an identification used by a you to access the CAS service.</p>
-                                            <form class='form-horizontal' action='../../../public/php/external_update.php?Aauth_id=<?php echo $del_id?>' method='post'>
+                                            <form class='form-horizontal' action='../controllers/external_update.php?Aauth_id=<?php echo $del_id?>' method='post'>
                                                 <div class='form-group ext_form'>
                                                     <div class='col-xs-10'>
                                                         <label for='inputName' class='control-label' style='color:white;'>Department Name:</label>
@@ -94,7 +95,6 @@ $db = DB::getInstance();
                         <?php
                         }
                     }
-                }
                 ?>
 
 

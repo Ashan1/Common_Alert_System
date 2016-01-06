@@ -59,7 +59,7 @@ $u = $user->user_details($user_nic);
                                 <i class="fa fa-cog fa-fw pull-right"></i>
                                 Settings</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="../app/controllers/logout.php">
+                        <li><a href="<?php echo SCRIPT_ROOT ?>/app/controllers/logout.php">
                                 <i class="fa fa-power-off fa-fw pull-right"></i>
                                 Logout</a></li>
                     </ul>

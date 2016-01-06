@@ -24,12 +24,12 @@ class USER {
 
     public function login($uemail,$upass){
         try{
-            $stmt = $this->db->prepare("SELECT * FROM employee WHERE email= '$uemail'");
+            $stmt = $this->db->prepare("SELECT * FROM employee WHERE E_email= '$uemail'");
             $stmt->execute();
             $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
             if($stmt->rowCount() > 0){
-                if(password_verify($upass,$userRow['password'])){
+                if(password_verify($upass,$userRow['E_password'])){
                     $_SESSION['user_session'] = $userRow['E_nic'];
                     return true;
                 }

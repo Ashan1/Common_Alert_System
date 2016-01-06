@@ -1,29 +1,35 @@
 <?php include "../templates/header.php";
 
 require_once '../core/init.php';
-require_once '../model/dbConfig.php';
+require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
 
+$user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
 ?>
 </head>
+
 <script type="text/javascript">
     window.onload = loadTabContent('../app/controller/tab.php?id=1');
 </script>
 <body>
 
 <?php
+$data=$db->query("SELECT * FROM message WHERE to_user = '$user_nic' AND deleted = 'no'")or die(mysql_error());
+$emp_detail=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'")or die(mysql_error());
+$db_result=$data->result();
+$emp_name=$emp_detail->result();
+$count=$data->count();
+$count1=$emp_detail->count();
+
 $delete = "yes";
 if(isset($_POST['delete1'])) {
-    for ($i = 0; $i < count($_POST['checkbox']); $i++) {
+    for ($i = 0; $i < $count; $i++) {
         $del_id = $_POST['checkbox'][$i];
         $sql = "UPDATE message SET deleted='$delete' WHERE id='$del_id'";
-        echo $del_id;
-
-        if (mysql_query($sql)) {
-        }
+        $update =$db->query($sql);
     }
 }
 
@@ -49,13 +55,6 @@ if(isset($_POST['new_message'])){
 
                     <div id="content" >
 
-
-                        <?php
-
-                        /*if (isset($_POST['view_old'])) {*/
-                       // $query = mysql_query("SELECT * FROM message WHERE to_user = 'Dilini' AND deleted = 'no'")or die(mysql_error());
-                        ?>
-
                     <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
@@ -72,8 +71,9 @@ if(isset($_POST['new_message'])){
 
                 <thead>
                 <tr>
+                    <th>Time</th>
+                    <th>Date</th>
                     <th>To</th>
-                    <th>From</th>
                     <th>Message</th>
                     <th>Status</th>
                 </tr>
@@ -81,15 +81,16 @@ if(isset($_POST['new_message'])){
                 <tbody>
 
                 <?php
-                while( $row = mysql_fetch_assoc( $query ) ){
-                    $dbrow_id=$row['id'];
+
+                for($i=0; $i<$count; $i++){
+
                     echo
                         "<tr>
-                          <td>{$row['to_user']}</td>
-                          <td>{$row['from_user']}</td>
-                          <td>{$row['message']}</td>
-                          <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' value=$dbrow_id>"."</td>
-		            </tr>\n";
+                                        <td>{$emp_name[$i]->E_name}</td>
+                                        <td>{$db_result[$i]->from_user}</td>
+                                        <td>{$db_result[$i]->message}</td>
+                                        <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
+		                            </tr>\n";
                 }
                 ?>
 

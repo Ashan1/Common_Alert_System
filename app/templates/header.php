@@ -6,17 +6,17 @@
 <title>CAS</title>
 <head>
 <!--Jquery-->
-    <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/jquery-1.11.3.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/jquery-1.11.3.js" async></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" async></script>
    <!-- <script src="js/menu.js" rel="script" type="text/javascript"></script>-->
-    <script src="<?php echo SCRIPT_ROOT ?>/public/js/cas.js" rel="script" type="text/javascript"></script>
-    <script src="<?php echo SCRIPT_ROOT ?>/public/js/circle-progress.js" rel="script" type="text/javascript"></script>
-    <script src="<?php echo SCRIPT_ROOT ?>/public/js/circle-progress.js" rel="script" type="text/javascript"></script>
-    <script src="<?php echo SCRIPT_ROOT ?>/public/js/jquery.ba-resize.min.js" rel="script" type="text/javascript"></script>
+    <script src="<?php echo SCRIPT_ROOT ?>/public/js/cas.js" rel="script" type="text/javascript" async></script>
+    <script src="<?php echo SCRIPT_ROOT ?>/public/js/circle-progress.js" rel="script" type="text/javascript" async></script>
+    <script src="<?php echo SCRIPT_ROOT ?>/public/js/circle-progress.js" rel="script" type="text/javascript" async></script>
+    <script src="<?php echo SCRIPT_ROOT ?>/public/js/jquery.ba-resize.min.js" rel="script" type="text/javascript" async></script>
 <!--Bootstrap-->
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/bootstrap-theme.css" type="text/css" rel="stylesheet"/>
-    <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/bootstrap.js"></script>
+    <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/bootstrap.js" async></script>
 <!--End Bootstrap-->
 
 <!--CAS Custome -->
