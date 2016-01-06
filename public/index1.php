@@ -8,7 +8,7 @@
     <aside class="right-side rgt">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row recent-activity">
-<?php include '../app/views/home/report-home.php'; ?>
+
                 <div>
                     <h3>Recent Activity</h3>
                  <ul>

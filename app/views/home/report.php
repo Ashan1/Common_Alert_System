@@ -12,46 +12,42 @@
 
 
 $type = $_GET['type'];
-
+$today=date('y-m-d-l');
+$sql= mysqli_query($conn,"SELECT * FROM disaster WHERE date='2016-01-06'");
 switch ($type) {
     case "D":
-<<<<<<< HEAD
-        $Date= date("y/m/d");
-||||||| merged common ancestors
-        $Date= $_GET['d'];
-=======
-        $Date=date("dS - M - y");
+        $Date=date("y-m-d");
         $rd=$Date;
->>>>>>> 047e7693d6cdb4cd9ff9fb3eb839147e0cd4efaa
-        $sql= mysql_query("SELECT * FROM disaster WHERE date='$Date'");
+        $sql= mysqli_query("SELECT * FROM disaster WHERE date=$Date");
         break;
     case "W":
-        $Date3=date('dS - M - y');
-        $Date2=date('dS - M - y',strtotime("-7 days"));
+        $Date3=date('y-m-d');
+        $Date2=date('y-m-d',strtotime("-7 days"));
         $rd=$Date2 ."   to   ".$Date3;
-        $sql=mysql_query("Select * from disaster where date between '" . $Date2 . "' AND  '" . $Date3 . "'");
+        $sql=mysqli_query("Select * from disaster where date between '$Date2' AND  '$Date3'");
         break;
     case "M":
-        $end=date('dS - M - y');
-        $st=date('dS - M - y',strtotime("-31 days"));
+        $end=date('y-m-d');
+        $st=date('y-m-d',strtotime("-31 days"));
         $rd=$st ."   to   ".$end;
-        $sql=mysql_query("Select * from disaster where date between '" . $st . "' AND  '" . $end . "'");
+        $sql=mysqli_query("Select * from disaster where date between '" . $st . "' AND  '" . $end . "'");
         break;
     case "Yearly":
-        $yend=date('dS - M - y');
-        $yst=date('dS - M - y',strtotime("-366 days"));
+        $yend=date('y-m-d');
+        $yst=date('y-m-d',strtotime("-366 days"));
         $rd=$yst."   to   ".$yend;
-        $sql=mysql_query("Select * from disaster where date between '" . $yst . "' AND  '" . $yend . "'");
+        $sql=mysqli_query("Select * from disaster where date between '" . $yst . "' AND  '" . $yend . "'");
         break;
     case "O":
         $fd= $_GET['fd'];
         $td= $_GET['td'];
-        $sql=mysql_query("Select * from disaster where date between '" . $fd . "' AND  '" . $td . "'");
+        $rd=$fd . " to ". $td;
+        $sql=mysql_query("Select * from disaster where date between ' $fd ' AND  '$td '");
 
         break;
     default:
 }
-$today=date('dS - M - y-l');
+$today=date('y-m-d-l');
 
 ?>
     <div  style="text-align: center" ><h1 > DISASTER MANAGEMENT CENTER</h1>
@@ -107,3 +103,7 @@ $today=date('dS - M - y-l');
 
 </body>
 </html>
+<script>
+    var u = '<?php echo $type ?>';
+    console.log(u);
+</script>
