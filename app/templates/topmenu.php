@@ -44,6 +44,10 @@ $u = $user->user_details($user_nic);
 
                 <li role="separator" class="divider"></li>
                 <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                        <span class="label label-warning">7</span>
+                    </a></li>
+                <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <span class="label label-success">4</span>
                     </a></li>
@@ -52,7 +56,7 @@ $u = $user->user_details($user_nic);
                         <i class="fa fa-user"></i>
                         <span><?php echo $u['E_name']; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">
+                        <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/profile.php">
                                 <i class="fa fa-user fa-fw pull-right"></i>
                                 Profile</a></li>
                         <li><a href="#">

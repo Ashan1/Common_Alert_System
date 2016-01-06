@@ -26,14 +26,14 @@ include'disasterCount.php';
         </div>
     </div>
     <div>
-        <div class="row maps tab-content">
+        <div class="maps tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="slmap">
-                <object type="text/html" data="test_map.php"
+                <object type="text/html" data="../app/view/test_map.php"
                         style="width:100%; height:100%; margin:1%;">
                 </object>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="worldmap">
-                <object type="text/html" data="test_disaster.php" style="width:100%; height:100%; margin:1%;">
+                <object type="text/html" data="../app/view/test_disaster.php" style="width:100%; height:100%; margin:1%;">
                 </object>
             </div>
         </div>

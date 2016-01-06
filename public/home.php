@@ -49,6 +49,9 @@ require_once '../app/models/dbConfig.php';
         <aside class="left-side"><?php include "../app/templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
+                <div class="disaster-alert" id="disaster-alert">
+                    <p>sdjhfklsudgflkug jkgahdsfk</p>
+                </div>
                 <div class="row">
                     <div class="recent-activity">
                         <div>
@@ -80,12 +83,12 @@ require_once '../app/models/dbConfig.php';
                 </div>
 
 
-                <div class="row">
+<!--                <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
-                    <div class="col-lg-3 col-md-3 col-sm-3"><?php echo $_SESSION['user_session'] ?></div>
+                    <div class="col-lg-3 col-md-3 col-sm-3"><?php /*echo $_SESSION['user_session'] */?></div>
                     <div class="col-lg-3 col-md-3 col-sm-3">,dfsdf</div>
                     <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

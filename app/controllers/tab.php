@@ -7,7 +7,7 @@ switch($p) {
         break;
 
     case "2":
-        echo 'Yahoo content ?<br style="clear:both;" />';
+        include '../view/home_notification.php';
         break;
 
     case "3":

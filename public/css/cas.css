@@ -349,7 +349,57 @@ ul li{
 }
 
 
+.disaster-notify ul li i{
+    font-size: 30px;
+}
+
+.disaster-notify ul li span{
+    padding-left: 5px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color:#424141;
+}
+
+.disaster-notify ul{
+    margin:0;
+    line-height:5;
+
+}
+
+.disaster-notify ul .dis-snowslide{
+    color:#9d610c;
+}
+.disaster-notify ul .dis-cracked2{
+    color:#ff8400;
+}
+.disaster-notify ul .dis-fire14{
+    color:#db1515;
+}
+.disaster-notify ul .dis-hurricane{
+    color:#1bcb09;
+}
+.disaster-notify ul .dis-waves8{
+    color:#00b4ff;
+}
+.disaster-notify ul .dis-tsunami1{
+    color:#0054ff;
+}
+.disaster-notify ul .dis-erupting{
+    color:#ffae00;
+}
+
+
 /*-----------------------------------End Home Page------------------------------------------*/
+
+
+/*-----------------------------------Disaster Alert Div------------------------------------------*/
+
+
+
+
+/*-----------------------------------End Disaster Alert Div------------------------------------------*/
+
+
 
 /*---------------------------- Medium Devices, Desktops ----------------------------*/
 @media only screen and (max-width : 992px) {
