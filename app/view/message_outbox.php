@@ -21,9 +21,9 @@ $data=$db->query("SELECT * FROM message WHERE from_user = '$user_nic' AND sent_d
 $db_result=$data->result();
 $count=$data->count();
 
-$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
+/*$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
 $emp_name=$emp_details->result();
-$count1=$emp_details->count();
+$count1=$emp_details->count();*/
 
 $delete = "yes";
 if(isset($_POST['delete1'])) {
@@ -88,16 +88,20 @@ if(isset($_POST['new_message'])){
                 <?php
 
                 for($i=0; $i<$count; $i++){
-                    for($ii=0; $ii<$count1; $ii++){
+                    $to_user=$db_result[$i]->to_user;
+                    $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$to_user'");
+                    $emp_name=$emp_details->result();
+
+                    /*for($ii=0; $ii<$count1; $ii++){*/
                         echo
                             "<tr>
                                         <td></td>
                                         <td></td>
-                                        <td>{$emp_name[$ii]->E_name}</td>
+                                        <td>{$emp_name[0]->E_name}</td>
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
 		                            </tr>\n";
-                    }}
+                    }/*}*/
                 ?>
 
                 <?php
