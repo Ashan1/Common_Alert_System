@@ -17,16 +17,19 @@ $db = DB::getInstance();
 <body>
 
 <?php
-$data=$db->query("SELECT * FROM message WHERE to_user = '$user_nic' AND deleted = 'no'")or die(mysql_error());
-$emp_detail=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'")or die(mysql_error());
+$data=$db->query("SELECT * FROM message WHERE to_user = '$user_nic' AND deleted = 'no'");
 $db_result=$data->result();
-$emp_name=$emp_detail->result();
 $count=$data->count();
-$count1=$emp_detail->count();
+
+/*$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
+$emp_name=$emp_details->result();
+$count1=$emp_details->count();*/
 
 $delete = "yes";
 if(isset($_POST['delete1'])) {
-    for ($i = 0; $i < $count; $i++) {
+    $checked_arr = $_POST['checkbox'];
+    $count_check = count($checked_arr);
+    for ($i = 0; $i < $count_check; $i++) {
         $del_id = $_POST['checkbox'][$i];
         $sql = "UPDATE message SET deleted='$delete' WHERE id='$del_id'";
         $update =$db->query($sql);
@@ -83,15 +86,19 @@ if(isset($_POST['new_message'])){
                 <?php
 
                 for($i=0; $i<$count; $i++){
-
+               /* for($ii=0; $ii<$count1; $ii++){*/
+                    $from_user=$db_result[$i]->from_user;
+                    $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$from_user'");
+                    $emp_name=$emp_details->result();
                     echo
                         "<tr>
-                                        <td>{$emp_name[$i]->E_name}</td>
-                                        <td>{$db_result[$i]->from_user}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{$emp_name[0]->E_name}</td>
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
 		                            </tr>\n";
-                }
+                }/*}*/
                 ?>
 
                 <!--  <input name="update" type="submit" data-toggle="modal" data-target="#myModal4" value="Update">-->

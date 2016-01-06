@@ -40,14 +40,11 @@
                         <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                     </div>
 
-
-
                     <div class="input-group">
                             <label>
                                <a href="#">Forgot Password</a>
                             </label>
                     </div>
-
 
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
