@@ -20,11 +20,6 @@ $db = DB::getInstance();
 
 $db = DB::getInstance();
 $rd=date('y-m-d-l');
-/*$data=$db->query("SELECT * FROM disaster");
-$db_result=$data->result();
-var_dump($db_result);
-$count=$data->count();*/
-
 if (isset($_GET['type'])){
     $type = $_GET['type'];
     $Dtype = $_GET['dis_type'];}
@@ -94,58 +89,8 @@ switch ($type) {
 
 
 ?>
-                    <!--<div>
-                        <div  style="text-align: center" ><h1 > DISASTER MANAGEMENT CENTER</h1>
-    <h2 > Daily Situation Report</h2>
-    <p><b> Report Period:</b> <?php /*echo $rd */?></p>
 
-        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-            <button class="btn1" value="print">print</button>
 
-        </form>
-    </div>
-    <table  class="table table-striped th" style="font-size: medium;height:50%;width: 100%">
-        <col width="220">
-        <col width="220">
-        <col width="120">
-        <col width="220">
-        <col width="220">
-        <col width="220">
-    <thead>
-    <tr>
-        <th>DATE</th>
-        <th>TIME</th>
-        <th>MAGNITUDE</th>
-        <th>LATITUDE</th>
-        <th>LONGITUDE</th>
-        <th>LOCATION</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <?php
-/*if($count>0) {
-    for ($i = 0; $i < $count; $i++) {
-        //$name=$db_result[$i]->E_name;
-        echo
-        "<tr>
-                                        <td>{$db_result[$i]->date}</td>
-                                        <td>{$db_result[$i]->time}</td>
-                                        <td>{$db_result[$i]->magnitude}</td>
-                                        <td>{$db_result[$i]->latitude}</td>
-                                        <td>{$db_result[$i]->longitude}</td>
-                                        <td>{$db_result[$i]->place}</td>
-                                        </tr>\n";
-    }
-}else{echo "<tr> <td colspan='6'><span style='font-size: xx-large;text-align: center;'>No Disaster</span></td> </tr>";}
-    */?>
-
-    </tbody>
-    </table>
-                        </div>-->
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

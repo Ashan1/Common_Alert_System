@@ -8,8 +8,7 @@ if($user->is_loggedin()==""){
 }
 
 $db = DB::getInstance();
-/*$data=$db->query("SELECT * FROM $dbt WHERE date='$today'");
-$count=$data->count();*/?>
+?>
 <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 </head>
 <script type="text/javascript">
@@ -344,17 +343,10 @@ $count=$data->count();*/?>
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <!--<div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="color: red">ERROR</h4>
-                    </div>-->
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <p style="color: red">Insert Date Correctlly.</p>
                     </div>
-                    <!--<div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>-->
                 </div>
 
             </div>
@@ -365,7 +357,6 @@ $count=$data->count();*/?>
 </div>
 
 <script src="../../public/js/jquery.js"></script>
-<script src="../../public/js/peekabar.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("select").change(function () {
