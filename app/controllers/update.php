@@ -3,7 +3,7 @@ require_once '../core/init.php';
 require_once '../model/dbConfig.php';
 $db = DB::getInstance();
 
-$id=$_GET['emp_id'];echo $id;
+$id=$_GET['emp_id'];
 //$id = $_SESSION['sessionVar'];
 $job = $_POST['size'];
 if ($job){
