@@ -1,0 +1,741 @@
+/*Common Alert System*/
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+*{font-family:Raleway;}
+
+a,a:active,a:hover,a:visited {
+    text-decoration: none;
+}
+body{
+    color:#080808;
+}
+
+ul{
+    text-decoration: none;
+    list-style: none;
+    padding:0;
+}
+
+ul li{
+    list-style: none;
+}
+
+/*---------------------------- Login ----------------------------*/
+.login .lefts{
+    background-image: url("../images/crossword.png");
+    padding: 0;
+}
+
+.login .rights{
+    background-color:#1F1F1F;
+    color: #fff;
+}
+
+.login .rights, .login .lefts{
+    height: 100vh;
+}
+
+.login .rights .head-text{
+    text-align: center;
+}
+
+.login .rights .head-text strong{
+    color: #f56d18;
+}
+
+.login .rights .controls .btn-default{
+    background-color:#f56d18 !important;
+    background-image: none !important;
+    text-shadow: none;
+    border-radius: 2px;
+    border: solid thin #f56520;
+    color: #080808;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.login .rights .controls .btn-default:hover{
+    color: #fff;
+    /*text-shadow:0 1px 0 #080808;*/
+    background-color: #89908a !important;
+    border: solid thin #89908a;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+
+/*---------------------------- End Login ----------------------------*/
+
+/*---------------------------- Start Signup ----------------------------*/
+.error{
+    color: #f56520 !important;
+}
+
+/*---------------------------- End Signup ----------------------------*/
+
+
+/*---------------------------- Start Top menu ----------------------------*/
+.topnav{
+    border-bottom: solid thin #1F1F1F;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    box-shadow: none;
+    background-color: #fff;
+    background-image: none;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    color: #080808;
+}
+
+.logo{
+    float: left;
+    line-height: 50px;
+    width: 220px;
+    height: 50px;
+    display: block;
+    background-image: url('../images/logo.png');
+    background-color: #1F1F1F;
+}
+
+.sidetoglle{
+    height:50px;
+    width: 50px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.sidetoglle i {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.sidetoglle a{
+    padding: 0 !important;
+}
+
+.tt{
+    height: 100%;
+    overflow: hidden;
+    width:220px;
+    margin: 0;
+}
+
+.navc{
+    background-color: #080808;
+
+}
+.navc .icon-bar{
+    background-color: #fff;
+}
+
+/*End Top Menu*/
+
+/*---------------------------- Start Side menu ----------------------------*/
+.sidemenu{
+    background-color: #1F1F1F;
+    width: 220px;
+    height: 100vh;
+    overflow: hidden;
+}
+.sidemenu-content{
+    color:#fff;
+}
+.sidemenu-content .profile .image{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 0 auto;
+}
+
+.sidemenu-content .profile{
+    padding: 10px 0 20px 0;
+    border-bottom: solid thin #f56d18;
+}
+
+.sidemenu-content .details .name,.sidemenu-content .details .title{
+    text-align: center;
+}
+.sidemenu-content .menu ul li{
+    font-size: 24px;
+}
+
+.sidemenu-content .menu ul li a{
+    color:#fff;
+    font-size: 18px;
+}
+
+.sidemenu-content .menu ul li a i{
+    font-size: 24px;
+}
+
+.sidemenu-content .menu ul li a:hover{
+    background-color: #f56d18;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-image:none !important;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #f56d18;
+    color: #fff;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.left-side {
+    position: absolute;
+    width: 220px;
+}
+
+.right-side,
+.left-side {
+    display: block;
+}
+
+.right-side {
+    margin-left: 220px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.right-side.strech {
+    margin-left: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.left-side.collapse-left {
+    left: -220px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/*End Side Menu*/
+
+/*-----------------------------------Home Page------------------------------------------*/
+.recent-activity{
+    height: 100px;
+    color:#1f1f1f;
+}
+
+.recent-activity h3{
+    color:#1f1f1f;
+    text-align: left;
+}
+
+.recent-activity ul li{
+    float: left;
+}
+
+.recent-activity ul li:last-child{
+    padding-left:10px;
+}
+
+.recent-activity ul li h4{
+    margin:0;
+    color:#1f1f1f;
+}
+
+.sub-menu{
+    height:48px;
+    padding:0;
+}
+
+.sub-menu .nav{
+    padding:0;
+}
+
+.sub-menu .nav>li>a{
+    color:#1f1f1f;
+}
+
+.sub-menu .nav>li>a:hover{
+    border-bottom: 5px solid #f56d18;
+    background: transparent;
+}
+
+.sub-menu .nav>li>a:focus{
+    background: transparent;
+}
+
+.sub-menu-active{
+    background: transparent;
+    border-bottom: 5px solid #f56d18;
+}
+
+.sub-menu li {
+    font-family: Raleway sans-serif;
+    font-weight: 900;
+    float: left;
+    font-size: 16px;
+}
+
+
+.summary-circles .circles{
+    height:200px;
+}
+
+.summary-circles .circles ul li {
+    width: 25%;
+    float: left;
+    text-align:center;
+}
+
+.summary-circles .circles ul li div {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.summary-circles .center1{
+    padding-top:8px;
+}
+
+.canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.maps{
+    height:580px;
+    width:100%;
+}
+
+.map-menu{
+    padding-top: 5px;
+}
+
+.map-menu .center{
+    text-align: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-menu .nav>li>a{
+    color:#1f1f1f;
+}
+
+.map-menu .nav>li>a:hover{
+    color: #f56d18;
+    background:transparent;
+}
+
+.map-menu .nav>li>a:focus{
+    color:#f56d18;
+}
+
+.map-menu li {
+    font-family: Raleway sans-serif;
+    font-weight: 900;
+    float: left;
+    font-size: 16px;
+}
+
+.map-menu ul li:last-child{
+    padding-left: 50px;
+}
+
+
+.disaster-notify ul li i{
+    font-size: 30px;
+}
+
+.disaster-notify ul li span{
+    padding-left: 5px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color:#424141;
+}
+
+.disaster-notify ul{
+    margin:0;
+    line-height:5;
+
+}
+
+.disaster-notify ul .dis-snowslide{
+    color:#9d610c;
+}
+.disaster-notify ul .dis-cracked2{
+    color:#ff8400;
+}
+.disaster-notify ul .dis-fire14{
+    color:#db1515;
+}
+.disaster-notify ul .dis-hurricane{
+    color:#1bcb09;
+}
+.disaster-notify ul .dis-waves8{
+    color:#00b4ff;
+}
+.disaster-notify ul .dis-tsunami1{
+    color:#0054ff;
+}
+.disaster-notify ul .dis-erupting{
+    color:#ffae00;
+}
+
+
+/*-----------------------------------End Home Page------------------------------------------*/
+
+
+/*-----------------------------------Disaster Alert Div-------------------------------------*/
+
+.disaster-alert{
+    z-index: 1000 !important;
+    min-height: 100px;
+    background-color: #ed1c24;
+}
+
+.disaster-alert .bulb {
+    color:#fcb205;
+}
+
+.disaster-alert .description{
+    font-weight: 900;
+    color: #fff;
+}
+.disaster-alert .description .close{
+    opacity: .4 !important;
+    text-shadow:0 0 0 !important;
+}
+.disaster-alert .description .close:hover{
+    opacity: .8 !important;
+}
+/*-----------------------------------End Disaster Alert Div---------------------------------*/
+
+/*-----------------------------------Start User Manage Home Page------------------------------------------*/
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+#nav {
+    line-height:30px;
+    background-color:black;
+    height:100%;
+    width:210px;
+    float:left;
+    padding:5px;
+    color:white;
+    margin-top:5px;
+}
+
+#side{
+    background-color:black;
+    height:100%;
+    width:220px;
+    float:left;
+    padding:5px;
+    position:fixed;
+}
+
+#name{
+    background-color:black;
+    height:60px;
+    width:210px;
+    float:center;
+    padding:5px;
+}
+
+#profile{
+    margin-top:10px;
+    background-color:black;
+    height:210px;
+    width:210px;
+    float:center;
+    padding:5px;
+}
+
+#layout{
+    width:100%;
+    height:100%;
+    background-color:white;
+
+}
+
+#head {
+    background-color:white;
+    color:black;
+    text-align:center;
+    padding:5px;
+    height:10px;
+    width:100%;
+    position: fixed;
+    z-index: 9999;
+}
+
+#recent{
+    background-color:white;
+    height:60px;
+    width:100%;
+    float:center;
+    padding:5px ;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+#upper{
+    background-color: white;
+    height:120px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+}
+
+#content{
+    background-color: white;
+    height:100%;
+    width: 100%;
+    margin-top: 20px;
+    /*overflow: scroll;*/
+}
+
+#footer {
+    background-color:black;
+    color:white;
+    width:100%;
+    height:30px;
+    text-align:center;
+    display:bottom;
+    left:0px;
+    bottom:0px;
+}
+
+.heading_h1{
+    color:#FF4000;
+    margin-top: 7px;
+    text-align: center;
+}
+
+.message_body{
+    float: left;
+    height: 400px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.div_button{
+    background-color:#FF4000;
+    margin-left:5px;
+    width:100px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    margin-top: 15px;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.div_button_img{
+    width: 25px;
+    height:25px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+}
+
+.model_addnew{
+    background-color:black;
+    background: rgba(0, 0, 0, 0.6);
+    width: 650px;
+    height: 600px;
+    margin-left:150;
+}
+.user_edit{
+    width: 410px;
+    height: 200px;
+}
+.user_pass{
+    width: 410px;
+    height:400px;
+}
+
+.modal_input{
+    width: 50px;
+    margin-top: -25;
+    margin-top: 0;
+}
+
+.modal_label{
+    color:red;
+    margin-top: 0;
+}
+
+.modal_btn{
+    background-color:#FF4000;
+    align:inline;
+}
+
+.ext_form{
+    height:30px;
+}
+
+.ext_input{
+    margin-left: 150px;
+    margin-top:-25;
+    margin-top: -28;
+}
+
+.ext_addbtn{
+    background-color:#FF4000;
+    fload:right;
+    margin-bottom:15px;
+}
+.form-group form input[type="text"]:hover{
+    box-shadow: 0 0 1em #FF0000;
+}
+
+.input_box{
+    width: 410px;
+    height: 40px;
+    align:inline;
+    margin-top: 20px;
+}
+
+/*-----------------------------------End User Manage Home Page------------------------------------------*/
+
+
+
+/*---------------------------- Medium Devices, Desktops ----------------------------*/
+@media only screen and (max-width : 992px) {
+    .right-side {
+        margin-left: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    /*Start Top menu*/
+
+    /*End Top Menu*/
+    /*Side Menu*/
+
+
+
+
+
+    /*End Side Menu*/
+
+}
+
+/*---------------------------- Small Devices, Tablets ----------------------------*/
+@media only screen and (max-width : 768px) {
+
+    /*Start Top menu*/
+
+    .logo{
+        float: left;
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+        width: 220px;
+        font-family: 'Kaushan Script', cursive;
+        font-weight: 500;
+        height: 50px;
+        display: block;
+        background-image: url('../images/logo.png');
+        background-color: #1F1F1F;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+        background-image:none !important;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+        background-color: #f56d18;
+        color: #fff;
+        -webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+        background-image:none !important;
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+        background-color: #f56d18;
+        color:#1F1F1F;
+    }
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+        background-image:none !important;
+    }
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+        background-color: #f56d18;
+        color:#1F1F1F;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar{
+        background-color: #fff;
+    }
+
+
+    /*End Top Menu*/
+
+    /*Start Side menu*/
+
+
+
+    /*End Side Menu*/
+}
+
+/*---------------------------- Extra Small Devices, Phones ----------------------------*/
+@media only screen and (max-width : 480px) {
+
+    /*Start Top menu*/
+
+    /*End Top Menu*/
+
+    /*Start Side menu*/
+
+
+
+    /*End Side Menu*/
+}
+
+
+
+
+
