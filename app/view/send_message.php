@@ -68,6 +68,7 @@ $empty="";
                         {
 // if the form has been submitted, this inserts it into the Database
                             $send_to_user = $_POST['to_user'];
+                            echo $send_to_user;
                             $send_details=$db->query("SELECT * FROM employee WHERE E_name = '$send_to_user'");
                             $emp_name=$send_details->result();
 

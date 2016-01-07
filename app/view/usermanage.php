@@ -33,9 +33,9 @@ $db = DB::getInstance();
                 for($i=0; $i<count($_POST['checkbox']); $i++){
                     $del_id = $_POST['checkbox'][$i];
                     echo $del_id;
-                    $update =$db->query("SELECT E_job_role FROM employee WHERE E_nic='$del_id'");
+                    $update =$db->query("SELECT E_jobrole FROM employee WHERE E_nic='$del_id'");
                     $job=$update->result();
-                    $c_job=$job[$i]->E_job_role;
+                    $c_job=$job[$i]->E_jobrole;
                         ?>
 
                         <script type="text/javascript">
@@ -45,12 +45,12 @@ $db = DB::getInstance();
                         </script>
 
                         <!--edit_form-->
-                        <div class="modal fade " id="myModaledit" action="../controller/update.php">
+                        <div class="modal fade " id="myModaledit" action="../controllers/update.php">
                             <div class="modal-dialog">
                                 <div class="row" style=" margin-top: 150px;margin-left: 90px;">
                                     <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 450px; height: 270px;">
                                         <h4 style="color:white;text-align:left;">Edit User Job Role</h4>
-                                        <form class="form-horizontal" action="../controller/update.php?emp_id=<?php echo $del_id?>" method="post">
+                                        <form class="form-horizontal" action="../controllers/update.php?emp_id=<?php echo $del_id?>" method="post">
                                             <div class="form-group ext_form">
                                                 <div class="col-xs-10">
                                                     <div class="input_box" >
