@@ -1,7 +1,7 @@
 
 <?php
 require_once '../core/init.php';
-require_once '../model/dbConfig.php';
+require_once '../models/dbConfig.php';
 $db = DB::getInstance();
 
 $name = $_POST['formName'];

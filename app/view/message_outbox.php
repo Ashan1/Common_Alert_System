@@ -6,7 +6,9 @@ if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
 
+$user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
+
 ?>
 </head>
 <script type="text/javascript">
@@ -15,25 +17,28 @@ $db = DB::getInstance();
 <body>
 
 <?php
+$data=$db->query("SELECT * FROM message WHERE from_user = '$user_nic' AND sent_deleted = 'no'");
+$db_result=$data->result();
+$count=$data->count();
 
-include "../../../public/php/connect.php";
+/*$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
+$emp_name=$emp_details->result();
+$count1=$emp_details->count();*/
+
 $delete = "yes";
 if(isset($_POST['delete1'])) {
-    for ($i = 0; $i < count($_POST['checkbox']); $i++) {
+    $checked_arr = $_POST['checkbox'];
+    $count_check = count($checked_arr);
+    for ($i = 0; $i < $count_check; $i++) {
         $del_id = $_POST['checkbox'][$i];
         $sql = "UPDATE message SET sent_deleted='$delete' WHERE id='$del_id'";
-        echo $del_id;
-
-        if (mysql_query($sql)) {
-        }
+        $update =$db->query($sql);
     }
 }
 
 if(isset($_POST['new_message'])){
     header('location:send_message.php');
 }
-
-$_SESSION['sessionVar'] = $del_id;
 
 ?>
 
@@ -43,7 +48,6 @@ $_SESSION['sessionVar'] = $del_id;
         <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
-
 
                 <div id="layout">
 
@@ -55,6 +59,7 @@ $_SESSION['sessionVar'] = $del_id;
 
                     <div id="content" >
 
+<<<<<<< HEAD
 
                         <?php
                         //session_start();
@@ -65,6 +70,8 @@ $_SESSION['sessionVar'] = $del_id;
                         $query = mysql_query("SELECT * FROM message WHERE from_user = 'Dilini' AND sent_deleted = 'no'")or die(mysql_error());
                         ?>
 
+=======
+>>>>>>> a77d5dcf5fb2301bdd7d11646f8e6d474cd5d240
                      <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
@@ -82,7 +89,8 @@ $_SESSION['sessionVar'] = $del_id;
 
                 <thead>
                 <tr>
-                    <th>Fromo</th>
+                    <th>Time</th>
+                    <th>Date</th>
                     <th>To</th>
                     <th>Message</th>
                     <th>Status</th>
@@ -91,16 +99,22 @@ $_SESSION['sessionVar'] = $del_id;
                 <tbody>
 
                 <?php
-                while( $row = mysql_fetch_assoc( $query ) ){
-                    $dbrow_id=$row['id'];
-                    echo
-                        "<tr>
-                          <td>{$row['from_user']}</td>
-                          <td>{$row['to_user']}</td>
-                          <td>{$row['message']}</td>
-                          <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' value=$dbrow_id>"."</td>
-		            </tr>\n";
-                }
+
+                for($i=0; $i<$count; $i++){
+                    $to_user=$db_result[$i]->to_user;
+                    $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$to_user'");
+                    $emp_name=$emp_details->result();
+
+                    /*for($ii=0; $ii<$count1; $ii++){*/
+                        echo
+                            "<tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{$emp_name[0]->E_name}</td>
+                                        <td>{$db_result[$i]->message}</td>
+                                        <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
+		                            </tr>\n";
+                    }/*}*/
                 ?>
 
                 <?php

@@ -1,20 +1,35 @@
 <?php include "../templates/header.php";
 
 require_once '../core/init.php';
-require_once '../model/dbConfig.php';
+require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
 
+$user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
+$user_inbox= $_GET['user'];
+$empty="";
 ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#send_message").click(function(){
+            var exampleList = $(#exampleList option:selected).val();
+            if(exampleList == "")
+            {
+                <?php echo "Please select a year"?>;
+                return false;
+            }
+        });
+    });
+</script>
+
 </head>
 <script type="text/javascript">
     window.onload = loadTabContent('../app/controller/tab.php?id=1');
 </script>
 <body>
-
-
 
 <div>
     <div><?php include "../templates/topmenu.php"; ?></div>
@@ -42,26 +57,29 @@ $db = DB::getInstance();
 
                             <?php
                             if(isset($_POST['outbox'])){
-                                header('location:outbox.php');
+                                header('location:message_outbox.php');
                             }
                             ?>
 
                     <div id="content">
                         <?php
-                        include "../../../public/php/connect.php";
+
                         if (isset($_POST['submit']))
                         {
 // if the form has been submitted, this inserts it into the Database
-                            $to_user = $_POST['to_user'];
+                            $send_to_user = $_POST['to_user'];
+                            $send_details=$db->query("SELECT * FROM employee WHERE E_name = '$send_to_user'");
+                            $emp_name=$send_details->result();
+
+                            $to_user= $emp_name[0]->E_nic;
+
                             /*$from_user = $_POST['from_user'];*/
-                            $from_user = "Dilini";
+                            $from_user = $user_nic;
                             $message = $_POST['message'];
                             $no = "no";
-                            mysql_query("INSERT INTO message (to_user, message, from_user,read_yet,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')") or die(mysql_error());
-                            /*echo "Message succesfully sent!";*/
-                            if(mysql_query($result)){
-                                header('location:send_message.php');
-                            }
+                            $send_message = "INSERT INTO message (to_user, message, from_user,read_yet,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')";
+                            $db->query($send_message);
+
                         }
                         else
                         {
@@ -75,9 +93,53 @@ $db = DB::getInstance();
                                             <!--<input type="hidden" name="from_user" maxlength="32" value = --><?php /*echo $_SESSION['username']; */?>
                                             <input type="hidden" name="from_user" maxlength="32" value = "Dilini">
                                         </td></tr>
-                                    <tr><td>To User: </td><td>
-                                            <input type="text" name="to_user" id="to_user" maxlength="32" value = "">
-                                        </td></tr>
+
+                                    <tr><td>To User: </td></tr>
+
+                                    <?php if($user_inbox == $empty){ ?>
+
+                                        <input type="text" name="to_user" list="exampleList">
+                                        <datalist id="exampleList">
+                                            <?php
+                                            $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                            $db_result=$data->result();
+                                            $count=$data->count();
+
+                                            for($i=0; $i<$count; $i++){
+                                                echo
+                                                "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
+                                            }
+                                            ?>
+                                        </datalist>
+
+                                    <?php
+                                    }else{
+                                        ?>
+                                        <form name="form" action="" method="get">
+                                            <tr><td>
+                                                    <input NAME="to_user" id="to_user" value=<?php echo $_GET['user'] ?>>
+                                                </td></tr>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <!--<tr><select class='form-control modal_input' name='to_user' align='center'
+                                            style='margin-left: 125px;width: 276px;margin-top: -25px;'>
+                                            <option value=""></option>
+                                        <?php
+/*                                         $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                           $db_result=$data->result();
+                                           $count=$data->count();
+
+                                           for($i=0; $i<$count; $i++){
+                                            echo
+                                            "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
+                                    }
+                                    */?>
+                                    </select></tr>-->
+
+
                                     <tr><td>Message: </td><td>
                                             <TEXTAREA NAME="message" id="message" COLS=50 ROWS=10 WRAP=SOFT></TEXTAREA>
                                         </td></tr>

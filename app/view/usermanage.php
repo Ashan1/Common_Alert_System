@@ -158,7 +158,7 @@ $db = DB::getInstance();
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150px;" >
                                     <h4 style="color:white;text-align:left;">ADD USER</h4>
-                                    <form class="form-horizontal" action="../controller/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
+                                    <form class="form-horizontal" action="../controllers/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
                                         <div class="form-group ext_form">
                                             <div class="col-xs-10">
                                                 <label for="inputName" class="control-label" style="color:white;">Name :</label>

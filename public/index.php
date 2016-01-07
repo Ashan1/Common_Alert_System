@@ -40,14 +40,11 @@
                         <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                     </div>
 
-
-
                     <div class="input-group">
                             <label>
                                <a href="#">Forgot Password</a>
                             </label>
                     </div>
-
 
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
@@ -56,9 +53,9 @@
                             <button type="submit" name="btn-login" class="btn btn-default btn-primary">
                                 <i class="fa fa-sign-in"></i>&nbsp;SIGN IN
                             </button>
-                            <button type="submit" name="btn-login" class="btn btn-default btn-primary">
+                            <a href="../app/view/signup.php"><button type="button" name="btn-login" class="btn btn-default btn-primary">
                                 <i class="fa fa-hand-o-right"></i>&nbsp;SIGN UP
-                            </button>
+                            </button></a>
                         </div>
                     </div>
                     <div class="login-error"><p>Username or Password is invalid please try again. After 5 attempts your account will block.</p></div>
