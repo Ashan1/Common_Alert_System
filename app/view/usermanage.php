@@ -9,9 +9,6 @@ if($user->is_loggedin()==""){
 $db = DB::getInstance();
 ?>
 </head>
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
 <body>
 <div>
     <div><?php include "../templates/topmenu.php"; ?></div>
@@ -23,7 +20,6 @@ $db = DB::getInstance();
             <?php
             $data=$db->query("SELECT * FROM employee");
             $db_result=$data->result();
-            var_dump($db_result);
             $count=$data->count();
 
             if(isset($_POST['delete'])){
@@ -108,7 +104,7 @@ $db = DB::getInstance();
                         <form name="table" method="post" onsubmit="return validate();">
                             <table class="table table_striped" id="table" action="load_table.php">
 
-                                <div class="row">
+                                <div>
                                     <div style="float: right;">
                                         <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()"><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
                                     </div>
