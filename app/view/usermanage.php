@@ -134,13 +134,18 @@ $db = DB::getInstance();
                                 <?php
 
                                 for($i=0; $i<$count; $i++){
+                                    $F_name=$db_result[$i]->F_Name;
+                                    $L_name=$db_result[$i]->L_Name;
+                                    $space=" ";
+                                    $E_name= $F_name.$space. $L_name;
+
                                     //$name=$db_result[$i]->E_name;
                                     echo
                                         "<tr>
                                         <td>{$db_result[$i]->E_nic}</td>
-                                        <td>{$db_result[$i]->E_name}</td>
+                                        <td>{$E_name}</td>
                                         <td>{$db_result[$i]->E_email}</td>
-                                        <td>{$db_result[$i]->E_job_role}</td>
+                                        <td>{$db_result[$i]->E_jobrole}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->E_nic}>"."</td>
 		                            </tr>\n";
                                 }
@@ -150,9 +155,9 @@ $db = DB::getInstance();
                             </table>
                         </form>
                         </div>
-                    </div>
+                    </div><!--end table with users-->
 
-                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" >
+                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" ><!--pop up modal-->
                         <div class="modal-dialog">
 
                             <div class="row">
@@ -161,8 +166,14 @@ $db = DB::getInstance();
                                     <form class="form-horizontal" action="../controllers/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
                                         <div class="form-group ext_form">
                                             <div class="col-xs-10">
-                                                <label for="inputName" class="control-label" style="color:white;">Name :</label>
-                                                <input type="name" name="formName" class="form-control modal_input" id="inputName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                                <label for="inputName" class="control-label" style="color:white;">First Name :</label>
+                                                <input type="name" name="fformName" class="form-control modal_input" id="inputfName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ext_form">
+                                            <div class="col-xs-10">
+                                                <label for="inputName" class="control-label" style="color:white;">Last Name :</label>
+                                                <input type="name" name="lformName" class="form-control modal_input" id="inputlName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group ext_form">
@@ -181,12 +192,6 @@ $db = DB::getInstance();
                                             <div class="col-xs-10">
                                                 <label for="inputmobile" class="control-label" style="color:white;">Contact Number:</label>
                                                 <input type="Mobile" class="form-control modal_input" name="formMobile" id="inputmobile" align="center" style="margin-left: 120px;" placeholder="Mobile number" pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
-                                            </div>
-                                        </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputAddress" class="control-label" style="color:white;">Address :</label>
-                                                <input type="address" class="form-control modal_input" name="formAddress" id="inputAddress" align="center" style="margin-left: 120px;" placeholder="Adress" required>
                                             </div>
                                         </div>
                                         <div class="form-group ext_form">
@@ -218,7 +223,14 @@ $db = DB::getInstance();
                                 </div>
                             </div>
                         </div>
+                    </div><!--end pop up modal-->
+
+                    <!--authenticate users-->
+                    <div>
+
                     </div>
+                    <!--end authenticate users-->
+
                 </div>
             </div>
 
