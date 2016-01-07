@@ -504,13 +504,6 @@ th {
     left: 0; top: 0;
 }
 
-/*#content{
-    background-color: white;
-    height:100%;
-    width: 100%;
-    margin-top: 20px;
-    *//*overflow: scroll;*//*
-}*/
 
 #footer {
     background-color:black;
@@ -571,10 +564,13 @@ th {
 .model_addnew{
     background-color:black;
     background: rgba(0, 0, 0, 0.6);
-    width: 650px;
-    height: 600px;
-    margin-left:150;
+    padding:20px;
 }
+
+#admin-adduser{
+    color: #fff;
+}
+
 .user_edit{
     width: 410px;
     height: 200px;

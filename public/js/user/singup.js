@@ -49,6 +49,52 @@ $().ready(function(){
            }
        }
    });
+    $('#admin-adduser').validate({
+        rules:{
+            Fname:{
+                required:true,
+                TestOnly: true
+            },
+            Lname:{
+                required:true,
+                TestOnly: true
+            },
+            email:{
+                required: true
+            },
+            nic:{
+                required: true,
+                NIC:true
+            },
+            title:{
+                required:true
+            },
+            mobile:{
+                required: true,
+                Mobile: true
+            }
+        },
+        messages:{
+            Fname:{
+                required: "Please enter your first name"
+            },
+            Lname:{
+                required: "Please enter your last name"
+            },
+            email:{
+                required: "Please enter valid email"
+            },
+            nic:{
+                required:"Please enter valid NIC number"
+            },
+            title: {
+                required: "Your Job Title"
+            },
+            mobile:{
+                required:"Please enter valid mobile number"
+            }
+        }
+    });
 });
 
 jQuery.validator.addMethod("Mobile",function(value,element){

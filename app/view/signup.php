@@ -39,7 +39,6 @@
                             <input type="text" name="nic" class="form-control" id="nic" placeholder="NIC">
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Title</label>
                         <div class="col-sm-8">

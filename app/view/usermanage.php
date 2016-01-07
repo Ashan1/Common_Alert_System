@@ -8,6 +8,7 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
+<script src="../../public/js/user/singup.js"></script>
 </head>
 <body>
 <div>
@@ -101,18 +102,18 @@ $db = DB::getInstance();
 
                     <div id="content" scrolling="yes"><!--table with users-->
                         <div class="row">
-                        <form name="table" method="post" onsubmit="return validate();">
+                        <form name="table" method="post">
                             <table class="table table_striped" id="table" action="load_table.php">
 
                                 <div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()"><img src="../../../public/images/refresh.png" class="div_button_img">Update</button>
+                                        <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()">Update</button>
                                     </div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()"><img src="../../../public/images/remove.png" class="div_button_img">Remove</button>
+                                        <button class="div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()">Remove</button>
                                     </div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new"><img src="../../../public/images/add.png" class="div_button_img">New User</button>
+                                        <button class="div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new">New User</button>
                                     </div>
                                 </div>
 
@@ -156,65 +157,61 @@ $db = DB::getInstance();
                     <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" ><!--pop up modal-->
                         <div class="modal-dialog">
 
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150px;" >
+                            <div>
+                                <div class="col-lg-10 col-lg-offset-2 model_addnew">
                                     <h4 style="color:white;text-align:left;">ADD USER</h4>
-                                    <form class="form-horizontal" action="../controllers/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputName" class="control-label" style="color:white;">First Name :</label>
-                                                <input type="name" name="fformName" class="form-control modal_input" id="inputfName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                    <form class="form-horizontal" action="../controllers/addnew.php"  data-toggle="validator" method="post" id="admin-adduser">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">First Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputName" class="control-label" style="color:white;">Last Name :</label>
-                                                <input type="name" name="lformName" class="form-control modal_input" id="inputlName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Last Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="Lname" class="form-control" id="Lname" placeholder="Last Name">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputEmail" class="control-label" style="color:white;">Email :</label>
-                                                <input type="email" name="formEmail" class="form-control modal_input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="inputEmail" style="margin-left: 120px;" align="center" placeholder="Email" data-error="Brush, that email address is invalid" required>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Email</label>
+                                            <div class="col-sm-8">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputnic" class="control-label" style="color:white;">NIC :</label>
-                                                <input type="nic" name="formNIC" class="form-control modal_input" id="inputnic" align="center" style="margin-left: 120px;" placeholder="NIC number" pattern="[0-9A-Za-z]{10}" title="Format: XXXXXXXXXV" required maxlength="10">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">NIC Number</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="nic" class="form-control" id="nic" placeholder="NIC">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputmobile" class="control-label" style="color:white;">Contact Number:</label>
-                                                <input type="Mobile" class="form-control modal_input" name="formMobile" id="inputmobile" align="center" style="margin-left: 120px;" placeholder="Mobile number" pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
-                                            </div>
-                                        </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label style="color:white;">Job Role :</label>
-                                                <select class="form-control modal_input " name="size" align="center" style="margin-left: 120px;">
-                                                    <option value="Administrator">Administrator</option>
-                                                    <option value="General User">General User</option>
-                                                    <option value="Operational User">Operational User</option>
-                                                    <option value="Executive User">Executive User</option>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Title</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="job-role">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
                                                 </select>
                                             </div>
                                         </div>
-
-                                        <div class="fileupload fileupload-new" data-provides="fileupload" style="margin-left: 40px;">
-                                            <div class="fileupload-preview thumbnail" style="width: 100px; height: 100px;margin-left: 80px;margin-top: 115px;">
-                                                <div style="margin-left: 100px;">
-                                                    <span class="fileupload-exists" style=" color:white;">Change</span><input type="file" /></span>
-                                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Mobile No</label>
+                                            <div class="col-sm-8">
+                                                <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="ex:- 0719514235">
                                             </div>
                                         </div>
-                                        <div class="modal-footer" >
-                                            <!--<div class="col-xs-offset-2 col-xs-10" style="margin-left: 280px;margin-top: 10px;">-->
-                                            <button type="Submit" class="btn modal_btn" id="submit"  value="Submit" >Add</button>
-                                            <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11px;">Cancel</button>
+                                        <div class="col-sm-6 col-sm-offset-7 controls">
+                                            <button type="submit" id="btn-signup" name="btn-adduser" class="btn btn-default btn-primary">
+                                                <i class="fa fa-hand-o-right"></i>&nbsp;Add
+                                            </button>
+
+                                            <button type="button" name="btn-cancel" class="btn btn-default btn-primary" data-dismiss="modal">
+                                                    <i class="fa fa-ban"></i>&nbsp;Cancel
+                                                </button>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
