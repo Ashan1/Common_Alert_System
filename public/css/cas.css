@@ -392,12 +392,30 @@ ul li{
 /*-----------------------------------End Home Page------------------------------------------*/
 
 
-/*-----------------------------------Disaster Alert Div------------------------------------------*/
+/*-----------------------------------Disaster Alert Div-------------------------------------*/
 
+.disaster-alert{
+    z-index: 1000 !important;
+    min-height: 100px;
+    background-color: #ed1c24;
+}
 
+.disaster-alert .bulb {
+    color:#fcb205;
+}
 
-
-/*-----------------------------------End Disaster Alert Div------------------------------------------*/
+.disaster-alert .description{
+    font-weight: 900;
+    color: #fff;
+}
+.disaster-alert .description .close{
+    opacity: .4 !important;
+    text-shadow:0 0 0 !important;
+}
+.disaster-alert .description .close:hover{
+    opacity: .8 !important;
+}
+/*-----------------------------------End Disaster Alert Div---------------------------------*/
 
 /*-----------------------------------Start User Manage Home Page------------------------------------------*/
 html, body, {

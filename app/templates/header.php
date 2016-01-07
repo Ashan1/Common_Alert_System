@@ -7,7 +7,7 @@
 <head>
 <!--Jquery-->
     <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/jquery-1.11.3.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="<?php echo SCRIPT_ROOT ?>/public/js/jquery.min.js"></script>
    <!-- <script src="js/menu.js" rel="script" type="text/javascript"></script>-->
     <script src="<?php echo SCRIPT_ROOT ?>/public/js/cas.js" rel="script" type="text/javascript"></script>
     <script src="<?php echo SCRIPT_ROOT ?>/public/js/circle-progress.js" rel="script" type="text/javascript"></script>

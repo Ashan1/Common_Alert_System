@@ -36,9 +36,13 @@ require_once '../app/models/dbConfig.php';
             return false;
         });
 
-    });
+        jQuery('#alert-close').on('click', function(event) {
+            jQuery('#disaster-alert').toggle('show');
+        });
 
+    });
     /*---------------------End Tab Change Home----------------------------*/
+
 
     window.onload = loadTabContent('../app/controllers/tab.php?id=1');
 </script>
@@ -49,8 +53,13 @@ require_once '../app/models/dbConfig.php';
         <aside class="left-side"><?php include "../app/templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
-                <div class="disaster-alert" id="disaster-alert">
-                    <p>sdjhfklsudgflkug jkgahdsfk</p>
+                <div class="row disaster-alert" id="disaster-alert">
+                    <div class="bulb col-lg-2">
+                        <span><img src="images/alert_bulb.png" class="img-responsive"></span>
+                    </div>
+                    <div class="description col-lg-10">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="alert-close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                        <h1>Flood in Anuradhapure</h1> </div>
                 </div>
                 <div class="row">
                     <div class="recent-activity">
