@@ -19,14 +19,14 @@ for ($i = 0; $i < $db->count(); $i++){
     $output .= '"lng":' . $result[$i]->longitude . ',';
     $output .= '"lat":' . $result[$i]->latitude . ',';
     $output .= '"major_basin":"' . $result[$i]->major_basin . '",';
-    $output .= '"catchment_area":' . $result[$i]->catchment_area . ',';
+    $output .= '"catchment_area":"' . $result[$i]->catchment_area . '",';
     $output .= '"capacity":' . $result[$i]->capacity . ',';
-    $output .= '"specified_acerage":"' . $result[$i]->specified_acerage . '",';
+    $output .= '"specified_acerage":' . $result[$i]->specified_acerage . ',';
     $output .= '"max_bund_height":' . $result[$i]->max_bund_height . ',';
     $output .= '"full_supply_depth":' . $result[$i]->full_supply_depth . ',';
     $output .= '"water_depth_above_sluice":' . $result[$i]->water_depth_above_sluice . ',';
-    $output .= '"spilling":' . $result[$i]->spilling . ',';
-    $output .= '"gate_open":' . $result[$i]->gate_open . '}';
+    $output .= '"spilling":"' . $result[$i]->spilling . '",';
+    $output .= '"gate_open":"' . $result[$i]->gate_open . '"}';
 
 
 }
