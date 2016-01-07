@@ -8,7 +8,7 @@ if(isset($_POST)) {
     $nic = $_POST['nic'];
     $title = $_POST['title'];
     $mobile = $_POST['mobile'];
-    
+
     $user->signup($Fname,$Lname,$email,$nic,$title,$mobile);
     $user->redirect('../../public/index.php');
 }

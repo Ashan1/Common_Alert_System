@@ -29,7 +29,7 @@ class USER {
             $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
             if($stmt->rowCount() > 0){
-                if(password_verify($upass,$userRow['E_password'])){
+                if(password_verify($upass,$userRow['E_password']) && $userRow['Admin_auth'] == 1){
                     $_SESSION['user_session'] = $userRow['E_nic'];
                     return true;
                 }
