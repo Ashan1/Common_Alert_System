@@ -4,8 +4,8 @@ require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 $db = DB::getInstance();
 
-$fname = $_POST['formfName'];
-$lname = $_POST['formlName'];
+$fname = $_POST['fformName'];
+$lname = $_POST['lformName'];
 $email = $_POST['formEmail'];
 $nic =  $_POST['formNIC'];
 $mobile = $_POST['formMobile'];
