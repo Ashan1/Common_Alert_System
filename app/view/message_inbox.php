@@ -79,6 +79,7 @@ if(isset($_POST['new_message'])){
                     <th>To</th>
                     <th>Message</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -90,14 +91,17 @@ if(isset($_POST['new_message'])){
                     $from_user=$db_result[$i]->from_user;
                     $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$from_user'");
                     $emp_name=$emp_details->result();
+                    $from_user_name=$emp_name[0]->E_name;
+
                     echo
                         "<tr>
                                         <td></td>
                                         <td></td>
-                                        <td>{$emp_name[0]->E_name}</td>
+                                        <td>{$from_user_name}</td>
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
-		                            </tr>\n";
+		                                <td><a href='send_message.php?user=".  $from_user_name ."'>Reply</a></td>
+		                             </tr>\n";
                 }/*}*/
                 ?>
 

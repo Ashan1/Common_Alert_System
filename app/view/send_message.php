@@ -8,6 +8,8 @@ if($user->is_loggedin()==""){
 
 $user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
+$user_inbox= $_GET['user'];
+$empty="";
 ?>
 
 <script type="text/javascript">
@@ -94,31 +96,43 @@ $db = DB::getInstance();
 
                                     <tr><td>To User: </td></tr>
 
-                                    <input type="text" name="to_user" list="exampleList">
-                                    <datalist id="exampleList">
-                                        <?php
-                                              $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
-                                              $db_result=$data->result();
-                                              $count=$data->count();
+                                    <?php if($user_inbox == $empty){ ?>
 
-                                              for($i=0; $i<$count; $i++){
-                                              echo
-                                              "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
-                                               }
+                                        <input type="text" name="to_user" list="exampleList">
+                                        <datalist id="exampleList">
+                                            <?php
+                                            $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                            $db_result=$data->result();
+                                            $count=$data->count();
+
+                                            for($i=0; $i<$count; $i++){
+                                                echo
+                                                "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
+                                            }
+                                            ?>
+                                        </datalist>
+
+                                    <?php
+                                    }else{
                                         ?>
-                                    </datalist>
-
+                                        <form name="form" action="" method="get">
+                                            <tr><td>
+                                                    <input NAME="to_user" id="to_user" value=<?php echo $_GET['user'] ?>>
+                                                </td></tr>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
 
                                     <!--<tr><select class='form-control modal_input' name='to_user' align='center'
                                             style='margin-left: 125px;width: 276px;margin-top: -25px;'>
                                             <option value=""></option>
                                         <?php
-/*                                           $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+/*                                         $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
                                            $db_result=$data->result();
                                            $count=$data->count();
 
                                            for($i=0; $i<$count; $i++){
-                                            //$name=$db_result[$i]->E_name;
                                             echo
                                             "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
                                     }
