@@ -23,6 +23,7 @@ $db = DB::getInstance();
             <?php
             $data=$db->query("SELECT * FROM employee");
             $db_result=$data->result();
+            var_dump($db_result);
             $count=$data->count();
 
             if(isset($_POST['delete'])){
@@ -60,7 +61,7 @@ $db = DB::getInstance();
                                                         <label style="color:white;">Current Job Role :</label>
                                                         <input type="text" class="form-control modal_input" name="jobrole"
                                                                id="currentjob" align="center"
-                                                               style="margin-left: 125px;width: 276px;margin-top: -25;"
+                                                               style="margin-left: 125px;width: 276px;margin-top: -25px;"
                                                                value="<?php echo $c_job ?>">
                                                     </div>
                                                     <label style="color:white;margin-top: 20px;">New Job Role :</label>
@@ -133,13 +134,18 @@ $db = DB::getInstance();
                                 <?php
 
                                 for($i=0; $i<$count; $i++){
+                                    $F_name=$db_result[$i]->F_Name;
+                                    $L_name=$db_result[$i]->L_Name;
+                                    $space=" ";
+                                    $E_name= $F_name.$space. $L_name;
+
                                     //$name=$db_result[$i]->E_name;
                                     echo
                                         "<tr>
                                         <td>{$db_result[$i]->E_nic}</td>
-                                        <td>{$db_result[$i]->E_name}</td>
+                                        <td>{$E_name}</td>
                                         <td>{$db_result[$i]->E_email}</td>
-                                        <td>{$db_result[$i]->E_job_role}</td>
+                                        <td>{$db_result[$i]->E_jobrole}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->E_nic}>"."</td>
 		                            </tr>\n";
                                 }
@@ -149,19 +155,25 @@ $db = DB::getInstance();
                             </table>
                         </form>
                         </div>
-                    </div>
+                    </div><!--end table with users-->
 
-                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" >
+                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" ><!--pop up modal-->
                         <div class="modal-dialog">
 
                             <div class="row">
-                                <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150;" >
+                                <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150px;" >
                                     <h4 style="color:white;text-align:left;">ADD USER</h4>
                                     <form class="form-horizontal" action="../controllers/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
                                         <div class="form-group ext_form">
                                             <div class="col-xs-10">
-                                                <label for="inputName" class="control-label" style="color:white;">Name :</label>
-                                                <input type="name" name="formName" class="form-control modal_input" id="inputName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                                <label for="inputName" class="control-label" style="color:white;">First Name :</label>
+                                                <input type="name" name="fformName" class="form-control modal_input" id="inputfName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ext_form">
+                                            <div class="col-xs-10">
+                                                <label for="inputName" class="control-label" style="color:white;">Last Name :</label>
+                                                <input type="name" name="lformName" class="form-control modal_input" id="inputlName" align="center"  style="margin-left: 120px;" placeholder="Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group ext_form">
@@ -180,12 +192,6 @@ $db = DB::getInstance();
                                             <div class="col-xs-10">
                                                 <label for="inputmobile" class="control-label" style="color:white;">Contact Number:</label>
                                                 <input type="Mobile" class="form-control modal_input" name="formMobile" id="inputmobile" align="center" style="margin-left: 120px;" placeholder="Mobile number" pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
-                                            </div>
-                                        </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-10">
-                                                <label for="inputAddress" class="control-label" style="color:white;">Address :</label>
-                                                <input type="address" class="form-control modal_input" name="formAddress" id="inputAddress" align="center" style="margin-left: 120px;" placeholder="Adress" required>
                                             </div>
                                         </div>
                                         <div class="form-group ext_form">
@@ -211,13 +217,20 @@ $db = DB::getInstance();
                                         <div class="modal-footer" >
                                             <!--<div class="col-xs-offset-2 col-xs-10" style="margin-left: 280px;margin-top: 10px;">-->
                                             <button type="Submit" class="btn modal_btn" id="submit"  value="Submit" >Add</button>
-                                            <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11;">Cancel</button>
+                                            <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11px;">Cancel</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                    </div><!--end pop up modal-->
+
+                    <!--authenticate users-->
+                    <div>
+
                     </div>
+                    <!--end authenticate users-->
+
                 </div>
             </div>
 

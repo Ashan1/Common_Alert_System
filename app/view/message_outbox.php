@@ -59,6 +59,19 @@ if(isset($_POST['new_message'])){
 
                     <div id="content" >
 
+<<<<<<< HEAD
+
+                        <?php
+                        //session_start();
+                        require("../../../public/php/connect.php");
+
+                        /*if (isset($_POST['view_old'])) {*/
+                        $user = $_SESSION['user'];
+                        $query = mysql_query("SELECT * FROM message WHERE from_user = 'Dilini' AND sent_deleted = 'no'")or die(mysql_error());
+                        ?>
+
+=======
+>>>>>>> a77d5dcf5fb2301bdd7d11646f8e6d474cd5d240
                      <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
