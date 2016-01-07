@@ -7,12 +7,12 @@ class USER {
         $this->db = $db_con;
     }
 
-    public function signup($name,$email,$nic,$title,$mob_no,$address){
+    public function signup($fname,$lname,$email,$nic,$title,$mob_no){
         try {
             $def_pass= "cas@123";
             $new_pass = password_hash($def_pass, PASSWORD_DEFAULT);
 
-            $stmtu = $this->db->prepare("INSERT INTO employee(E_name,E_nic,email,tel,address,password) VALUES('$name','$nic','$email','$mob_no','$address','$new_pass')");
+            $stmtu = $this->db->prepare("INSERT INTO employee(F_Name,L_Name,E_nic,E_email,E_tel,E_jobrole,E_password) VALUES('$fname','$lname','$nic','$email','$mob_no','$title','$new_pass')");
             $stmtu->execute();
             return $stmtu;
         }
@@ -29,7 +29,7 @@ class USER {
             $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
             if($stmt->rowCount() > 0){
-                if(password_verify($upass,$userRow['E_password'])){
+                if(password_verify($upass,$userRow['E_password']) && $userRow['Admin_auth'] == 1){
                     $_SESSION['user_session'] = $userRow['E_nic'];
                     return true;
                 }
