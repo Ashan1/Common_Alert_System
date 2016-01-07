@@ -25,13 +25,17 @@ for($i = 0; $i < sizeof($object->features); $i++){
     $seconds = ($time + $def_time) / 1000;
     $datetime = date("Y-m-d H:i:s", $seconds);
 
+    //Splitting date and time
+    $date_obj = new DateTime($datetime);
+    $date = $date_obj->format('Y-m-d');
+    $time = $date_obj->format("H:i:s");
+
     $tsunami = $object->features[$i]->properties->tsunami;
     $longitude = $object->features[$i]->geometry->coordinates[0];
     $latitude = $object->features[$i]->geometry->coordinates[1];
-    echo $longitude, " ", $latitude, "<br>";
 
     //Saving the data in the database
-    $db->query("INSERT IGNORE INTO earthquake VALUES('$id', '$datetime', '$mag', '$tsunami', '$place', '$longitude', '$latitude')");
+    $db->query("INSERT IGNORE INTO earthquake VALUES('$id', '$date', '$time', '$mag', '$tsunami', '$place', '$longitude', '$latitude')");
 
 }
 
