@@ -54,7 +54,7 @@ $u = $user->user_details($user_nic);
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user"></i>
-                        <span><?php echo $u['E_name']; ?></span> <span class="caret"></span></a>
+                        <span><?php echo $u['F_Name']; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/profile.php">
                                 <i class="fa fa-user fa-fw pull-right"></i>

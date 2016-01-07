@@ -1,53 +1,64 @@
 /**
- * Created by PM on 1/3/2016.
- */
-$(document).ready(function(){
-    $("#btn-signup").click(function() {
-        var proceed = true;
-        $("#signupform input[required=true]").each(function(){
-            $(this).css('border-color','');
-            if(!$.trim($(this).val())){ //if this field is empty
-                $(this).css('border-color','red'); //change border color to red
-                proceed = false; //set do not proceed flag
-            }
-            //check invalid email
-            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
-                $(this).css('border-color','red'); //change border color to red
-                proceed = false; //set do not proceed flag
-            }
-        });
+CAS Team
+**/
 
-        if(proceed) //everything looks good! proceed...
-        {
-            //get input field values data to be sent to server
-            post_data = {
-                'user_name'     : $('input[name=name]').val(),
-                'user_email'    : $('input[name=email]').val(),
-                'user_nic'  : $('input[name=nic]').val(),
-                'user_title'  : $('input[name=title]').val(),
-                'user_mobile'       : $('select[name=mobile]').val(),
-                'user_address'           : $('textarea[name=address]').val()
-            };
-
-            //Ajax post data to server
-            $.post('../../../app/controller/user_signup.php', post_data, function(response){
-                if(response.type == 'error'){ //load json data from server and output message
-                    output = '<div class="error">'+response.text+'</div>';
-                }else{
-                    output = '<div class="success">'+response.text+'</div>';
-                    //reset values in all input fields
-                    $("#contact_form  input[required=true], #contact_form textarea[required=true]").val('');
-                    $("#contact_form #contact_body").slideUp(); //hide form after success
-                }
-                $("#contact_form #contact_results").hide().html(output).slideDown();
-            }, 'json');
-        }
-    });
-//reset previously set border colors and hide all message on .keyup()
-$("#contact_form  input[required=true], #contact_form textarea[required=true]").keyup(function() {
-    $(this).css('border-color','');
-    $("#result").slideUp();
+$().ready(function(){
+   $('#signupform').validate({
+       rules:{
+           Fname:{
+               required:true,
+               TestOnly: true
+           },
+           Lname:{
+               required:true,
+               TestOnly: true
+           },
+           email:{
+               required: true
+           },
+           nic:{
+               required: true,
+               NIC:true
+           },
+           title:{
+               required:true
+           },
+           mobile:{
+               required: true,
+               Mobile: true
+           }
+       },
+       messages:{
+           Fname:{
+               required: "Please enter your first name"
+           },
+           Lname:{
+               required: "Please enter your last name"
+           },
+           email:{
+               required: "Please enter valid email"
+           },
+           nic:{
+               required:"Please enter valid NIC number"
+           },
+           title: {
+               required: "Your Job Title"
+           },
+           mobile:{
+               required:"Please enter valid mobile number"
+           }
+       }
+   });
 });
 
-});
+jQuery.validator.addMethod("Mobile",function(value,element){
+    return this.optional(element) || /^[0-9]{10}$/.test(value);
+},"Not a valid mobile number");
+
+jQuery.validator.addMethod("NIC",function(value,element){
+    return this.optional(element) || /^[0-9]{9}[V||X||v||x]{1}$/.test(value) ||/^[0-9]{12}$/.test(value);
+},"Not a valid NIC number");
+
+jQuery.validator.addMethod("TestOnly",function(value,element){
+    return this.optional(element) || /^[A-Z||a-z]+$/.test(value);
+},"Only alphabetical characters");
