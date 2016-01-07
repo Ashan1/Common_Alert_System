@@ -23,6 +23,7 @@ $db = DB::getInstance();
             <?php
             $data=$db->query("SELECT * FROM employee");
             $db_result=$data->result();
+            var_dump($db_result);
             $count=$data->count();
 
             if(isset($_POST['delete'])){
@@ -60,7 +61,7 @@ $db = DB::getInstance();
                                                         <label style="color:white;">Current Job Role :</label>
                                                         <input type="text" class="form-control modal_input" name="jobrole"
                                                                id="currentjob" align="center"
-                                                               style="margin-left: 125px;width: 276px;margin-top: -25;"
+                                                               style="margin-left: 125px;width: 276px;margin-top: -25px;"
                                                                value="<?php echo $c_job ?>">
                                                     </div>
                                                     <label style="color:white;margin-top: 20px;">New Job Role :</label>
@@ -155,7 +156,7 @@ $db = DB::getInstance();
                         <div class="modal-dialog">
 
                             <div class="row">
-                                <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150;" >
+                                <div class="col-md-8 col-md-offset-2 model_addnew " style="width: 510px;margin-top: 0px;margin-left:150px;" >
                                     <h4 style="color:white;text-align:left;">ADD USER</h4>
                                     <form class="form-horizontal" action="../controller/addnew.php"  onSubmit="return formValidation();" data-toggle="validator" method="post">
                                         <div class="form-group ext_form">
@@ -211,7 +212,7 @@ $db = DB::getInstance();
                                         <div class="modal-footer" >
                                             <!--<div class="col-xs-offset-2 col-xs-10" style="margin-left: 280px;margin-top: 10px;">-->
                                             <button type="Submit" class="btn modal_btn" id="submit"  value="Submit" >Add</button>
-                                            <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11;">Cancel</button>
+                                            <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;margin-top: -11px;">Cancel</button>
                                         </div>
                                     </form>
                                 </div>

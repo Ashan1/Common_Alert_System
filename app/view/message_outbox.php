@@ -1,7 +1,7 @@
 <?php include "../templates/header.php";
 
 require_once '../core/init.php';
-require_once '../model/dbConfig.php';
+require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
@@ -57,7 +57,7 @@ $_SESSION['sessionVar'] = $del_id;
 
 
                         <?php
-                        session_start();
+                        //session_start();
                         require("../../../public/php/connect.php");
 
                         /*if (isset($_POST['view_old'])) {*/
