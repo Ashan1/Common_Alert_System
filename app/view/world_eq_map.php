@@ -56,7 +56,7 @@
                             warning = "Tsunami Warning";
                         }
 
-                        var html = "<table class=\'colorful\' border='1'><tr><td><b>Location</b></td><td>" + place + "</td></tr><tr><td><b>Occurence</b></td><td>" + date + "<br> " + time + "</td></tr><tr><tr><td><b>Magnitude</b></td><td>" + mag + "</td></tr><tr><td><b>Latitude</b></td><td>" + lat + "</td></tr><tr><td><b>Longitude</b></td><td>" + lng + "</td></tr><tr><tr><td><b>Tsunami</b></td><td>" + warning + "</td></tr></table>";
+                        var html = "<table id=\'world-map\' class=\'world-map\' border='1'><tr><td><b>Location</b></td><td>" + place + "</td></tr><tr><td><b>Occurence</b></td><td>" + date + "<br> " + time + "</td></tr><tr><tr><td><b>Magnitude</b></td><td>" + mag + "</td></tr><tr><td><b>Latitude</b></td><td>" + lat + "</td></tr><tr><td><b>Longitude</b></td><td>" + lng + "</td></tr><tr><tr><td><b>Tsunami</b></td><td>" + warning + "</td></tr></table>";
 
                         var marker = new google.maps.Marker({
                             map: map,
