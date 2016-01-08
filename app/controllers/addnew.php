@@ -4,18 +4,19 @@ require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 $db = DB::getInstance();
 
-$fname = $_POST['fformName'];
-$lname = $_POST['lformName'];
-$email = $_POST['formEmail'];
-$nic =  $_POST['formNIC'];
-$mobile = $_POST['formMobile'];
-$role = $_POST['size'];
-$pw = "$2y$10$CkFzc1DxVFeJ5X8vKsvuBOr2I43zhw6Kzy/7lYjhXbNLkVvZzhHVm";
-$Admin_auth="yes";
+$fname = $_POST['Fname'];
+$lname = $_POST['Lname'];
+$email = $_POST['email'];
+$nic =  $_POST['nic'];
+$mobile = $_POST['mobile'];
+$role = $_POST['job_role'];
+$Admin_auth="1";
 
+$pw = 'ças@123';
+$new_pass = password_hash($pw, PASSWORD_DEFAULT);
 
 // attempt insert query execution
-$sql = "INSERT INTO employee (F_Name,L_Name, E_nic, E_email, E_tel, E_jobrole, E_image, E_password, E_on_off, Admin_auth) VALUES ('$fname','$lname', '$nic' ,'$email', '$mobile', '$role', '$image','$pw','','$Admin_auth')";
+$sql = "INSERT INTO employee (F_Name,L_Name, E_nic, E_email, E_tel, E_jobrole, E_image, E_password, E_on_off, Admin_auth) VALUES ('$fname','$lname', '$nic' ,'$email', '$mobile', '$role', '$image','$new_pass','','$Admin_auth')";
 $db->query($sql);
     header('location:../view/usermanage.php');
 // close connection
