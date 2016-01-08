@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
@@ -18,8 +18,13 @@ $db = DB::getInstance();
 <?php
 
 
-$db = DB::getInstance();
+
 $rd=date('y-m-d-l');
+/*$data=$db->query("SELECT * FROM disaster");
+$db_result=$data->result();
+var_dump($db_result);
+$count=$data->count();*/
+
 if (isset($_GET['type'])){
     $type = $_GET['type'];
     $Dtype = $_GET['dis_type'];}
@@ -33,7 +38,7 @@ switch ($type) {
         $Date=date("y-m-d");
         $rd=$Date;$type1='Today';
         if($Dtype!=''){
-        $data=$db->query("SELECT * FROM $Dtype WHERE date='$Date'");}
+            $data=$db->query("SELECT * FROM $Dtype WHERE date='$Date'");}
         else{$data=$db->query("SELECT * FROM $all WHERE date='$Date'");}
         $db_result=$data->result();
         $count=$data->count();
@@ -77,7 +82,6 @@ switch ($type) {
         else{$data=$db->query("SELECT * FROM $all WHERE date between ' $fd ' AND  '$td'");}
         $db_result=$data->result();
         $count=$data->count();
-
         break;
     default:
         $data=$db->query("SELECT * FROM $all WHERE date='$today'");
@@ -90,7 +94,9 @@ switch ($type) {
 
 ?>
 
-
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
