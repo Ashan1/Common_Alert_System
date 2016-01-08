@@ -5,9 +5,9 @@
 <div class="sidemenu hidden-xs" id="sidemenu">
     <div class="sidemenu-content" id="sidemenu-content">
         <div class="profile">
-            <div class="image">
+<!--            <div class="image">
                 <img src="" alter=""/>
-            </div>
+            </div>-->
             <div class="details">
                 <div class="name"><h4><?php echo $u['F_Name'] ." ". $u['L_Name']; ?></h4></div>
                 <div class="title"><strong><?php echo $u['E_jobrole']; ?></strong></div>

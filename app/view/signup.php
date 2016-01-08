@@ -13,8 +13,14 @@
                 <span><p>Note :- All fields are required</p></span>
                 <div id="contact_results"></div>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10">
-                <form id="signupform" name="signupform" class="form-horizontal" role="form" method="post" action="../controllers/user_signup.php">
+            <div class="signup-success hidden col-lg-8 col-md-8 col-sm-8 col-lg-offset-2" id="signup-success">
+                <h3>Thank You....!</h3>
+                <p>You have registered successfully. Please wait for the administration confirmation. You will get a mail with login details.
+                <a href="../../public/index.php">CLICK here</a> to log</p>
+
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10" id="signup-form">
+                <form id="signupform" name="signupform" class="form-horizontal" role="form" method="post">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">First Name</label>
                         <div class="col-sm-8">
