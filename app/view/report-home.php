@@ -10,9 +10,6 @@ $db = DB::getInstance();
 ?>
 <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 </head>
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
 <body>
 <div>
     <div><?php include "../templates/topmenu.php"; ?></div>

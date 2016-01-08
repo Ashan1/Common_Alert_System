@@ -22,13 +22,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="text" name="reset-email" class="form-control" id="reset-email" placeholder="Email">
+                                <input type="email" name="resetemail" class="form-control" id="resetemail" placeholder="Email">
                             </div>
                         </div>
 
                         <div class="form-group">
                            <div class="col-sm-12">
-                               <input type="button" value="Send Password Rest Request" id="password-reset">
+                               <input type="submit" value="Send Password Rest Request" id="password-reset">
                            </div>
                         </div>
                     </form>
