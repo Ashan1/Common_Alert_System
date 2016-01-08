@@ -1,64 +1,33 @@
 <?php
-include "connect.php";
+require_once '../core/init.php';
+require_once '../models/dbConfig.php';
+$db = DB::getInstance();
+$user_nic = $_SESSION['user_session'];
 
-$username = $_POST['up_userame'];
 $password = $_POST['reenterpassword'];
-$currentpass= $_POST['currentpassword'];
-$email = $_POST['up_email'];
-$address = $_POST['up_address'];
+$email = $_POST['email'];
 $tel = $_POST['up_tel'];
-$id= '926586637v';
-$sql = mysql_query("SELECT * FROM employee where E_nic='$id'");
-$row=mysql_fetch_array($sql);
-$pass= $row['password'];
+echo $tel;
 
-$res=password_verify($currentpass, $pass);
-echo $pass;
-echo $currentpass;
+$sql = $db->query("SELECT * FROM employee where E_nic='$user_nic'");
+$db_result=$sql->result();
 
-if ($username){
-    $sql2 =  "UPDATE employee SET username='$username' WHERE E_nic= '$id'";
-    if(mysql_query($sql2)){
-        header('location:../../app/views/home/myaccount.php');
-    } else{
-        echo "ERROR: Could not able to execute $sql2. " . mysql_error();
-    }
-}else if($password){
+$new_pass = password_hash($password, PASSWORD_DEFAULT);
+$new_pass;
 
-    if(password_verify($currentpass, $pass)){
-        echo "Your current password is not valid. Please try again" . mysql_error();
-    }else{
+if($password){
+        $sql2 =  "UPDATE employee SET E_password='$new_pass' WHERE E_nic= '$user_nic'";
+        $db->query($sql2);
+        header('location:../view/myaccount.php');
 
-        $sql2 =  "UPDATE employee SET password='$password' WHERE E_nic= '$id'";
-
-        if(mysql_query($sql2)){
-            header('location:../../app/views/home/myaccount.php');
-        } else{
-            echo "ERROR: Could not able to execute $sql2. " . mysql_error();
-        }
-
-    }
 }else if($email){
-    $sql2 =  "UPDATE employee SET email='$email' WHERE E_nic= '$id'";
-    if(mysql_query($sql2)){
-        header('location:../../app/views/home/myaccount.php');
-    } else{
-        echo "ERROR: Could not able to execute $sql2. " . mysql_error();
-    }
-}else if($address){
-    $sql2 =  "UPDATE employee SET address='$address' WHERE E_nic= '$id'";
-    if(mysql_query($sql2)){
-        header('location:../../app/views/home/myaccount.php');
-    } else{
-        echo "ERROR: Could not able to execute $sql2. " . mysql_error();
-    }
+    $sql2 =  "UPDATE employee SET E_email='$email' WHERE E_nic= '$user_nic'";
+    $db->query($sql2);
+    header('location:../view/myaccount.php');
 }else{
-    $sql2 =  "UPDATE employee SET tel='$tel' WHERE E_nic= '$id'";
-    if(mysql_query($sql2)){
-        header('location:../../app/views/home/myaccount.php');
-    } else{
-        echo "ERROR: Could not able to execute $sql2. " . mysql_error();
-    }
+    $sql2 =  "UPDATE employee SET E_tel='$tel' WHERE E_nic= '$user_nic'";
+    $db->query($sql2);
+    header('location:../view/myaccount.php');
 }
 
 // close connection
