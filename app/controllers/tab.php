@@ -1,5 +1,4 @@
 <?php
-
 $p = $_GET['id'];
 
 switch($p) {
