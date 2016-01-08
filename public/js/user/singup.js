@@ -3,52 +3,94 @@ CAS Team
 **/
 
 $().ready(function(){
-   $('#signupform').validate({
-       rules:{
-           Fname:{
-               required:true,
-               TestOnly: true
-           },
-           Lname:{
-               required:true,
-               TestOnly: true
-           },
-           email:{
-               required: true
-           },
-           nic:{
-               required: true,
-               NIC:true
-           },
-           title:{
-               required:true
-           },
-           mobile:{
-               required: true,
-               Mobile: true
-           }
-       },
-       messages:{
-           Fname:{
-               required: "Please enter your first name"
-           },
-           Lname:{
-               required: "Please enter your last name"
-           },
-           email:{
-               required: "Please enter valid email"
-           },
-           nic:{
-               required:"Please enter valid NIC number"
-           },
-           title: {
-               required: "Your Job Title"
-           },
-           mobile:{
-               required:"Please enter valid mobile number"
-           }
-       }
-   });
+  $('#btn-signup').click(function(){
+      $('#signupform').validate({
+          rules:{
+              Fname:{
+                  required:true,
+                  TestOnly: true
+              },
+              Lname:{
+                  required:true,
+                  TestOnly: true
+              },
+              email:{
+                  required: true
+              },
+              nic:{
+                  required: true,
+                  NIC:true
+              },
+              title:{
+                  required:true
+              },
+              mobile:{
+                  required: true,
+                  Mobile: true
+              }
+          },
+          messages:{
+              Fname:{
+                  required: "Please enter your first name"
+              },
+              Lname:{
+                  required: "Please enter your last name"
+              },
+              email:{
+                  required: "Please enter valid email"
+              },
+              nic:{
+                  required:"Please enter valid NIC number"
+              },
+              title: {
+                  required: "Your Job Title"
+              },
+              mobile:{
+                  required:"Please enter valid mobile number"
+              }
+          },
+
+          submitHandler: function(form) {
+              //get input field values data to be sent to server
+              var m_data = new FormData();
+              m_data.append( 'Fname',  document.getElementById("Fname").value);
+              m_data.append( 'Lname', document.getElementById("Lname").value);
+              m_data.append( 'email',  document.getElementById("email").value);
+              m_data.append( 'nic', document.getElementById("nic").value);
+              m_data.append( 'title',  document.getElementById("title").value);
+              m_data.append( 'mobile', document.getElementById("mobile").value);
+              // Ajax post data to server
+              $.ajax({
+                  url: '../../app/controllers/user_signup.php',
+                  data: m_data,
+                  processData: false,
+                  contentType: false,
+                  type: 'POST',
+                  dataType:'json',
+                  success: function(response){
+                      //load json data from server and output message
+                      if (response.type == "text"){
+                          //$("#signup-success-text").html(response.text);
+                          $("#signup-form").slideUp("slow",function(){
+                              $("#signup-success").removeClass("hidden",function(){
+                                  $("#signup-success").fadeIn(600);
+                              });
+                          });
+
+
+                      }else{
+                          $("#signup-success").html(response.text);
+                      }
+
+
+                  }
+              });
+
+
+          }
+      });
+  });
+
     $('#admin-adduser').validate({
         rules:{
             Fname:{

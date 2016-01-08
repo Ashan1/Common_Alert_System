@@ -66,6 +66,40 @@ ul li{
     transition: all 0.25s ease-in-out;
 }
 
+.login-error {
+    color: #f56520;
+}
+
+#forgotpassword{
+    background: transparent !important;
+    border: 0 !important;
+}
+
+#forgotpassword:hover{
+    background: transparent !important;
+    border: 0 !important;
+    color: #f56d18;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+#password-reset{
+    background-color:#f56d18 !important;
+    background-image: none !important;
+    border: solid thin #f56520;
+}
+
+#password-reset:hover{
+    background-color: #f58c11 !important;
+    background-image: none !important;
+    border: solid thin #f58c11;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
 
 /*---------------------------- End Login ----------------------------*/
 
@@ -73,6 +107,17 @@ ul li{
 .error{
     color: #f56520 !important;
 }
+
+.signup-success{
+    text-align: center;
+}
+
+.signup-success h3 {
+    color: #f56d18;
+}
+
+
+
 
 /*---------------------------- End Signup ----------------------------*/
 
