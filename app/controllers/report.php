@@ -30,9 +30,9 @@ if (isset($_GET['type'])){
     $Dtype = $_GET['dis_type'];}
 else{$type ='';
     $Dtype ='';}
-$today=date('y-m-d-l');
+$today=date('Y-m-d');
 
-$all='earthquake';
+$all='earthquake,reservoir';
 switch ($type) {
     case "D":
         $Date=date("y-m-d");
@@ -84,9 +84,10 @@ switch ($type) {
         $count=$data->count();
         break;
     default:
-        $data=$db->query("SELECT * FROM $all WHERE date='$today'");
-        $db_result=$data->result();
-        $count=$data->count();
+        $data1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->result();
+        $data2=$db->query("SELECT * FROM reservoir")->result();
+        $count1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->count();
+        $count2=$db->query("SELECT * FROM reservoir")->count();
         $rd=$today;$type1='Today All';
         break;
 }
