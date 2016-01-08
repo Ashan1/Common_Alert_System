@@ -1,31 +1,14 @@
 <?php include "../templates/header.php";
-
-require_once '../core/init.php';
 require_once '../models/dbConfig.php';
+require_once '../core/init.php';
 if($user->is_loggedin()==""){
     $user->redirect('../../public/index.php');
 }
-
 $user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
-$empty = "";
-if($_GET['user'] == $empty){
-?>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#send_message").click(function () {
-            var exampleList = $(#exampleList
-            option:selected
-            ).
-            val();
-            if (exampleList == "") {
-                <?php echo "Please select a year"?>;
-                return false;
-            }
-        });
-    });
-</script>
+
+?>
 
 </head>
 <body>
@@ -58,25 +41,33 @@ if($_GET['user'] == $empty){
                     if (isset($_POST['outbox'])) {
                         header('location:message_outbox.php');
                     }
+
+                    if(isset($_GET['user']) == ""){
+
                     ?>
 
                     <div id="content">
                         <?php
-
                         if (isset($_POST['submit']))
                         {
                             $send_to_user = $_POST['to_user'];
+                            echo $send_to_user;
                             list($split_fname, $split_lname) = explode(' ', $send_to_user);
+                            echo $split_fname;
+                            echo $split_lname;
                             $send_details = $db->query("SELECT * FROM employee WHERE F_Name = '$split_fname' AND L_Name='$split_lname'");
                             $emp_name = $send_details->result();
-
                             $to_user = $emp_name[0]->E_nic;
-
+                            echo $to_user;
                             $from_user = $user_nic;
                             $message = $_POST['message'];
+                            echo $from_user;
                             $no = "no";
-                            $send_message = "INSERT INTO message (to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')";
+
+                            $send_message = "INSERT INTO message(to_user, message, from_user, read_status, deleted, sent_deleted) VALUES('$to_user', '$message', '$from_user','$no','$no','$no')";
                             $db->query($send_message);
+
+                            var_dump($db->error());
                         }
                         else
                         {
@@ -104,7 +95,6 @@ if($_GET['user'] == $empty){
                                         $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
                                         $db_result = $data->result();
                                         $count = $data->count();
-
                                         for ($i = 0; $i < $count; $i++) {
                                             $ffname = $db_result[$i]->F_Name;
                                             $llname = $db_result[$i]->L_Name;
@@ -115,38 +105,44 @@ if($_GET['user'] == $empty){
                                         }
                                         ?>
                                     </datalist>
-
-                                    <?php
-                                    }
-                                    }else{ /*close $user_inbox */
-                                    ?>
-                                    <form name="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-                                        <tr><td>
-                                                <input NAME="to_user" id="to_user" value=<?php echo $_GET['user'] ?>>
-                                            </td></tr>
-                                    </form>
-
-                                    <!--<tr><select class='form-control modal_input' name='to_user' align='center'
-                                            style='margin-left: 125px;width: 276px;margin-top: -25px;'>
-                                            <option value=""></option>
-                                        <?php
-                                    /*                                         $data=$db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
-                                                                               $db_result=$data->result();
-                                                                               $count=$data->count();
-
-                                                                               for($i=0; $i<$count; $i++){
-                                                                                echo
-                                                                                "<option value='{$db_result[$i]->E_name}'>{$db_result[$i]->E_name}</option>";
-                                                                        }
-                                                                        */?>
-                                    </select></tr>-->
-
-
                                     <tr><td>Message: </td><td>
                                             <TEXTAREA NAME="message" id="message" COLS=50 ROWS=10 WRAP=SOFT></TEXTAREA>
                                         </td></tr>
                                     <tr><td colspan="2" align="right">
                                             <input id="send_message" class="div_button"  type="submit" name="submit" style="width: 129px;" value="Send Message">
+                                        </td></tr>
+                                    </table>
+                                </form>
+
+                                    <?php
+                                    }
+    }else{ /*close $user_inbox */
+
+                        if (isset($_POST['submit1']))
+                        {
+                            $send_to_user = $_POST['to_user'];
+                            echo $send_to_user;
+                            list($split_fname, $split_lname) = explode(' ', $send_to_user);
+                            $send_details = $db->query("SELECT * FROM employee WHERE F_Name = '$split_fname' AND L_Name='$split_lname'");
+                            $emp_name = $send_details->result();
+                            $to_user = $emp_name[0]->E_nic;
+                            echo $to_user;
+                            $from_user = $user_nic;
+                            $message = $_POST['message'];
+                            $no = "no";
+                            $send_message = "INSERT INTO message (msg_time,msg_date,to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('','',''$to_user', '$message', '$from_user','$no','$no','$no')";
+                            $db->query($send_message);
+                        }
+                                    ?>
+                                    <form name="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+                                        <tr><td>
+                                                <input NAME="to_user" id="to_user" value=<?php echo $_GET['user'] ?>>
+                                            </td></tr>
+                                    <tr><td>Message: </td><td>
+                                            <TEXTAREA NAME="message" id="message" COLS=50 ROWS=10 WRAP=SOFT></TEXTAREA>
+                                        </td></tr>
+                                    <tr><td colspan="2" align="right">
+                                            <input id="send_message" class="div_button"  type="submit" name="submit1" style="width: 129px;" value="Send Message">
                                         </td></tr>
                                     </table>
                                 </form>
