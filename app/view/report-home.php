@@ -1,5 +1,4 @@
 <?php include "../templates/header.php";
-error_reporting(10);
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 require_once '../controllers/report.php';
@@ -47,7 +46,7 @@ $db = DB::getInstance();
                                 </div>
                             </div><br>
                             <div class="col-lg-12" required>
-                                <input type="radio" name="dis_type" value="" checked> All&nbsp;
+                                <input type="radio" name="dis_type" value="1" checked> All&nbsp;
                                 <input type="radio" name="dis_type" value="earthquake"> Earthquakes&nbsp;
                                 <input type="radio" name="dis_type" value="landslide"> Landslide&nbsp;
                                 <!--<input type="radio" name="dis_type" value="fire"> Fire&nbsp;-->
@@ -71,6 +70,7 @@ $db = DB::getInstance();
                     <?php echo $type1." ".$Dtype;?> Disasters </p>
                 </div>
                 <?php
+
                 switch ($Dtype) {
                     case "earthquake":
                         echo '<div>
@@ -80,7 +80,7 @@ $db = DB::getInstance();
                </form>
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size:font-family:; x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -124,7 +124,7 @@ $db = DB::getInstance();
                </form>
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: medium;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -168,7 +168,7 @@ $db = DB::getInstance();
                </form>
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: medium;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size:x-small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -212,7 +212,7 @@ $db = DB::getInstance();
                </form>
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: medium;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -256,7 +256,7 @@ $db = DB::getInstance();
                </form>
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: medium;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
