@@ -8,6 +8,7 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
+<meta http-equiv="Cache-control" content="no-cache">
 <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 </head>
 <script type="text/javascript">
@@ -70,7 +71,7 @@ $db = DB::getInstance();
                     <?php echo $type1." ".$Dtype;?> Disasters </p>
                 </div>
                 <?php
-
+                echo $type1."\t\t ".$Dtype;
                 switch ($Dtype) {
                     case "earthquake":
                         echo '<div>
@@ -342,16 +343,16 @@ $db = DB::getInstance();
                </form>
             </div>';
             if($count1<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-            echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <thead>
+            echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%;">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <thead style="width: 100%">
                 <tr>
                     <th>DATE</th>
                     <th>TIME</th>
