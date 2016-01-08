@@ -188,11 +188,11 @@ $db = DB::getInstance();
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <select class="form-control" id="job-role">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
+                                                <select class="form-control" id="job-role" name="job_role">
+                                                    <option value="General User">General User</option>
+                                                    <option value="Administrator">Administrator</option>
+                                                    <option value="Operational User">Operational User</option>
+                                                    <option value="Executive User">Executive User</option>
                                                 </select>
                                             </div>
                                         </div>
