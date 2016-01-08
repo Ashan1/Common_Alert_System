@@ -9,21 +9,14 @@ if($user->is_loggedin()==""){
 $user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
 ?>
-</head>
 
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
+</head>
 <body>
 
 <?php
 $data=$db->query("SELECT * FROM message WHERE to_user = '$user_nic' AND deleted = 'no'");
 $db_result=$data->result();
 $count=$data->count();
-
-/*$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
-$emp_name=$emp_details->result();
-$count1=$emp_details->count();*/
 
 $delete = "yes";
 if(isset($_POST['delete1'])) {
@@ -64,11 +57,11 @@ if(isset($_POST['new_message'])){
 
                                 <div class="row">
                                     <div style="float:right;">
-                                        <button class="div_button"  type="submit" id="remove" name="delete1" ><img src="../../../public/images/remove.png" class="div_button_img">Remove</button>
+                                        <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
                                     </div>
 
                                     <div style="float:right;">
-                                         <button class="div_button" type="submit" name="new_message" style="width: 129px;"><img src="../../../public/images/Add.png" class="div_button_img">New Message</button>
+                                         <button class="div_button" type="submit" name="new_message" style="width: 129px;">New Message</button>
                                     </div>
                                 </div>
 
@@ -91,16 +84,19 @@ if(isset($_POST['new_message'])){
                     $from_user=$db_result[$i]->from_user;
                     $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$from_user'");
                     $emp_name=$emp_details->result();
-                    $from_user_name=$emp_name[0]->E_name;
+                    $fname=$emp_name[0]->F_Name;
+                    $lname=$emp_name[0]->L_Name;
+                    $space=" ";
+                    $fname=$fname.$space.$lname;
 
                     echo
                         "<tr>
                                         <td></td>
                                         <td></td>
-                                        <td>{$from_user_name}</td>
+                                        <td>{$fname}</td>
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
-		                                <td><a href='send_message.php?user=".  $from_user_name ."'>Reply</a></td>
+		                                <td><a href='send_message.php?user=".  $fname ."'>Reply</a></td>
 		                             </tr>\n";
                 }/*}*/
                 ?>

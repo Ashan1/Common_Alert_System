@@ -14,7 +14,7 @@ class USER {
 
             $stmtu = $this->db->prepare("INSERT INTO employee(F_Name,L_Name,E_nic,E_email,E_tel,E_jobrole,E_password) VALUES('$fname','$lname','$nic','$email','$mob_no','$title','$new_pass')");
             $stmtu->execute();
-            return $stmtu;
+            return true;
         }
         catch(PDOException $e){
             echo $e->getMessage();

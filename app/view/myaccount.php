@@ -249,18 +249,6 @@ $db = DB::getInstance();
                 </div>
             <!-- /page-content-->
 
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
     </div>
