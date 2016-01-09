@@ -19,13 +19,13 @@
                 <li><a href="<?php echo SCRIPT_ROOT ?>/public/index.php">
                         <i class="fa fa-home fa-fw pull-left"></i>
                         Home</a></li>
-                <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/disasters.php">
+                <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/report-home.php">
                         <i class="fa fa-globe fa-fw pull-left"></i>
                         Disasters</a></li>
                 <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/alerts.php">
                         <i class="fa fa-exclamation-triangle fa-fw pull-left"></i>
                         Alerts</a></li>
-                <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/message.php">
+                <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/message_inbox.php">
                         <i class="fa fa-envelope fa-fw pull-left"></i>
                         Message</a></li>
                 <?php if($u['E_jobrole'] == 'Administrator') { ?>

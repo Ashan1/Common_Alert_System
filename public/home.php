@@ -1,5 +1,4 @@
 <?php include "../app/templates/header.php";
-
 require_once '../app/models/dbConfig.php';
     if($user->is_loggedin()==""){
         $user->redirect('index.php');

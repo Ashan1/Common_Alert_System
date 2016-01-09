@@ -70,7 +70,7 @@ if(isset($_POST['new_message'])){
                 <tr>
                     <th>Time</th>
                     <th>Date</th>
-                    <th>To</th>
+                    <th>From</th>
                     <th>Message</th>
                     <th>Status</th>
                     <th></th>
@@ -79,7 +79,10 @@ if(isset($_POST['new_message'])){
                 <tbody>
 
                 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 036c7f2f786891e26ad8b5001c7accada0550780
                 for($i=0; $i<$count; $i++){
                /* for($ii=0; $ii<$count1; $ii++){*/
                    $from_user=$db_result[$i]->from_user;
@@ -95,7 +98,11 @@ if(isset($_POST['new_message'])){
                         "<tr>
                                         <td></td>
                                         <td></td>
+<<<<<<< HEAD
                                         <td>{$db_result[$i]->from_user}</td>
+=======
+                                        <td>{$full_name}</td>
+>>>>>>> 036c7f2f786891e26ad8b5001c7accada0550780
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
 		                                <td><a href='send_message.php?user=".  $full_name ."'>Reply</a></td>

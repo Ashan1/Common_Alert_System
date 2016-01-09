@@ -49,8 +49,20 @@ $().ready(function(){
     });
 
     $('#password-reset').click(function(){
-        $('#password-reset-show').fadeOut('slow',function(){
-            $('#password-reset-msg').removeClass('hidden').fadeIn();
+        $('#forgotpassword-admin').validate({
+            rules:{
+                resetemail:{
+                    required:true
+                }
+            },
+            submitHandler: function(form) {
+
+                $('#password-reset-show').fadeOut('slow',function(){
+                    $('#password-reset-msg').removeClass('hidden').fadeIn();
+                });
+            }
+
         });
     });
 });
+
