@@ -8,6 +8,7 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
+<meta http-equiv="Cache-control" content="no-cache">
 <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -18,7 +19,7 @@ $db = DB::getInstance();
         <div class="right-side">
             <div class="container-fluid">
                 <!-----------------Generate Report-Start---------------->
-                <div class="col-lg-12 Rform"  style="background-color: #d0e3f0">
+                <div class="col-lg-12 Rform" >
                     <h1 style="color: #00080C;text-align: left">GENERATE REPORT</h1>
                     <div class="col-lg-2" style="font-size: larger">Select Report Type </div>
                     <div class="col-lg-10">
@@ -43,7 +44,7 @@ $db = DB::getInstance();
                                 </div>
                             </div><br>
                             <div class="col-lg-12" required>
-                                <input type="radio" name="dis_type" value="1" checked> All&nbsp;
+                                <input type="radio" name="dis_type" value="" checked> All&nbsp;
                                 <input type="radio" name="dis_type" value="earthquake"> Earthquakes&nbsp;
                                 <input type="radio" name="dis_type" value="landslide"> Landslide&nbsp;
                                 <input type="radio" name="dis_type" value="reservoir"> Reservoir&nbsp;
@@ -64,20 +65,19 @@ $db = DB::getInstance();
                 <div  style="text-align: center;display:none" class="head1"><h1 > DISASTER MANAGEMENT CENTER</h1>
                     <h2 > Daily Situation Report</h2>
                     <p><b> Report Period:</b> <?php echo $rd ?><br>
-                    <?php echo $type1." ".$Dtype;?> Disasters </p>
+                      </p>
                 </div>
-                <?php
+                <div style="text-align: right;"><form name="myForm" action="" onsubmit="return Printpage()" method="post">
+                        <button class="btn1" value="print">print</button>
+                    </form></div>
 
+                <div style="text-align: center;font-size: medium"><b><?php echo $type1."\t\t ".$Dtype;?> Disasters</b></div>
+                <?php
                 switch ($Dtype) {
                     case "earthquake":
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                                <col width="40">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -86,6 +86,7 @@ $db = DB::getInstance();
                                 <col width="220">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
@@ -97,9 +98,11 @@ $db = DB::getInstance();
 
                         if($count>0) {
                             for ($i = 0; $i < $count; $i++) {
+                                $j=$i+1;
                                 //$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
+                                        <td>{$j}</td>
                                         <td>{$db_result[$i]->date}</td>
                                         <td>{$db_result[$i]->time}</td>
                                         <td>{$db_result[$i]->magnitude}</td>
@@ -110,12 +113,6 @@ $db = DB::getInstance();
                         echo"</tbody>
             </table>";break;
                     case "landslide":
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="220">
@@ -157,14 +154,10 @@ $db = DB::getInstance();
                         $data=$db->query("SELECT * FROM reservoir");
                         $db_result=$data->result();
                         $count=$data->count();
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';echo "Show all recent reservoir records";
+                        echo "Show all recent reservoir records";
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                                <col width="40">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -173,6 +166,7 @@ $db = DB::getInstance();
                                 <col width="220">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>RESERVOIR NAME</th>
                     <th>DISTRICT</th>
                     <th>MAJOR BASIN</th>
@@ -185,9 +179,11 @@ $db = DB::getInstance();
 
                         if($count>0) {
                             for ($i = 0; $i < $count; $i++) {
+                                $j=$i+1;
                                 //$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
+                                        <td>{$j}</td>
                                         <td>{$db_result[$i]->reservoir_name}</td>
                                         <td>{$db_result[$i]->district}</td>
                                         <td>{$db_result[$i]->major_basin}</td>
@@ -199,14 +195,9 @@ $db = DB::getInstance();
                         echo"</tbody>
             </table>";break;
                     case "cyclone":
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size:x-small;height:50%;width: 100%">
+                                <col width="40">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -215,6 +206,7 @@ $db = DB::getInstance();
                                 <col width="220">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
@@ -228,10 +220,10 @@ $db = DB::getInstance();
 
                         if($count>0) {
                             for ($i = 0; $i < $count; $i++) {
-                                //$name=$db_result[$i]->E_name;
+                                $j=$i+1;//$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
-                                        <td>{$db_result[$i]->date}</td>
+                                        <td>{$j}</td>
                                         <td>{$db_result[$i]->time}</td>
                                         <td>{$db_result[$i]->magnitude}</td>
                                         <td>{$db_result[$i]->latitude}</td>
@@ -243,14 +235,10 @@ $db = DB::getInstance();
                         echo"</tbody>
             </table>";break;
                     case "flood":
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
 
-               </form>
-            </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                                <col width="40">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -259,6 +247,7 @@ $db = DB::getInstance();
                                 <col width="220">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
@@ -272,9 +261,11 @@ $db = DB::getInstance();
 
                         if($count>0) {
                             for ($i = 0; $i < $count; $i++) {
+                                $j=$i+1;
                                 //$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
+                                        <td>{$j}</td>
                                         <td>{$db_result[$i]->date}</td>
                                         <td>{$db_result[$i]->time}</td>
                                         <td>{$db_result[$i]->magnitude}</td>
@@ -295,6 +286,7 @@ $db = DB::getInstance();
             </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                                <col width="40">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -303,6 +295,7 @@ $db = DB::getInstance();
                                 <col width="220">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
@@ -316,9 +309,11 @@ $db = DB::getInstance();
 
                         if($count>0) {
                             for ($i = 0; $i < $count; $i++) {
+                                $j=$i+1;
                                 //$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
+                                        <td>{$j}</td>
                                         <td>{$db_result[$i]->date}</td>
                                         <td>{$db_result[$i]->time}</td>
                                         <td>{$db_result[$i]->magnitude}</td>
@@ -331,25 +326,22 @@ $db = DB::getInstance();
                         echo"</tbody>
             </table>";break;
                     case "":
+                        $ydy=date('y-m-d',strtotime("-7 days"));
                     echo $Dtype;
-                    echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';
             if($count1<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-            echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <col width="220">
-                <thead>
+            echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%;">
+                <col width="20">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <col width="320">
+                <thead style="width: 100%">
                 <tr>
+                    <th>#</th>
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
@@ -365,9 +357,11 @@ $db = DB::getInstance();
 
                     if($count1>0) {
                         for ($i = 0; $i < $count1; $i++) {
+                            $j=$i+1;
                             //$name=$db_result[$i]->E_name;
                             echo
                             "<tr>
+                                        <td>{$j}</td>
                                         <td>{$data1[$i]->date}</td>
                                         <td>{$data1[$i]->time}</td>
                                         <td>{$data1[$i]->magnitude}</td>
@@ -381,11 +375,11 @@ $db = DB::getInstance();
                     }
                         if($count2>0) {
                             for ($i = 0; $i < $count2; $i++) {
-                                //$name=$db_result[$i]->E_name;
+                                $j=$i+1;//$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
-
-                                        <td>{$rd}</td>
+                                        <td>{$j}</td>
+                                        <td>{$ydy}</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
@@ -397,7 +391,13 @@ $db = DB::getInstance();
                             }
                         }
                     echo"</tbody>
-            </table>";}?>
+            </table>";}
+                if (isset($_GET['type'])){
+                    if($count<=0){
+                        echo '<div style="text-align: center;font-size: xx-large">No Disasters Avalable</div>';
+                    }
+                }?>
+
         </div>
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -447,6 +447,26 @@ $db = DB::getInstance();
         else {
             return true;
         }
-    }
+    };
+    function Printpage() {
+        var alphaExp = /^[a-zA-Z]+$/;
+        if(document.myForm.name.match(alphaExp)){
+            print();
+            document.myForm.name.focus();
+            return false;
+        }
+    };
+    $(document).ready(function(){
+        $(".btn1").click(function(){
+            $('#sidemenu').animate({width:'toggle'},350);
+            $('.left-side').toggleClass("collapse-left");
+            $(".right-side").toggleClass("strech");
+            $(".btn1").hide();
+            $(".Rform").hide();
+            $(".head1").show();
+
+        });
+    });
+
 </script>
 </body>
