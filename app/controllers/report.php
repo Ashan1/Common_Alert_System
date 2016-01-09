@@ -9,9 +9,6 @@ if($user->is_loggedin()==""){
 $db = DB::getInstance();
 ?>
 </head>
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
 <body>
 <div>
     <div style="background-color: #ecf0f1; border: 2px solid black;">
@@ -31,11 +28,7 @@ if (isset($_GET['type'])){
 else{$type ='';
     $Dtype ='';}
 $today=date('Y-m-d');
-$all=[$data1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->result(),
-$data2=$db->query("SELECT * FROM reservoir")->result(),
-$count1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->count(),
-$count2=$db->query("SELECT * FROM reservoir")->count(),
-$rd=$today,$type1='Today All'];
+$all=[$data1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->result(),$data2=$db->query("SELECT * FROM reservoir")->result(),$count1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->count(), $count2=$db->query("SELECT * FROM reservoir")->count(), $rd=$today,$type1='Today All'];
 switch ($type) {
     case "D":
         $Date=date("y-m-d");

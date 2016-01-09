@@ -19,7 +19,6 @@ require_once '../app/models/dbConfig.php';
         });
     }
 
-
     jQuery(document).ready(function(){
         $("#preloader").hide();
         jQuery("[id^=tab]").click(function(){
@@ -41,8 +40,6 @@ require_once '../app/models/dbConfig.php';
 
     });
     /*---------------------End Tab Change Home----------------------------*/
-
-
     window.onload = loadTabContent('../app/controllers/tab.php?id=1');
 </script>
 <body>

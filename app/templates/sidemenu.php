@@ -16,7 +16,7 @@
 
         <div class="menu">
             <ul class="nav">
-                <li><a href="<?php echo SCRIPT_ROOT ?>/public/index.php">
+                <li><a href="<?php echo SCRIPT_ROOT ?>/public/home.php">
                         <i class="fa fa-home fa-fw pull-left"></i>
                         Home</a></li>
                 <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/report-home.php">
