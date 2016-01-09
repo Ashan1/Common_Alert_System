@@ -24,16 +24,13 @@ $reg = '/.*
 .*
 .*
 .*
-.*?(.*?)
-.*?<\//';
+.*?([0-9]+.[0-9]+)/';
 
 //Getting data off website
 preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
 
 $db = DB::getInstance();
-var_dump($posts);
-
 
 foreach ($posts as $post) {
 
