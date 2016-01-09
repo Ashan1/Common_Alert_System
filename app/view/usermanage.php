@@ -19,9 +19,9 @@ $db = DB::getInstance();
             <div class="container-fluid">
 
             <?php
-            $data=$db->query("SELECT * FROM employee");
-            $db_result=$data->result();
-            $count=$data->count();
+            $data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1'");
+            $db_result=$data_check->result();
+            $count2=$data_check->count();
 
             if(isset($_POST['delete'])){
                 for($i=0; $i<count($_POST['checkbox']); $i++){
@@ -100,7 +100,7 @@ $db = DB::getInstance();
                         <H2 style="color: #000000; float: left">User Accounts</H2>
                     </div>
 
-                    <div id="content" scrolling="yes"><!--table with users-->
+                    <div id="content" scrolling="yes"><!--table with checked users-->
                         <div class="row">
                         <form name="table" method="post">
                             <table class="table table_striped" id="table" action="load_table.php">
@@ -130,7 +130,7 @@ $db = DB::getInstance();
 
                                 <?php
 
-                                for($i=0; $i<$count; $i++){
+                                for($i=0; $i<$count2; $i++){
                                     $F_name=$db_result[$i]->F_Name;
                                     $L_name=$db_result[$i]->L_Name;
                                     $space=" ";
@@ -152,9 +152,9 @@ $db = DB::getInstance();
                             </table>
                         </form>
                         </div>
-                    </div><!--end table with users-->
+                    </div><!--end table with checked users-->
 
-                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" ><!--pop up modal-->
+                    <div class="modal fade" id="myModal" role="dialog" action="../controller/addnew.php" ><!--pop up addnew modal-->
                         <div class="modal-dialog">
 
                             <div>
@@ -208,16 +208,135 @@ $db = DB::getInstance();
                                             </button>
 
                                             <button type="button" name="btn-cancel" class="btn btn-default btn-primary" data-dismiss="modal">
-                                                    <i class="fa fa-ban"></i>&nbsp;Cancel
-                                                </button>
+                                                <i class="fa fa-ban"></i>&nbsp;Cancel
+                                            </button>
                                         </div>
 
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div><!--end pop up modal-->
+                    </div><!--end pop up add new modal-->
 
+                    <div class="row">
+                        <div id="recent">
+                            <H2 style="color: #000000; float: left">New Users</H2>
+                        </div>
+                    </div>
+
+                    <div id="content" scrolling="yes"><!--table with new users-->
+                        <div class="row">
+                            <form name="table" method="post">
+                                <table class="table table_striped" id="table" action="load_table.php">
+
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Contact Number</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php
+                                    $data_notcheck=$db->query("SELECT * FROM employee WHERE Admin_auth='0'");
+                                    $db_result=$data_notcheck->result();
+                                    $count1=$data_notcheck->count();
+
+                                    for($j=0; $j<$count1; $j++) {
+                                    $F_name = $db_result[$j]->F_Name;
+                                    $L_name = $db_result[$j]->L_Name;
+                                    $space = " ";
+                                    $E_name = $F_name . $space . $L_name;
+                                    $reject_btn="1";
+                                    $accept_btn="0";
+
+                                    echo
+                                        "<tr>
+                                        <td>{$db_result[$j]->E_nic}</td>
+                                        <td>{$E_name}</td>
+                                        <td>{$db_result[$j]->E_email}</td>
+                                        <td>{$db_result[$j]->E_tel}</td>
+                                        <td>" . "<button data-toggle='modal' data-target='#viewModal' type='button' id='view' name='view'>View</button>" . "</td>
+		                            </tr>\n";
+                                    ?>
+
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <!--end table with new users-->
+
+                    <div class="modal fade" id="viewModal" role="dialog" action="../controller/admin_accept_user.php">
+                        <!--pop up modal for view-->
+                        <div class="modal-dialog">
+
+                            <div>
+                                <div class="col-lg-10 col-lg-offset-2 model_addnew">
+                                    <h4 style="color:white;text-align:left;">NEW USER REQUEST</h4>
+
+                                    <form class="form-horizontal" action="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" data-toggle="validator" method="post" id="admin-adduser">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Name:</label>
+                                            <label class="col-sm-4 control-label"><?php echo $E_name ?></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Email:</label>
+                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_email ?></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Contact Number:</label>
+                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_tel ?></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">NIC Number:</label>
+                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_nic ?></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Job Title:</label>
+                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_jobrole ?></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Acess Level:</label>
+
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="job-role" name="job_role">
+                                                    <option value="General User">General User</option>
+                                                    <option value="Administrator">Administrator</option>
+                                                    <option value="Operational User">Operational User</option>
+                                                    <option value="Executive User">Executive User</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-sm-offset-7 controls">
+                                            <button type="submit" name="accept_btn" formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" id="btn-signup" name="btn-acceptuser"
+                                                    class="btn btn-default btn-primary">
+                                                <i class="fa fa-hand-o-right"></i>&nbsp;Accept
+                                            </button>
+                                            <button type="submit" name="reject_btn" formaction="../controllers/admin_accept_user.php?delete=<?php echo $reject_btn ?> & user_id=<?php echo $db_result[$j]->E_nic?>" type="submit" id="btn-signup" name="btn-rejectuser"
+                                                    class="btn btn-default btn-primary">
+                                                <i class="fa fa-hand-o-right"></i>&nbsp;Reject
+                                            </button>
+                                            <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
+                                                    data-dismiss="modal">
+                                                <i class="fa fa-ban"></i>&nbsp;Cancel
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end pop up modal for view-->
+
+                    <?php
+                    }
+                    ?>
                     <!--authenticate users-->
                     <div>
 
