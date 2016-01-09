@@ -1,6 +1,7 @@
 <?php
 $user_nic = $_SESSION['user_session'];
 $u = $user->user_details($user_nic);
+$msg = $user->unread_messages($user_nic);
 ?>
 <nav class="navbar navbar-default topnav">
     <div><a href="index.php" class="logo"></a></div>
@@ -43,9 +44,9 @@ $u = $user->user_details($user_nic);
 
 
                 <li role="separator" class="divider"></li>
-                <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="hidden-xs"><a href="<?php echo SCRIPT_ROOT ?>/app/view/msg_inbox.php">
                         <i class="fa fa-envelope"></i>
-                        <span class="label label-warning">7</span>
+                        <span class="label label-warning"><?php echo $msg ?></span>
                     </a></li>
                 <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
