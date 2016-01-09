@@ -10,8 +10,8 @@ require_once '../controllers/report.php';
 <div class="home-tabheader disaster-notify">
     <div class="col-lg-4">
         <ul>
-            <li><i class="dis-cracked2" style=""></i> <span>EARTHQUAKES - <?php  echo $edata;?></span></li>
-            <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php  echo$ldata;?></span></li>
+            <li><lable><input class="btnre" type="submit"name="dis_type" value="earthquake&type=D"> <i class="dis-cracked2" style=""></i> <span>EARTHQUAKES - <?php  echo $edata;?></span></lable></li>
+            <li><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php  echo$ldata;?></span><!--</button>--></li>
             <li><i class="dis-fire14" style=""></i> <span>RESERVOIR -<?php  echo$rdata;?></span></li>
         </ul>
     </div>
@@ -362,4 +362,20 @@ require_once '../controllers/report.php';
             echo"</tbody>
             </table>";}?>
 </div>
+<script>
+    $(function () {
+        $(this).on('submit', function (e) {
 
+            $.ajax({
+                type: 'get',
+                url: '../controllers/report.php',
+                data: $(this).serialize(),
+                success: function () {
+                    alert('form was submitted');
+                }
+            });
+            e.preventDefault();
+        });
+
+    });
+</script>
