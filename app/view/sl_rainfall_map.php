@@ -49,7 +49,7 @@
                         var lng = parseFloat(response[i].lng);
                         var point = new google.maps.LatLng(lat, lng);
 
-                        var html = "<table id = \'sl-map\' class = \'sl-map\' border='1'><th colspan = \'2\'>" + station + "</th><tr><td><b>River Basin</b></td><td>" + basin + " " + rb_id+ "</td></tr><tr><td><b>Co-ordinates</b></td><td>Lati - " + lat + "</br>Long - " + lng + "</td></tr><tr><td><b>Rainfall for Last 24 hours(mm)</b></td><td>" + rain_fall + "</td></tr></table>";
+                        var html = "<table id = \'sl-map\' class = \'sl-map\' border='1'><th colspan = \'2\'>" + station + "</th><tr><td><b>River Basin</b></td><td>" + basin + " (" + rb_id + ")</td></tr><tr><td><b>Co-ordinates</b></td><td>Lati - " + lat + "</br>Long - " + lng + "</td></tr><tr><td><b>Rainfall for Last 24 hours(mm)</b></td><td>" + rain_fall + "</td></tr></table>";
 
                         var marker = new google.maps.Marker({
                             map: map,
