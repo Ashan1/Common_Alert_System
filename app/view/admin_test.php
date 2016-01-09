@@ -6,7 +6,7 @@ require_once '../models/dbConfig.php';
 $db = DB::getInstance();
 ?>
 
-<script ty>
+<script type="text/javascript">
 
 </script>
 

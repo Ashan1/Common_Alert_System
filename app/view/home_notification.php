@@ -1,7 +1,7 @@
 <?php
 error_reporting(10);
 require_once '../controllers/notification_connect.php';
-require_once '../controllers/report.php';
+require_once 'report.php';
 /**
  * Created by CAS Team.
  */
@@ -421,20 +421,3 @@ require_once '../controllers/report.php';
             echo"</tbody>
             </table>";}?>
 </div>
-<script>
-    $(function () {
-        $(this).on('submit', function (e) {
-
-            $.ajax({
-                type: 'get',
-                url: '../controllers/report.php',
-                data: $(this).serialize(),
-                success: function () {
-                    alert('form was submitted');
-                }
-            });
-            e.preventDefault();
-        });
-
-    });
-</script>

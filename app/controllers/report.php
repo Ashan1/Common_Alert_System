@@ -9,9 +9,6 @@ if($user->is_loggedin()==""){
 $db = DB::getInstance();
 ?>
 </head>
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
 <body>
 <div>
     <div style="background-color: #ecf0f1; border: 2px solid black;">
