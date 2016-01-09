@@ -10,10 +10,8 @@ $user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
 
 ?>
+
 </head>
-<script type="text/javascript">
-    window.onload = loadTabContent('../app/controller/tab.php?id=1');
-</script>
 <body>
 
 <?php
@@ -59,33 +57,22 @@ if(isset($_POST['new_message'])){
 
                     <div id="content" >
 
-<<<<<<< HEAD
-
                         <?php
-                        //session_start();
-                        require("../../../public/php/connect.php");
 
-                        /*if (isset($_POST['view_old'])) {*/
-                        $user = $_SESSION['user'];
-                        $query = mysql_query("SELECT * FROM message WHERE from_user = 'Dilini' AND sent_deleted = 'no'")or die(mysql_error());
                         ?>
 
-=======
->>>>>>> a77d5dcf5fb2301bdd7d11646f8e6d474cd5d240
                      <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
 
                                 <div class="row">
                                     <div style="float:right;">
-                                        <button class="div_button"  type="submit" id="remove" name="delete1" ><img src="../../../public/images/remove.png" class="div_button_img">Remove</button>
+                                        <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
                                     </div>
-
-
-                    <div style="float:right;">
-                        <button class="div_button" type="submit" name="new_message" style="width: 129px;"><img src="../../../public/images/Add.png" class="div_button_img">New Message</button>
-                    </div>
-                </div>
+                                    <div style="float:right;">
+                                        <button class="div_button" type="submit" name="new_message" style="width: 129px;">New Message</button>
+                                    </div>
+                                </div>
 
                 <thead>
                 <tr>
@@ -104,15 +91,18 @@ if(isset($_POST['new_message'])){
                     $to_user=$db_result[$i]->to_user;
                     $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$to_user'");
                     $emp_name=$emp_details->result();
-
+                    $F_name=$emp_name[0]->F_Name;
+                    $L_name=$emp_name[0]->L_Name;
+                    $space = " ";
+                    $from_user_name= $F_name.$space.$L_name;
                     /*for($ii=0; $ii<$count1; $ii++){*/
                         echo
                             "<tr>
                                         <td></td>
                                         <td></td>
-                                        <td>{$emp_name[0]->E_name}</td>
+                                        <td>{$from_user_name}</td>
                                         <td>{$db_result[$i]->message}</td>
-                                        <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
+                                        <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box'  value={$db_result[$i]->id}>"."</td>
 		                            </tr>\n";
                     }/*}*/
                 ?>

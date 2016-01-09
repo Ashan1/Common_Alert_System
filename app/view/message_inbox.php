@@ -14,10 +14,12 @@ $db = DB::getInstance();
 <body>
 
 <?php
+echo $
 $data=$db->query("SELECT * FROM message WHERE to_user = '$user_nic' AND deleted = 'no'");
 $db_result=$data->result();
 $count=$data->count();
-
+echo $count;
+//var_dump($db_result);
 $delete = "yes";
 if(isset($_POST['delete1'])) {
     $checked_arr = $_POST['checkbox'];
@@ -54,7 +56,6 @@ if(isset($_POST['new_message'])){
                     <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
-
                                 <div class="row">
                                     <div style="float:right;">
                                         <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
@@ -78,22 +79,23 @@ if(isset($_POST['new_message'])){
                 <tbody>
 
                 <?php
-s
+
                 for($i=0; $i<$count; $i++){
                /* for($ii=0; $ii<$count1; $ii++){*/
-                    $from_user=$db_result[$i]->from_user;
-                    $emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$user_nic'");
+                   $from_user=$db_result[$i]->from_user;
+                    echo $from_user;
+                    /*$emp_details=$db->query("SELECT * FROM employee WHERE E_nic = '$from_user'");
                     $emp_name=$emp_details->result();
-                    $fname=$emp_name[0]->F_Name;
-                    $lname=$emp_name[0]->L_Name;
+                    $fname=$emp_name[$i]->F_Name;
+                    $lname=$emp_name[$i]->L_Name;
                     $space=" ";
-                    $full_name=$fname.$space.$lname;
+                    $full_name=$fname.$space.$lname;*/
 
                     echo
                         "<tr>
                                         <td></td>
                                         <td></td>
-                                        <td>{$db_result[$i]->message}</td>
+                                        <td>{$db_result[$i]->from_user}</td>
                                         <td>{$db_result[$i]->message}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
 		                                <td><a href='send_message.php?user=".  $full_name ."'>Reply</a></td>

@@ -7,7 +7,9 @@ if($user->is_loggedin()==""){
 $user_nic = $_SESSION['user_session'];
 $db = DB::getInstance();
 
-
+if (isset($_POST['outbox'])) {
+    header('location:message_outbox.php');
+}
 ?>
 
 </head>
@@ -38,12 +40,7 @@ $db = DB::getInstance();
                     </div>
 
                     <?php
-                    if (isset($_POST['outbox'])) {
-                        header('location:message_outbox.php');
-                    }
-
-                    if(isset($_GET['user']) == ""){
-
+                    if(isset($_GET['user']) == "" or isset($_GET['Resend_msg'])){
                     ?>
 
                     <div id="content">
@@ -135,11 +132,11 @@ $db = DB::getInstance();
                         }
                                     ?>
                                     <form name="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-                                        <tr><td>
-                                                <input NAME="to_user" id="to_user" value=<?php echo $_GET['user'] ?>>
+                                        <tr><td>To: </td><td>
+                                                <input NAME="to_user" id="to_user" value="<?php echo $_GET['user'];  ?>" >
                                             </td></tr>
                                     <tr><td>Message: </td><td>
-                                            <TEXTAREA NAME="message" id="message" COLS=50 ROWS=10 WRAP=SOFT></TEXTAREA>
+                                            <TEXTAREA NAME="message" id="message" COLS=50 ROWS=10 WRAP=SOFT value=""></TEXTAREA>
                                         </td></tr>
                                     <tr><td colspan="2" align="right">
                                             <input id="send_message" class="div_button"  type="submit" name="submit1" style="width: 129px;" value="Send Message">

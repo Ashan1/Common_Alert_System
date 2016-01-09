@@ -35,6 +35,12 @@ if(isset($_POST['reply'])) {
 if(isset($_POST['new_message'])){
     header('location:send_message.php');
 }
+if(isset($_POST['outbox'])){
+    header('location:message_outbox.php');
+}
+if(isset($_POST['reply'])){
+    echo "<p> <a href='send_message.php?user=".  $from_user_name ."'>"."</a>";
+}
 ?>
 
 <div>
@@ -57,13 +63,13 @@ if(isset($_POST['new_message'])){
 
                             <div class="row">
                                 <div style="float:right;">
-                                    <button class="div_button"  type="submit" id="remove" name="delete1" ><img src="../../../public/images/remove.png" class="div_button_img">Remove</button>
+                                    <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
                                 </div>
                                 <div style="float: right;">
-                                    <button class="div_button" type="submit" id="outbox" name="outbox"><img src="../../../public/images/outbox.png" class="div_button_img">Outbox</button>
+                                    <button class="div_button" type="submit" id="outbox" name="outbox">Outbox</button>
                                 </div>
                                 <div style="float:right;">
-                                    <button class="div_button" type="submit" name="new_message" style="width: 129px;"><img src="../../../public/images/Add.png" class="div_button_img">New Message</button>
+                                    <button class="div_button" type="submit" name="new_message" style="width: 129px;">New Message</button>
                                 </div>
                             </div>
 
@@ -71,7 +77,7 @@ if(isset($_POST['new_message'])){
                             <tr>
                                 <th>Time</th>
                                 <th>Date</th>
-                                <th>To</th>
+                                <th>From</th>
                                 <th>Message</th>
                                 <th>Status</th>
                                 <th></th>
@@ -91,12 +97,21 @@ if(isset($_POST['new_message'])){
                                 $space = " ";
                                 $from_user_name= $F_name.$space.$L_name;
 
+                               /* $str = 'abcdef'; /*character count
+                                echo strlen($str); */
+
+                               /* $db_msg=$db_result[$i]->message;
+                                $msg_display = str_pad($db_msg, 5);*/
+
+                                $db_msg=$db_result[$i]->message;
+                                $msg_display = substr($db_msg, 0, 15);
+
                                 echo
-                                    "<tr>
+                                    "  <tr>
                                         <td></td>
                                         <td></td>
                                         <td>{$from_user_name}</td>
-                                        <td>{$db_result[$i]->message}</td>
+                                        <td><a href='msg_inbox.php?msg=".  $db_result[$i]->message ."'>{$msg_display}</a></td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->id}>"."</td>
 		                                <td><a href='send_message.php?user=".  $from_user_name ."'>Reply</a></td>
 		                             </tr>\n";
@@ -110,12 +125,43 @@ if(isset($_POST['new_message'])){
                     </form>
                 </div><!--end of message inbox-->
 
-                <div style="width: 432px;float: right;"><!--start message content-->
+                    <script language="javascript">
+                        $('#table').click(function(e){
+                            $("#message").html($(e.target).text());
+                        })
+                    </script>
+
+
+                    <div style="width: 432px;float: right;"><!--start message content-->
                     <form>
-                        Message:<TEXTAREA NAME="message" id="message" COLS=55 ROWS=18 WRAP=SOFT></TEXTAREA>
-                        <div style="float:right;">
-                            <button class="div_button"  type="submit" id="reply" name="reply" ><img src="../../../public/images/remove.png" class="div_button_img">Reply</button>
-                        </div>
+                        <?php
+                        if(isset($_GET['msg'])) {
+                            $display_msg=$_GET['msg'];
+                            ?>
+                            <form method="post"><table>
+                            Message:<TEXTAREA NAME="message" id="message" COLS=55 ROWS=18 WRAP=SOFT><?php echo $display_msg ?></TEXTAREA>
+                            <div style="float:right;">
+                                <button class="div_button" type="submit" id="reply" name="reply" formaction="send_message.php?user='<?php echo $from_user_name ?>" >Reply</a></button>
+                            </div>
+                            <div style="float:right;">
+                                <button class="div_button" type="submit" id="forward" name="forward" formaction="">Forward</button>
+                            </div>
+                                </table></form>
+                        <?php
+                        }else{
+                            ?>
+                            <form method="post"><table>
+                            Message:<TEXTAREA NAME="message" id="message" COLS=55 ROWS=18 WRAP=SOFT></TEXTAREA>
+                            <div style="float:right;">
+                                <button class="div_button" type="submit" id="reply" name="reply">Reply</button>
+                            </div>
+                            <div style="float:right;">
+                                <button class="div_button" type="submit" id="forward" name="forward" formaction="">Forward</button>
+                            </div>
+                                </table></form>
+                        <?php
+                        }
+                        ?>
                     </form>
                 </div><!--end of message content-->
                 </div>
