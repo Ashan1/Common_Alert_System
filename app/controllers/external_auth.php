@@ -10,9 +10,10 @@ $address=  $_POST['auth_address'];
 $email = $_POST['auth_email'];
 
 // attempt insert query execution
-$sql = "INSERT INTO external_authority (Auth_newid, Auth_name, Auth_tel, Auth_address, Auth_email) VALUES ('$name', '$tel', '$address', '$email')";
+$sql = "INSERT INTO external_authority ( Auth_name, Auth_tel, Auth_address, Auth_email) VALUES ('$name', '$tel', '$address', '$email')";
 $db->query($sql);
     header('location:../view/ExternalAuthority_update.php');
+
 
 mysql_close();
 

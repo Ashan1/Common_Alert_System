@@ -32,12 +32,17 @@ $db = DB::getInstance();
                     $db_result=$data->result();
                     $count=$data->count();
 
+                    if(isset($_POST['delete'])){
+                        for($i=0; $i<count($_POST['checkbox']); $i++){
+                            $del_id = $_POST['checkbox'][$i];
+                            $delete=$db->query("DELETE FROM external_authority WHERE Auth_ID='$del_id'");
+                        }
+                    }
+
                     if(isset($_POST['update'])) {
-
                             $del_id = $_POST['checkbox'][0];
-                            $sql_up=$db->query("SELECT * FROM external_authority WHERE Auth_email='$del_id'");
+                            $sql_up=$db->query("SELECT * FROM external_authority WHERE Auth_ID='$del_id'");
                             $current_data=$sql_up->result();
-
                             ?>
 
                             <script type="text/javascript">
@@ -71,12 +76,12 @@ $db = DB::getInstance();
                                                 <input type='address' name='auth_addressup' class='form-control ext_input' id='inputAddress' align='center' style='margin-left: 175px;' value=<?php echo $current_data[0]->Auth_address ?> required>
                                             </div>
                                         </div>
-                                        <!--<div class='form-group ext_form'>
+                                        <div class='form-group ext_form'>
                                             <div class='col-xs-10'>
                                                 <label for='inputEmail' class='control-label' style='color:white;'>Department Email:</label>
-                                                <input type='email' class='form-control ext_input' name='auth_emailup' align='center' style='margin-left: 175px;' value="<?php /*echo $up_email */?>" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,3}$' id='inputEmail'  data-error='Brush, that email address is invalid' required>>
+                                                <input type='email' class='form-control ext_input' name='auth_emailup' align='center' style='margin-left: 175px;' value=<?php echo $current_data[0]->Auth_email ?> pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,3}$' id='inputEmail'  data-error='Brush, that email address is invalid' required>>
                                             </div>
-                                        </div>-->
+                                        </div>
                                         <div class='form-group ext_form'>
                                             <div class='col-xs-offset-2 col-xs-10' style='margin-left: 310px;'>
                                                 <button type='Submit' class='btn modal_btn' id='submit'  name='update' id='update' value='Submit'>Update</button>
@@ -91,7 +96,6 @@ $db = DB::getInstance();
                     </div><!--edit_form-->
 
                     <?php
-
                     }
                     ?>
 
@@ -147,6 +151,9 @@ $db = DB::getInstance();
                                 <table class="table table_striped" id="table">
 
                                     <div>
+                                        <div style="float:right;">
+                                            <button class="div_button" data-toggle="modal" type="submit" name="delete" >Delete</button>
+                                        </div>
                                         <div style="float: right;">
                                             <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" >Update</button>
                                         </div>
@@ -175,7 +182,7 @@ $db = DB::getInstance();
                                                 <td>{$db_result[$i]->Auth_tel}</td>
                                                 <td>{$db_result[$i]->Auth_address}</td>
                                                 <td>{$db_result[$i]->Auth_email}</td>
-                                                <td>"."<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->Auth_email}>"."</td>
+                                                <td>"."<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->Auth_ID}>"."</td>
 		                                        </tr>\n";
                                     }
                                     ?>
