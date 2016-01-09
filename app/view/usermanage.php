@@ -226,8 +226,8 @@ $db = DB::getInstance();
 
                     <div id="content" scrolling="yes"><!--table with new users-->
                         <div class="row">
-                            <form name="table" method="post">
-                                <table class="table table_striped" id="table" action="load_table.php">
+                            <form method="post">
+                                <table class="table table_striped" id="table">
 
                                     <thead>
                                     <tr>
@@ -246,29 +246,41 @@ $db = DB::getInstance();
                                     $count1=$data_notcheck->count();
 
                                     for($j=0; $j<$count1; $j++) {
-                                    $F_name = $db_result[$j]->F_Name;
-                                    $L_name = $db_result[$j]->L_Name;
-                                    $space = " ";
-                                    $E_name = $F_name . $space . $L_name;
-                                    $reject_btn="1";
-                                    $accept_btn="0";
+                                        $F_name = $db_result[$j]->F_Name;
+                                        $L_name = $db_result[$j]->L_Name;
+                                        $space = " ";
+                                        $E_name = $F_name . $space . $L_name;
+                                        $mail = $db_result[$j]->E_email;
+                                        $tel = $db_result[$j]->E_tel;
+                                        $nic = $db_result[$j]->E_nic;
+                                        $rol = $db_result[$j]->E_jobrole;
 
-                                    echo
-                                        "<tr>
+                                        echo
+                                            "<tr>
                                         <td>{$db_result[$j]->E_nic}</td>
                                         <td>{$E_name}</td>
                                         <td>{$db_result[$j]->E_email}</td>
                                         <td>{$db_result[$j]->E_tel}</td>
-                                        <td>" . "<button data-toggle='modal' data-target='#viewModal' type='button' id='view' name='view'>View</button>" . "</td>
+                                        <td>" . "<input data-toggle='modal' data-target='#viewModal' id='view' name='view' type='button'>View</input>" . "</td>
 		                            </tr>\n";
+                                    }
                                     ?>
+
 
                                     </tbody>
                                 </table>
-                            </form>
+                                </form>
                         </div>
                     </div>
                     <!--end table with new users-->
+                    <!--<script>
+                        $(document).ready(function () {
+                            $('#view').click(function(){
+                                var v = document.getElementById('view').value;
+                                console.log(v);
+                            });
+                        });
+                    </script>-->
 
                     <div class="modal fade" id="viewModal" role="dialog" action="../controller/admin_accept_user.php">
                         <!--pop up modal for view-->
@@ -278,54 +290,65 @@ $db = DB::getInstance();
                                 <div class="col-lg-10 col-lg-offset-2 model_addnew">
                                     <h4 style="color:white;text-align:left;">NEW USER REQUEST</h4>
 
-                                    <form class="form-horizontal" action="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" data-toggle="validator" method="post" id="admin-adduser">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Name:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $E_name ?></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Email:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_email ?></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Contact Number:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_tel ?></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">NIC Number:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_nic ?></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Job Title:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_jobrole ?></label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Acess Level:</label>
+                                    <form class="form-horizontal"
+                                    <!--action="../controllers/admin_accept_user.php?user_id=--><?php /*echo $db_result[$j]->E_nic */ ?>
+                                    "
+                                    data-toggle="validator" method="post" id="admin-adduser">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Name:</label>
+                                        <label class="col-sm-4 control-label"><?php echo $E_name ?></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Email:</label>
+                                        <label
+                                            class="col-sm-4 control-label"><?php echo $mail ?></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Contact Number:</label>
+                                        <label
+                                            class="col-sm-4 control-label"><?php echo $tel ?></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">NIC Number:</label>
+                                        <label
+                                            class="col-sm-4 control-label"><?php echo $nic ?></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Job Title:</label>
+                                        <label
+                                            class="col-sm-4 control-label"><?php echo $rol ?></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Acess Level:</label>
 
-                                            <div class="col-sm-8">
-                                                <select class="form-control" id="job-role" name="job_role">
-                                                    <option value="General User">General User</option>
-                                                    <option value="Administrator">Administrator</option>
-                                                    <option value="Operational User">Operational User</option>
-                                                    <option value="Executive User">Executive User</option>
-                                                </select>
-                                            </div>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="job-role" name="job_role">
+                                                <option value="General User">General User</option>
+                                                <option value="Administrator">Administrator</option>
+                                                <option value="Operational User">Operational User</option>
+                                                <option value="Executive User">Executive User</option>
+                                            </select>
                                         </div>
+                                    </div>
 
-                                        <div class="col-sm-6 col-sm-offset-7 controls">
-                                            <button type="submit" name="accept_btn" formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" id="btn-signup" name="btn-acceptuser"
-                                                    class="btn btn-default btn-primary">
-                                                <i class="fa fa-hand-o-right"></i>&nbsp;Accept
-                                            </button>
-                                            <button type="submit" name="reject_btn" formaction="../controllers/admin_accept_user.php?delete=<?php echo $reject_btn ?> & user_id=<?php echo $db_result[$j]->E_nic?>" type="submit" id="btn-signup" name="btn-rejectuser"
-                                                    class="btn btn-default btn-primary">
-                                                <i class="fa fa-hand-o-right"></i>&nbsp;Reject
-                                            </button>
-                                            <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
-                                                    data-dismiss="modal">
-                                                <i class="fa fa-ban"></i>&nbsp;Cancel
-                                            </button>
-                                        </div>
+                                    <div class="col-sm-6 col-sm-offset-7 controls">
+                                        <button type="submit" name="accept_btn"
+                                                formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[0]->E_nic ?>"
+                                                id="btn-signup" name="btn-acceptuser"
+                                                class="btn btn-default btn-primary">
+                                            <i class="fa fa-hand-o-right"></i>&nbsp;Accept
+                                        </button>
+                                        <button type="submit" name="reject_btn"
+                                                formaction="../controllers/admin_reject_user.php?user_id=<?php echo $db_result[0]->E_nic ?>"
+                                                type="submit" id="btn-signup"
+                                                class="btn btn-default btn-primary">
+                                            <i class="fa fa-hand-o-right"></i>&nbsp;Reject
+                                        </button>
+                                        <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
+                                                data-dismiss="modal">
+                                            <i class="fa fa-ban"></i>&nbsp;Cancel
+                                        </button>
+                                    </div>
 
                                     </form>
                                 </div>
@@ -334,9 +357,6 @@ $db = DB::getInstance();
                     </div>
                     <!--end pop up modal for view-->
 
-                    <?php
-                    }
-                    ?>
                     <!--authenticate users-->
                     <div>
 
