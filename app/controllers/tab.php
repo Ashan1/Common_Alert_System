@@ -7,6 +7,7 @@ switch($p) {
         break;
 
     case "2":
+
         include '../view/home_notification.php';
         break;
 

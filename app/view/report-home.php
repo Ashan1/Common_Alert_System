@@ -50,7 +50,7 @@ $db = DB::getInstance();
                                 <input type="radio" name="dis_type" value="reservoir"> Reservoir&nbsp;
                                 <input type="radio" name="dis_type" value="cyclone"> Cyclone&nbsp;
                                 <input type="radio" name="dis_type" value="flood"> Flood&nbsp;
-                                <input type="radio" name="dis_type" value="tsunami"> Tsunami&nbsp;
+                                <input type="radio" name="dis_type" value="tsunami"> Tsunami Alert&nbsp;
                                 <!--<input type="radio" name="dis_type" value="Volcano"> Volcano&nbsp;-->
                             </div>
                             <div class="col-lg-12">
