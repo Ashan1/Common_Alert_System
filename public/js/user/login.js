@@ -20,7 +20,7 @@ $().ready(function(){
                 m_data.append( 'password', document.getElementById("login-password").value);
                 // Ajax post data to server
                 $.ajax({
-                    url: '../app/controllers/login.php',
+                    url: 'app/controllers/login.php',
                     data: m_data,
                     processData: false,
                     contentType: false,
@@ -30,7 +30,7 @@ $().ready(function(){
                         //load json data from server and output message
                         if (response.type == "text"){
                             //alert('dd');
-                            window.location.replace("home.php");
+                            window.location.replace("public/home.php");
                         }else{
                             $("#login-error").removeClass('hidden');
                         }

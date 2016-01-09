@@ -20,7 +20,6 @@ require_once '../app/models/dbConfig.php';
         });
     }
 
-
     jQuery(document).ready(function(){
         $("#preloader").hide();
         jQuery("[id^=tab]").click(function(){

@@ -1,17 +1,17 @@
-<?php include "../app/templates/header.php"; ?>
-<script src="js/user/login.js" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"></script>
+<?php include "app/templates/header.php"; ?>
+<script src="public/js/user/login.js" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"></script>
 </head>
 <body>
-<?php require_once '../app/models/dbConfig.php';
+<?php
     if($user->is_loggedin()!=""){
-        $user->redirect('home.php');
+        $user->redirect('public/home.php');
     }
 ?>
 
 <div class="container-fluid">
     <div class="row login">
         <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs lefts">
-            <img src="images/login_left.png" class="img-responsive" alt="CAS Loging"/>
+            <img src="public/images/login_left.png" class="img-responsive" alt="CAS Loging"/>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 rights">
             <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 hidden" id="forgotpassword-show">
@@ -65,7 +65,7 @@
                             <button type="submit" name="btn-login" class="btn btn-default btn-primary" id="btn-login">
                                 <i class="fa fa-sign-in"></i>&nbsp;SIGN IN
                             </button>
-                            <a href="../app/view/signup.php"><button type="button" name="btn-login" class="btn btn-default btn-primary">
+                            <a href="app/view/signup.php"><button type="button" name="btn-login" class="btn btn-default btn-primary">
                                 <i class="fa fa-hand-o-right"></i>&nbsp;SIGN UP
                             </button></a>
                         </div>
