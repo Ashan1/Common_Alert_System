@@ -15,7 +15,6 @@ preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
 $db = DB::getInstance();
 
-
 foreach ($posts as $post) {
 
     $station = trim($post[3]);
@@ -23,8 +22,6 @@ foreach ($posts as $post) {
     $rb_id = trim($post[5]);
     $latitude = floatval($post[1]);
     $longitude = floatval($post[2]);
-    echo $station;
-
 
     //Saving to database
     $db->query("INSERT IGNORE INTO rainfall(station, basin, rb_id, latitude, longitude) VALUES('$station', '$basin', '$rb_id', '$latitude', '$longitude')");
