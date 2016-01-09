@@ -24,7 +24,7 @@ for ($i = 0; $i < $db->count(); $i++){
     $output .= '"minor_flood_level":"' . $result[$i]->minor_flood_level . '",';
     $output .= '"major_flood_level":"' . $result[$i]->major_flood_level . '",';
     $output .= '"current_level":"' . $result[$i]->current_level . '",';
-    $output .= '"alert":"' . $result[$i]->alert . '"}';
+    $output .= '"alert_condition":"' . $result[$i]->alert . '"}';
 
 }
 $output .= "]";
