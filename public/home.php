@@ -1,5 +1,6 @@
 <?php include "../app/templates/header.php";
 require_once '../app/models/dbConfig.php';
+
     if($user->is_loggedin()==""){
         $user->redirect('index.php');
     }
@@ -41,8 +42,6 @@ require_once '../app/models/dbConfig.php';
 
     });
     /*---------------------End Tab Change Home----------------------------*/
-
-
     window.onload = loadTabContent('../app/controllers/tab.php?id=1');
 </script>
 <body>

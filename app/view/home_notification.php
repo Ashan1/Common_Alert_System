@@ -12,20 +12,21 @@ require_once '../controllers/report.php';
         <ul>
             <li><button class="btnre" type="submit"name="dis_type" value="earthquake"> <i class="dis-cracked2" style=""></i> <span>EARTHQUAKES - <?php  echo $edata;?></span></button></li>
             <li><button class="btnre" type="submit"name="dis_type" value="landslide"> <i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php  echo$ldata;?></span></button></li>
-            <li><button class="btnre" type="submit"name="dis_type" value="reservoir"> <i class="dis-fire14" style=""></i> <span>RESERVOIR -<?php  echo$rdata;?></span></button></li>
+            <!--<li><button class="btnre" type="submit"name="dis_type" value="reservoir"> <i class="dis-fire14" style=""></i> <span>RESERVOIR -<?php /* echo$rdata;*/?></span></button></li>-->
         </ul>
     </div>
     <div class="col-lg-4">
         <ul>
             <li><button class="btnre" type="submit"name="dis_type" value="cyclone"> <i class="dis-hurricane" style=""></i> <span>CYCLONES - <?php  echo$cdata;?></span></button></li>
             <li><button class="btnre" type="submit"name="dis_type" value="flood"> <i class="dis-waves8" style=""></i> <span>FLOODS -<?php echo$fdata;?></span></button></li>
-            <li><button class="btnre" type="submit"name="dis_type" value="tsunami"> <i class="dis-tsunami1" style=""></i> <span>TSUNAMI -<?php echo$tdata;?></span></button></li>
+
         </ul>
     </div>
     <div class="col-lg-4">
         <ul>
-            <li><button class="btnre" type="submit"name="dis_type" value="volcano"><i class="dis-erupting" style=""></i> <span>VOLCANO - <?php  echo$vdata;?></span></button></li>
-            <li><button class="btnre" type="submit"name="dis_type" value="landslide"><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php  echo$ldata;?></span></button></li>
+            <!--<li><button class="btnre" type="submit"name="dis_type" value="volcano"><i class="dis-erupting" style=""></i> <span>VOLCANO - <?php /* echo$vdata;*/?></span></button></li>-->
+            <!--<li><button class="btnre" type="submit"name="dis_type" value="landslide"><i class="dis-snowslide" style=""></i> <span>LANDSLIDES - <?php /* echo$ldata;*/?></span></button></li>-->
+            <li><button class="btnre" type="submit"name="dis_type" value="tsunami"> <i class="dis-tsunami1" style=""></i> <span>TSUNAMI -<?php echo$tdata;?></span></button></li>
             <li><button class="btnre" type="submit"name="dis_type" value="reservoir"><i class="dis-fire14" style=""></i> <span>RESERVOIR - <?php  echo$rdata;?></span></button></li>
         </ul>
     </div>
@@ -422,7 +423,7 @@ require_once '../controllers/report.php';
             </table>";}?>
 </div>
 <script>
-    $(function () {
+    /*$(function () {
         $(this).on('submit', function (e) {
 
             $.ajax({
@@ -436,5 +437,5 @@ require_once '../controllers/report.php';
             e.preventDefault();
         });
 
-    });
+    });*/
 </script>

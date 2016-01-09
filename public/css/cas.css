@@ -669,6 +669,11 @@ th {
 
 /*-----------------------------------End User Manage Home Page------------------------------------------*/
 
+/*--------------Notification tab button-------------*/
+.btnre{
+    background-color: transparent;
+    border: transparent;
+}
 
 
 /*---------------------------- Medium Devices, Desktops ----------------------------*/
