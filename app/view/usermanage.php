@@ -2,13 +2,16 @@
 
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
+require_once '../controllers/new_user.php';
+
 if($user->is_loggedin()==""){
-    $user->redirect('../../public/index.php');
+    $user->redirect('../../index.php');
 }
 
 $db = DB::getInstance();
 ?>
 <script src="../../public/js/user/singup.js"></script>
+<script src="../../public/js/user/usermanage.js"></script>
 </head>
 <body>
 <div>
@@ -241,17 +244,11 @@ $db = DB::getInstance();
                                     <tbody>
 
                                     <?php
-                                    $data_notcheck=$db->query("SELECT * FROM employee WHERE Admin_auth='0'");
-                                    $db_result=$data_notcheck->result();
-                                    $count1=$data_notcheck->count();
-
                                     for($j=0; $j<$count1; $j++) {
                                     $F_name = $db_result[$j]->F_Name;
                                     $L_name = $db_result[$j]->L_Name;
                                     $space = " ";
                                     $E_name = $F_name . $space . $L_name;
-                                    $reject_btn="1";
-                                    $accept_btn="0";
 
                                     echo
                                         "<tr>
@@ -270,7 +267,7 @@ $db = DB::getInstance();
                     </div>
                     <!--end table with new users-->
 
-                    <div class="modal fade" id="viewModal" role="dialog" action="../controller/admin_accept_user.php">
+                    <div class="modal fade" id="viewModal" role="dialog">
                         <!--pop up modal for view-->
                         <div class="modal-dialog">
 
@@ -278,7 +275,7 @@ $db = DB::getInstance();
                                 <div class="col-lg-10 col-lg-offset-2 model_addnew">
                                     <h4 style="color:white;text-align:left;">NEW USER REQUEST</h4>
 
-                                    <form class="form-horizontal" action="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" data-toggle="validator" method="post" id="admin-adduser">
+                                    <form class="form-horizontal" data-toggle="validator" method="post" id="admin-adduser">
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Name:</label>
                                             <label class="col-sm-4 control-label"><?php echo $E_name ?></label>
@@ -313,12 +310,10 @@ $db = DB::getInstance();
                                         </div>
 
                                         <div class="col-sm-6 col-sm-offset-7 controls">
-                                            <button type="submit" name="accept_btn" formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" id="btn-signup" name="btn-acceptuser"
-                                                    class="btn btn-default btn-primary">
+                                            <button type="submit" name="accept_btn" id="btn-signup" class="btn btn-default btn-primary" id="accept_btn">
                                                 <i class="fa fa-hand-o-right"></i>&nbsp;Accept
                                             </button>
-                                            <button type="submit" name="reject_btn" formaction="../controllers/admin_accept_user.php?delete=<?php echo $reject_btn ?> & user_id=<?php echo $db_result[$j]->E_nic?>" type="submit" id="btn-signup" name="btn-rejectuser"
-                                                    class="btn btn-default btn-primary">
+                                            <button type="submit" name="reject_btn" class="btn btn-default btn-primary" id="reject_btn">
                                                 <i class="fa fa-hand-o-right"></i>&nbsp;Reject
                                             </button>
                                             <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
@@ -337,11 +332,6 @@ $db = DB::getInstance();
                     <?php
                     }
                     ?>
-                    <!--authenticate users-->
-                    <div>
-
-                    </div>
-                    <!--end authenticate users-->
 
                 </div>
             </div>

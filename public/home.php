@@ -37,6 +37,7 @@ require_once '../app/models/dbConfig.php';
         jQuery('#alert-close').on('click', function(event) {
             jQuery('#disaster-alert').toggle('show');
         });
+1
 
     });
     /*---------------------End Tab Change Home----------------------------*/

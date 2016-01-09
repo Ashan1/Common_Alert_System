@@ -62,7 +62,7 @@
                             <i class="fa fa-hand-o-right"></i>&nbsp;SIGN UP
                         </button>
 
-                        <a href="<?php echo SCRIPT_ROOT ?>/public/index.php"><button type="button" name="btn-cancel" class="btn btn-default btn-primary">
+                        <a href="<?php echo SCRIPT_ROOT ?>/index.php"><button type="button" name="btn-cancel" class="btn btn-default btn-primary">
                             <i class="fa fa-ban"></i>&nbsp;Cancel
                         </button></a>
                     </div>
