@@ -19,13 +19,15 @@
                     mapTypeId: google.maps.MapTypeId.HYBRID
                 });
 
+            }
+            (function() {
                 var infoWindow = new google.maps.InfoWindow({});
 
                 var xmlhttp = new XMLHttpRequest();
                 var url = "../controllers/eq_jsongen.php";
 
-                xmlhttp.onreadystatechange = function(){
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         apply(xmlhttp.responseText);
                     }
 
@@ -35,10 +37,10 @@
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
 
-                function apply(out){
+                function apply(out) {
                     var response = JSON.parse(out);
                     var i;
-                    for (i = 0; i < response.length; i++){
+                    for (i = 0; i < response.length; i++) {
 
                         var mag = parseFloat(response[i].mag);
                         var date = response[i].date;
@@ -50,9 +52,8 @@
                         var point = new google.maps.LatLng(lat, lng);
 
 
-
                         var warning = "";
-                        if (tsunami != 0){
+                        if (tsunami != 0) {
                             warning = "Tsunami Warning";
                         }
 
@@ -67,16 +68,18 @@
                     }
 
                 }
-
-                function bindInfoWindow(marker, map, infoWindow, html){
-                    google.maps.event.addListener(marker, 'click', function(){
+                function bindInfoWindow(marker, map, infoWindow, html) {
+                    google.maps.event.addListener(marker, 'click', function () {
                         infoWindow.setContent(html);
                         infoWindow.open(map, marker);
                     });
                 }
-            }
+
+                setTimeout(arguments.callee, 5000);
+            })();
 
             initialize();
+
         });
 
     </script>
