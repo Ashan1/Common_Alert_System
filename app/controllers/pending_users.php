@@ -27,25 +27,27 @@ $pdusers = $users->result();
             </thead>
             <tbody>
             <?php
-            if($pduser_count>0){
+            if($pduser_count> 0){
                 for($j=0; $j<$pduser_count; $j++) {
-                    $F_name = $pdusers[$j]->F_Name;
-                    $L_name = $pdusers[$j]->L_Name;
-                    $space = " ";
-                    $E_name = $F_name . $space . $L_name;
-                    $mail = $pdusers[$j]->E_email;
-                    $tel = $pdusers[$j]->E_tel;
-                    $nic = $pdusers[$j]->E_nic;
-                    $rol = $pdusers[$j]->E_jobrole;
+                    if($pdusers[$j]->E_nic != NULL){
+                        $F_name = $pdusers[$j]->F_Name;
+                        $L_name = $pdusers[$j]->L_Name;
+                        $space = " ";
+                        $E_name = $F_name . $space . $L_name;
+                        $mail = $pdusers[$j]->E_email;
+                        $tel = $pdusers[$j]->E_tel;
+                        $nic = $pdusers[$j]->E_nic;
+                        $rol = $pdusers[$j]->E_jobrole;
 
-                    echo
-                        "<tr>
+                        echo
+                            "<tr>
             <td>{$nic}</td>
             <td>{$E_name}</td>
             <td>{$mail}</td>
             <td>{$tel}</td>
             <td data-toggle='modal' data-target='#viewModal' id='pduview' name='pduview' type='button' data-id='$nic'>View" . "</td>
             </tr>\n";
+                    }
                 }
             }
             ?>
@@ -101,8 +103,7 @@ $pdusers = $users->result();
                                     </select>
                                 </div>
                                 <div class="col-sm-6 col-sm-offset-3 controls">
-                                    <button type="button" name="accept_btn"   id="accept_btn" name="btn-acceptuser"   class="btn btn-default btn-primary">
-                                        <i class="fa fa-hand-o-right"></i>&nbsp;Accept
+                                    <button type="button" name="accept_btn"   id="accept_btn" name="btn-acceptuser"   class="btn btn-default btn-primary">                                        <i class="fa fa-hand-o-right"></i>&nbsp;Accept
                                     </button>
                                     <button type="button" name="reject_btn"  type="submit" id="reject_btn" class="btn btn-default btn-primary">
                                         <i class="fa fa-hand-o-right"></i>&nbsp;Reject
