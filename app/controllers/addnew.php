@@ -20,10 +20,7 @@ if(isset($_POST['nic'])){
     $sql = "INSERT INTO employee (F_Name,L_Name, E_nic, E_email, E_tel, E_jobrole, E_image, E_password, E_on_off, Admin_auth) VALUES ('$fname','$lname', '$nic' ,'$email', '$mobile', '$role', '$image','$new_pass','','$Admin_auth')";
     $db->query($sql);
     header('location:../view/usermanage.php');
-<<<<<<< HEAD
-
-=======
 }
->>>>>>> f59239c3e68d8d15bb2ccd4e6784fcee36a8d263
+
 ?>
 
