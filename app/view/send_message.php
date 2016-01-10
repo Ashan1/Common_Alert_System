@@ -48,25 +48,17 @@ if (isset($_POST['outbox'])) {
                         if (isset($_POST['submit']))
                         {
                             $send_to_user = $_POST['to_user'];
-                            echo $send_to_user;
                             list($split_fname, $split_lname) = explode(' ', $send_to_user);
-                            echo $split_fname;
-                            echo $split_lname;
                             $send_details = $db->query("SELECT * FROM employee WHERE F_Name = '$split_fname' AND L_Name='$split_lname'");
                             $emp_name = $send_details->result();
                             $to_user = $emp_name[0]->E_nic;
-                            echo $to_user;
                             $from_user = $user_nic;
                             $message = $_POST['message'];
-                            echo $from_user;
+                            $date=date("Y-m-d");
+                            $time=date("H:m:s");
 
-                            $send_message = "INSERT INTO message(to_user, from_user, read_status, deleted, sent_deleted, message) VALUES('$to_user', '$from_user','no','no','no', '$message')";
-                            $ss=$db->query($send_message);
-
-                            var_dump($ss->error());
-                            $dbn=$ss->result();
-                            var_dump($dbn);
-
+                            $sql_for_send = $db->query("INSERT INTO message(`msg_time`,`msg_date`,`to_user`, `from_user`, `read_status`, `deleted`, `sent_deleted`, `message`) VALUES ('$time','$date','$to_user','$from_user','0','0','0','$message') ");
+                            $a = $sql_for_send->result();
                         }
                         else
                         {
