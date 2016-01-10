@@ -689,8 +689,38 @@ th {
     background-color: transparent;
     border: transparent;
 }
+.roweq{
+    background-color: rgb(255, 5, 15, 0.6);
+    background: rgba(255, 0, 0, 0.6);
+}
+.rowres{
+    background-color: rgba(52, 152, 219,0.7);
 
+}
+.rowts{
+    background-color: rgba(241, 196, 15,.6);
 
+}
+.rowfld{
+    background-color: rgba(230, 126, 34,.6);
+
+}
+.panel{
+    margin: 10px;
+    width: 45%;
+    height: 205px;
+    font-size: medium;
+    font-weight: bold;
+    border: 1px solid black;
+    color: black;
+}
+.panel-photo{
+    height: 3.5cm;
+    width: 3.2cm;
+    margin: 5px;
+    margin-top: 30px;
+    background-color: #FFFFFF;
+}
 /*---------------------------- Medium Devices, Desktops ----------------------------*/
 @media only screen and (max-width : 992px) {
     .right-side {

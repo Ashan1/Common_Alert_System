@@ -39,7 +39,7 @@ switch ($type) {
         $pressure = $_POST['pressure'];
         $wnd_spd = $_POST['wind_speed'];
         $stage = $_POST['stage'];
-        $data=$db->query("INSERT INTO cyclone(date,time,longitude,latitude,pressure,wind_speed,stage`) VALUES ('$date','$time','$lngtd','$ltitd','$pressure','$wnd_spd','$stage');");
+        $data=$db->query("INSERT INTO cyclone(date,time,longitude,latitude,pressure,wind_speed,stage) VALUES ('$date','$time','$lngtd','$ltitd','$pressure','$wnd_spd','$stage');");
         break;
     case "flood":
         $station = $_POST['station'];

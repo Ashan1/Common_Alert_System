@@ -15,7 +15,7 @@ require_once '../models/dbConfig.php';
         <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
-                    <p>Alerts</p>
+                <?php include'../controllers/show_alert.php';?>
             </div>
         </div>
     </div>

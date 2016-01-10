@@ -23,7 +23,7 @@
     <link href= "<?php echo SCRIPT_ROOT ?>/public/css/cas.css" type="text/css" rel="stylesheet"/>
     <!--<link href="css/menuf.css" type="text/css" rel="stylesheet"/>-->
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/font-awesome.css" type="text/css" rel="stylesheet"/>
-    <link href="<?php echo SCRIPT_ROOT ?>/public/css/disasterfonts.css" type="text/css" rel="stylesheet"/>
+    <link href="<?php echo SCRIPT_ROOT ?>/public/css/disfont/disasters.css" type="text/css" rel="stylesheet"/>
 <!--End CAS -->
 <!-- Fav Icon -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo SCRIPT_ROOT ?>/public/images/fav/apple-touch-icon-57x57.png">

@@ -43,7 +43,9 @@ $db = DB::getInstance();
         <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
+                <div>
 
+<<<<<<< HEAD
             <?php
             $data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1' AND E_jobrole <> 'Administrator'");
             $db_result=$data_check->result();
@@ -57,16 +59,35 @@ $db = DB::getInstance();
                         echo '<script>
                                   window.location.href=window.location.href;
                               </script>';
+=======
+                <?php
+                $data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1'");
+                $db_result=$data_check->result();
+                $count2=$data_check->count();
+
+                if(isset($_POST['delete'])){
+                    for($i=0; $i<count($_POST['checkbox']); $i++){
+                        $del_id = $_POST['checkbox'][$i];
+                        $delete=$db->query("DELETE FROM employee WHERE E_nic='$del_id'");
+>>>>>>> f59239c3e68d8d15bb2ccd4e6784fcee36a8d263
                     }
                 }
-            }
 
+<<<<<<< HEAD
             if(isset($_POST['update'])) {
                 for($i=0; $i<count($_POST['checkbox']); $i++){
                     $del_id = $_POST['checkbox'][$i];
                     $update =$db->query("SELECT E_jobrole FROM employee WHERE E_nic='$del_id'");
                     $job=$update->result();
                     $c_job=$job[$i]->E_jobrole;
+=======
+                if(isset($_POST['update'])) {
+                    for($i=0; $i<count($_POST['checkbox']); $i++){
+                        $del_id = $_POST['checkbox'][$i];
+                        $update =$db->query("SELECT E_jobrole FROM employee WHERE E_nic='$del_id'");
+                        $job=$update->result();
+                        $c_job=$job[$i]->E_jobrole;
+>>>>>>> f59239c3e68d8d15bb2ccd4e6784fcee36a8d263
                         ?>
 
                         <script type="text/javascript">
@@ -122,8 +143,8 @@ $db = DB::getInstance();
 
                     <?php
                     }
-            }
-            ?>
+                }
+                ?>
 
                 <div id="layout">
                     <div id="recent">
@@ -132,54 +153,54 @@ $db = DB::getInstance();
 
                     <div id="content" scrolling="yes"><!--table with checked users-->
                         <div class="row">
-                        <form name="table" method="post">
-                            <table class="table table_striped" id="table" action="load_table.php">
+                            <form name="table" method="post">
+                                <table class="table table_striped" id="table" action="load_table.php">
 
-                                <div>
-                                    <div style="float: right;">
-                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()">Update</button>
+                                    <div>
+                                        <div style="float: right;">
+                                            <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()">Update</button>
+                                        </div>
+                                        <div style="float: right;">
+                                            <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()">Remove</button>
+                                        </div>
+                                        <div style="float: right;">
+                                            <button class="btn btn-default btn-primary div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new">New User</button>
+                                        </div>
                                     </div>
-                                    <div style="float: right;">
-                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()">Remove</button>
-                                    </div>
-                                    <div style="float: right;">
-                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new">New User</button>
-                                    </div>
-                                </div>
 
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Job Role</th>
-                                    <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Job Role</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <?php
+                                    <?php
 
-                                for($i=0; $i<$count2; $i++){
-                                    $F_name=$db_result[$i]->F_Name;
-                                    $L_name=$db_result[$i]->L_Name;
-                                    $space=" ";
-                                    $E_name= $F_name.$space. $L_name;
+                                    for($i=0; $i<$count2; $i++){
+                                        $F_name=$db_result[$i]->F_Name;
+                                        $L_name=$db_result[$i]->L_Name;
+                                        $space=" ";
+                                        $E_name= $F_name.$space. $L_name;
 
-                                    echo
-                                        "<tr>
+                                        echo
+                                            "<tr>
                                         <td>{$db_result[$i]->E_nic}</td>
                                         <td>{$E_name}</td>
                                         <td>{$db_result[$i]->E_email}</td>
                                         <td>{$db_result[$i]->E_jobrole}</td>
                                         <td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' class='box' data-toggle='modal' data-target='#myModal2' value={$db_result[$i]->E_nic}>"."</td>
 		                            </tr>\n";
-                                }
-                                ?>
+                                    }
+                                    ?>
 
-                                </tbody>
-                            </table>
-                        </form>
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div><!--end table with checked users-->
 
@@ -251,6 +272,7 @@ $db = DB::getInstance();
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div id="content" scrolling="yes"><!--table with new users-->
                         <div class="row">
                             <form method="post">
@@ -360,12 +382,17 @@ $db = DB::getInstance();
                     </div>
                     <!--end pop up modal for view-->
 
+=======
+>>>>>>> f59239c3e68d8d15bb2ccd4e6784fcee36a8d263
                 </div>
             </div>
+                <div class="row">
+                    <?php include '../controllers/pending_users.php' ?>
+                </div>
 
-            </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+

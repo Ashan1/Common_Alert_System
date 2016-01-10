@@ -383,8 +383,9 @@ $db = DB::getInstance();
                             }
                         }
                     echo"</tbody>
-            </table>";}
-                ?>
+            </table>";
+                }
+               var_dump($db_result)?>
 
         </div>
         <div id="myModal" class="modal fade" role="dialog">
