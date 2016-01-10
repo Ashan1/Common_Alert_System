@@ -10,12 +10,17 @@ require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 $db = DB::getInstance();
 
-$id = $_GET['user_id'];
 
-if(isset($_POST['reject_btn'])) {
+
+if(isset($_POST['userNIC'])) {
+    $id = $_POST['userNIC'];
     $delete = "DELETE FROM employee WHERE E_nic='$id'";
     $db->query($delete);
-    header('location:../view/usermanage.php');
+    $output = json_encode(array( //create JSON data
+        'type'=>'text',
+        'text' => 'login success'
+    ));
+    echo $output;
 }
 
 ?>
