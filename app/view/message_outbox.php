@@ -260,7 +260,6 @@ if(isset($_POST['inbox'])) {
                         </div>
                     </div><!--end pop up view modal-->
 
-
                 </div><!--layout ends-->
 
 

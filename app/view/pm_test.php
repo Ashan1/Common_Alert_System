@@ -5,10 +5,11 @@ include "../templates/header.php";
 <script>
     function printnotification(json){
         //$("#nn").text("<table>");
-        $.each(json, function(i, item) {
+/*        $.each(json, function(i, item) {
             $('#nn').text(JSON.stringify(json));
-        });
+        });*/
         //$("#nn").append("</table>");
+
 
     }
     $(document).ready(function(){

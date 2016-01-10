@@ -73,7 +73,14 @@
                             position: point
                         });
                         bindInfoWindow(marker, map, infoWindow, html);
-                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+
+                        if (gate_open == "Yes"){
+                            marker.setIcon('../../public/images/markers/reservoir1.png');
+                        }
+                        else{
+                            marker.setIcon('../../public/images/markers/reservoir2.png');
+                        }
+
                     }
 
                 }

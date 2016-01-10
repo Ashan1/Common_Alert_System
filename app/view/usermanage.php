@@ -43,9 +43,10 @@ $db = DB::getInstance();
 <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
 <div class="right-side">
 <div class="container-fluid">
+<div>
 
 <?php
-$data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1'");
+$data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1' AND E_jobrole <> 'Administrator'");
 $db_result=$data_check->result();
 $count2=$data_check->count();
 
@@ -59,7 +60,6 @@ if(isset($_POST['delete'])){
 if(isset($_POST['update'])) {
     for($i=0; $i<count($_POST['checkbox']); $i++){
         $del_id = $_POST['checkbox'][$i];
-        echo $del_id;
         $update =$db->query("SELECT E_jobrole FROM employee WHERE E_nic='$del_id'");
         $job=$update->result();
         $c_job=$job[$i]->E_jobrole;
@@ -246,12 +246,13 @@ if(isset($_POST['update'])) {
             <H2 style="color: #000000; float: left">New Users</H2>
         </div>
     </div>
-    <div class="row">
-        <?php include '../controllers/pending_users.php' ?>
-    </div>
-</div>
 
 </div>
+</div>
+<div class="row">
+    <?php include '../controllers/pending_users.php' ?>
+</div>
+
 </div>
 </div>
 </div>
