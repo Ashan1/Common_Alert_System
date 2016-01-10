@@ -14,7 +14,4 @@ $sql = "INSERT INTO external_authority ( Auth_name, Auth_tel, Auth_address, Auth
 $db->query($sql);
     header('location:../view/ExternalAuthority_update.php');
 
-
-mysql_close();
-
 ?>

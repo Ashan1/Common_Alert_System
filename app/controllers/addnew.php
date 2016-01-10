@@ -19,7 +19,6 @@ $new_pass = password_hash($pw, PASSWORD_DEFAULT);
 $sql = "INSERT INTO employee (F_Name,L_Name, E_nic, E_email, E_tel, E_jobrole, E_image, E_password, E_on_off, Admin_auth) VALUES ('$fname','$lname', '$nic' ,'$email', '$mobile', '$role', '$image','$new_pass','','$Admin_auth')";
 $db->query($sql);
     header('location:../view/usermanage.php');
-// close connection
-mysql_close();
+
 ?>
 

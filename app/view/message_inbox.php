@@ -28,9 +28,8 @@ if(isset($_POST['delete1'])) {
         $update =$db->query($sql);
         if(!$update->error()){
             echo '<script>
-                                        window.location.href=window.location.href;
-                                        </script>';
-
+                     window.location.href=window.location.href;
+                  </script>';
         }
     }
 }
@@ -161,7 +160,7 @@ if(isset($_POST['new_message'])){
                                                 <input class="form-control" type="text" name="to_user" id="to_user" placeholder="Receiver Name" list="exampleList">
                                                 <datalist id="exampleList">
                                                     <?php
-                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic' AND Admin_auth='1'");
                                                     $db_result = $data->result();
                                                     $count = $data->count();
                                                     for ($i = 0; $i < $count; $i++) {
@@ -242,7 +241,7 @@ if(isset($_POST['new_message'])){
                                                 <input class="form-control" type="text" name="to_user" id="to_user" placeholder="Receiver Name" list="exampleList">
                                                 <datalist id="exampleList">
                                                     <?php
-                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic' AND Admin_auth='1'");
                                                     $db_result = $data->result();
                                                     $count = $data->count();
                                                     for ($i = 0; $i < $count; $i++) {

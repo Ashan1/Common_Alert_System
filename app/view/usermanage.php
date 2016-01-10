@@ -45,7 +45,7 @@ $db = DB::getInstance();
             <div class="container-fluid">
 
             <?php
-            $data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1'");
+            $data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1' AND E_jobrole <> 'Administrator'");
             $db_result=$data_check->result();
             $count2=$data_check->count();
 
@@ -53,13 +53,17 @@ $db = DB::getInstance();
                 for($i=0; $i<count($_POST['checkbox']); $i++){
                     $del_id = $_POST['checkbox'][$i];
                     $delete=$db->query("DELETE FROM employee WHERE E_nic='$del_id'");
+                    if(!$delete->error()){
+                        echo '<script>
+                                  window.location.href=window.location.href;
+                              </script>';
+                    }
                 }
             }
 
             if(isset($_POST['update'])) {
                 for($i=0; $i<count($_POST['checkbox']); $i++){
                     $del_id = $_POST['checkbox'][$i];
-                    echo $del_id;
                     $update =$db->query("SELECT E_jobrole FROM employee WHERE E_nic='$del_id'");
                     $job=$update->result();
                     $c_job=$job[$i]->E_jobrole;
@@ -280,7 +284,7 @@ $db = DB::getInstance();
                                         <td>{$E_name}</td>
                                         <td>{$db_result[$j]->E_email}</td>
                                         <td>{$db_result[$j]->E_tel}</td>
-                                        <td>" . "<input data-toggle='modal' data-target='#viewModal' id='view' name='view' type='button'>View</input>" . "</td>
+                                        <td>" . "<input data-toggle='modal' data-target='#viewModal' id='view' name='view' type='button' value='View'>" . "</td>
 		                            </tr>\n";
                                   }
                                     ?>
@@ -291,15 +295,6 @@ $db = DB::getInstance();
                         </div>
                     </div>
                     <!--end table with new users-->
-
-                    <!--<script>
-                        $(document).ready(function () {
-                            $('#view').click(function(){
-                                var v = document.getElementById('view').value;
-                                console.log(v);
-                            });
-                        });
-                    </script>-->
 
                     <div class="modal fade" id="viewModal" role="dialog"><!--pop up modal for view-->
                         <div class="modal-dialog">
@@ -358,15 +353,12 @@ $db = DB::getInstance();
                                             <i class="fa fa-ban"></i>&nbsp;Cancel
                                         </button>
                                     </div>
-
-
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--end pop up modal for view-->
-
 
                 </div>
             </div>

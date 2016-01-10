@@ -77,7 +77,7 @@ require_once '../app/controllers/recent_alert.php';
                                 else if($dtable == 'earthquake'){?>
                                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
                                 <?php }?>
-                                <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
+                                <!--<li><h4><?php /*echo $r[0]->place; */?></h4><?php /*echo $r[0]->time; */?></li>-->
                             </ul>
                         </div>
                     </div>
