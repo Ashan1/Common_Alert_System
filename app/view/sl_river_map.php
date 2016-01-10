@@ -37,7 +37,7 @@
 
                 function apply(out){
                     var response = JSON.parse(out);
-
+                    var i;
                     for (i = 0; i < response.length; i++){
 
                         var station = response[i].station;

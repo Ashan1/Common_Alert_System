@@ -30,14 +30,13 @@ $reg = '/<div class=\"tip\">(.*?)<.*
 .*
 (.*?)<\//';
 
-echo $reg;
 
 //Getting data off website
 preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
 
 $db = DB::getInstance();
-var_dump($posts);
+
 
 foreach ($posts as $post) {
 
