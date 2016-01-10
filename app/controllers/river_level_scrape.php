@@ -8,27 +8,7 @@ $html = file_get_contents($url);
 
 //Regular expression to capture the reservoir details off the url
 
-$reg = '/<div class=\"tip\">(.*?)<.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*
-.*?er">(.*?)<.*
-.*
-.*
-.*
-.*
-.*?(([0-9]+.[0-9]+)|(-)).*
-.*
-.*
-(.*?)<\//';
+$reg = '/<div class=\"tip\">(.*?)<.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*?er">(.*?)<.*\s.*\s.*\s.*\s.*\s.*?(([0-9]+.[0-9]+)|(-)).*\s.*\s.*\s(.*?)<\//';
 
 
 //Getting data off website
