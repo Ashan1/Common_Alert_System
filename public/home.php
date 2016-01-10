@@ -58,7 +58,7 @@ require_once '../app/controllers/recent_alert.php';
                     </div>
                     <div class="description col-lg-10">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="alert-close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
-                        <h1>Flood in Anuradhapure</h1> </div>
+                        <h1>Flood in Anuradhapura</h1> </div>
                 </div>
                 <div class="row">
                     <div class="recent-activity">

@@ -46,18 +46,18 @@ $msg = $user->unread_messages($user_nic);
                 <li role="separator" class="divider"></li>
                 <li class="hidden-xs"><a href="<?php echo SCRIPT_ROOT ?>/app/view/msg_inbox.php">
                         <i class="fa fa-envelope"></i>
-                        <span class="label label-warning"><?php echo $msg ?></span>
+                        <span class="label label-danger"><?php echo $msg ?></span>
                     </a></li>
-                <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<!--                <li class="hidden-xs"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <span class="label label-success">4</span>
-                    </a></li>
+                    </a></li>-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user"></i>
                         <span><?php echo $u['F_Name']; ?></span> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/profile.php">
+                        <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/myaccount.php">
                                 <i class="fa fa-user fa-fw pull-right"></i>
                                 Profile</a></li>
 <!--                        <li><a href="#">

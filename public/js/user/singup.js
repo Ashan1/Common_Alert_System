@@ -102,7 +102,8 @@ $().ready(function(){
                 TestOnly: true
             },
             email:{
-                required: true
+                required: true,
+                HEmail:true
             },
             nic:{
                 required: true,
@@ -150,3 +151,8 @@ jQuery.validator.addMethod("NIC",function(value,element){
 jQuery.validator.addMethod("TestOnly",function(value,element){
     return this.optional(element) || /^[A-Z||a-z]+$/.test(value);
 },"Only alphabetical characters");
+
+jQuery.validator.addMethod("HEmail",function(value,element){
+    return this.optional(element) || /^\w+@[a-zA-Z_]+?\[.]{1}[a-zA-Z]{2,3}$/.test(value);
+},"Please enter valid email");
+

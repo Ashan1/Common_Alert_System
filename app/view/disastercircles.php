@@ -86,13 +86,13 @@ include'disasterCount.php';
         ctx.fillStyle = "#424141";
         ctx.textAlign = 'center';
         ctx.font ="50px disasters";
-        ctx.fillText("\ue800",s/2,s/2.5);
+        ctx.fillText("\ue900",s/2,s/2.5);
         ctx.font = "bold 35px sans-serif";
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(sv, s / 2, s / 2);
         ctx.font = "bold 20px Raleway";
-        ctx.fillText("Earthquakes",s/2,2*s/3);
+        ctx.fillText("Reservoir",s/2,2*s/3);
         ctx.restore();
     });
 
@@ -108,8 +108,8 @@ include'disasterCount.php';
         ctx.save();
         ctx.fillStyle = "#424141";
         ctx.textAlign = 'center';
-        ctx.font ="50px disasters";
-        ctx.fillText("\ue803",s/2,s/2.5);
+        ctx.font ="10px disasters";
+        ctx.fillText(String.fromCharCode("0xe900"),s/2,s/2.5);
         ctx.font = "bold 35px sans-serif";
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -155,6 +155,7 @@ include'disasterCount.php';
         ctx.fillStyle = "#424141";
         ctx.textAlign = 'center';
         ctx.font ="50px disasters";
+        ctx.image = '';
         ctx.fillText("\ue804",s/2,s/2.5);
         ctx.font = "bold 35px sans-serif";
         ctx.textAlign = 'center';
@@ -164,6 +165,9 @@ include'disasterCount.php';
         ctx.fillText("Landslides",s/2,2*s/3);
         ctx.restore();
     });
+
+
+
 
 
 </script>
