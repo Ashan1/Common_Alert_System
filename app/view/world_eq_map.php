@@ -64,7 +64,13 @@
                             position: point
                         });
                         bindInfoWindow(marker, map, infoWindow, html);
-                        marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
+                        if (mag > 3.5){
+                            marker.setIcon('../../public/images/markers/earthquake1.png');
+                        }
+                        else{
+                            marker.setIcon('../../public/images/markers/earthquake2.png');
+                        }
+
                     }
 
                 }
