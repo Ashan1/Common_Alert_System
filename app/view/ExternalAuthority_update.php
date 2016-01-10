@@ -8,6 +8,7 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
+<script src="../../public/js/user/exauthority.js"></script>
 
 <script language="javascript">
     function validate()
@@ -58,6 +59,11 @@ $db = DB::getInstance();
                         for($i=0; $i<count($_POST['checkbox']); $i++){
                             $del_id = $_POST['checkbox'][$i];
                             $delete=$db->query("DELETE FROM external_authority WHERE Auth_ID='$del_id'");
+                            if(!$delete->error()){
+                                echo '<script>
+                                        window.location.href=window.location.href;
+                                        </script>';
+                            }
                         }
                     }
 
@@ -77,35 +83,35 @@ $db = DB::getInstance();
                     <!--edit_form-->
                     <div class='modal fade' id='Update_Modal'>
                         <div class='modal-dialog'>
-                            <div class='row' style='margin-top: 20px;'>
+                            <div>
                                 <div class='col-md-8 col-md-offset-2' style='background-color:black;background: rgba(0, 0, 0, 0.6);height: 430px;width: 560px;'>
                                     <h4 style='color:white;text-align:left;'>UPDATE DETAILS</h4>
                                     <form class='form-horizontal' action='../controllers/update_authority.php?Auth_eid=<?php echo $del_id ?>' method='post'>
-                                        <div class='form-group ext_form'>
+                                        <div class='form-group'>
                                             <div class='col-xs-10'>
                                                 <label for='inputName' class='control-label' style='color:white;'>Department Name:</label>
                                                 <input type='name' name='auth_nameup' class='form-control ext_input' id='inputName' value=<?php echo $current_data[0]->Auth_name ?>  align='center' style='margin-left: 175px;'  required>
                                             </div>
                                         </div>
-                                        <div class='form-group ext_form'>
+                                        <div class='form-group'>
                                             <div class='col-xs-10'>
                                                 <label for='inputmobile' class='control-label' style='color:white;'>Department Number:</label>
                                                 <input type='tel' name='auth_telup' class='form-control ext_input' align='center' style='margin-left: 175px;' id='inputEmail' value=<?php echo $current_data[0]->Auth_tel ?> >
                                             </div>
                                         </div>
-                                        <div class='form-group ext_form'>
+                                        <div class='form-group'>
                                             <div class='col-xs-10'>
                                                 <label for='inputAddress' class='control-label' style='color:white;'>Department Address:</label>
                                                 <input type='address' name='auth_addressup' class='form-control ext_input' id='inputAddress' align='center' style='margin-left: 175px;' value=<?php echo $current_data[0]->Auth_address ?> required>
                                             </div>
                                         </div>
-                                        <div class='form-group ext_form'>
+                                        <div class='form-group'>
                                             <div class='col-xs-10'>
                                                 <label for='inputEmail' class='control-label' style='color:white;'>Department Email:</label>
                                                 <input type='email' class='form-control ext_input' name='auth_emailup' align='center' style='margin-left: 175px;' value=<?php echo $current_data[0]->Auth_email ?> pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,3}$' id='inputEmail'  data-error='Brush, that email address is invalid' required>>
                                             </div>
                                         </div>
-                                        <div class='form-group ext_form'>
+                                        <div class='form-group'>
                                             <div class='col-xs-offset-2 col-xs-10' style='margin-left: 310px;'>
                                                 <button type='Submit' class='btn modal_btn' id='submit'  name='update' id='update' value='Submit'>Update</button>
                                                 <button type='button' class='btn modal_btn' data-dismiss='modal' style='margin-left: 10px;'>Cancel</button>
@@ -125,40 +131,40 @@ $db = DB::getInstance();
                     <!--add new authority-->
                     <div class="modal fade" id="myModale" role="dialog" >
                         <div class="modal-dialog">
-                            <div class="row" style="margin-top: 20px;">
+                            <div style="margin-top: 20px;">
                                 <div class="col-md-8 col-md-offset-2" style="background-color:black;background: rgba(0, 0, 0, 0.6);height: 400px;width: 530px;">
 
                                     <h4 style="color:white;text-align:left;padding-top: 10px;padding-bottom:10px;">ADD EXTERNAL AUTHORITY</h4>
 
                                     <form class="form-horizontal" action="../controllers/external_auth.php"  method="post">
-                                        <div class="form-group ext_form">
+                                        <div class="form-group">
                                             <div class="col-xs-10">
-                                                <label for="inputName" class="control-label" style="color:white;">Department Name:</label>
-                                                <input type="name" name="auth_name" class="form-control ext_input" id="inputName" align="center"style="margin-left: 150px;"  placeholder="Name" required>
+                                                <label for="inputName" class="control-label">Department Name:</label>
+                                                <input type="name" name="auth_name" class="form-control ext_input" id="inputName" align="center"  placeholder="Name">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
+                                        <div class="form-group">
                                             <div class="col-xs-10">
-                                                <label for="inputmobile" class="control-label" style="color:white;">Department Number:</label>
-                                                <input type="tel" name="auth_tel" class="form-control ext_input" align="center" style="margin-left: 150px;" id="inputEmail" placeholder="Telphone Number" pattern="^\d{10}$" title="Required 10 numbers" required maxlength="10">
+                                                <label for="inputmobile" class="control-label">Department Number:</label>
+                                                <input type="tel" name="auth_tel" class="form-control" align="center" style="margin-left: 150px;" id="auth_tel" placeholder="Telphone Number" >
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
+                                        <div class="form-group">
                                             <div class="col-xs-10">
-                                                <label for="inputAddress" class="control-label" style="color:white;">Department Address:</label>
-                                                <input type="address" name="auth_address" class="form-control ext_input" id="inputAddress" align="center"style="margin-left: 150px;" placeholder="Address" required>
+                                                <label for="inputAddress" class="control-label">Department Address:</label>
+                                                <input type="address" name="auth_address" class="form-control ext_input" id="inputAddress" align="center" placeholder="Address">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
+                                        <div class="form-group">
                                             <div class="col-xs-10">
-                                                <label for="inputEmail" class="control-label" style="color:white;">Department Email:</label>
-                                                <input type="email" class="form-control ext_input" name="auth_email" align="center"style="margin-left: 150px;" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="inputEmail"  data-error="Brush, that email address is invalid" required>>
+                                                <label for="inputEmail" class="control-label">Department Email:</label>
+                                                <input type="email" class="form-control ext_input" name="auth_email" align="center" placeholder="Email Address">
                                             </div>
                                         </div>
-                                        <div class="form-group ext_form">
-                                            <div class="col-xs-offset-2 col-xs-10"style="margin-left: 310px;">
+                                        <div class="form-group">
+                                            <div class="col-xs-offset-2 col-xs-10">
                                                 <button type="Submit" class="btn modal_btn" id="submit"  value="Submit">Add</button>
-                                                <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;">Cancel</button>
+                                                <button type="button" class="btn modal_btn" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

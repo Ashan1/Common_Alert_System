@@ -641,21 +641,7 @@ th {
     align:inline;
 }
 
-.ext_form{
-    height:30px;
-}
 
-.ext_input{
-    margin-left: 150px;
-    margin-top:-25;
-    margin-top: -28;
-}
-
-.ext_addbtn{
-    background-color:#FF4000;
-    fload:right;
-    margin-bottom:15px;
-}
 .form-group form input[type="text"]:hover{
     box-shadow: 0 0 1em #FF0000;
 }

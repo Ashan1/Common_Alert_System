@@ -87,7 +87,7 @@ require_once '../app/controllers/recent_alert.php';
                         <ul class="nav nav-tabls">
                             <li role="presentation"><a id="tab1" href="../app/controllers/tab.php?id=1">SUMMARY</a></li>
                             <li role="presentation"><a id="tab2" href="../app/controllers/tab.php?id=2">NOTIFICATIONS</a></li>
-                            <li role="presentation"><a id="tab3" href="../app/controllers/tab.php?id=3">ACTIVITIES</a></li>
+                            <li role="presentation"><a id="tab3" href="../app/controllers/tab.php?id=3">External Authority</a></li>
                             <li role="presentation"><a id="tab4" href="../app/controllers/tab.php?id=4">ADVISOR BOARD</a></li>
                         </ul>
                     </div>

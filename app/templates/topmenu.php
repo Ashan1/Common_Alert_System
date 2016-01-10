@@ -60,9 +60,9 @@ $msg = $user->unread_messages($user_nic);
                         <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/profile.php">
                                 <i class="fa fa-user fa-fw pull-right"></i>
                                 Profile</a></li>
-                        <li><a href="#">
+<!--                        <li><a href="#">
                                 <i class="fa fa-cog fa-fw pull-right"></i>
-                                Settings</a></li>
+                                Settings</a></li>-->
                         <li role="separator" class="divider"></li>
                         <li><a href="<?php echo SCRIPT_ROOT ?>/app/controllers/logout.php">
                                 <i class="fa fa-power-off fa-fw pull-right"></i>

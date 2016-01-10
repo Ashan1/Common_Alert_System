@@ -12,7 +12,7 @@ switch($p) {
         break;
 
     case "3":
-        echo 'My hotmail content goes here...<br style="clear:both;" />';
+        include '../view/External_Authority.php';
         break;
 
     case "4":
