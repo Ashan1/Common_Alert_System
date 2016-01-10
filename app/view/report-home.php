@@ -278,12 +278,6 @@ $db = DB::getInstance();
                         echo"</tbody>
             </table>";break;
                     case "tsunami":
-                        echo '<div>
-                        <form name="myForm" action="" onsubmit="return Printpage()" method="post">
-                        <button class="btn1" value="print">print</button>
-
-               </form>
-            </div>';
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
                         echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
                                 <col width="40">
@@ -299,9 +293,8 @@ $db = DB::getInstance();
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MAGNITUDE</th>
-                    <th>LATITUDE</th>
-                    <th>LONGITUDE</th>
                     <th>LOCATION</th>
+                    <th>TSUNAMI ALERTS</th>
                 </tr>
                 </thead>
                 <tbody>';
@@ -317,9 +310,8 @@ $db = DB::getInstance();
                                         <td>{$db_result[$i]->date}</td>
                                         <td>{$db_result[$i]->time}</td>
                                         <td>{$db_result[$i]->magnitude}</td>
-                                        <td>{$db_result[$i]->latitude}</td>
-                                        <td>{$db_result[$i]->longitude}</td>
                                         <td>{$db_result[$i]->place}</td>
+                                        <td>Yes</td>
                                         </tr>\n";
                             }
                         }
@@ -375,7 +367,7 @@ $db = DB::getInstance();
                     }
                         if($count2>0) {
                             for ($i = 0; $i < $count2; $i++) {
-                                $j=$i+1;//$name=$db_result[$i]->E_name;
+                                $j=$i+$count1+1;//$name=$db_result[$i]->E_name;
                                 echo
                                 "<tr>
                                         <td>{$j}</td>
@@ -392,11 +384,7 @@ $db = DB::getInstance();
                         }
                     echo"</tbody>
             </table>";}
-                if (isset($_GET['type'])){
-                    if($count<=0){
-                        echo '<div style="text-align: center;font-size: xx-large">No Disasters Avalable</div>';
-                    }
-                }?>
+                ?>
 
         </div>
         <div id="myModal" class="modal fade" role="dialog">
