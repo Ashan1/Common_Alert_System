@@ -133,13 +133,13 @@ $db = DB::getInstance();
 
                                 <div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()">Update</button>
+                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="update" name="update" onclick="validate()">Update</button>
                                     </div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()">Remove</button>
+                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" type="submit" id="delete" name="delete" onclick="validate()">Remove</button>
                                     </div>
                                     <div style="float: right;">
-                                        <button class="div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new">New User</button>
+                                        <button class="btn btn-default btn-primary div_button" data-toggle="modal" data-target="#myModal" type="button" id="add_new" name="add_new">New User</button>
                                     </div>
                                 </div>
 
@@ -231,7 +231,6 @@ $db = DB::getInstance();
                                             <button type="submit" id="btn-signup" name="btn-adduser" class="btn btn-default btn-primary">
                                                 <i class="fa fa-hand-o-right"></i>&nbsp;Add
                                             </button>
-
                                             <button type="button" name="btn-cancel" class="btn btn-default btn-primary" data-dismiss="modal">
                                                 <i class="fa fa-ban"></i>&nbsp;Cancel
                                             </button>

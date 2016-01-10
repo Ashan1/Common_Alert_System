@@ -16,7 +16,7 @@
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 8,
                     center: {lat: 7.9500, lng: 81.0000},
-                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                    mapTypeId: google.maps.MapTypeId.HYBRID
                 });
 
                 var infoWindow = new google.maps.InfoWindow({});
@@ -37,7 +37,7 @@
 
                 function apply(out){
                     var response = JSON.parse(out);
-
+                    var i;
                     for (i = 0; i < response.length; i++){
 
                         var station = response[i].station;

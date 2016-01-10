@@ -228,6 +228,19 @@ ul li{
     transition: all 0.25s ease-in-out;
 }
 
+.sidemenu-content .menu ul li a:active,.sidemenu-content .menu ul li a:focus{
+    background-color: #f58c11;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.sidemenu-content .menu .admin ul li{
+    float: inherit !important;
+}
+
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     background-image:none !important;
 }
@@ -575,45 +588,61 @@ th {
 }
 
 .div_button{
-    background-color:#FF4000;
-    margin-left:5px;
-    width:100px;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    margin-top: 15px;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+    background-image: none !important;
+    background-color: #f56d18;
+    border-color:#f56d18;
+    text-shadow: none;
+    margin: 3px;
+}
+.div_button:hover,.div_button:active,.div_button:focus{
+    background-image: none !important;
+    background-color: #f58c11;
+    border-color:#f58c11;
+    color:#1f1f1f;
+    text-shadow: none;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
-.div_button_img{
-    width: 25px;
-    height:25px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-right: 4px;
-}
 
-.model_addnew{
+.model_addnew,.Update_Modal{
     background-color:black;
     background: rgba(0, 0, 0, 0.6);
     padding:20px;
 }
 
+.model_exaddnew{
+    background-color:black;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+}
+
 #admin-adduser{
     color: #fff;
+}
+#ex_auth, #Update_Modal{
+    color: #fff;
+}
+
+#ex_auth button, #admin-adduser button,#Update_Modal button{
+    background-image: none !important;
+    background-color: #f56d18;
+    border-color:#f56d18;
+    text-shadow: none;
+}
+
+#ex_auth button:hover,#admin-adduser button:hover,#Update_Modal button:hover{
+    background-image: none !important;
+    background-color: #f58c11;
+    border-color:#f58c11;
+    color:#1f1f1f;
+    text-shadow: none;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .user_edit{
@@ -641,21 +670,7 @@ th {
     align:inline;
 }
 
-.ext_form{
-    height:30px;
-}
 
-.ext_input{
-    margin-left: 150px;
-    margin-top:-25;
-    margin-top: -28;
-}
-
-.ext_addbtn{
-    background-color:#FF4000;
-    fload:right;
-    margin-bottom:15px;
-}
 .form-group form input[type="text"]:hover{
     box-shadow: 0 0 1em #FF0000;
 }
