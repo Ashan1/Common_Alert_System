@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $Dtype=$_GET['id'];
 $today=date("Y-m-d");
 echo "Today ".$Dtype." Disasters";
@@ -26,4 +26,6 @@ switch ($Dtype) {
     case "cyclone":
         include"../view/disasters/cyclone.php";
         break;
+    default:
+        include"../view/disasters/all.php";
 }?>

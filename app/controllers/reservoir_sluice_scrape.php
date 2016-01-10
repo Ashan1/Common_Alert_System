@@ -27,12 +27,12 @@ $reg = '/<div class=\"tip\">(.*)<d.*
 .*((Yes)|(No)).*
 .*((Yes)|(No)).*/';
 
+echo $reg;
 //Getting data off website
 preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
 
 $db = DB::getInstance();
-
 
 foreach ($posts as $post) {
 

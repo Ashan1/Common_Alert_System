@@ -40,4 +40,3 @@ echo"</tbody>
 if($count<=0){
     echo '<div style="text-align: center;font-size: xx-large">No Disasters Avalable</div>';
 }
-?

@@ -40,7 +40,7 @@ if (isset($_POST['outbox'])) {
                     </div>
 
                     <?php
-                    if(isset($_GET['user']) == "" or isset($_GET['Resend_msg'])){
+                    if(isset($_GET['user']) == ""){
                     ?>
 
                     <div id="content">
@@ -48,23 +48,17 @@ if (isset($_POST['outbox'])) {
                         if (isset($_POST['submit']))
                         {
                             $send_to_user = $_POST['to_user'];
-                            echo $send_to_user;
                             list($split_fname, $split_lname) = explode(' ', $send_to_user);
-                            echo $split_fname;
-                            echo $split_lname;
                             $send_details = $db->query("SELECT * FROM employee WHERE F_Name = '$split_fname' AND L_Name='$split_lname'");
                             $emp_name = $send_details->result();
                             $to_user = $emp_name[0]->E_nic;
-                            echo $to_user;
                             $from_user = $user_nic;
                             $message = $_POST['message'];
-                            echo $from_user;
-                            $no = "no";
+                            $date=date("Y-m-d");
+                            $time=date("H:m:s");
 
-                            $send_message = "INSERT INTO message(to_user, message, from_user, read_status, deleted, sent_deleted) VALUES('$to_user', '$message', '$from_user','$no','$no','$no')";
-                            $db->query($send_message);
-
-                            var_dump($db->error());
+                            $sql_for_send = $db->query("INSERT INTO message(`msg_time`,`msg_date`,`to_user`, `from_user`, `read_status`, `deleted`, `sent_deleted`, `message`) VALUES ('$time','$date','$to_user','$from_user','0','0','0','$message') ");
+                            $a = $sql_for_send->result();
                         }
                         else
                         {
@@ -127,7 +121,11 @@ if (isset($_POST['outbox'])) {
                             $from_user = $user_nic;
                             $message = $_POST['message'];
                             $no = "no";
-                            $send_message = "INSERT INTO message (msg_time,msg_date,to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('','',''$to_user', '$message', '$from_user','$no','$no','$no')";
+<<<<<<< HEAD
+                            $send_message = "INSERT INTO message (msg_time,msg_date,to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('','',''$to_user', '$message', '$from_user','0','0','0')";
+=======
+                            $send_message = "INSERT INTO message (to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')";
+>>>>>>> b6b5c2413c100286b03e5d76fe95115369a0ee3b
                             $db->query($send_message);
                         }
                                     ?>

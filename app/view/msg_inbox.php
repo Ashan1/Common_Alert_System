@@ -125,11 +125,11 @@ if(isset($_POST['reply'])){
                     </form>
                 </div><!--end of message inbox-->
 
-                    <script language="javascript">
+                    <!--<script language="javascript">
                         $('#table').click(function(e){
                             $("#message").html($(e.target).text());
                         })
-                    </script>
+                    </script>-->
 
 
                     <div style="width: 432px;float: right;"><!--start message content-->

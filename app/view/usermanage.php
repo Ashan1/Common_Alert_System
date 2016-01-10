@@ -2,13 +2,39 @@
 
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
+require_once '../controllers/new_user.php';
+
 if($user->is_loggedin()==""){
-    $user->redirect('../../public/index.php');
+    $user->redirect('../../index.php');
 }
 
 $db = DB::getInstance();
 ?>
 <script src="../../public/js/user/singup.js"></script>
+<script src="../../public/js/user/usermanage.js"></script>
+
+<script language="javascript">
+    function validate()
+    {
+        var chks = document.getElementsByName('checkbox[]');
+        var hasChecked = false;
+        for (var i = 0; i < chks.length; i++)
+        {
+            if (chks[i].checked)
+            {
+                hasChecked = true;
+                break;
+            }
+        }
+        if (hasChecked == false)
+        {
+            alert("Please select at least one.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
 </head>
 <body>
 <div>
@@ -46,7 +72,7 @@ $db = DB::getInstance();
                         </script>
 
                         <!--edit_form-->
-                        <div class="modal fade " id="myModaledit" action="../controllers/update.php">
+                        <div class="modal fade " id="myModaledit"  action="../controllers/update.php">
                             <div class="modal-dialog">
                                 <div class="row" style=" margin-top: 150px;margin-left: 90px;">
                                     <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 450px; height: 270px;">
@@ -136,7 +162,6 @@ $db = DB::getInstance();
                                     $space=" ";
                                     $E_name= $F_name.$space. $L_name;
 
-                                    //$name=$db_result[$i]->E_name;
                                     echo
                                         "<tr>
                                         <td>{$db_result[$i]->E_nic}</td>
@@ -211,7 +236,6 @@ $db = DB::getInstance();
                                                 <i class="fa fa-ban"></i>&nbsp;Cancel
                                             </button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
@@ -226,8 +250,8 @@ $db = DB::getInstance();
 
                     <div id="content" scrolling="yes"><!--table with new users-->
                         <div class="row">
-                            <form name="table" method="post">
-                                <table class="table table_striped" id="table" action="load_table.php">
+                            <form method="post">
+                                <table class="table table_striped" id="table">
 
                                     <thead>
                                     <tr>
@@ -241,44 +265,51 @@ $db = DB::getInstance();
                                     <tbody>
 
                                     <?php
-                                    $data_notcheck=$db->query("SELECT * FROM employee WHERE Admin_auth='0'");
-                                    $db_result=$data_notcheck->result();
-                                    $count1=$data_notcheck->count();
+                                  for($j=0; $j<$count1; $j++) {
+                                      $F_name = $db_result[$j]->F_Name;
+                                      $L_name = $db_result[$j]->L_Name;
+                                      $space = " ";
+                                      $E_name = $F_name . $space . $L_name;
+                                        $mail = $db_result[$j]->E_email;
+                                          $tel = $db_result[$j]->E_tel;
+                                          $nic = $db_result[$j]->E_nic;
+                                          $rol = $db_result[$j]->E_jobrole;
 
-                                    for($j=0; $j<$count1; $j++) {
-                                    $F_name = $db_result[$j]->F_Name;
-                                    $L_name = $db_result[$j]->L_Name;
-                                    $space = " ";
-                                    $E_name = $F_name . $space . $L_name;
-                                    $reject_btn="1";
-                                    $accept_btn="0";
-
-                                    echo
-                                        "<tr>
+                                      echo
+                                          "<tr>
                                         <td>{$db_result[$j]->E_nic}</td>
                                         <td>{$E_name}</td>
                                         <td>{$db_result[$j]->E_email}</td>
                                         <td>{$db_result[$j]->E_tel}</td>
-                                        <td>" . "<button data-toggle='modal' data-target='#viewModal' type='button' id='view' name='view'>View</button>" . "</td>
+                                        <td>" . "<input data-toggle='modal' data-target='#viewModal' id='view' name='view' type='button'>View</input>" . "</td>
 		                            </tr>\n";
+                                  }
                                     ?>
 
                                     </tbody>
                                 </table>
-                            </form>
+                                </form>
                         </div>
                     </div>
                     <!--end table with new users-->
 
-                    <div class="modal fade" id="viewModal" role="dialog" action="../controller/admin_accept_user.php">
-                        <!--pop up modal for view-->
+                    <!--<script>
+                        $(document).ready(function () {
+                            $('#view').click(function(){
+                                var v = document.getElementById('view').value;
+                                console.log(v);
+                            });
+                        });
+                    </script>-->
+
+                    <div class="modal fade" id="viewModal" role="dialog"><!--pop up modal for view-->
                         <div class="modal-dialog">
 
                             <div>
                                 <div class="col-lg-10 col-lg-offset-2 model_addnew">
                                     <h4 style="color:white;text-align:left;">NEW USER REQUEST</h4>
 
-                                    <form class="form-horizontal" action="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" data-toggle="validator" method="post" id="admin-adduser">
+                                    <form class="form-horizontal" data-toggle="validator" method="post" id="admin-adduser">
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Name:</label>
                                             <label class="col-sm-4 control-label"><?php echo $E_name ?></label>
@@ -293,7 +324,7 @@ $db = DB::getInstance();
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">NIC Number:</label>
-                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_nic ?></label>
+                                            <label class="col-sm-4 control-label"><?php echo $db_result[$j]->E_nic?></label>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Job Title:</label>
@@ -310,22 +341,25 @@ $db = DB::getInstance();
                                                     <option value="Executive User">Executive User</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                    <div class="col-sm-6 col-sm-offset-7 controls">
+                                        <button type="submit" name="accept_btn"
+                                                formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[0]->E_nic ?>"
+                                                id="btn-signup" name="btn-acceptuser"
+                                                class="btn btn-default btn-primary">
+                                            <i class="fa fa-hand-o-right"></i>&nbsp;Accept
+                                        </button>
+                                        <button type="submit" name="reject_btn"
+                                                formaction="../controllers/admin_reject_user.php?user_id=<?php echo $db_result[0]->E_nic ?>"
+                                                type="submit" id="btn-signup"
+                                                class="btn btn-default btn-primary">
+                                            <i class="fa fa-hand-o-right"></i>&nbsp;Reject
+                                        </button>
+                                        <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
+                                                data-dismiss="modal">
+                                            <i class="fa fa-ban"></i>&nbsp;Cancel
+                                        </button>
+                                    </div>
 
-                                        <div class="col-sm-6 col-sm-offset-7 controls">
-                                            <button type="submit" name="accept_btn" formaction="../controllers/admin_accept_user.php?user_id=<?php echo $db_result[$j]->E_nic?>" id="btn-signup" name="btn-acceptuser"
-                                                    class="btn btn-default btn-primary">
-                                                <i class="fa fa-hand-o-right"></i>&nbsp;Accept
-                                            </button>
-                                            <button type="submit" name="reject_btn" formaction="../controllers/admin_accept_user.php?delete=<?php echo $reject_btn ?> & user_id=<?php echo $db_result[$j]->E_nic?>" type="submit" id="btn-signup" name="btn-rejectuser"
-                                                    class="btn btn-default btn-primary">
-                                                <i class="fa fa-hand-o-right"></i>&nbsp;Reject
-                                            </button>
-                                            <button type="button" name="btn-cancel" class="btn btn-default btn-primary"
-                                                    data-dismiss="modal">
-                                                <i class="fa fa-ban"></i>&nbsp;Cancel
-                                            </button>
-                                        </div>
 
                                     </form>
                                 </div>
@@ -334,14 +368,6 @@ $db = DB::getInstance();
                     </div>
                     <!--end pop up modal for view-->
 
-                    <?php
-                    }
-                    ?>
-                    <!--authenticate users-->
-                    <div>
-
-                    </div>
-                    <!--end authenticate users-->
 
                 </div>
             </div>

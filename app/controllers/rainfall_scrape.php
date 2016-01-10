@@ -36,7 +36,6 @@ foreach ($posts as $post) {
 
     $station = trim($post[2]);
     $rain_fall = trim($post[3]);
-    echo $rain_fall;
 
     //Saving to database
     $db->query("UPDATE rainfall SET rain_fall = '$rain_fall' WHERE station = '$station'");
