@@ -46,7 +46,7 @@ $db = DB::getInstance();
                         </script>
 
                         <!--edit_form-->
-                        <div class="modal fade " id="myModaledit" action="../controllers/update.php">
+                        <div class="modal fade " id="myModaledit"  action="../controllers/update.php">
                             <div class="modal-dialog">
                                 <div class="row" style=" margin-top: 150px;margin-left: 90px;">
                                     <div class="col-md-8 col-md-offset-2 model_addnew" style="width: 450px; height: 270px;">

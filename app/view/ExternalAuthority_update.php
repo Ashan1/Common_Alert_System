@@ -8,8 +8,30 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
-</head>
 
+<script language="javascript">
+    function validate()
+    {
+        var chks = document.getElementsByName('checkbox[]');
+        var hasChecked = false;
+        for (var i = 0; i < chks.length; i++)
+        {
+            if (chks[i].checked)
+            {
+                hasChecked = true;
+                break;
+            }
+        }
+        if (hasChecked == false)
+        {
+            alert("Please select at least one.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</head>
 <body>
 
 <div>
@@ -43,6 +65,7 @@ $db = DB::getInstance();
                             $del_id = $_POST['checkbox'][0];
                             $sql_up=$db->query("SELECT * FROM external_authority WHERE Auth_ID='$del_id'");
                             $current_data=$sql_up->result();
+
                             ?>
 
                             <script type="text/javascript">
@@ -52,12 +75,12 @@ $db = DB::getInstance();
                             </script>
 
                     <!--edit_form-->
-                    <div class='modal fade' id='Update_Modal' action='../controllers/update_authority.php' >
+                    <div class='modal fade' id='Update_Modal'>
                         <div class='modal-dialog'>
                             <div class='row' style='margin-top: 20px;'>
                                 <div class='col-md-8 col-md-offset-2' style='background-color:black;background: rgba(0, 0, 0, 0.6);height: 430px;width: 560px;'>
                                     <h4 style='color:white;text-align:left;'>UPDATE DETAILS</h4>
-                                    <form class='form-horizontal' action='../controllers/update_authority.php?Auth_id=" dmc@gmail.com"' method='post'>
+                                    <form class='form-horizontal' action='../controllers/update_authority.php?Auth_eid=<?php echo $del_id ?>' method='post'>
                                         <div class='form-group ext_form'>
                                             <div class='col-xs-10'>
                                                 <label for='inputName' class='control-label' style='color:white;'>Department Name:</label>
@@ -100,7 +123,7 @@ $db = DB::getInstance();
                     ?>
 
                     <!--add new authority-->
-                    <div class="modal fade" id="myModale" role="dialog" action="../controllers/external_auth.php" >
+                    <div class="modal fade" id="myModale" role="dialog" >
                         <div class="modal-dialog">
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-8 col-md-offset-2" style="background-color:black;background: rgba(0, 0, 0, 0.6);height: 400px;width: 530px;">

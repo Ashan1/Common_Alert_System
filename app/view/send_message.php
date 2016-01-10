@@ -40,7 +40,7 @@ if (isset($_POST['outbox'])) {
                     </div>
 
                     <?php
-                    if(isset($_GET['user']) == "" or isset($_GET['Resend_msg'])){
+                    if(isset($_GET['user']) == ""){
                     ?>
 
                     <div id="content">
@@ -59,12 +59,14 @@ if (isset($_POST['outbox'])) {
                             $from_user = $user_nic;
                             $message = $_POST['message'];
                             echo $from_user;
-                            $no = "no";
 
-                            $send_message = "INSERT INTO message(to_user, message, from_user, read_status, deleted, sent_deleted) VALUES('$to_user', '$message', '$from_user','$no','$no','$no')";
-                            $db->query($send_message);
+                            $send_message = "INSERT INTO message(to_user, from_user, read_status, deleted, sent_deleted, message) VALUES('$to_user', '$from_user','no','no','no', '$message')";
+                            $ss=$db->query($send_message);
 
-                            var_dump($db->error());
+                            var_dump($ss->error());
+                            $dbn=$ss->result();
+                            var_dump($dbn);
+
                         }
                         else
                         {
@@ -127,7 +129,7 @@ if (isset($_POST['outbox'])) {
                             $from_user = $user_nic;
                             $message = $_POST['message'];
                             $no = "no";
-                            $send_message = "INSERT INTO message (msg_time,msg_date,to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('','',''$to_user', '$message', '$from_user','$no','$no','$no')";
+                            $send_message = "INSERT INTO message (to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')";
                             $db->query($send_message);
                         }
                                     ?>
