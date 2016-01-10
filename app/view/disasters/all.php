@@ -1,6 +1,13 @@
 <?php
-if($count1<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%">
+$data1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->result();
+$data2=$db->query("SELECT * FROM reservoir")->result();
+$count1=$db->query("SELECT * FROM earthquake WHERE date='$today'")->count();
+$count2=$db->query("SELECT * FROM reservoir")->count();
+
+if($count1<=0) {
+    '<span style="font-size: xx-large;text-align: center;">No Disaster</span>';
+}
+    echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%">
                 <col width="220">
                 <col width="220">
                 <col width="220">
@@ -22,6 +29,7 @@ echo '<table  class="table table-striped th" style="font-size: x-small;font-fami
                 </tr>
                 </thead>
                 <tbody>';
+
 if($count1>0) {
     for ($i = 0; $i < $count1; $i++) {
         //$name=$db_result[$i]->E_name;
@@ -43,7 +51,7 @@ if($count2>0) {
         //$name=$db_result[$i]->E_name;
         echo
         "<tr>
-                                        <td>{$rd}</td>
+                                        <td>{$today}</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>

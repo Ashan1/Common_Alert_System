@@ -3,8 +3,13 @@ include "../templates/header.php";
 ?>
 </head>
 <script>
-    function notification(){
-        $('#nn').removeClass('hidden');
+    function printnotification(json){
+        //$("#nn").text("<table>");
+        $.each(json, function(i, item) {
+            $('#nn').text(JSON.stringify(json));
+        });
+        //$("#nn").append("</table>");
+
     }
     $(document).ready(function(){
 
@@ -17,20 +22,25 @@ include "../templates/header.php";
                 dataType: "JSON", //tell jQuery to expect JSON encoded response
                 timeout: 1000,
                 success: function (response) {
-                    if (response.success === 'gg'){
-                        notification();
+                    if (response.success != 'No'){
+                        var json = response;
+                        printnotification(json);
                     } else {
                         console.log('else');
                     }
+/*                    var response = JSON.parse(out);
+                    var tt = response[i].Tname;
+                    alert(tt);*/
+
                 }
-            });
-        },3000);
+            },10000);
+        });
     });
 
 </script>
 
 <body>
-    <div class="hidden container col-md-4" style="background-color: red;height: 40px" id="nn">
+    <div class="container col-md-4" style="background-color: red;height: 100%; color:#000;" id="nn">
     </div>
 </body>
 </html>
