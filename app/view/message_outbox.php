@@ -33,12 +33,10 @@ if(isset($_POST['delete1'])) {
         $update =$db->query($sql);
             if(!$update->error()){
                 echo '<script>
-                                        window.location.href=window.location.href;
-                                        </script>';
-
+                          window.location.href=window.location.href;
+                      </script>';
             }
         }
-
 }
 
 if(isset($_POST['inbox'])) {
@@ -83,7 +81,6 @@ if(isset($_POST['inbox'])) {
                                         <button class="div_button" type="button" data-toggle="modal" data-target="#NewMsg" name="new_message" style="width: 129px;">New Message</button>
                                     </div>
                                 </div>
-
                 <thead>
                 <tr>
                     <th>Time</th>
@@ -153,7 +150,7 @@ if(isset($_POST['inbox'])) {
                                                 <input class="form-control" type="text" name="to_user" id="to_user" placeholder="Receiver Name" list="exampleList">
                                                 <datalist id="exampleList">
                                                     <?php
-                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'AND Admin_auth='1'");
                                                     $db_result = $data->result();
                                                     $count = $data->count();
                                                     for ($i = 0; $i < $count; $i++) {
@@ -201,7 +198,7 @@ if(isset($_POST['inbox'])) {
                                                 <input class="form-control" type="text" name="to_user" id="to_user" placeholder="Receiver Name" list="exampleList">
                                                 <datalist id="exampleList">
                                                     <?php
-                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic'");
+                                                    $data = $db->query("SELECT * FROM employee WHERE E_nic <> '$user_nic' AND Admin_auth='1'");
                                                     $db_result = $data->result();
                                                     $count = $data->count();
                                                     for ($i = 0; $i < $count; $i++) {

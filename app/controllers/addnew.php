@@ -21,5 +21,6 @@ if(isset($_POST['nic'])){
     $db->query($sql);
     header('location:../view/usermanage.php');
 }
+
 ?>
 

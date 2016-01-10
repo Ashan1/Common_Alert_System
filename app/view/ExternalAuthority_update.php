@@ -62,7 +62,7 @@ $db = DB::getInstance();
                             if(!$delete->error()){
                                 echo '<script>
                                         window.location.href=window.location.href;
-                                        </script>';
+                                      </script>';
                             }
                         }
                     }

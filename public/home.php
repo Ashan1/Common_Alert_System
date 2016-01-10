@@ -81,7 +81,6 @@ require_once '../app/controllers/recent_alert.php';
                                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
                                     <li><h4><?php echo $r[0]->station; ?></h4><?php echo $r[0]->flood_type; ?></li>
                                 <?php }?>
-
                             </ul>
                         </div>
                     </div>
