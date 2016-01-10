@@ -24,20 +24,4 @@ $(document).on("click", "#pduview", function () {
 });
 
 
-/*$('#accept_btn').click(function(){
-    var jb = document.getElementById('#job-role');
-    alert(jb);
-*//*    $.ajax({
-        type:"POST",
-        dataType: "json",
-        url:'admin_accept_user.php',
-        data:{userNIC : uNIC, jobrole : jb},
-        success:function(response){
-            if(response.type == 'text'){
-                alert('aksfh');
-            }
-        }
-    });*/
-
-/*});*/
 
