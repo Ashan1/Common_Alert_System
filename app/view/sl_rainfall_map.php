@@ -56,7 +56,12 @@
                             position: point
                         });
                         bindInfoWindow(marker, map, infoWindow, html);
-                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+                        if (rain_fall > 15.00){
+                            marker.setIcon('../../public/images/markers/rain1.png');
+                        }
+                        else{
+                            marker.setIcon('../../public/images/markers/rain2.png');
+                        }
                     }
 
                 }
