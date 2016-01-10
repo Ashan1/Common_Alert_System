@@ -67,17 +67,21 @@ require_once '../app/controllers/recent_alert.php';
                             <ul>
                                 <?php if($dtable == 'earthquake'){?>
                                 <li> <i class="dis-cracked2" style="font-size: 40px"></i></li>
+                                    <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
                                 <?php }
-                                else if($dtable == 'earthquake'){?>
+                                else if($dtable == 'reservoir'){?>
                                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                    <li><h4><?php echo $r[0]->reservoir_name; ?></h4><?php echo $r[0]->district; ?></li>
                                 <?php }
-                                else if($dtable == 'earthquake'){?>
+                                else if($dtable == 'tsunami'){?>
                                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                    <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
                                 <?php }
-                                else if($dtable == 'earthquake'){?>
+                                else if($dtable == 'flood'){?>
                                     <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                    <li><h4><?php echo $r[0]->station; ?></h4><?php echo $r[0]->flood_type; ?></li>
                                 <?php }?>
-                                <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
+
                             </ul>
                         </div>
                     </div>

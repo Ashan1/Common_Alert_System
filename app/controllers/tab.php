@@ -16,7 +16,7 @@ switch($p) {
         break;
 
     case "4":
-        echo 'bnmbvm status update :)<br style="clear:both;" />';
+        include'../view/advicerpnl.php';
         break;
 
     case "5":
@@ -24,7 +24,7 @@ switch($p) {
         break;
 
     case "6":
-        echo 'tryrtuy status update :)<br style="clear:both;" />';
+
         break;
 
 
