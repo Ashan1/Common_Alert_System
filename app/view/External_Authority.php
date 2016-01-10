@@ -1,4 +1,4 @@
-<?php include "../templates/header.php";
+<?php
 
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
@@ -8,26 +8,15 @@ if($user->is_loggedin()==""){
 
 $db = DB::getInstance();
 ?>
-</head>
+ <div id="layout">
 
-<body>
-<div>
-    <div><?php include "../templates/topmenu.php"; ?></div>
-    <div>
-        <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
-        <div class="right-side">
-            <div class="container-fluid">
-
-
-                <div id="layout">
-
-                    <div class="row">
+                    <div>
                         <div id="recent">
                             <h2 style="color:#000000; float:left;">External Authority Details</h2>
                         </div> <!--recent ends-->
                     </div>
 
-                    <div class="row">
+                    <div>
                     <div id="content" scrolling="yes">
                         <?php
                         $data=$db->query("SELECT Auth_name, Auth_tel, Auth_address, Auth_email FROM external_authority");
@@ -69,11 +58,3 @@ $db = DB::getInstance();
 
                 </div><!--layout ends-->
 
-
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</body>
-</html>

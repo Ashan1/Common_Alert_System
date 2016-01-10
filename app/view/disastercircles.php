@@ -86,13 +86,13 @@ include'disasterCount.php';
         ctx.fillStyle = "#424141";
         ctx.textAlign = 'center';
         ctx.font ="50px disasters";
-        ctx.fillText("\ue800",s/2,s/2.5);
+        ctx.fillText("\ue809",s/2,s/2.5);
         ctx.font = "bold 35px sans-serif";
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(sv, s / 2, s / 2);
         ctx.font = "bold 20px Raleway";
-        ctx.fillText("Earthquakes",s/2,2*s/3);
+        ctx.fillText("Reservoir",s/2,2*s/3);
         ctx.restore();
     });
 
@@ -109,40 +109,17 @@ include'disasterCount.php';
         ctx.fillStyle = "#424141";
         ctx.textAlign = 'center';
         ctx.font ="50px disasters";
-        ctx.fillText("\ue803",s/2,s/2.5);
+        ctx.fillText('\ue805',s/2,s/2.5);
         ctx.font = "bold 35px sans-serif";
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(sv, s / 2, s / 2);
         ctx.font = "bold 20px Raleway";
-        ctx.fillText("Cyclones",s/2,2*s/3);
+        ctx.fillText("River",s/2,2*s/3);
         ctx.restore();
     });
 
     c3.on('circle-animation-progress', function(e, v) {
-        var obj = $(this).data('circle-progress'),
-            ctx = obj.ctx,
-            s = obj.size,
-            x = 100 * obj.value,
-            sv = (x * v).toFixed(),
-            fill = obj.arcFill,
-            d = "test";
-
-        ctx.save();
-        ctx.fillStyle = "#424141";
-        ctx.textAlign = 'center';
-        ctx.font ="50px disasters";
-        ctx.fillText("\ue806",s/2,s/2.5);
-        ctx.font = "bold 35px sans-serif";
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(sv, s / 2, s / 2);
-        ctx.font = "bold 20px Raleway";
-        ctx.fillText("Flood",s/2,2*s/3);
-        ctx.restore();
-    });
-
-    c4.on('circle-animation-progress', function(e, v) {
         var obj = $(this).data('circle-progress'),
             ctx = obj.ctx,
             s = obj.size,
@@ -161,9 +138,36 @@ include'disasterCount.php';
         ctx.textBaseline = 'middle';
         ctx.fillText(sv, s / 2, s / 2);
         ctx.font = "bold 20px Raleway";
-        ctx.fillText("Landslides",s/2,2*s/3);
+        ctx.fillText("Rain",s/2,2*s/3);
         ctx.restore();
     });
+
+    c4.on('circle-animation-progress', function(e, v) {
+        var obj = $(this).data('circle-progress'),
+            ctx = obj.ctx,
+            s = obj.size,
+            x = 100 * obj.value,
+            sv = (x * v).toFixed(),
+            fill = obj.arcFill,
+            d = "test";
+
+        ctx.save();
+        ctx.fillStyle = "#424141";
+        ctx.textAlign = 'center';
+        ctx.font ="50px disasters";
+        ctx.image = '';
+        ctx.fillText("\ue800",s/2,s/2.5);
+        ctx.font = "bold 35px sans-serif";
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(sv, s / 2, s / 2);
+        ctx.font = "bold 20px Raleway";
+        ctx.fillText("Earthquake",s/2,2*s/3);
+        ctx.restore();
+    });
+
+
+
 
 
 </script>

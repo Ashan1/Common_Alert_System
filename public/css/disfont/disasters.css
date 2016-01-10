@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'disasters';
+  src: url('../../fonts/disasters.eot?67122716');
+  src: url('../../fonts/disasters.eot?67122716#iefix') format('embedded-opentype'),
+       url('../../fonts/disasters.woff?67122716') format('woff'),
+       url('../../fonts/disasters.ttf?67122716') format('truetype'),
+       url('../../fonts/disasters.svg?67122716#disasters') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'disasters';
+    src: url('../font/disasters.svg?67122716#disasters') format('svg');
+  }
+}
+*/
+ 
+ [class^="dis-"]:before, [class*=" dis-"]:before {
+  font-family: "disasters";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.dis-cracked2:before { content: '\e800'; } /* '' */
+.dis-erupting:before { content: '\e801'; } /* '' */
+.dis-fire14:before { content: '\e802'; } /* '' */
+.dis-hurricane:before { content: '\e803'; } /* '' */
+.dis-raindrops2:before { content: '\e804'; } /* '' */
+.dis-river3:before { content: '\e805'; } /* '' */
+.dis-snowslide:before { content: '\e806'; } /* '' */
+.dis-tsunami1:before { content: '\e807'; } /* '' */
+.dis-waves8:before { content: '\e808'; } /* '' */
+.dis-sign51:before { content: '\e809'; } /* '' */

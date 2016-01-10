@@ -14,7 +14,7 @@ $reg = '/class="tip">(.*?)<.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s.*\s(
 preg_match_all($reg, $html, $posts, PREG_SET_ORDER);
 
 
-$db = DB::getInstance();var_dump($posts);
+$db = DB::getInstance();
 
 foreach ($posts as $post) {
 

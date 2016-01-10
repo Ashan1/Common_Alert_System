@@ -58,7 +58,7 @@ require_once '../app/controllers/recent_alert.php';
                     </div>
                     <div class="description col-lg-10">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="alert-close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
-                        <h1>Flood in Anuradhapure</h1> </div>
+                        <h1>Flood in Anuradhapura</h1> </div>
                 </div>
                 <div class="row">
                     <div class="recent-activity">
@@ -91,7 +91,7 @@ require_once '../app/controllers/recent_alert.php';
                         <ul class="nav nav-tabls">
                             <li role="presentation"><a id="tab1" href="../app/controllers/tab.php?id=1">SUMMARY</a></li>
                             <li role="presentation"><a id="tab2" href="../app/controllers/tab.php?id=2">NOTIFICATIONS</a></li>
-                            <li role="presentation"><a id="tab3" href="../app/controllers/tab.php?id=3">ACTIVITIES</a></li>
+                            <li role="presentation"><a id="tab3" href="../app/controllers/tab.php?id=3">External Authority</a></li>
                             <li role="presentation"><a id="tab4" href="../app/controllers/tab.php?id=4">ADVISOR BOARD</a></li>
                         </ul>
                     </div>

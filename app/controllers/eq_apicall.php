@@ -2,7 +2,7 @@
 require_once '../core/init.php';
 
 //URL to the API
-$test = file_get_contents('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson');
+$test = file_get_contents('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
 
 //Creating json object
 $object = json_decode($test);
