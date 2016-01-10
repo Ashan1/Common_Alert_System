@@ -1,8 +1,9 @@
 <?php include "../app/templates/header.php";
 require_once '../app/models/dbConfig.php';
+require_once '../app/controllers/recent_alert.php';
 
     if($user->is_loggedin()==""){
-        $user->redirect('index.php');
+        $user->redirect('../index.php');
     }
 ?>
 </head>
@@ -38,6 +39,7 @@ require_once '../app/models/dbConfig.php';
         jQuery('#alert-close').on('click', function(event) {
             jQuery('#disaster-alert').toggle('show');
         });
+1
 
     });
     /*---------------------End Tab Change Home----------------------------*/
@@ -64,7 +66,7 @@ require_once '../app/models/dbConfig.php';
                             <h3>Recent Activity</h3>
                             <ul>
                                 <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
-                                <li><h4>Pacific Ocean</h4>09.51 a.m <a href="#">more</a></li>
+                                <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
                             </ul>
                         </div>
                     </div>
