@@ -65,7 +65,18 @@ require_once '../app/controllers/recent_alert.php';
                         <div>
                             <h3>Recent Activity</h3>
                             <ul>
-                                <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                <?php if($dtable == 'earthquake'){?>
+                                <li> <i class="dis-cracked2" style="font-size: 40px"></i></li>
+                                <?php }
+                                else if($dtable == 'earthquake'){?>
+                                    <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                <?php }
+                                else if($dtable == 'earthquake'){?>
+                                    <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                <?php }
+                                else if($dtable == 'earthquake'){?>
+                                    <li> <i class="dis-hurricane" style="font-size: 40px"></i></li>
+                                <?php }?>
                                 <li><h4><?php echo $r[0]->place; ?></h4><?php echo $r[0]->time; ?></li>
                             </ul>
                         </div>
@@ -74,10 +85,10 @@ require_once '../app/controllers/recent_alert.php';
                 <div class="row">
                     <div class="sub-menu">
                         <ul class="nav nav-tabls">
-                            <li role="presentation" class=""><a id="tab1" href="../app/controllers/tab.php?id=1">SUMMARY</a></li>
-                            <li role="presentation" class=""><a id="tab2" href="../app/controllers/tab.php?id=2">NOTIFICATIONS</a></li>
-                            <li role="presentation" class=""><a id="tab3" href="../app/controllers/tab.php?id=3">ACTIVITIES</a></li>
-                            <li role="presentation" class=""><a id="tab4" href="../app/controllers/tab.php?id=4">ADVISOR BOARD</a></li>
+                            <li role="presentation"><a id="tab1" href="../app/controllers/tab.php?id=1">SUMMARY</a></li>
+                            <li role="presentation"><a id="tab2" href="../app/controllers/tab.php?id=2">NOTIFICATIONS</a></li>
+                            <li role="presentation"><a id="tab3" href="../app/controllers/tab.php?id=3">ACTIVITIES</a></li>
+                            <li role="presentation"><a id="tab4" href="../app/controllers/tab.php?id=4">ADVISOR BOARD</a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,14 +100,6 @@ require_once '../app/controllers/recent_alert.php';
 
                     </div>
                 </div>
-
-
-<!--                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
-                    <div class="col-lg-3 col-md-3 col-sm-3"><?php /*echo $_SESSION['user_session'] */?></div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">,dfsdf</div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 test">,dfsdf</div>
-                </div>-->
             </div>
         </div>
     </div>

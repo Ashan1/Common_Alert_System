@@ -121,7 +121,11 @@ if (isset($_POST['outbox'])) {
                             $from_user = $user_nic;
                             $message = $_POST['message'];
                             $no = "no";
+<<<<<<< HEAD
+                            $send_message = "INSERT INTO message (msg_time,msg_date,to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('','',''$to_user', '$message', '$from_user','0','0','0')";
+=======
                             $send_message = "INSERT INTO message (to_user, message, from_user,read_status,deleted,sent_deleted) VALUES ('$to_user', '$message', '$from_user','$no','$no','$no')";
+>>>>>>> b6b5c2413c100286b03e5d76fe95115369a0ee3b
                             $db->query($send_message);
                         }
                                     ?>
