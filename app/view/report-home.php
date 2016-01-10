@@ -3,7 +3,7 @@ require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 require_once '../controllers/report.php';
 if($user->is_loggedin()==""){
-    $user->redirect('../../public/index.php');
+    $user->redirect('../../index.php');
 }
 
 $db = DB::getInstance();

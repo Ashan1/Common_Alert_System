@@ -3,9 +3,7 @@
 </head>
 <body>
 <?php
-    if($user->is_loggedin()!=""){
-        $user->redirect('public/home.php');
-    }
+   
 ?>
 
 <div class="container-fluid">
