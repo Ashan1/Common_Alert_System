@@ -1,6 +1,8 @@
 <?php
+
     $user_nic = $_SESSION['user_session'];
     $u = $user->user_details($user_nic);
+    $cnt=$db->query("SELECT * FROM alert ")->count();
 ?>
 <div class="sidemenu hidden-xs" id="sidemenu">
     <div class="sidemenu-content" id="sidemenu-content">
@@ -21,7 +23,8 @@
                         Home</a></li>
                 <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/alerts.php">
                         <i class="fa fa-exclamation-triangle fa-fw pull-left"></i>
-                        Alerts</a></li>
+                        Alerts<span class="label label-danger" style="font-size: medium;float: right"><?php echo $cnt ?></span></a></li>
+
                 <li><a href="<?php echo SCRIPT_ROOT ?>/app/view/report-home.php">
                         <i class="fa fa-globe fa-fw pull-left"></i>
                         Disasters</a></li>

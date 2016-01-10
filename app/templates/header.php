@@ -47,5 +47,7 @@
 
 <!-- Fav Icon -->
 
-<?php require_once '/../models/dbConfig.php'; ?>
+<?php require_once '/../models/dbConfig.php';
+require_once '/../core/init.php';
+$db = DB::getInstance();?>
 
