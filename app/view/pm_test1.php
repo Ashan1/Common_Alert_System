@@ -41,7 +41,7 @@ if($d->count()>0) {
                 $output .= "]";
                 echo $output;
                 $dq = "DELETE FROM temp_alert WHERE  Alert_ID ='$temp_Alert'";
-                $db->query($dq);
+                //$db->query($dq);
                 break;
             case "reservoir":
                 if ($output != "["){
@@ -54,7 +54,7 @@ if($d->count()>0) {
                 $output .= "]";
                 echo $output;
                 $dq = "DELETE FROM temp_alert WHERE  Alert_ID ='$temp_Alert'";
-                $db->query($dq);
+                //$db->query($dq);
                 break;
             case "tsunami":
                 if ($output != "["){
@@ -66,7 +66,7 @@ if($d->count()>0) {
                 $output .= "]";
                 echo $output;
                 $dq = "DELETE FROM temp_alert WHERE  Alert_ID ='$temp_Alert'";
-                $db->query($dq);
+                //$db->query($dq);
                 break;
             case "flood":
                 if ($output != "["){
@@ -79,7 +79,7 @@ if($d->count()>0) {
                 $output .= "]";
                 echo $output;
                 $dq = "DELETE FROM temp_alert WHERE  Alert_ID ='$temp_Alert'";
-                $db->query($dq);
+                //$db->query($dq);
                 break;
         }
 

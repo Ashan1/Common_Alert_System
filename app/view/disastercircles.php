@@ -45,7 +45,7 @@ include'../controllers/disasterCount.php';
 <script>
     var c1 = $('.circle1').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: <?php echo /*$earthq/$totalDisasters*/ .55?>,
+        value: <?php echo $e3 ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#f56d18' }
@@ -53,7 +53,7 @@ include'../controllers/disasterCount.php';
 
     var c2 = $('.circle2').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: <?php echo /*$cyclone/$totalDisasters*/.34 ?>,
+        value: <?php echo $e2 ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#5bb503' }
@@ -61,7 +61,7 @@ include'../controllers/disasterCount.php';
 
     var c3 = $('.circle3').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: <?php echo /*$flood/$totalDisasters*/ .65?>,
+        value: <?php echo $e4 ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#0ca2d3' }
@@ -69,7 +69,7 @@ include'../controllers/disasterCount.php';
 
     var c4 = $('.circle4').circleProgress({
         startAngle: -Math.PI / 4*2,
-        value: <?php echo /*$landslides/$totalDisasters*/ .50 ?>,
+        value:<?php echo $e1 ?>,
         size: 200,
         lineCap: 'round',
         fill: { color: '#ed054c' }
@@ -79,8 +79,8 @@ include'../controllers/disasterCount.php';
         var obj = $(this).data('circle-progress'),
                 ctx = obj.ctx,
                 s = obj.size,
-                x = 100 * obj.value,
-                sv = (x * v).toFixed(),
+                x = 100 * obj.cl,
+                sv = <?php echo $dq3 ?>,
                 fill = obj.arcFill,
                 d = "test";
 
@@ -102,8 +102,8 @@ include'../controllers/disasterCount.php';
         var obj = $(this).data('circle-progress'),
             ctx = obj.ctx,
             s = obj.size,
-            x = 100 * obj.value,
-            sv = (x * v).toFixed(),
+            x = 100 * obj.cl,
+            sv = <?php echo $dq2 ?>,
             fill = obj.arcFill,
             d = "test";
 
@@ -125,8 +125,8 @@ include'../controllers/disasterCount.php';
         var obj = $(this).data('circle-progress'),
             ctx = obj.ctx,
             s = obj.size,
-            x = 100 * obj.value,
-            sv = (x * v).toFixed(),
+            x = 100 * obj.cl,
+            sv = <?php echo $dq4 ?>,
             fill = obj.arcFill,
             d = "test";
 
@@ -148,8 +148,8 @@ include'../controllers/disasterCount.php';
         var obj = $(this).data('circle-progress'),
             ctx = obj.ctx,
             s = obj.size,
-            x = 100 * obj.value,
-            sv = (x * v).toFixed(),
+            x = obj.cl,
+            sv = <?php echo $dq1 ?>,
             fill = obj.arcFill,
             d = "test";
 

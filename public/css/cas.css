@@ -770,6 +770,10 @@ th {
 
 }
 
+#map .gm-style-iw .world-map tbody tr {
+    background-color:red !important;
+}
+
 /*---------------------------- Small Devices, Tablets ----------------------------*/
 @media only screen and (max-width : 768px) {
 

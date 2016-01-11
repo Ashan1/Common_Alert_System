@@ -67,7 +67,7 @@ class USER {
         return $userRow;
     }
     public function unread_messages($user_id){
-        $stmt = $this->db->prepare("SELECT * FROM message WHERE to_user = '$user_id' AND read_status = 'no'");
+        $stmt = $this->db->prepare("SELECT * FROM message WHERE to_user = '$user_id' AND read_status = '0' AND deleted ='0'");
         $stmt->execute();
         $msgcount = $stmt->rowCount();
         return $msgcount;
