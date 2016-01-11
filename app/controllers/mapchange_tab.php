@@ -9,7 +9,6 @@ $Dtype = $_GET['id'];
             include"../view/worldmap.php";
             break;
         default:
-            include"../view/slmap.php";
-}
+            include"../view/slmap.php";}
 
 ?>

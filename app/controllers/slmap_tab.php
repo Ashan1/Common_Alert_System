@@ -6,10 +6,10 @@ switch ($Dtype) {
         include"../view/slreservoir.php";
         break;
     case "river":
-        include"../view/worldmap.php";
+        include"../view/slriver.php";
         break;
     case "rainfall":
-        include"../view/worldmap.php";
+        include"../view/slrainfall.php";
         break;
     default:
         include"../view/slreservoir.php";
