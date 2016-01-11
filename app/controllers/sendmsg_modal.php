@@ -23,6 +23,6 @@ $time=date("H:m:s");
 
 $sql_for_send = $db->query("INSERT INTO message(`msg_time`,`msg_date`,`to_user`, `from_user`, `read_status`, `deleted`, `sent_deleted`, `message`) VALUES ('$time','$date','$to_user','$from_user','0','0','0','$message1') ");
 $a = $sql_for_send->result();
-    header('location:../view/message_inbox.php');
+header('location:../view/message_inbox.php');
 
 ?>

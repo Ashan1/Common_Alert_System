@@ -113,8 +113,6 @@ $pdusers = $users->result();
                                         <i class="fa fa-ban"></i>&nbsp;Cancel
                                     </button>
                                 </div>
-
-
                         </form>
                     </div>
                 </div>

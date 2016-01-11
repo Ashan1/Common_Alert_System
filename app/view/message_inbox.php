@@ -296,7 +296,7 @@ if(isset($_POST['new_message'])){
                                             <button type="button" id="send_btn" name="send_btn" class="btn btn-default btn-primary">
                                                 <i class="fa fa-hand-o-right"></i>&nbsp;Forward
                                             </button>
-                                            <button type="button" formaction="../controllers/vie_inboxmsg.php" name="btn-cancel" class="btn btn-default btn-primary" data-dismiss="modal">
+                                            <button type="button" formaction="" name="btn-ok" class="btn btn-default btn-primary" data-dismiss="modal">
                                                 <i class="fa fa-ban"></i>&nbsp;Ok
                                             </button>
                                         </div>
@@ -305,6 +305,23 @@ if(isset($_POST['new_message'])){
                             </div>
                         </div>
                     </div><!--end pop up view modal-->
+
+                    <script>
+                        $('#btn_ok').click(function(){
+                             $.ajax({
+                                type:"POST",
+                                dataType: "json",
+                                url:'../controllers/msg_read.php',
+                                data:{userNIC : uNIC},
+                                success:function(response){
+                                    if(response.type == 'text'){
+                                        location.reload();
+                                    }
+                                }
+                            });
+
+                        });
+                </script>
 
         </div><!--layout ends-->
 

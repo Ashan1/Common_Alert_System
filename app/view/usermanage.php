@@ -46,7 +46,7 @@ $db = DB::getInstance();
 <div>
 
 <?php
-$data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1'");
+$data_check=$db->query("SELECT * FROM employee WHERE Admin_auth='1' AND E_jobrole <> 'Administrator'");
 $db_result=$data_check->result();
 $count2=$data_check->count();
 
