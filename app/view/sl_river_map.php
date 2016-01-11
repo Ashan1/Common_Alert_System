@@ -61,7 +61,12 @@
                             position: point
                         });
                         bindInfoWindow(marker, map, infoWindow, html);
-                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+                        if ((alert != "Normal") && (alert != "-")){
+                            marker.setIcon('../../public/images/markers/river1.png');
+                        }
+                        else{
+                            marker.setIcon('../../public/images/markers/river2.png');
+                        }
                     }
 
                 }

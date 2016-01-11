@@ -17,6 +17,7 @@
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo SCRIPT_ROOT ?>/public/css/bootstrap-theme.css" type="text/css" rel="stylesheet"/>
     <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/bootstrap.js"></script>
+    <script rel="script" type="text/javascript" src="<?php echo SCRIPT_ROOT ?>/public/js/alerts_update.js"></script>
 <!--End Bootstrap-->
 
 <!--CAS Custome -->
@@ -47,7 +48,9 @@
 
 <!-- Fav Icon -->
 
-<?php require_once '/../models/dbConfig.php';
+<?php
+error_reporting(0);
+require_once '/../models/dbConfig.php';
 require_once '/../core/init.php';
 $db = DB::getInstance();?>
 

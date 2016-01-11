@@ -17,28 +17,30 @@ include'disasterCount.php';
                 <div class="map-menu">
                     <div class="center">
                         <ul class="nav nav-tabls">
-                            <li role="presentation" class=""><a href="#slmap" aria-controls="slmap" role="tab" data-toggle="tab">Sri Lanka</a></li>
-                            <li role="presentation" class=""><a href="#worldmap" aria-controls="worldmap" role="tab" data-toggle="tab">World</a></li>
+                            <li role="presentation" class=""><a class="map-not" href="../app/controllers/mapchange_tab.php?id=slmap" >Sri Lanka</a></li>
+                            <li role="presentation" class=""><a class="map-not" href="../app/controllers/mapchange_tab.php?id=worldmap">World</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-       <div class="maps tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" id="slmap">
-                <object type="text/html" data="../app/view/sl_reservoir_map.php" style="width:100%; height:100%;">
-              </object>
-           </div>
-           <div role="tabpanel" class="tab-pane fade" id="worldmap">
-               <object type="text/html" data="../app/view/world_eq_map.php" style="width:100%; height:100%;">
-               </object>
-           </div>
-       </div>
+    <div id="disastermap">
     </div>
 
 </div>
+
+<script type="text/javascript">
+    $(function() {
+        $("a.map-not").on("click", function(e) {
+            e.preventDefault();
+            $("#disastermap").load(this.href);
+        });
+    });
+    window.onload = $("#disastermap").load('../app/controllers/mapchange_tab.php');
+</script>
+
+
 
 <script>
     var c1 = $('.circle1').circleProgress({

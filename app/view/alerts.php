@@ -3,7 +3,7 @@ include "../templates/header.php";
 
 require_once '../models/dbConfig.php';
     if($user->is_loggedin()==""){
-        $user->redirect('index.php');
+        $user->redirect('../../index.php');
     }
 ?>
 </head>
@@ -16,6 +16,7 @@ require_once '../models/dbConfig.php';
         <div class="right-side">
 
             <div class="container-fluid">
+                <div class="row" id="alert_data"></div>
                 <div  style="text-align: center;display:none" class="head1"><h1 > DISASTER MANAGEMENT CENTER</h1>
                     <h2 > Today Alerts Report</h2>
                     <h4> Date:<?php echo $rd=date("Y-m-d"); ?><br>

@@ -37,7 +37,7 @@ require_once '../app/controllers/recent_alert.php';
         });
 
         jQuery('#alert-close').on('click', function(event) {
-            jQuery('#disaster-alert').toggle('show');
+            jQuery('#disaster-alert').toggle('slow');
         });
 1
 
@@ -52,14 +52,8 @@ require_once '../app/controllers/recent_alert.php';
         <aside class="left-side"><?php include "../app/templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
-                <div class="row disaster-alert" id="disaster-alert">
-                    <div class="bulb col-lg-2">
-                        <span><img src="images/alert_bulb.png" class="img-responsive"></span>
-                    </div>
-                    <div class="description col-lg-10">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="alert-close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
-                        <h1>Flood in Anuradhapura</h1> </div>
-                </div>
+                <div class="row" id="alert_data"></div>
+
                 <div class="row">
                     <div class="recent-activity">
                         <div>
