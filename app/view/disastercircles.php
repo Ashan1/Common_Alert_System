@@ -1,6 +1,6 @@
-<?php /*include'connect.php';
-include'disasterCount.php';
-*/?>
+<?php
+include'../controllers/disasterCount.php';
+?>
 <div>
     <div class="summary-circles home-tabheader">
         <div class="center1">

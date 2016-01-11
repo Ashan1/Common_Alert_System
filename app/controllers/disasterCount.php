@@ -1,19 +1,15 @@
 <?php
-$e1 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Earthqueks'");
-$earthq = (int)mysql_result($e1, 000);
-$e2 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Cyclone'");
-$cyclone = (int)mysql_result($e2, 000);
-$e3 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Flood'");
-$flood = (int)mysql_result($e3, 000);
-$e4 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Landslides'");
-$landslides = (int)mysql_result($e4, 000);
-$e5 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Fires'");
-$fire = (int)mysql_result($e5, 000);
-$e6 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Tsunami'");
-$tsunami = (int)mysql_result($e6, 000);
-$e7 = mysql_query("SELECT COUNT(*) AS NumberOfEarthQuakes FROM disaster WHERE Types='Volcanos'");
-$volcano = (int)mysql_result($e7, 000);
+require_once '../core/init.php';
+require_once '../models/dbConfig.php';
+$db = DB::getInstance();
 
-$totalDisasters = $earthq + $cyclone + $flood + $landslides + $fire + $tsunami + $volcano;
+$q1 = "SELECT * FROM alert WHERE Taable_Name = 'earthquake'";
+$dq1 = $db->query($q1)->count();
+$q2 = "SELECT * FROM alert WHERE Taable_Name = 'flood'";
+$dq2 = $db->query($q2)->count();
+$q3 = "SELECT * FROM alert WHERE Taable_Name = 'reservoir'";
+$dq3 = $db->query($q3)->count();
+$q4 = "SELECT * FROM alert WHERE Taable_Name = 'rainfall'";
+$dq4 = $db->query($q4)->count();
 
 ?>

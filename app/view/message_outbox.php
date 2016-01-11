@@ -70,7 +70,7 @@ if(isset($_POST['inbox'])) {
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
 
-                                <div class="row">
+                                <div>
                                     <div style="float:right;">
                                         <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
                                     </div>
