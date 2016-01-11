@@ -3,7 +3,7 @@
 require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 if($user->is_loggedin()==""){
-    $user->redirect('../../public/index.php');
+    $user->redirect('../../index.php');
 }
 
 $user_nic = $_SESSION['user_session'];
@@ -40,6 +40,40 @@ $db = DB::getInstance();
             $E_name = $F_name . $space . $L_name;
 
             ?>
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <div style="text-align: right;"><form name="myForm" action=""method="post">
+                            <button id="btn1" class=" btn btn-default btn-primary" value="print">Edit</button>
+                        </form></div>
+                    <ul>
+                        <li><lablel  style="font-size: medium">Name: <?php echo $E_name;?></lablel>
+                    <div style="float: right;display: none"><form name="myForm" action="" method="post">
+                            <button style="font-size: x-small" id="btn2"class=" btn btn-default btn-primary" value="print">Edit</button>
+                        </form></div></li><br>
+                        <li><lablel style="font-size: medium">Email: <?php echo $db_result[0]->E_email;?></lablel>
+                        <div style="float:right;display: none"><form name="myForm" action=""method="post">
+                                <button style="font-size: x-small"id="btn2"class="btn btn-default btn-primary" data-toggle="modal"data-id="#myModal3" value="print">Edit</button>
+                            </form></div></li><br>
+                        <li><lablel style="font-size: medium">Contact: <?php echo $db_result[0]->E_tel;?></lablel>
+                        <div style="float:right;display:none"><form name="myForm" action=""method="post">
+                                <button style="font-size: x-small" id="btn2" class="btn btn-default btn-primary" data-toggle="modal" data-target="#myModal5" value="print">Edit</button>
+                            </form></div></li><br>
+                        <li><lablel style="font-size: medium">NIC No: <?php echo $db_result[0]->E_nic;?></lablel>
+                            <div style="float:right;display: none"><form name="myForm" action=""method="post">
+                                    <button style="font-size: x-small "id="btn2" class=" btn btn-default btn-primary" value="print">Edit</button>
+                                </form></div></li><br>
+                        <li><lablel style="font-size: medium">Change password</lablel>
+                            <div style="float:right;display: none"><form name="myForm" action=""method="post">
+                                    <button style="font-size: x-small" id="btn2" class="btn btn-default btn-primary" data-toggle="modal" data-id="#myModal2" value="print">Edit</button>
+                                </form></div></li><br>
+                        <li><div style="text-align: right;display: none"><form name="myForm" action=""method="post">
+                                <button od="btn3" class=" btn btn-default btn-primary" value="print">Done</button>
+                            </form></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <!------------------------------------ Modals ----------------------------------->
             <div class="modal fade" id="myModal2" data-backdrop="static" role="dialog" action="" >
                 <div class="modal-dialog">
@@ -57,10 +91,10 @@ $db = DB::getInstance();
                                         $user_currentpassword="cas@123";
                                         echo $user_currentpassword;
                                         if(password_verify($user_currentpassword,$dbpassword)){
-                                            echo "ds,jgfmjsd d,hfhf";
+                                            echo "Password Correct, enter your new password";
                                         }
                                         else{
-                                            echo "modayaa";
+                                            echo "Oops! Password did not match! Try again. ";
                                         }
 
                                         /* if ($_POST['currentpassword']== $dbpassword)
@@ -158,7 +192,7 @@ $db = DB::getInstance();
                                     </div>
                                 </div>
                                 <div class="form-group ext_form">
-                                    <div class="col-xs-offset-2 col-xs-10 move" style="margin-left:175px;margin-top: -55;">
+                                    <div class="col-xs-offset-2 col-xs-10 move" style="margin-left:175px;margin-top: -55px;">
                                         <button type="Submit" class="btn modal_btn" id="submit"  value="Submit">Save</button>
                                         <button type="button" class="btn modal_btn" data-dismiss="modal" style="margin-left: 10px;">Cancel</button>
                                     </div>
@@ -177,8 +211,33 @@ $db = DB::getInstance();
 </div>
 
 
+<!--<script src="../../public/js/jquery.min.js"></script>
+--><script>
+    $("#btn1").click(function() {
+        $("#btn2").show();
+        $("#btn3").show();
+        //$("#btn1").hide();
 
+    });
 
+    $("#btn3").click(function() {
+        $("#btn3").hide();
+        $("#btn2").hide();
+        $("#btn1").show();
+
+    });
+    $(document).ready(function(){
+        $(".btn1").click(function(){
+            $('#sidemenu').animate({width:'toggle'},350);
+            $('.left-side').toggleClass("collapse-left");
+            $(".right-side").toggleClass("strech");
+            $(".btn1").hide();
+            $(".Rform").hide();
+            $(".head1").show();
+
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -3,9 +3,13 @@
 </head>
 <body>
 <?php
+<<<<<<< HEAD
 if($user->is_loggedin()!=""){
     $user->redirect('public/home.php');
 }
+=======
+
+>>>>>>> 866381446a26116d6e3d86653dbbe892be4d3ad3
 ?>
 
 <div class="container-fluid">

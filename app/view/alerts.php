@@ -3,7 +3,7 @@ include "../templates/header.php";
 
 require_once '../models/dbConfig.php';
     if($user->is_loggedin()==""){
-        $user->redirect('index.php');
+        $user->redirect('../../index.php');
     }
 ?>
 </head>

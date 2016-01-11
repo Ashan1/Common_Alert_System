@@ -3,7 +3,7 @@ require_once '../core/init.php';
 require_once '../models/dbConfig.php';
 require_once '../controllers/report.php';
 if($user->is_loggedin()==""){
-    $user->redirect('../../public/index.php');
+    $user->redirect('../../index.php');
 }
 
 $db = DB::getInstance();
@@ -76,7 +76,7 @@ $db = DB::getInstance();
                 switch ($Dtype) {
                     case "earthquake":
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: small;height:50%;width: 100%">
                                 <col width="40">
                                 <col width="220">
                                 <col width="220">
@@ -114,7 +114,7 @@ $db = DB::getInstance();
             </table>";break;
                     case "landslide":
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: small;height:50%;width: 100%">
                                 <col width="220">
                                 <col width="220">
                                 <col width="220">
@@ -156,7 +156,7 @@ $db = DB::getInstance();
                         $count=$data->count();
                         echo "Show all recent reservoir records";
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: small;height:50%;width: 100%">
                                 <col width="40">
                                 <col width="220">
                                 <col width="220">
@@ -196,7 +196,7 @@ $db = DB::getInstance();
             </table>";break;
                     case "cyclone":
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size:x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size:small;height:50%;width: 100%">
                                 <col width="40">
                                 <col width="220">
                                 <col width="220">
@@ -237,7 +237,7 @@ $db = DB::getInstance();
                     case "flood":
 
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: small;height:50%;width: 100%">
                                 <col width="40">
                                 <col width="220">
                                 <col width="220">
@@ -279,7 +279,7 @@ $db = DB::getInstance();
             </table>";break;
                     case "tsunami":
                         if($count<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-                        echo '<table  class="table table-striped th" style="font-size: x-small;height:50%;width: 100%">
+                        echo '<table  class="table table-striped th" style="font-size: small;height:50%;width: 100%">
                                 <col width="40">
                                 <col width="220">
                                 <col width="220">
@@ -321,7 +321,7 @@ $db = DB::getInstance();
                         $ydy=date('y-m-d',strtotime("-7 days"));
                     echo $Dtype;
             if($count1<=0){'<span style="font-size: xx-large;text-align: center;">No Disaster</span>';}
-            echo '<table  class="table table-striped th" style="font-size: x-small;font-family: Lora,serif;height:50%;width: 100%;">
+            echo '<table  class="table table-striped th" style="font-size: small;font-family: Lora,serif;height:50%;width: 100%;">
                 <col width="20">
                 <col width="320">
                 <col width="320">
@@ -385,7 +385,7 @@ $db = DB::getInstance();
                     echo"</tbody>
             </table>";
                 }
-               var_dump($db_result)?>
+               ?>
 
         </div>
         <div id="myModal" class="modal fade" role="dialog">
