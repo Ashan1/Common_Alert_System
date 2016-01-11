@@ -16,7 +16,7 @@
             <div class="signup-success hidden col-lg-8 col-md-8 col-sm-8 col-lg-offset-2" id="signup-success">
                 <h3>Thank You....!</h3>
                 <p>You have registered successfully. Please wait for the administration confirmation. You will get a mail with login details.
-                <a href="../../public/index.php">CLICK here</a> to log</p>
+                <a href="../../index.php">CLICK here</a> to log</p>
 
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10" id="signup-form">

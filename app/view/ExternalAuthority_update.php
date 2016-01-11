@@ -41,6 +41,7 @@ $db = DB::getInstance();
         <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
+                <div class="row" id="alert_data"></div>
 
                 <div id="layout">
 

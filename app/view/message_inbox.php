@@ -51,6 +51,7 @@ if(isset($_POST['new_message'])){
         <aside class="left-side"><?php include "../templates/sidemenu.php"; ?></aside>
         <div class="right-side">
             <div class="container-fluid">
+            <div class="row" id="alert_data"></div>
 
                 <div id="layout">
 
@@ -65,7 +66,7 @@ if(isset($_POST['new_message'])){
                     <div class="row">
                         <form name="form1" method="post" action="">
                             <table class="table table-striped" id="table">
-                                <div class="row">
+                                <div>
                                     <div style="float:right;">
                                         <button class="div_button"  type="submit" id="remove" name="delete1" >Remove</button>
                                     </div>
