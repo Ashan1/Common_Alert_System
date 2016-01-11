@@ -1,3 +1,4 @@
+<meta http-equiv="refresh" content="3" >
 <?php
 require_once '../core/init.php';
 

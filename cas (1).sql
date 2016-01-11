@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2016 at 08:43 PM
+-- Generation Time: Jan 11, 2016 at 01:13 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -31,26 +31,23 @@ CREATE TABLE IF NOT EXISTS `alert` (
   `Table_Name` varchar(20) NOT NULL,
   `Disaster_ID` varchar(20) NOT NULL,
   PRIMARY KEY (`Alert_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=196 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
 
 --
 -- Dumping data for table `alert`
 --
 
 INSERT INTO `alert` (`Alert_ID`, `Table_Name`, `Disaster_ID`) VALUES
-(179, 'earthquake', 'us10004db0'),
-(180, 'earthquake', 'us10004dar'),
-(181, 'earthquake', 'us10004dam'),
-(182, 'earthquake', 'us10004d9q'),
-(183, 'earthquake', 'us10004d91'),
-(184, 'earthquake', 'us10004d8q'),
-(189, 'earthquake', 'us10004d6e'),
-(190, 'earthquake', 'us10004d61'),
-(191, 'reservoir', 'Ambakolawewa'),
-(192, 'earthquake', 'us10004db9'),
-(193, 'earthquake', 'us10004db3'),
 (194, 'tsunami', '26'),
-(195, 'flood', '19');
+(195, 'flood', '19'),
+(196, 'earthquake', 'nn526128'),
+(197, 'earthquake', 'nn526128q'),
+(198, 'earthquake', 'nn526m128'),
+(199, 'tsunami', '27'),
+(200, 'earthquake', 'us10004dcs'),
+(201, 'earthquake', 'ak12455299'),
+(202, 'earthquake', 'ak1214404'),
+(203, 'tsunami', '30');
 
 --
 -- Triggers `alert`
@@ -103,6 +100,9 @@ CREATE TABLE IF NOT EXISTS `earthquake` (
 --
 
 INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`, `longitude`, `latitude`) VALUES
+('a29', '2016-01-11', '15:45:58', '2.8', 1, '116km SSW of Sand Point, Alaska', '-161.24730000', '54.38280000'),
+('ak1214404', '2016-01-11', '02:03:07', '3.6', 1, '112km N of Larsen Bay, Alaska.', '-154.10760000', '58.54870000'),
+('ak12409', '2016-01-01', '15:45:58', '2.8', 1, '116km SSW of Sand Point, Alaska', '-161.24730000', '54.38280000'),
 ('ak12409075', '2016-01-03', '15:45:58', '2.8', 0, '116km SSW of Sand Point, Alaska', '-161.24730000', '54.38280000'),
 ('ak12409081', '2016-01-03', '20:13:07', '2.6', 0, '5km SW of Healy, Alaska', '-149.06040000', '63.82450000'),
 ('ak12414404', '2016-01-04', '02:03:07', '3.6', 0, '112km N of Larsen Bay, Alaska', '-154.10760000', '58.54870000'),
@@ -146,6 +146,10 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('ak12454413', '2016-01-09', '20:13:05', '2.7', 0, '97km W of Willow, Alaska', '-151.88300000', '61.68580000'),
 ('ak12454485', '2016-01-10', '02:35:35', '2.5', 0, '51km NNE of Nikiski, Alaska', '-151.05750000', '61.13880000'),
 ('ak12454701', '2016-01-10', '15:33:21', '2.9', 0, '55km ESE of Old Iliamna, Alaska', '-153.96970000', '59.60680000'),
+('ak12455220', '2016-01-11', '02:22:33', '2.7', 0, '3km ENE of Willow, Alaska', '-149.98090000', '61.76410000'),
+('ak12455299', '2016-01-11', '04:09:36', '4.0', 0, 'Southern Alaska', '-152.54030000', '59.80650000'),
+('ak12455309', '2016-01-11', '04:10:27', '2.5', 0, 'Southern Alaska', '-142.96610000', '61.59470000'),
+('ak12fg', '2016-01-03', '15:45:58', '2.8', 1, '116km SSW of Sand Point, Alaska', '-161.24730000', '54.38280000'),
 ('ci37509896', '2016-01-03', '15:21:13', '2.7', 0, '18km ESE of Kernville, California', '-118.25300000', '35.67566670'),
 ('ci37510184', '2016-01-04', '23:49:48', '3.7', 0, '66km SSW of Maneadero, B.C., MX', '-116.86183330', '31.18000000'),
 ('ci37510536', '2016-01-06', '11:32:56', '2.9', 0, '19km W of Delta, B.C., MX', '-115.39650000', '32.33333330'),
@@ -158,6 +162,7 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('hv61146991', '2016-01-10', '04:05:19', '2.6', 0, '4km NE of Waimea, Hawaii', '-155.64317320', '20.05800060'),
 ('hv61147026', '2016-01-10', '04:38:23', '2.7', 0, '42km NE of Hawaiian Beaches, Hawaii', '-154.59516910', '19.77533340'),
 ('hv61147151', '2016-01-10', '07:32:26', '2.5', 0, '16km WNW of Volcano, Hawaii', '-155.37432860', '19.49916650'),
+('hv65436991', '2016-01-01', '04:05:19', '2.6', 0, '4km NE of Waimea, Hawaii', '-155.64317320', '20.05800060'),
 ('mb80118624', '2016-01-06', '14:09:53', '2.6', 0, '33km E of Lovell, Wyoming', '-107.96716670', '44.81833330'),
 ('nc72573250', '2016-01-04', '00:30:37', '2.5', 0, '2km E of Deer Park, California', '-122.43900000', '38.52800000'),
 ('nc72573895', '2016-01-05', '20:07:05', '2.8', 0, '6km E of East Foothills, California', '-121.74150090', '37.38516620'),
@@ -190,6 +195,7 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('nn00526126', '2016-01-10', '10:54:33', '2.7', 0, '59km SSE of Hawthorne, Nevada', '-118.42050000', '38.01150000'),
 ('nn00526128', '2016-01-10', '11:28:19', '3.3', 0, '20km NW of Hawthorne, Nevada', '-118.80340000', '38.64770000'),
 ('nn00526135', '2016-01-10', '12:40:52', '2.5', 0, '31km ESE of Hawthorne, Nevada', '-118.27250000', '38.44400000'),
+('nn0526128', '2016-01-10', '11:28:19', '3.3', 0, '20km NW of Hawthorne, Nevada', '-118.80340000', '38.64770000'),
 ('pr16004001', '2016-01-04', '11:43:38', '3.0', 0, '44km N of Brenas, Puerto Rico', '-66.35410000', '18.86870000'),
 ('pr16004002', '2016-01-04', '15:29:07', '3.1', 0, '78km N of Road Town, British Virgin Islands', '-64.74900000', '19.11050000'),
 ('pr16004004', '2016-01-04', '17:27:17', '2.6', 0, '60km N of Isabela, Puerto Rico', '-67.10350000', '19.04310000'),
@@ -511,7 +517,8 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('us10004cef', '2016-01-09', '00:13:14', '3.5', 0, '7km E of Edmond, Oklahoma', '-97.39140000', '35.66320000'),
 ('us10004ceg', '2016-01-09', '00:11:01', '4.6', 0, '13km S of Los Andes, Chile', '-70.60690000', '-32.95280000'),
 ('us10004cem', '2016-01-09', '00:26:44', '4.2', 0, '92km SSE of Saparua, Indonesia', '128.93810000', '-4.35750000'),
-('us10004cep', '2016-01-09', '00:36:57', '4.3', 0, '75km NNW of Atka, Alaska', '-174.66650000', '52.81470000'),
+('us10004cep', '2016-01-09', '00:36:57', '4.3', 0, '75km NNW of Atka, Alaska', '-174.66650000', '52.81470000');
+INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`, `longitude`, `latitude`) VALUES
 ('us10004cf8', '2016-01-09', '02:14:54', '4.4', 0, '66km WSW of Gerash, Iran', '53.47680000', '27.53540000'),
 ('us10004cfv', '2016-01-09', '03:24:54', '5.3', 0, '235km WSW of Tomatlan, Mexico', '-107.14900000', '18.79820000'),
 ('us10004cfx', '2016-01-09', '03:34:18', '2.6', 0, '6km ENE of Edmond, Oklahoma', '-97.41960000', '35.67860000'),
@@ -519,8 +526,7 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('us10004cg4', '2016-01-09', '03:48:47', '2.5', 0, '29km NW of Fairview, Oklahoma', '-98.70340000', '36.46840000'),
 ('us10004cg7', '2016-01-09', '03:51:32', '5.4', 1, '68km SSW of Pisangkemeng, Indonesia', '117.65030000', '-9.40940000'),
 ('us10004cgc', '2016-01-09', '04:22:38', '2.5', 0, '7km N of Edmond, Oklahoma', '-97.46550000', '35.71540000'),
-('us10004cgd', '2016-01-09', '04:32:16', '4.0', 0, '12km ESE of Amir Timur, Uzbekistan', '69.07340000', '40.97880000');
-INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`, `longitude`, `latitude`) VALUES
+('us10004cgd', '2016-01-09', '04:32:16', '4.0', 0, '12km ESE of Amir Timur, Uzbekistan', '69.07340000', '40.97880000'),
 ('us10004d22', '2016-01-09', '08:35:26', '4.6', 0, '31km W of Chirundu, Zimbabwe', '28.55530000', '-16.04560000'),
 ('us10004d4e', '2016-01-09', '14:33:38', '4.5', 0, '117km ENE of Iquique, Chile', '-69.08820000', '-19.85820000'),
 ('us10004d50', '2016-01-09', '19:42:37', '5.4', 0, '77km SSE of Naze, Japan', '129.69720000', '27.69300000'),
@@ -545,6 +551,7 @@ INSERT INTO `earthquake` (`id`, `date`, `time`, `magnitude`, `tsunami`, `place`,
 ('us10004dbi', '2016-01-10', '21:07:00', '4.3', 0, '41km ESE of Shizunai, Japan', '142.83710000', '42.19630000'),
 ('us10004dbt', '2016-01-10', '22:40:48', '5.0', 0, '29km ESE of Ndoi Island, Fiji', '-178.44520000', '-20.77360000'),
 ('us10004dbv', '2016-01-10', '23:10:49', '4.9', 0, '7km SW of Mecidiye, Turkey', '34.34680000', '39.55840000'),
+('us10004dcs', '2016-01-11', '03:37:37', '5.0', 0, '115km SSE of Lata, Solomon Islands', '166.35210000', '-11.62520000'),
 ('uu60135412', '2016-01-10', '04:36:14', '3.2', 0, '18km WSW of Enterprise, Utah', '-113.91083330', '37.50100000'),
 ('uw61116876', '2016-01-05', '20:11:22', '2.6', 0, '9km NE of Bryant, Washington', '-122.06616670', '48.30250000');
 
@@ -560,7 +567,7 @@ CREATE TRIGGER `check1` BEFORE INSERT ON `earthquake`
         THEN
         INSERT INTO alert(Table_Name,Disaster_ID) VALUE ('earthquake',NEW.id);
         END IF;
-        IF ((SELECT count(*) AS A FROM tsunami WHERE time=NEW.time)=0)
+        IF ((SELECT count(*) AS A FROM tsunami WHERE time=NEW.time AND place=NEW.place)=0)
         THEN
         IF (NEW.tsunami='1')
         THEN
@@ -586,11 +593,11 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `E_tel` varchar(12) NOT NULL,
   `E_jobrole` varchar(30) NOT NULL,
   `E_image` blob NOT NULL,
-  `E_password` varchar(100) NOT NULL,
+  `E_password` varchar(255) NOT NULL,
   `E_on_off` tinyint(1) NOT NULL,
   `Admin_auth` tinyint(1) NOT NULL,
   PRIMARY KEY (`Emp_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `employee`
@@ -601,11 +608,12 @@ INSERT INTO `employee` (`Emp_ID`, `F_Name`, `L_Name`, `E_nic`, `E_email`, `E_tel
 (2, 'Ashan', 'Maduranga', '928145306v', 'am@gmail.com', '0713456981', 'Executive User', '', '$2y$10$Y0ERw8.od2KqV17dykj0HeKm0sdCkjtOCS88hgnZ8/7F9YoavgyZu', 0, 1),
 (3, 'Dilini', 'Madubhashini', '917497439v', 'dm@gmail.com', '0715972341', 'Executive User', '', '$2y$10$DFVNxlW/y34XYvR.A8kADOnj/GqdJ54ZYG1iMuwhe2tI1xExuMdgC', 0, 1),
 (4, 'Nathaliya', 'Jawawardana', '936124473v', 'nj@gmail.com', '0716533640', 'Operational User', '', '$2y$10$EKVGX2PrsE5vKb76wdHkoeEPbapqKjEu9zJ2lRZoHnwxHaXwyAbh6', 0, 1),
-(5, 'Thushara', 'Dahanayaka', '918549723v', 'td@gmail.com', '0717455630', 'Operational User', '', '$2y$10$Io8POylfD5NOumSACiJX0O3HZoYsfLM9bZ2cW8UV05pCT3ioc7tw.', 0, 1),
+(5, 'Thushara', 'Dahanayaka', '918549723v', 'td@gmail.com', '0717455630', 'Administrator', '', '$2y$10$CkFzc1DxVFeJ5X8vKsvuBOr2I43zhw6Kzy/7lYjhXbNLkVvZzhHVm', 0, 1),
 (6, 'Imasha', 'Dilshani', '915981378v', 'im@gmail.com', '0715687903', 'Operational User', '', '$2y$10$yQe.Lju4KAvoaZ32fphn7OcxQF8xlOMtdUJEXf7voqFB9LBbnqHpm', 0, 1),
 (7, 'Udara', 'Supun', '927952389v', 'us@gmail.com', '0783274321', 'General User', '', '$2y$10$Lv0mmoCbAKVPQ4w1prYhUeQj8QWNf95Oloe9EjSa7cmm0Hh43uPdu', 0, 1),
 (8, 'Dilushika', 'Weerawardhana', '937653391v', 'dw@gmail.com', '0726482256', 'General User', '', '$2y$10$G1RjaqoEdf/3JF0jzH6lGOV4YXrS7pxLQrlMC8lJdXYkrN7u8kdGi', 0, 1),
-(10, 'Dinuka', 'Dhaneshani', '938712439v', 'dd@gmail.com', '0714386132', 'General User', '', '$2y$10$jYETz1dBDE0x3JMU2pagGe4g/R7xdgMhlY4MaoneBqNMWv6jttK06', 0, 1);
+(10, 'Dinuka', 'Dhaneshani', '938712439v', 'dd@gmail.com', '0714386132', 'General User', '', '$2y$10$jYETz1dBDE0x3JMU2pagGe4g/R7xdgMhlY4MaoneBqNMWv6jttK06', 0, 1),
+(19, 'Ashan', 'Madara', '912021793v', 'thushara@gmail.com', '0715870087', 'Student', '', '$2y$10$e.1Der4Up8F8yNQrEaVVM.kJgim6yfx8alWqnDwB1shkrtVnFrUXO', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -718,8 +726,8 @@ CREATE TABLE IF NOT EXISTS `landslide` (
 
 CREATE TABLE IF NOT EXISTS `message` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `msg_time` datetime NOT NULL,
-  `msg_date` datetime NOT NULL,
+  `msg_time` time NOT NULL,
+  `msg_date` date NOT NULL,
   `to_user` varchar(30) COLLATE utf8_bin NOT NULL,
   `from_user` varchar(30) COLLATE utf8_bin NOT NULL,
   `read_status` varchar(4) COLLATE utf8_bin NOT NULL,
@@ -734,25 +742,25 @@ CREATE TABLE IF NOT EXISTS `message` (
 --
 
 INSERT INTO `message` (`id`, `msg_time`, `msg_date`, `to_user`, `from_user`, `read_status`, `deleted`, `sent_deleted`, `message`) VALUES
-(9, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '916191197v ', '926578935v', 'yes', 'yes', '', 'Hiiii Dr'),
-(10, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '926578935v', '916191197v ', '', '', 'yes', 'Hiiiiiiiiiiii'),
-(11, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '916191197v ', '926578935v', '', '', 'yes', 'How are you ??'),
-(12, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '926578935v', 'Dilini', 'no', '', 'yes', 'Hiiiiiiiiii Natty'),
-(13, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '916191197v ', '926578935v', 'yes', 'no', 'no', 'Really'),
-(14, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Natty', 'Dilini', 'no', 'no', 'no', 'Heloooooooooooooooo'),
-(15, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '916191197v ', '926578935v', 'no', 'no', 'no', 'Hellooooo'),
-(16, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Thushara', 'Dilini', 'no', 'no', 'no', 'Hellooooo'),
-(17, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '926578935v', '916191197v ', 'no', 'no', 'yes', 'fff'),
-(18, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Ashan', 'Dilini', 'no', 'no', 'no', 'Hiii Ashan !!! :P'),
-(19, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '916191197v ', '926578935v', 'no', 'no', 'no', 'Send it'),
-(20, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '926578935v', '916191197v ', 'no', 'no', 'no', 'Where are you?'),
-(21, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Natty', 'Dilini', 'no', 'no', 'no', 'Job done!'),
-(22, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Dilini', 'Dilini', 'no', 'yes', 'no', 'Helooooo'),
-(23, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '926578935v', '916191197v ', 'no', 'yes', 'no', 'rrrrrrrr'),
-(24, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Dilini', 'Dilini', 'no', 'yes', 'no', 'Ithin ita passe??'),
-(25, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Dilini', 'Dilini', 'no', 'no', 'no', 'Ithin ita passe??'),
-(26, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '926578935v', 'no', 'no', 'no', '123'),
-(27, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '926578935v', 'no', 'no', 'no', '123');
+(9, '00:00:00', '0000-00-00', '916191197v ', '926578935v', 'yes', 'yes', '', 'Hiiii Dr'),
+(10, '00:00:00', '0000-00-00', '926578935v', '916191197v ', '', '', 'yes', 'Hiiiiiiiiiiii'),
+(11, '00:00:00', '0000-00-00', '916191197v ', '926578935v', '', '', 'yes', 'How are you ??'),
+(12, '00:00:00', '0000-00-00', '926578935v', 'Dilini', 'no', '', 'yes', 'Hiiiiiiiiii Natty'),
+(13, '00:00:00', '0000-00-00', '916191197v ', '926578935v', 'yes', 'no', 'no', 'Really'),
+(14, '00:00:00', '0000-00-00', 'Natty', 'Dilini', 'no', 'no', 'no', 'Heloooooooooooooooo'),
+(15, '00:00:00', '0000-00-00', '916191197v ', '926578935v', 'no', 'no', 'no', 'Hellooooo'),
+(16, '00:00:00', '0000-00-00', 'Thushara', 'Dilini', 'no', 'no', 'no', 'Hellooooo'),
+(17, '00:00:00', '0000-00-00', '926578935v', '916191197v ', 'no', 'no', 'yes', 'fff'),
+(18, '00:00:00', '0000-00-00', 'Ashan', 'Dilini', 'no', 'no', 'no', 'Hiii Ashan !!! :P'),
+(19, '00:00:00', '0000-00-00', '916191197v ', '926578935v', 'no', 'no', 'no', 'Send it'),
+(20, '00:00:00', '0000-00-00', '926578935v', '916191197v ', 'no', 'no', 'no', 'Where are you?'),
+(21, '00:00:00', '0000-00-00', 'Natty', 'Dilini', 'no', 'no', 'no', 'Job done!'),
+(22, '00:00:00', '0000-00-00', 'Dilini', 'Dilini', 'no', 'yes', 'no', 'Helooooo'),
+(23, '00:00:00', '0000-00-00', '926578935v', '916191197v ', 'no', 'yes', 'no', 'rrrrrrrr'),
+(24, '00:00:00', '0000-00-00', 'Dilini', 'Dilini', 'no', 'yes', 'no', 'Ithin ita passe??'),
+(25, '00:00:00', '0000-00-00', 'Dilini', 'Dilini', 'no', 'no', 'no', 'Ithin ita passe??'),
+(26, '00:00:00', '0000-00-00', '', '926578935v', 'no', 'no', 'no', '123'),
+(27, '00:00:00', '0000-00-00', '', '926578935v', 'no', 'no', 'no', '123');
 
 --
 -- Triggers `message`
@@ -1111,7 +1119,7 @@ CREATE TABLE IF NOT EXISTS `temp_alert` (
   `Table_Name` varchar(20) NOT NULL,
   `Disaster_ID` varchar(20) NOT NULL,
   PRIMARY KEY (`Alert_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=115 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
 
 --
 -- Dumping data for table `temp_alert`
@@ -1203,7 +1211,15 @@ INSERT INTO `temp_alert` (`Alert_ID`, `Table_Name`, `Disaster_ID`) VALUES
 (111, 'earthquake', '192'),
 (112, 'earthquake', '193'),
 (113, 'tsunami', '194'),
-(114, 'flood', '195');
+(114, 'flood', '195'),
+(115, 'earthquake', '196'),
+(116, 'earthquake', '197'),
+(117, 'earthquake', '198'),
+(118, 'tsunami', '199'),
+(119, 'earthquake', '200'),
+(120, 'earthquake', '201'),
+(121, 'earthquake', '202'),
+(122, 'tsunami', '203');
 
 -- --------------------------------------------------------
 
@@ -1218,18 +1234,15 @@ CREATE TABLE IF NOT EXISTS `tsunami` (
   `magnitude` decimal(3,1) NOT NULL,
   `place` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `tsunami`
 --
 
 INSERT INTO `tsunami` (`id`, `date`, `time`, `magnitude`, `place`) VALUES
-(22, '2016-01-09', '03:51:32', '5.4', '68km SSW of Pisangkemeng, Indonesia'),
-(23, '2016-01-07', '11:19:52', '4.3', '31km SW of Rio Dell, California'),
-(24, '2016-01-07', '08:22:34', '4.9', '100km SW of Atka, Alaska'),
-(25, '2016-01-06', '20:12:34', '4.4', '4km NNW of Banning, California'),
-(26, '2016-01-10', '03:51:32', '5.4', '68km SSW of Pisangkemeng, Indonesia');
+(29, '2016-01-01', '15:45:58', '2.8', '116km SSW of Sand Point, Alaska'),
+(30, '2016-01-11', '02:03:07', '3.6', '112km N of Larsen Bay, Alaska.');
 
 --
 -- Triggers `tsunami`
